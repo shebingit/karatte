@@ -26,7 +26,32 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'css/affiliation.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+  <style>
+    #hero_user{
+        width: 100%;
+        height: 80vh;
+        margin-top: 10vh;
+        background:white;
+        overflow-y:scroll;
+    }
+    #hero_user.container{
+        width:100%;
+    }
+    .card{
+        box-shadow:3px 2px 3px 2px;
+        margin:10px;
+    }
+    #hero_user h3{
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 50px;
+        margin-top: 20px;
+    }
+
+    </style>
+  
 
   <!-- =======================================================
   * Template Name: BizPage - v5.8.0
@@ -38,8 +63,8 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+ <!-- ======= Header ======= -->
+ <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -52,10 +77,11 @@
             <ul>
               <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About</a></li>
-              <li><a class="nav-link scrollto" href="#services">BlackBelt Holders</a></li>
+              <li><a class="nav-link scrollto active" href="{% url 'loadbackbelt_page' %}">BlackBelt Holders</a></li>
               <li><a class="nav-link scrollto" href="#portfolio">Gallery</a></li>
               <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-              <li><a class="nav-link scrollto active" href="#contact">Affiliation</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'load_admin_home' %}">admin</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
@@ -64,25 +90,32 @@
 
     </div>
   </header><!-- End Header -->
+  <!-- ======= Header ======= --> 
 
 
-  <section id="hero">
-    <div class="hero-container">
-      <h3>Affiliation Form</h3>
-      <div class="affiliation_form_img">
-        <img src="{% static 'img/affiliation.png' %}" alt="" class="img-fluid" > 
-      </div>
-      <a href="/media/{{affili.affiliation_name }}">Download</a> <br>  
-    </div> 
-  </section><!-- End Hero Section -->
+  <!--======hero =======-->
 
-  <section id="content">
-    <div class="affiliation_content">
-      <h1>MemberShip of Affiliation</h1>
-      <h5>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</h5>
+  <section id="hero_user">
+    <div class="container">
+        <h3>Black Belt Holders</h3>
+        <div class="row">
+            {% for bth in bths  %}
+              <div class="col-3">
+                <div class="card" style="width: 15rem; height:13rem;">
+                  {% if bth.bth_image %}
+                    <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:10vh; margin:auto; height:10vh;  ">
+                  {% endif %}
+                  <div class="card-body">
+                    <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
+                    <p class="card-text"> Register No: {{bth.bth_reg}}</p>
+                    <p class="card-text">Designation: {{bth.bth_desig}}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
     </div>
   </section>
-
 
   <footer id="footer">
     <div class="footer-top">
@@ -102,7 +135,7 @@
               <li><i class="bi bi-chevron-right"></i> <a href="#">BlackBelt Holders</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Affiliation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Afiliation</a></li>
             </ul>
           </div>
 
@@ -168,3 +201,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

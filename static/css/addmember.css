@@ -1,0 +1,93 @@
+body {
+    background: #fff;
+    color: #666666;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  a {
+    color: #18d26e;
+    transition: 0.5s;
+    text-decoration: none;
+  }
+  
+  a:hover, a:active, a:focus {
+    color: #18d36e;
+    outline: none;
+    text-decoration: none;
+  }
+  
+  p {
+    padding: 0;
+    margin: 0 0 30px 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+    
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/* hero */
+#admin_hero{
+    margin-top: 12vh;
+    position: relative;
+    background-color: #7ea4ef;
+    color: white;
+    padding: 30px;
+
+}
+#admin_hero .container{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    
+}
+#admin_hero .container h3{
+    color: black;
+    text-align: center;
+    font-weight: 500;
+}
+
+#member_add{
+    padding: 10px;
+} 
+#member_add .container{
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:40%;
+    padding: 50px;
+    box-shadow: 10px 12px 12px 10px;
+    border-radius: 10px;
+}
+#member_add .container.row{
+    width: 100%;   
+}
+#member_add .container h2{
+    font-weight: 400;
+}
+#member_add .container input{
+    width:100%;
+    font-size: 14px;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 0px , 1px;
+}
+#member_add .container button{
+    width: 100%;
+    margin: auto;
+    opacity: 0.5px;
+    height: 50px;
+    border:none;
+    border-radius: 9px;
+    
+}
