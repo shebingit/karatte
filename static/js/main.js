@@ -125,7 +125,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+   on('click', '.mobile-nav-toggle', function(e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -200,34 +200,7 @@
   /**
    * Porfolio isotope and filter
    */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
+   
   /**
    * Initiate portfolio lightbox 
    */

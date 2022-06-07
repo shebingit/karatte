@@ -10,9 +10,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -163,7 +162,7 @@
             <figure>
               {% if img.image_url %}
                 <img src="{{ img.image_url.url}} " class="img-fluid" alt="">
-                <a href="{{ img.image_url.url}} " data-lightbox="portfolio" data-title="App 1" class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
+                <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
               {% endif %}
               </figure>
             
@@ -233,9 +232,10 @@
               <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
             <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">{{messages}}Your message has been sent. Thank you!</div>
+              <div>
+                <h6 style="color:green">{{message}}</h6> 
+              </div>
+              
             </div>
             
             <div class="text-center"><button type="submit">Send Message</button></div>
@@ -322,14 +322,13 @@
   <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+  
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  
+  
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>

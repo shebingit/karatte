@@ -1,4 +1,5 @@
 from atexit import register
+import http
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
 from urllib import request
@@ -8,6 +9,7 @@ from django.contrib.auth import authenticate ,login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.conf import settings
+from django.http import HttpResponse
 from django.core.mail import send_mail,BadHeaderError
 
 #load admin home
@@ -151,7 +153,9 @@ def load_home_page(request):
     bgimg=blackbelt_holders.objects.all()
     folders=imagefolder.objects.all()
     folimgs=images.objects.all()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
+    vids=videos.objects.all()
+    print(vids)
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs,'vids':vids})
 
 
 def sort_img(request,folimges):
@@ -223,14 +227,16 @@ def loadbackbelt_page(request):
 #sending mail
 
 def sending_mail(request):
-    if request.method == 'POST':
-        subject = request.POST['subject'] 
-        message = request.POST['message'] 
+    if request.method == 'POST': 
         recipient = request.POST['email'] 
+        message=" THANKS YOU  for Contacting Us! Our Team will contact you Soon!..."
+        sendsubject=" JKMO INDIA"
         try:
-            send_mail(subject, message, recipient,['shebinshaji99@gmail.com'])
+            respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
+            return render (request,'index.html',{'message':message})
+            
         except BadHeaderError:
-            return
+            return()
 
 
         

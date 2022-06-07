@@ -10,8 +10,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -25,6 +25,15 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
+  
+<script>
+  function Confirmdelete()
+  {
+    return confirm('Are you sure you want to delete this Image ?');
+  }
+</script>
+
 </head>
 
 <body>
@@ -79,7 +88,7 @@
                     <img src="{{img.image_url.url}}" class="card-img-top img-fluid" alt="..."style=" 15rem; height:10rem;object-fit:cover;">
                 {% endif %}
                     <div class="card-body">
-                        <a href="{% url 'deleteimg' img.id %}" class="card-link">Delete</a>
+                        <a href="{% url 'deleteimg' img.id %}" onclick="Confirmdelete()" class="card-link">Delete</a>
                     </div> 
                 </div>
             </div>

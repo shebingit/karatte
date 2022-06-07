@@ -25,6 +25,14 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
+<script>
+  function Confirmdelete()
+  {
+    return confirm('Are you sure you want to delete this Folder ?');
+  }
+</script>
+
 </head>
 
 <body>
@@ -82,7 +90,7 @@
                     <div class="card-body">
                       <a href="{%url 'load_images' folder.id %}"><h5 class="card-title">{{folder.folder_name}}</h5></a>
                       <a href="{%url 'load_updatefolder' folder.id %}" class="card-link">Update</a>
-                      <a href="{% url 'deletefolder' folder.id %}" class="card-link">Delete</a>
+                      <a href="{% url 'deletefolder' folder.id %}" onclick="Confirmdelete()" class="card-link">Delete</a>
                     </div>
                   </div>
             </div>

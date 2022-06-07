@@ -20,6 +20,9 @@ class imagefolder(models.Model):
 class affiliation(models.Model):
     affiliation_name=models.ImageField(upload_to="file",null=True)
 
+class videos(models.Model):
+    videos=models.FileField(upload_to="video",null=True)
+
 
 #images from the folder table
 
