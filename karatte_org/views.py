@@ -1,5 +1,4 @@
 from atexit import register
-import http
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
 from urllib import request

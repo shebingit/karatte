@@ -1,4 +1,5 @@
 {% load static %}
+{% load embed_video_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,7 +80,7 @@
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
                 <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
           </div>
@@ -88,7 +89,7 @@
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are Tops</h2>
                 <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
           </div>
@@ -120,15 +121,16 @@
         </header>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="about-col">
-
-              <iframe width="1300" height="400" 
+            <div class="about-col "style="width:1300px; height:400px;">
+              {% for vi in vids %}
+              {% video vi.video '1300x400' %}
+              {% endfor %}
+              <!--
                 src="https://www.youtube.com/embed/ksibrix7uU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe>
+              -->
               
             </div>
           </div>
-        </div>
 
       </div>
     </section><!-- End About Us Section -->
@@ -158,10 +160,10 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           
             <div class="portfolio-wrap">
-            
+           
             <figure>
               {% if img.image_url %}
-                <img src="{{ img.image_url.url}} " class="img-fluid" alt="">
+                <img src="{{ img.image_url.url}} " class="" alt="" style="max-width: 100%;max-height: 100%; display: block;">
                 <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
               {% endif %}
               </figure>

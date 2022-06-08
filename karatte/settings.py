@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
     'karatte_org',
+    'embed_video',
 ]
 
 MIDDLEWARE = [

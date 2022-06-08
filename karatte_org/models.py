@@ -2,6 +2,11 @@ from operator import truediv
 from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+from embed_video.fields import EmbedVideoField
+
+class videos(models.Model):
+    video = EmbedVideoField()  # same like models.URLField()
 
 # home background images
 
@@ -20,8 +25,6 @@ class imagefolder(models.Model):
 class affiliation(models.Model):
     affiliation_name=models.ImageField(upload_to="file",null=True)
 
-class videos(models.Model):
-    videos=models.FileField(upload_to="video",null=True)
 
 
 #images from the folder table
