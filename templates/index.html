@@ -122,9 +122,9 @@
 
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="about-col "style="width:1300px; height:400px;">
-              {% for vi in vids %}
-              {% video vi.video '1300x400' %}
-              {% endfor %}
+    
+              {% video vids.video '1300x400' %}
+              
               <!--
                 src="https://www.youtube.com/embed/ksibrix7uU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
               -->
@@ -147,7 +147,7 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class=" col-lg-12">
           <ul id="portfolio-flters">
-            <li class="filter-active"><a href="{% url 'load_home_page' %}">All</a></li>
+            <li class="filter-active"><a href="{% url 'load_home_page' %}" >All</a></li>
           {% for folder in folders %}
             <li><a href="{% url 'sort_img' folder.id %}">{{folder.folder_name}}</a></li>
           {% endfor %}

@@ -13,6 +13,7 @@ from django.core.mail import send_mail,BadHeaderError
 
 #load admin home
 
+fid=0
 def adminlogin(request):
     return render(request,'login.html')
 
@@ -149,20 +150,26 @@ def deleteimg(request,img_id):
 # load home page
 
 def load_home_page(request):
-    bgimg=blackbelt_holders.objects.all()
-    folders=imagefolder.objects.all()
-    folimgs=images.objects.all()
-    vids=videos.objects.all()
-    print(vids)
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs,'vids':vids})
+    global fid
+    if fid ==0:
+      folimgs=images.objects.all()  
+    else:
+        folimgs=images.objects.filter(folder_id=fid)
+        fid=0
 
+    folders=imagefolder.objects.all()
+    bgimg=blackbelt_holders.objects.all()
+    vids=videos.objects.first()
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,})
 
 def sort_img(request,folimges):
-    folimgs=images.objects.filter(folder_id=folimges)
-    print(folimgs)
-    bgimg=blackbelt_holders.objects.all()
-    folders=imagefolder.objects.all()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'folimgs':folimgs})
+    global fid
+    fid=folimges
+    print(fid)
+    return redirect('load_home_page')
+
+
+
 
 
 # adding the black belt holders

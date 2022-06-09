@@ -10,8 +10,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -26,12 +26,6 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
 
-<script>
-  function Confirmdelete()
-  {
-    return confirm('Are you sure you want to delete this Folder ?');
-  }
-</script>
 
 </head>
 
@@ -68,7 +62,7 @@
       <h5>Create Folder Name :</h5>
       <div class="row pt-1">
         <div class="col-6 pt-1">
-          <input type="text" multiple placeholder="Create file name" name="file">
+          <input type="text" multiple placeholder="Create file name" name="file" required>
         </div>
         <div class="col-6 pt-1">
           <button type="submit" class="btn-primary" formaction="{% url 'create_folder' %}">Create File Name</button> 
@@ -90,7 +84,7 @@
                     <div class="card-body">
                       <a href="{%url 'load_images' folder.id %}"><h5 class="card-title">{{folder.folder_name}}</h5></a>
                       <a href="{%url 'load_updatefolder' folder.id %}" class="card-link">Update</a>
-                      <a href="{% url 'deletefolder' folder.id %}" onclick="Confirmdelete()" class="card-link">Delete</a>
+                      <a href="{% url 'deletefolder' folder.id %}" onclick="return confirm('Are you sure you want to delete this Folder ?')" class="card-link">Delete</a>
                     </div>
                   </div>
             </div>
