@@ -55,26 +55,41 @@
 
   <section id="admin_hero">
     <div class="container">
-      <div class="card" style="width: 16rem;">
-        <div class="card-body">
-          <img src="{% static 'img/folder.png' %}" style="width: 100px; height:100px;"><h5 class="card-title"><a href="{% url 'load_folder_create' %}" class="card-link" style="color:black;">Folders/Images</a></h5> 
+      <div class="row" style="width: 100%;">
+        <div class="col col-lg-4">
+          <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h5>Folder/Images</h5></a>
         </div>
-      </div>
 
-      <div class="card" style="width: 16rem;">
-        <div class="card-body">
-          <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 100px; height:100px;"> <h5 class="card-title"><a href="{% url 'load_blackbelts' %}" class="card-link"style="color:black;">BlackBelt Holders</a></h5>
+        <div class=" col col-lg-4">
+         <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+         <h5>BlackBelt Holders</h5></a>
         </div>
-      </div>
 
-      <div class="card" style="width: 16rem;">
-        <div class="card-body">
-          <img src="{% static 'img/affili.jpg' %}" style="width: 100px; height:100px;"> <h5  class="card-title"><a href="{% url 'load_affiliation' %}" class="card-link"style="color:black;">Affiliation</a></h5>
+        <div class=" col col-lg-4">
+          <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h5>Affilation</h5></a>
         </div>
-      </div>
-
-
+     </div>
     </div>
+  </section>
+
+  <section>
+  
+    <div class="container" style="height:30vh; margin-top:15vh;">
+      <hr>
+      <h3>Upload Video </h3><br><br>
+      <form method="post" action="{% url 'uploadvideo' %}">
+        {% csrf_token %}
+      <div class="input-group mb-3">
+        <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">update video</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  
   </section>
 
   

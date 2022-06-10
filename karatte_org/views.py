@@ -36,13 +36,15 @@ def load_affiliation(request):
 
 def uploadfile(request):
     if request.method=="POST":
+        fileimg=request.FILES.get('imgfile')
         file=request.FILES.get('file')
         aff=affiliation.objects.all()
         print(aff)
         if aff==0 :
-            affiliation.objects.create(affiliation_name=file)
+            affiliation.objects.create(affiliation_name=file,affiliation_img=fileimg)
         else:
             affi=affiliation.objects.get(id=2)
+            affi.affiliation_img=fileimg
             affi.affiliation_name=file
             affi.save() 
         return redirect('load_affiliation')
@@ -86,6 +88,13 @@ def update_folder(request,folderu_id):
     else:
         return redirect('load_admin_home')
 
+def uploadvideo(request):
+    if request.method=="POST":
+        vid=videos.objects.get(id=0)
+        vid.video=request.POST.get('videofile')
+        vid.save()
+        messages="Video Saved Successfuly..."
+        return render(request,'adminhome.html')
 
 def load_blackbelts(request):
     bths=blackbelt_holders.objects.all()

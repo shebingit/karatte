@@ -59,24 +59,35 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <h5>Add New Affilation :</h5>
-      <div class="row pt-1">
-        <div class="col-6 pt-1">
-          <input type="file" placeholder="Create file name" name="file">
+      <div class="row pt-1" style="width:100%">
+        <div class="col-2 pt-1"style="width:100%">
+          <input type="file" placeholder="Create file cover" name="imgfile" required>
         </div>
-        <div class="col-6 pt-1">
-          <button type="submit" class="btn-primary" formaction="{% url 'uploadfile' %}">Upload New</button> 
+        <div class="col-4 pt-1">
+          <button type="submit" class="btn-primary" formaction="{% url 'uploadfile' %}">Upload New Cover Image</button> 
         </div>
+        <div class="col-3 pt-1">
+          <input type="file" placeholder="Create file name" name="file"style="width:100%" required>
+        </div>
+          <div class="col-3 pt-1">
+            <button type="submit" class="btn-primary" formaction="{% url 'uploadfile' %}">Upload New</button> 
+          </div>
       </div>   
     </form>
     </div>
   </section>
   <hr>
   <section id="hero">
-    <div class="hero-container">
-      <div class="affiliation_form_img">
-        <img src="{% static 'img/affiliation.png' %}" alt="" class="img-fluid" > 
+    <div class="hero-container" >
+      <div class="affiliation_form_img" style="margin-top: 4vh;">
+        {% if affili.affiliation_img %}
+          <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:65vh; width:60vh;margin-top: 4vh;" > 
+        {% endif %}
       </div>
-      <a href="/media/{{affili.affiliation_name }}">Download</a> <br>  
+      <div class="btn btn-secondary mt-4">
+        <a href="/media/{{affili.affiliation_name }}">Download</a> <br> 
+      </div>
+       
     </div> 
   </section><!-- End Hero Section -->
 

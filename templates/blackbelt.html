@@ -57,30 +57,29 @@
   <section id="admin_hero">
     <div class="container">
       <h3>Black Belt Holders</h3>
-          <div class="row pt-2" style="box-shadow: 12px 12px 21px; height:60px;">
+          <div class="row pt-2" style="box-shadow: 5px 5px 1px; height:60px;">
             <div class="col pt-2">
                 <a href="{% url 'load_addmember' %}" class="btn-primary">Add BlackBelt Holders</a>
             </div>
           </div>
     </div> 
   </section>
-  <hr>
 
   <section id="member_card">
-    <div class="container">
-        <div class="row m-1">
+    <div class="container mt-5">
+        <div class="row mt-4">
           {% for bth in bths  %}
-            <div class="col-3">
-              <div class="card mt-3" style="width: 15rem; height: 24rem;">
+            <div class="col-3 ml-4">
+              <div class="card mt-2" style="width: 15rem; height: 20rem;">
                 {% if bth.bth_image %}
-                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:20vh; margin:auto; height:20vh;  ">
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:13vh; margin:auto; height:13vh;  ">
                 {% endif %}
                 <div class="card-body">
                   <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
                   <p class="card-text"> Register No: {{bth.bth_reg}}</p>
                   <p class="card-text">Designation: {{bth.bth_desig}}</p>
-                  <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-primary">Update</a>
-                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-primary">Delete</a>
+                  <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-success">Update</a>
+                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger">Delete</a>
                 </div>
               </div>
             </div>

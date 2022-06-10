@@ -5,13 +5,13 @@ body {
   }
   
   a {
-    color: #18d26e;
+    
     transition: 0.5s;
     text-decoration: none;
   }
   
   a:hover, a:active, a:focus {
-    color: #18d36e;
+    color: #0b0b0b;
     outline: none;
     text-decoration: none;
   }
@@ -34,7 +34,7 @@ body {
 
 /* hero */
 #admin_hero{
-    margin-top:18vh;
+    margin-top:15vh;
     position: relative;
 
 }
@@ -43,7 +43,6 @@ body {
     
 }
 .card{
-  box-shadow: 2px 4px 3px;
   margin-left:3px;
   margin-right:3px;
   border-radius: 8px;

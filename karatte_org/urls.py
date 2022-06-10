@@ -18,7 +18,8 @@ urlpatterns =[ path('',views.load_home_page,name='load_home_page'),
                path('changepassword',views.changepassword,name='changepassword'),
 
                path('login',views.login,name='login'),
-               path('load_admin_home',views.load_admin_home,name='load_admin_home'),  # admin load home page
+               path('load_admin_home',views.load_admin_home,name='load_admin_home'),# admin load home page
+               path('uploadvideo',views.uploadvideo,name='uploadvideo'),  
                path('load_folder_create',views.load_folder_create,name='load_folder_create'),
                path('load_blackbelts',views.load_blackbelts,name='load_blackbelts'),
                path('load_addmember',views.load_addmember,name='load_addmember'),

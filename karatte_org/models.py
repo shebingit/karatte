@@ -23,6 +23,7 @@ class imagefolder(models.Model):
 
 
 class affiliation(models.Model):
+    affiliation_img=models.ImageField(upload_to="file",null=True)
     affiliation_name=models.ImageField(upload_to="file",null=True)
 
 

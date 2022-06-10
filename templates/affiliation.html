@@ -26,6 +26,7 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/affiliation.css' %}" rel="stylesheet">
 
   <!-- =======================================================
@@ -60,17 +61,24 @@
 
     </div>
   </header><!-- End Header -->
+<br>
 
+<section id="hero">
+  <h3 class="text-center" style="margin-top: 2vh;">Affiliation Form</h3>
+  <div class="hero-container">
+    
+    <div class="affiliation_form_img">
+      {% if affili.affiliation_img %}
+        <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:65vh; width:60vh;" > 
+      {% endif %}
+    </div>
+    <div class="btn btn-secondary mt-4">
+      <a onclick='downloaD("/media/{{affili.affiliation_name }}","p1.pdf")' >Download</a> <br> 
+    </div>
+     
+  </div> 
+</section><!-- End Hero Section -->
 
-  <section id="hero">
-    <div class="hero-container">
-      <h3>Affiliation Form</h3>
-      <div class="affiliation_form_img">
-        <img src="{% static 'img/affiliation.png' %}" alt="" class="img-fluid" > 
-      </div>
-      <a href="/media/{{affili.affiliation_name }}">Download</a> <br>  
-    </div> 
-  </section><!-- End Hero Section -->
 
   <section id="content">
     <div class="affiliation_content">
@@ -87,7 +95,7 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ; width:100px; height:100px;"></a>
-            <p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
+            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -151,6 +159,34 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
+
+  <script>
+    function downloaD(url, name){
+      fetch(url).then(async (res) =>{
+        const dfile=await res.blob();
+        var blobURL=
+          window.URL && window.URL.createObjectURL
+            ? window.URL.createObjectURL(dfile)
+            : window.webkitURL.createObjectURL(dfile);
+        var templink=document.createElement("a");
+        templink.style.display="none";
+        templink.href=blobURL;
+        templink.setAttribute("download",name);
+
+        if(typeof templink.download=="undefined"){
+          templink.setAttribute("traget","_blank");
+        }
+        document.body.appendChild(templink);
+        templink.click();
+        
+        setTimeout(function(){
+          document.body.removeChild(templink);
+        }, 200);
+      });
+    }
+  </script>
+
+
 
   <!-- Vendor JS Files -->
   <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
