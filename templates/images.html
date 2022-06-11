@@ -26,13 +26,6 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
 
-  
-<script>
-  function Confirmdelete()
-  {
-    return confirm('Are you sure you want to delete this Image ?');
-  }
-</script>
 
 </head>
 
@@ -66,29 +59,29 @@
     <form  method="post" enctype="multipart/form-data">
         {% csrf_token %}
     <div class="container">
-        <div class="row pt-1">
-            <div class="col-4 pt-1">
+        <div class="row  g-4 pt-1">
+            <div class="col-8 col-md-6 col-lg-3">
                 <input readonly multiple  name="name" value="{{folder.folder_name}}">
             </div>
-            <div class="col-4 pt-1">
+            <div class="col-8 col-md-6 col-lg-3">
                 <input type="file" multiple  accept="folderimages/"  name="imgs" required>
             </div>
-            <div class="col-4 pt-1">
-                <button type="submit" class="btn-primary" formaction="{% url 'add_images_folder' %}">Add images to Folder</button>
+            <div class="col-8 col-md-6 col-lg-4">
+                <button type="submit" class="btn-primary" formaction="{% url 'add_images_folder' %}">Image Upload</button>
             </div>
         </div>
     </div>
     <div class="container">
         <hr>
-        <div class="row pt-1">
+        <div class="row pt-1 g-4">
         {% for img in folder_images %}
-            <div class="col-3">
-                <div class="card mt-3" style="width: 15rem; height:13rem;">
+            <div class="col-8 col-md-6 col-lg-3">
+                <div class="card" style="width: 15rem; height:13rem;">
                 {% if img.image_url %}
                     <img src="{{img.image_url.url}}" class="card-img-top img-fluid" alt="..."style=" 15rem; height:10rem;object-fit:cover;">
                 {% endif %}
                     <div class="card-body">
-                        <a href="{% url 'deleteimg' img.id %}" onclick="Confirmdelete()" class="card-link">Delete</a>
+                        <a href="{% url 'deleteimg' img.id %}" onclick="return confirm('Are you sure you want to delete this Folder ?')" class="btn btn-danger btn-sm " style="width: 100%;height:100%">Delete</a>
                     </div> 
                 </div>
             </div>

@@ -30,7 +30,8 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+
+<header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -56,19 +57,23 @@
   <section id="admin_hero">
     <div class="container">
       <div class="row" style="width: 100%;">
-        <div class="col col-lg-4">
+        <div class="col col-lg-3">
           <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" style="width: 80px; height:80px;border-radius:40%;">
           <h5>Folder/Images</h5></a>
         </div>
 
-        <div class=" col col-lg-4">
+        <div class=" col col-lg-3">
          <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
          <h5>BlackBelt Holders</h5></a>
         </div>
 
-        <div class=" col col-lg-4">
+        <div class=" col col-lg-3">
           <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
           <h5>Affilation</h5></a>
+        </div>
+        <div class=" col col-lg-3">
+          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <h5>Carousel</h5></a>
         </div>
      </div>
     </div>

@@ -35,7 +35,14 @@ class images(models.Model):
     image_url=models.ImageField(upload_to="folderimages/", null=True)
 
     
+class carousel(models.Model):
+    carimage=models.ImageField(upload_to="carouselimages/", null=True)
+    title=models.CharField(max_length=150)
+    subtitle=models.CharField(max_length=150)
 
+
+    def _str_(self):
+        return self.title
 
 
 

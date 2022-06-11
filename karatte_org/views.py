@@ -1,4 +1,6 @@
 from atexit import register
+from sre_constants import SUCCESS
+import django
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
 from urllib import request
@@ -10,6 +12,8 @@ from .models import *
 from django.conf import settings
 from django.http import HttpResponse
 from django.core.mail import send_mail,BadHeaderError
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 #load admin home
 
@@ -17,7 +21,7 @@ fid=0
 def adminlogin(request):
     return render(request,'login.html')
 
-
+@login_required
 def load_admin_home(request):
     return render(request,'adminhome.html')
 
@@ -32,6 +36,47 @@ def load_updatefolder(request,folderl_id):
 def load_affiliation(request):
     affili=affiliation.objects.get(id=2)
     return render(request,'affiliation_add.html',{'affili':affili})
+
+# carosel-----
+
+def load_carousel(request):
+    a=carousel.objects.all()
+    return render(request,'carousel.html',{ 'al':a})
+
+def load_updatecarosel(request,upcarslid):
+    carsl=carousel.objects.get(id=upcarslid)
+    return render(request,'carsouelupdate.html',{'carsl':carsl})
+
+def add_carousel_images(request):
+    if request.method=='POST':
+        title=request.POST['title']
+        subtitle=request.POST['subtitle']
+        carimage=request.FILES.get('carimgss')
+        
+        carousel.objects.create(
+                title=title,subtitle=subtitle,carimage=carimage
+                )
+        return redirect('load_carousel')
+
+def update_carousel(request,carslid):
+    if request.method=="POST":
+        carsl=carousel.objects.get(id=carslid)
+        carsl.title=request.POST.get('uptitle')
+        carsl.subtitle=request.POST.get('upsubtitle')
+        carsl.carimage=request.FILES.get('upcarimgss')
+        carsl.save()
+        al=carousel.objects.all()
+        return render(request,'carousel.html',{'al':al})
+    else:
+        return redirect('load_admin_home')
+
+def deletecarouselimg(request,carid_id):
+    carimage=carousel.objects.get(id=carid_id)
+    carimage.delete()
+    return redirect('load_carousel')
+
+# end carosel------
+
 
 
 def uploadfile(request):
@@ -169,12 +214,12 @@ def load_home_page(request):
     folders=imagefolder.objects.all()
     bgimg=blackbelt_holders.objects.all()
     vids=videos.objects.first()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,})
+    a=carousel.objects.all()
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a})
 
 def sort_img(request,folimges):
     global fid
     fid=folimges
-    print(fid)
     return redirect('load_home_page')
 
 
@@ -182,7 +227,7 @@ def sort_img(request,folimges):
 
 
 # adding the black belt holders
-
+@csrf_exempt
 def add_blackbelt_holders(request):
 
     if request.method=="POST":
@@ -190,6 +235,7 @@ def add_blackbelt_holders(request):
         name=request.POST['name']
         desig=request.POST['desig']
         img=request.FILES.get('img')
+        print(img)
 
  #saving data
         bth=blackbelt_holders(bth_reg=reg,
@@ -200,8 +246,8 @@ def add_blackbelt_holders(request):
         bth.save()
         return redirect('load_blackbelts')
     else:
-        return redirect('load_addmember')
-
+        return JsonResponse('load_addmember')
+    
 # admin blackbelt holders update loaad data
 
 def load_bthupdate(request,bthu_id):

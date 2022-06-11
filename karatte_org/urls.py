@@ -12,6 +12,11 @@ urlpatterns =[ path('',views.load_home_page,name='load_home_page'),
                path('load_affiliation_page',views.load_affiliation_page,name='load_affiliation_page'),
                path('loadbackbelt_page',views.loadbackbelt_page,name='loadbackbelt_page'),
                path('sort_img/<int:folimges>',views.sort_img,name='sort_img'),
+               path('load_carousel',views.load_carousel,name='load_carousel'),
+               path('add_carousel_images',views.add_carousel_images,name='add_carousel_images'),
+               path('load_updatecarosel/<int:upcarslid>',views.load_updatecarosel,name='load_updatecarosel'),
+               path('update_carousel/<int:carslid>',views.update_carousel,name='update_carousel'),
+               path('deletecarouselimg/<int:carid_id>',views.deletecarouselimg,name='deletecarouselimg'),
                
             
                path('adminlogin',views.adminlogin,name='adminlogin'),

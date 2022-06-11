@@ -66,13 +66,13 @@
   </section>
 
   <section id="member_card">
-    <div class="container mt-5">
-        <div class="row mt-4">
+    <div class="container ">
+        <div class="row g-6">
           {% for bth in bths  %}
-            <div class="col-3 ml-4">
-              <div class="card mt-2" style="width: 15rem; height: 20rem;">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="card mt-3" style="width: 15rem; height: 20rem;">
                 {% if bth.bth_image %}
-                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:13vh; margin:auto; height:13vh;  ">
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:16vh; margin:auto; height:13vh;  ">
                 {% endif %}
                 <div class="card-body">
                   <h6 class="card-title">Name: {{ bth.bth_name}}</h6>

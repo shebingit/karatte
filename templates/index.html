@@ -84,16 +84,18 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item " style="background-image: url(static/img/hero-carousel/bg2.jpeg)">
+          {% for i in al %}
+          <div class="carousel-item">
+            <img src="{{ i.carimage.url }}" alt="" style="width:100%;height:100%;">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">We are Tops</h2>
-                <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <h2 class="animate_animated animate_fadeInDown">{{ i.title }}</h2>
+                <p class="animate_animated animate_fadeInUp">{{ i.subtitle }}</p>
+                <a href="#" class="btn-get-started scrollto animate_animated animate_fadeInUp">Get Started</a>
               </div>
             </div>
           </div>
-
+          {% endfor %}
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
@@ -117,7 +119,7 @@
 
         <header class="section-header">
           <h3>About Us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>KMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</p>
         </header>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
@@ -163,7 +165,7 @@
            
             <figure>
               {% if img.image_url %}
-                <img src="{{ img.image_url.url}} " class="" alt="" style="max-width: 100%;max-height: 100%; display: block;">
+                <img src="{{ img.image_url.url}} " class="img-fluid" alt="">
                 <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
               {% endif %}
               </figure>
