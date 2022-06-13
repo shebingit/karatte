@@ -35,7 +35,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -58,14 +58,16 @@
       {% csrf_token %}
       <h5>Update Folder Name :</h5>
       <div class="row pt-1">
-        <div class="col-6 pt-1" >
+        <div  class="col-12 col-md-4 col-lg-6  mt-4" >
           <input type="text" multiple placeholder="Change file name" name="file" value="{{folderl.folder_name}}">
         </div>
-        <div class="col-6 pt-1">
+        <br><br>
+        <div  class="col-12 col-md-4 col-lg-6 mt-4">
           <button type="submit" class="btn-primary">Update File Name</button>
         </div>
       </div>  
     </form>
     </div> 
   </section>
+  <script src="{% static 'js/main.js' %}"></script>
 </body></html>

@@ -41,7 +41,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 class="text-light" >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -64,16 +64,16 @@
     {% csrf_token %}
     <div class="container">
       <div class="row pt-1">
-        <div class="col-4 pt-1">
+        <div  class="col-12 col-md-4 col-lg-3">
           <input type="file"   accept="carouselimages/"  name="carimgss" required>
         </div>
-        <div class="col-3 pt-1">
+        <div class="col-12 col-md-4 col-lg-3 pt-1">
             <input type="text" placeholder="Title"  name="title" required>
         </div>
-        <div class="col-3 pt-1">
+        <div class="col-12 col-md-4 col-lg-3 pt-1">
           <input type="text" placeholder="Subtitle" name="subtitle" required>
         </div>
-        <div class="col-2 pt-1">
+        <div class="col-12 col-md-4 col-lg-3 pt-1">
           <button type="submit" class="btn-primary" formaction="{% url 'add_carousel_images' %}">Add</button>
         </div>
       </div>
@@ -84,8 +84,8 @@
       <hr>
       <div class="row pt-1">
       {% for i in al %}
-        <div class="col-3">
-          <div class="card mt-3" style="width: 16rem; height:19rem;">
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="card m-5" style="width: 16rem; height:19rem;">
             <img  class="card-img-top" src="{{ i.carimage.url }}" style="height:135px;" alt="Card image cap">
               
             <div class="card-body">
@@ -106,5 +106,7 @@
   </section>
   
   <!--======end hero====-->
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

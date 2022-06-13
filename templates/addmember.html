@@ -28,8 +28,6 @@
   <style>
     #member_add{
       margin-top: 10vh;
-      margin-left: 40vh;
-      min-width: 700px;
 
     }
     #member_add input{
@@ -39,9 +37,9 @@
     }
     #member_add button{
       margin-top: 20px;
-      margin-left: 40vh;
       height: 40px;
       border-radius: 9px;
+      width: 50%;
     }
   
   </style>
@@ -56,7 +54,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -74,32 +72,28 @@
 
   <!--======hero =======-->
 
-  <section id="admin_hero">
-  </section>
-
   <section id="member_add">
     <div class="container">
-      <div class="col-8">
+      <div class="row">
         <div class="register">
           <form  action="{% url 'add_blackbelt_holders' %}" method="post" enctype="multipart/form-data" class="mt-5 border p-4 bg-light shadow" id="form_add">
             {% csrf_token %}
-            <h2 class="mb-5 text-secondary">Black Belt Holders</h2>
+            <h2  class="col-12 col-md-4 col-lg-6 text-secondary">Black Belt Holders</h2>
             <div class="row">
-              <div class="mb-3 col-md-4">
+              <div  class="col-12 col-md-4 col-lg-12">
                 <input type="text" name="regid" placeholder="Regiser id " required class="form-control">
               </div>
-              <div class="mb-3 col-md-8">
+              <div  class="col-12 col-md-4 col-lg-12">
                 <input type="text"name="name" placeholder="Name of Black Belt Holder" required class="form-control">
               </div>
-              <div class="mb-3 col-md-12">
+              <div  class="col-12 col-md-4 col-lg-12">
                 <input type="text" name="desig" placeholder="Designation of Black Belt Holder" required class="form-control">
               </div>
-              <div class="mb-3 col-md-12">
-                <label>Image of Black Belt Holder</label>
+              <div  class="col-12 col-md-4 col-lg-12">
                 <input type="file" name="img" accept="image/blackbeltholders"required class="form-control">
               </div>
-              <div class="mb-3 col-md-12">
-                <button type="submit" class="btn-primary" >Save Member</button> 
+              <div  class="col-md-4">
+                <button type="submit" class="btn-primary form-control" >Save Member</button> 
               </div>
             </div>
           </form>
@@ -110,5 +104,7 @@
 
   
   <!--======end hero====-->
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

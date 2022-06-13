@@ -36,7 +36,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -67,10 +67,10 @@
 
   <section id="member_card">
     <div class="container ">
-        <div class="row g-6">
+        <div class="row g-3">
           {% for bth in bths  %}
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="card mt-3" style="width: 15rem; height: 20rem;">
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card m-5" style="width: 15rem; height: 20rem;">
                 {% if bth.bth_image %}
                   <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:16vh; margin:auto; height:13vh;  ">
                 {% endif %}
@@ -90,5 +90,8 @@
 
   
   <!--======end hero====-->
+
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

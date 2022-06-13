@@ -36,7 +36,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -56,24 +56,24 @@
 
   <section id="admin_hero">
     <div class="container">
-      <div class="row" style="width: 100%;">
-        <div class="col col-lg-3">
+      <div class="row m-2" style="width: 100%;">
+        <div class="col-5 col-md-4 col-lg-3">
           <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" style="width: 80px; height:80px;border-radius:40%;">
-          <h5>Folder/Images</h5></a>
+          <h6>Folders</h6></a>
         </div>
 
-        <div class=" col col-lg-3">
+        <div class="col-5 col-md-4 col-lg-3">
          <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-         <h5>BlackBelt Holders</h5></a>
+         <h6>BlackBelt Holders</h6></a>
         </div>
 
-        <div class=" col col-lg-3">
+        <div class="col-5 col-md-4 col-lg-3">
           <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-          <h5>Affilation</h5></a>
+          <h6>Affilation</h6></a>
         </div>
-        <div class=" col col-lg-3">
+        <div class="col-5 col-md-4 col-lg-3">
           <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-          <h5>Carousel</h5></a>
+          <h6>Carousel</h6></a>
         </div>
      </div>
     </div>
@@ -81,7 +81,7 @@
 
   <section>
   
-    <div class="container" style="height:30vh; margin-top:15vh;">
+    <div class="container" style="height:30vh; margin-top:10vh;">
       <hr>
       <h3>Upload Video </h3><br><br>
       <form method="post" action="{% url 'uploadvideo' %}">
@@ -99,5 +99,7 @@
 
   
   <!--======end hero====-->
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

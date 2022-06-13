@@ -36,7 +36,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -59,29 +59,26 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <h5>Add New Affilation :</h5>
-      <div class="row pt-1" style="width:100%">
-        <div class="col-2 pt-1"style="width:100%">
-          <input type="file" placeholder="Create file cover" name="imgfile" required>
+      <div class="row">
+        <div class="col-12 col-md-5 col-lg-3">
+          <input type="file" placeholder="Create file cover" name="imgfile" required><br>
+          <button type="submit" class="btn-primary"style="width:50%" formaction="{% url 'uploadfile' %}">New Cover Image</button> <br><br>
         </div>
-        <div class="col-4 pt-1">
-          <button type="submit" class="btn-primary" formaction="{% url 'uploadfile' %}">Upload New Cover Image</button> 
+        <div class="col-12 col-md-5 col-lg-3">
+          <input type="file" placeholder="Create file name" name="file"style="width:100%" required><br>
+          <button type="submit" class="btn-primary"style="width:50%" formaction="{% url 'uploadfile' %}">Upload</button> 
         </div>
-        <div class="col-3 pt-1">
-          <input type="file" placeholder="Create file name" name="file"style="width:100%" required>
-        </div>
-          <div class="col-3 pt-1">
-            <button type="submit" class="btn-primary" formaction="{% url 'uploadfile' %}">Upload New</button> 
-          </div>
-      </div>   
+      </div>
+
     </form>
     </div>
   </section>
   <hr>
-  <section id="hero">
+  <section id="hero1">
     <div class="hero-container" >
-      <div class="affiliation_form_img" style="margin-top: 4vh;">
+      <div class="affiliation_form_img">
         {% if affili.affiliation_img %}
-          <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:65vh; width:60vh;margin-top: 4vh;" > 
+          <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:65vh; width:60vh;" > 
         {% endif %}
       </div>
       <div class="btn btn-secondary mt-4">
@@ -90,7 +87,8 @@
        
     </div> 
   </section><!-- End Hero Section -->
-
+ <!-- Template Main JS File -->
+ <script src="{% static 'js/main.js' %}"></script>
  
 </body>
 </html>

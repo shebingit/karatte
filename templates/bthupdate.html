@@ -24,30 +24,22 @@
   <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'css/addmember.css' %}" rel="stylesheet">
+  
 
   <style>
     .container{
-
-        margin-top: 10px;
-        margin-bottom: 10px;
-        width:40%;
-        padding: 30px;
-        box-shadow: 10px 12px 12px 10px;
         border-radius: 10px;
+        margin-bottom: 5vh
     }
     .container input{
-        width:100%;
+        width:50%;
         font-size: 14px;
-        height: 35px;
-        margin-top: 10px;
+        height: 45px;
+        border:none;
         margin-bottom: 10px;
-        text-align: center;
-        border: 0px , 1px;
     }
     .container button{
-        width: 100%;
-        margin: auto;
+        width: 50%;
         opacity: 0.5px;
         height: 50px;
         border:none;
@@ -65,7 +57,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+            <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -89,48 +81,45 @@
 <br><br><br><br><br>
 <form action="{% url 'bthupdate' bth.id %}"method="post" enctype="multipart/form-data">
     {% csrf_token %}
-
-    <div class="row m-1">
-        <div class="col-3">
-            <div class="row m-1">
-                <div class="col-3">
-                    <div class="card mt-3" style="width: 15rem; height: 19rem;">
-                        <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:20vh; margin:auto; height:20vh;  ">
-                        <div class="card-body">
-                            <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
-                                <p class="card-text"> Register No: {{ bth.bth_reg }}</p>
-                                <p class="card-text">Designation: {{ bth.bth_desig }}</p>
-                        </div>
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-12 col-md-4 col-lg-6 mt-4">
+                <div class="card mt-3" style="width: 15rem; height: 18rem;">
+                    <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:13vh; margin:auto; height:15vh;  ">
+                    <div class="card-body">
+                        <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
+                        <p class="card-text"> Register No: {{ bth.bth_reg }}</p>
+                        <p class="card-text">Designation: {{ bth.bth_desig }}</p>
                     </div>
                 </div>
             </div>
         </div>
-    
-        <div class="col-8">
+    </div>
+    <hr>
         <div class="container">
             <form  action="{% url 'add_blackbelt_holders' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
             <div class="row pt-2">
-                <h2>Black Belt Holders</h2>
+                <h2>Update Here..</h2>
             </div>
             <div class="row pt-1">
-                <div class="col pt-1">
+                <div class="col m-3 pt-1">
                     <input type="text" name="regid" placeholder="Regiser id of Black Belt Holder" required value="{{ bth.bth_reg }}">
                 </div>
             </div> 
-            <div class="row pt-1">
-                <div class="col pt-1">
+            <div class="row  pt-1">
+                <div class="col  m-3 pt-1">
                     <input type="text"name="name" placeholder="Name of Black Belt Holder" required value="{{ bth.bth_name}}">
                 </div>
             </div> 
-            <div class="row pt-1">
-                <div class="col pt-1">
+            <div class="row  pt-1">
+                <div class="col  m-3 pt-1">
                     <input type="text" name="desig" placeholder="Designation of Black Belt Holder" required value="{{ bth.bth_desig }}">
                 </div>
             </div> 
             <div class="row pt-1">
-                <div class="col pt-1">
-                    <input type="file" name="img" accept="image/blackbeltholders" required value="{{ bth.bth_image.url }}">Image of Black Belt Holder
+                <div class="col m-3 pt-1">
+                    <input type="file" name="img" accept="image/blackbeltholders" required value="{{ bth.bth_image.url }}">
                 </div>
             </div> <br>
             <div class="row pt-1" style="height:60px;">

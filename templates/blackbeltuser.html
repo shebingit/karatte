@@ -41,7 +41,11 @@
     }
     .card{
         box-shadow:0px 1px 0px 0px;
-        margin:5px;
+        margin-left:55px;
+        margin-right:5px;
+        margin-top: 7px;
+        margin-bottom: 15px;;
+  
     }
     #hero_user h3{
         text-align: center;
@@ -71,8 +75,7 @@
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
           <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
           <!-- Uncomment below if you prefer to use an image logo -->
-          <a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
-
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}">Home</a></li>
@@ -91,11 +94,11 @@
   <!--======hero =======-->
 
   <section id="hero_user">
-    <div class="container">
+    <div class="container"><br>
         <h3>Black Belt Holders</h3>
         <div class="row">
             {% for bth in bths  %}
-              <div class="col-3">
+              <div class="col-12 col-md-4 col-lg-3">
                 <div class="card" style="width: 15rem; height:13rem;">
                   {% if bth.bth_image %}
                     <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:10vh; margin:auto; height:10vh;  ">

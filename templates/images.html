@@ -37,7 +37,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -60,20 +60,20 @@
         {% csrf_token %}
     <div class="container">
         <div class="row  g-4 pt-1">
-            <div class="col-8 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <input readonly multiple  name="name" value="{{folder.folder_name}}">
             </div>
-            <div class="col-8 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <input type="file" multiple  accept="folderimages/"  name="imgs" required>
             </div>
-            <div class="col-8 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <button type="submit" class="btn-primary" formaction="{% url 'add_images_folder' %}">Image Upload</button>
             </div>
         </div>
     </div>
     <div class="container">
         <hr>
-        <div class="row pt-1 g-4">
+        <div class="row m-4 pt-1 g-4">
         {% for img in folder_images %}
             <div class="col-8 col-md-6 col-lg-3">
                 <div class="card" style="width: 15rem; height:13rem;">
@@ -94,5 +94,6 @@
 
   
   <!--======end hero====-->
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
