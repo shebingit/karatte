@@ -633,13 +633,14 @@ section {
 #portfolio .portfolio-wrap {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
+  margin-top:5px;
 }
 #portfolio .portfolio-wrap:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
 }
 #portfolio .portfolio-item {
   position: relative;
-  height: 360px;
+  height: 290px;
   overflow: hidden;
 }
 #portfolio .portfolio-item figure {
@@ -731,7 +732,8 @@ section {
   padding-top: 40px;
 }
 .portfolio-details .portfolio-details-slider img {
-  width: 100%;
+  width: 80%;
+  height:80%;
 }
 .portfolio-details .portfolio-details-slider .swiper-pagination {
   margin-top: 20px;

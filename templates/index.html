@@ -13,6 +13,17 @@
 
   <link href="{% static 'img/ki.png' %}" rel="icon">
   <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+  <style>
+    #btnsort{
+      border:none;
+      background-color:white;
+      height: 30px;
+    }
+    #btnsort:hover{
+      background-color: #18d26e;
+    }
+
+  </style>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -145,9 +156,10 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class=" col-lg-12">
           <ul id="portfolio-flters">
-            <li class="filter-active"><a href="{% url 'load_home_page' %}" >All</a></li>
+            
           {% for folder in folders %}
-            <li><a href="{% url 'sort_img' folder.id %}">{{folder.folder_name}}</a></li>
+          
+            <li><button id="btnsort" value="{{folder.folder_name}}">{{folder.folder_name}}</button></li>
           {% endfor %}
           </ul>
         </div>
@@ -155,13 +167,13 @@
       
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
         {% for img in folimgs %}
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item">
           
             <div class="portfolio-wrap">
            
             <figure>
               {% if img.image_url %}
-                <img src="{{ img.image_url.url}} " class="img-fluid" alt="">
+                <img src="{{ img.image_url.url}} " class="img-fluid" alt="" style="width:100%;height:100%;">
                 <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
               {% endif %}
               </figure>

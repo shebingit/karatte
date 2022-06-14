@@ -1,6 +1,4 @@
 from atexit import register
-from sre_constants import SUCCESS
-import django
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
 from urllib import request
@@ -235,7 +233,7 @@ def add_blackbelt_holders(request):
         name=request.POST['name']
         desig=request.POST['desig']
         img=request.FILES.get('img')
-        print(img)
+
 
  #saving data
         bth=blackbelt_holders(bth_reg=reg,
