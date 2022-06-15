@@ -13,17 +13,6 @@
 
   <link href="{% static 'img/ki.png' %}" rel="icon">
   <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
-  <style>
-    #btnsort{
-      border:none;
-      background-color:white;
-      height: 30px;
-    }
-    #btnsort:hover{
-      background-color: #18d26e;
-    }
-
-  </style>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -38,6 +27,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 
   <!-- =======================================================
   * Template Name: BizPage - v5.8.0
@@ -158,14 +149,40 @@
           <ul id="portfolio-flters">
             
           {% for folder in folders %}
-          
-            <li><button id="btnsort" value="{{folder.folder_name}}">{{folder.folder_name}}</button></li>
+            <li><button id="btnsort" data-sid="{{folder.id}}">{{folder.folder_name}}</button></li>
           {% endfor %}
           </ul>
         </div>
       </div>
+
+      <script>
+        // image sort
+        $("#portfolio-flters").on("click","#btnsort",function(e){
+          e.preventDefault();
+          console.log(' clickeed for sort.')
+          let id=$(this).attr("data-sid");
+          console.log(id);
+          mydata={fid:id}
+          $.ajax({
+             url : "{% url 'sort_img' %}",
+             method :"POST",
+             data : mydata,
+             success :function(data){
+              console.log(data)
+              img=data.data_img
+              if(data.value =='sort'){
+                console.log('success.')
+             }
+            }
+          });
+
+
+        });
+      </script>
+
+
       
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" id="sortimgs">
         {% for img in folimgs %}
           <div class="col-lg-4 col-md-6 portfolio-item">
           
@@ -187,6 +204,9 @@
       
       </div>
     </section><!-- End Portfolio Section -->
+
+
+    
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg">
@@ -339,6 +359,7 @@
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  
   
   
 
