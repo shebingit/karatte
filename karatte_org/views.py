@@ -1,4 +1,5 @@
 from atexit import register
+import json
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
 from urllib import request
@@ -214,8 +215,12 @@ def sort_img(request):
     if request.method =="POST":
         folimges=request.POST.get('fid')
         folimgs=images.objects.filter(folder_id=folimges)
+        folders=imagefolder.objects.all()
+        bgimg=blackbelt_holders.objects.all()
+        vids=videos.objects.first()
+        a=carousel.objects.all()
         print(folimgs)
-        return render(request,'index.html',{'folimgs':folimgs})
+        return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a})
     else:
         return HttpResponse({'value':0})
 
