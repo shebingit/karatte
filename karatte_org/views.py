@@ -203,7 +203,7 @@ def deleteimg(request,img_id):
 # load home page
 
 def load_home_page(request):
-    folimgs=images.objects.all() 
+    folimgs=images.objects.all().order_by('id')[:6] 
     folders=imagefolder.objects.all()
     bgimg=blackbelt_holders.objects.all()
     vids=videos.objects.first()
@@ -214,15 +214,19 @@ def load_home_page(request):
 def sort_img(request):
     if request.method =="POST":
         folimges=request.POST.get('fid')
-        folimgs=images.objects.filter(folder_id=folimges)
+        folimgs=images.objects.filter(folder_id=folimges).order_by('id')[:6] 
         folders=imagefolder.objects.all()
         bgimg=blackbelt_holders.objects.all()
         vids=videos.objects.first()
         a=carousel.objects.all()
-        print(folimgs)
         return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a})
     else:
         return HttpResponse({'value':0})
+    
+def moreimgs(request):
+        folimgs=images.objects.all()
+        return render(request,'moreimg.html',{'folimgs':folimgs})
+
 
 
 
