@@ -1,11 +1,16 @@
 
-<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" id="folderimgs">
+
+<section id="portfolio" class="section-bg">
+    <div class="container" data-aos="fade-up">
+
+
+<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
     {% for img in folimgs %}
       <div class="col-lg-4 col-md-6 portfolio-item"  >
       
         <div class="portfolio-wrap">
        
-          <figure >
+        <figure >
           {% if img.image_url %}
             <img src="{{ img.image_url.url}} " class="img-fluid" alt="" style="width:100%;height:100%;">
             <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"><i class="bi bi-plus"></i></a>
@@ -17,6 +22,5 @@
       </div>
     {% endfor %}
     
-</div>
-
-
+  </div>
+</div></section>

@@ -214,17 +214,23 @@ def load_home_page(request):
 def sort_img(request):
     if request.method =="POST":
         folimges=request.POST.get('fid')
-        folimgs=images.objects.filter(folder_id=folimges).order_by('id')[:6] 
-        folders=imagefolder.objects.all()
-        bgimg=blackbelt_holders.objects.all()
-        vids=videos.objects.first()
-        a=carousel.objects.all()
-        return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a})
+        if folimges=='0':
+            folimgs=images.objects.all().order_by('id')[:6] 
+
+        else:
+            folimgs=images.objects.filter(folder_id=folimges).order_by('id')[:6] 
+            
+        return render(request,'sortedimgs.html',{'folimgs':folimgs})
     else:
         return HttpResponse({'value':0})
-    
+@csrf_exempt    
 def moreimgs(request):
-        folimgs=images.objects.all()
+    if request.method =="POST":
+        folimges=request.POST.get('fimgid')
+        if folimges=='0':
+            folimgs=images.objects.all() 
+        else:
+            folimgs=images.objects.filter(folder_id=folimges)
         return render(request,'moreimg.html',{'folimgs':folimgs})
 
 
