@@ -38,7 +38,10 @@
     }
     #btnsort:hover{
       background-color:#18d26e;
+      color: white;
+      transition: 1s ease-in-out;
     }
+
   </style>
 
   <!-- =======================================================
@@ -158,10 +161,10 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class=" col-lg-12">
           <ul id="portfolio-flters">
-            <li><button id="btnsort">All</button></li><input type ="hidden"value="0"id=sortimg>
+            <li class="rounded-pill p-2"><button id="btnsort" class="rounded-pill p-2">ALL</button></li><input type ="hidden"value="0" id=sortimg >
             
           {% for folder in folders %}
-            <li><button id="btnsort" data-sid="{{folder.id}}">{{folder.folder_name}}</button></li>
+            <li class="rounded-pill p-2"><button class="rounded-pill p-2" id="btnsort" data-sid="{{folder.id}}">{{folder.folder_name}}</button></li>
           {% endfor %}
           </ul>
         </div>
@@ -214,7 +217,7 @@
         
       </div>
       <div class="container btn" id="imagesload">
-       <button class="btn btn-primary"id="moreimgs">More Images</button>
+       <a><button class="btn btn-primary rounded-pill p-2"id="moreimgs" style="width:25vh ;">More Images</button></a>
       </div>
       
       </div>

@@ -236,8 +236,6 @@ def moreimgs(request):
 
 
 
-
-
 # adding the black belt holders
 @csrf_exempt
 def add_blackbelt_holders(request):
