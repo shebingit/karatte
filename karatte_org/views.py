@@ -207,8 +207,9 @@ def load_home_page(request):
     folders=imagefolder.objects.all()
     bgimg=blackbelt_holders.objects.all()
     vids=videos.objects.first()
-    a=carousel.objects.all()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a})
+    a=carousel.objects.all()[1:]
+    firstca=carousel.objects.first()
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca})
 
 @csrf_exempt
 def sort_img(request):

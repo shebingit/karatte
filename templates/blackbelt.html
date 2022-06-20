@@ -67,19 +67,19 @@
 
   <section id="member_card">
     <div class="container ">
-        <div class="row g-3">
+        <div class="row">
           {% for bth in bths  %}
             <div class="col-12 col-md-4 col-lg-3">
-              <div class="card" style="width: 15rem; height: 20rem; margin:20px 35px;">
+              <div class="card" style="margin:20px 10px;">
                 {% if bth.bth_image %}
-                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="..."style=" width:16vh; margin:auto; height:13vh;  ">
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh;border-radius:50%; ">
                 {% endif %}
                 <div class="card-body">
                   <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
                   <p class="card-text"> Register No: {{bth.bth_reg}}</p>
                   <p class="card-text">Designation: {{bth.bth_desig}}</p>
                   <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-success">Update</a>
-                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger">Delete</a>
+                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
                 </div>
               </div>
             </div>
