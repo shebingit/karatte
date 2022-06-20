@@ -296,15 +296,15 @@ def loadbackbelt_page(request):
     
 
 #sending mail
-
+@csrf_exempt
 def sending_mail(request):
     if request.method == 'POST': 
-        recipient = request.POST['email'] 
-        message=" THANKS YOU  for Contacting Us! Our Team will contact you Soon!..."
+        recipient = request.POST['smailid'] 
+        message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
         sendsubject=" JKMO INDIA"
         try:
             respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
-            return render (request,'index.html',{'message':message})
+            return render(request,'sendmailout.html',{'message':message})
             
         except BadHeaderError:
             return()
