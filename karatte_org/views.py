@@ -20,6 +20,9 @@ fid=0
 def adminlogin(request):
     return render(request,'login.html')
 
+def contact(request):
+    return render(request,'contact.html')
+    
 @login_required
 def load_admin_home(request):
     return render(request,'adminhome.html')
