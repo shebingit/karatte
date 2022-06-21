@@ -1,26 +1,40 @@
-<form action="#" method="post" role="form" class="php-email-form">
-    {% csrf_token %}
+<form  method="post" id="form">
+  {% csrf_token %}
+      <div class="formBox">
+          <div class="row50">
+              <div class="inputBox form-group ">
+                  <span>Full Name</span>
+                  <input type="text" placeholder=""required>
+              </div>
+              <div class="inputBox form-group ">
+                  <span>Email</span>
+                  <input type="text" placeholder=""  id="email" required>
+              </div>
+              
+          </div>
+          <div class="row100">
+             
+              <div class="inputBox form-group" >
+                  <span>Subject</span>
+                  <input type="text" placeholder=""required>
+              </div>
+          </div>
+          <div class="row100">
+              <div class="inputBox form-group ">
+                  <span>Message</span>
+                  <textarea  name="message" rows="5" placeholder="Write your Message here.." required></textarea>
+              </div>
+          </div>
+          <div class="row100 form-group ">
+              <div class="inputBox">
+                 <button type="submit" value="Send"id="mailsend">Send</button>
+              </div>
+          </div>
+          <div class="m-3">
+            <div>
+              <h6 style="color:green">{{message}}</h6> 
+            </div>  
+          </div>
 
-    <div class="row">
-      <div class="form-group col-md-6">
-        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
       </div>
-      <div class="form-group col-md-6">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-      <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-    </div>
-    <div class="my-3">
-      <div>
-        <h6 style="color:green">{{message}}</h6> 
-      </div>
-      
-    </div>
-    
-    <div class="text-center"><button type="submit" id="mailsend">Send Message</button></div>
   </form>

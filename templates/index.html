@@ -24,6 +24,7 @@
   <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/contact.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -342,70 +343,94 @@
 
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h3>Contact Us</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+    <section  class="section-bg">
+        <div class="section-header" data-aos="fade-up">
+          <h3 class="mt-5">Contact Us</h3>
         </div>
-
-        <div class="row contact-info">
-          <div class="col-6-lg">
-
-            <div class="col-md-4">
-              <div class="contact-address">
-                <i class="bi bi-geo-alt"></i>
-                <h3>Address</h3>
-                <address>ban , NY 535022, India</address>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="contact-phone">
-                <i class="bi bi-phone"></i>
-                <h3>Phone Number</h3>
-                <p><a href="tel:+919676567234">+91 9676 5672 34</a></p>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="contact-email">
-                <i class="bi bi-envelope"></i>
-                <h3>Email</h3>
-                <p><a href="mailto:jkmoshotokan@gmail.com">jkmoshotokan@gmail.com</a></p>
-              </div>
-            </div>
-
-           
-              <form action="#" method="post" role="form" class="php-email-form" id="form">
-                {% csrf_token %}
-    
-                <div class="row">
-
-                  <div class="form-group col-md-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+        <div class="contactUs m-0">
+          <div class="box">
+  
+               <!-- form box-->
+              <div class="contact form">
+                  <h3>Send a Message</h3>
+              
+              <form  method="post" id="form">
+              {% csrf_token %}
+                  <div class="formBox">
+                      <div class="row50">
+                          <div class="inputBox form-group ">
+                              <span>Full Name</span>
+                              <input type="text" placeholder=""required>
+                          </div>
+                          <div class="inputBox form-group ">
+                              <span>Email</span>
+                              <input type="text" placeholder=""  id="email" required>
+                          </div>
+                          
+                      </div>
+                      <div class="row100">
+                         
+                          <div class="inputBox form-group" >
+                              <span>Subject</span>
+                              <input type="text" placeholder=""required>
+                          </div>
+                      </div>
+                      <div class="row100">
+                          <div class="inputBox form-group ">
+                              <span>Message</span>
+                              <textarea  name="message" rows="5" placeholder="Write your Message here.." required></textarea>
+                          </div>
+                      </div>
+                      <div class="row100 form-group ">
+                          <div class="inputBox">
+                             <button type="submit" value="Send"id="mailsend">Send</button>
+                          </div>
+                      </div>
+                      <div class="m-3">
+                        <div>
+                          <h6 style="color:green">{{message}}</h6> 
+                        </div>  
+                      </div>
+  
                   </div>
-                  <div class="form-group col-md-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                  </div>
-
-                </div>
-
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                  <div>
-                    <h6 style="color:green">{{message}}</h6> 
-                  </div>  
-                </div>
-                
-                <div class="text-center"><button type="submit" id="mailsend">Send Message</button></div>
               </form>
+              </div>
+  
+  
+  
+              <!-- info box-->
+              <div class="contact info">
+                  <h3>Contact Info</h3>
+                  <div class="infoBox">
+                      <div>
+                          <span><ion-icon name="location"></ion-icon></span>
+                          <a href="#">Kottayam,kerala NY 535022, India></a>
+                      </div>
+                      <div>
+                          <span><ion-icon name="mail"></ion-icon></span>
+                          <a href="mailto:jkmoshotokan@gmail.com">jkmoshotokan@gmail.com</a>
+                      </div>
+                      <div>
+                          <span><ion-icon name="call"></ion-icon></span>
+                          <a href="tel:+919676567234">+91 9676 5672 34</a>
+                      </div>
+                      <!-- social media links-->
+                      <ul class="sci">
+                          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                          <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                          <li><a href="https://wa.me/7902579309"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+  
+                      </ul>
+                      
+                  </div>
+              </div>
+  
+               <!-- map box-->
+              <div class="contact map">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              
           </div>
         </div>
     </section><!-- End Contact Section -->
@@ -473,8 +498,7 @@
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://wa.me/7902579309" class="linkedin"><i class="bi bi-whatsapp"></i></a>
             </div>
 
           </div>
@@ -506,15 +530,18 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="https://wa.me/7902579309"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
-  
+  <i class="fa-brands fa-whatsapp"></i>
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   
   
   

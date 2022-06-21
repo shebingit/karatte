@@ -7,8 +7,8 @@ from .import views
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
 
-urlpatterns =[  path('',views.contact,name='contact'),
-               path('load_home_page',views.load_home_page,name='load_home_page'),
+urlpatterns =[  path('contact',views.contact,name='contact'),
+               path('',views.load_home_page,name='load_home_page'),
                path('sending_mail',views.sending_mail,name='sending_mail'),
                path('load_affiliation_page',views.load_affiliation_page,name='load_affiliation_page'),
                path('loadbackbelt_page',views.loadbackbelt_page,name='loadbackbelt_page'),
