@@ -30,7 +30,7 @@ body {
 .contact{
     padding: 30px;
     background:#fdfcfc;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 10px rgba(1, 1, 1, 0.041);
 }
 .box{
     position: relative;
@@ -77,13 +77,11 @@ body {
     padding: 10px;
     font-size: 1.1em;
     outline: none;
-    border: 1px solid #333;
 }
 .inputBox textarea{
     padding: 10px;
     font-size: 1.1em;
     outline: none;
-    border: 1px solid #333;
     resize: none;
     min-height: 220px;
     margin-bottom: 10px;
@@ -205,12 +203,13 @@ body {
         height: 40px;
         bottom: 60px;
         right: 15px;
-        font-size: 15px;
+        font-size:1.5em;
         visibility:1;
     }
     .whatsapp_float i {
-        font-size: 24px;
-        color: #fff;
+        font-size: 17px;
+    color: #fff;
+    line-height:1.5;
       }
       .whatsapp_float:hover {
         background: #2ce782;
