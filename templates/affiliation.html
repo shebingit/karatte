@@ -73,10 +73,15 @@
       {% endif %}
     </div>
     <div class="btn btn-secondary mt-4">
-      <a onclick='downloaD("/media/{{affili.affiliation_name }}","p1.pdf")' >Download</a> <br> 
+      <a onclick='downloaD("/media/{{affili.affiliation_name }}","p1.pdf")' >Download</a> 
     </div>
-     
+    <div class="btn btn-primary mt-4">
+      <a href="{% url 'load_register' %}" style="color: #fff;">Are you New ! Register</a>
+    </div>
+   
+   
   </div> 
+  
 </section><!-- End Hero Section -->
 
 

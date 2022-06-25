@@ -16,7 +16,7 @@ from django.http import JsonResponse
 
 #load admin home
 
-fid=0
+
 def adminlogin(request):
     return render(request,'login.html')
 
@@ -25,7 +25,8 @@ def contact(request):
     
 @login_required
 def load_admin_home(request):
-    return render(request,'adminhome.html')
+    newss=news.objects.all()
+    return render(request,'adminhome.html',{'newss':newss})
 
 def load_folder_create(request):
     folders=imagefolder.objects.all()
@@ -145,7 +146,8 @@ def uploadvideo(request):
 
 def load_blackbelts(request):
     bths=blackbelt_holders.objects.all()
-    return render(request,'blackbelt.html',{'bths':bths})
+    associate=members.objects.all()
+    return render(request,'blackbelt.html',{'bths':bths,'associate':associate})
 
 def load_addmember(request):
     return render(request,'addmember.html')
@@ -153,6 +155,14 @@ def load_addmember(request):
 def load_addimages(request):
     return render(request,'addimages.html')
 
+def load_associate(request):
+    return render(request,'addmember.html')
+
+def load_member(request):
+    return render(request,'show_member.html')
+
+def load_register(request):
+    return render(request,'registration.html')
 # admin folder create
  
 def create_folder(request):
@@ -212,7 +222,8 @@ def load_home_page(request):
     vids=videos.objects.first()
     a=carousel.objects.all()[1:]
     firstca=carousel.objects.first()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca})
+    newss=news.objects.all()
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss})
 
 @csrf_exempt
 def sort_img(request):
@@ -261,7 +272,44 @@ def add_blackbelt_holders(request):
         return redirect('load_blackbelts')
     else:
         return JsonResponse('load_addmember')
-    
+
+
+@csrf_exempt
+def add_assosiate(request):
+
+    if request.method=="POST":
+        name=request.POST['mname']
+        desig=request.POST['mdesig']
+        position=request.POST['mposition']
+        img=request.FILES.get('mimg')
+        
+
+
+ #saving data
+        member=members(mname=name,
+                    mdesig=desig,
+                    mposition=position,asso_image=img)
+
+        member.save()
+        return redirect('load_blackbelts')
+    else:
+        return JsonResponse('load_addmember')
+
+
+@csrf_exempt
+def add_news(request):
+
+    if request.method=="POST":
+        name=request.POST['news']
+       
+ #saving data
+        newsadd=news(newstitle=name)
+
+        newsadd.save()
+        return redirect('load_admin_home')
+    else:
+        return JsonResponse('load_addmember')
+
 # admin blackbelt holders update loaad data
 
 def load_bthupdate(request,bthu_id):

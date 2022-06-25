@@ -36,7 +36,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -56,10 +56,44 @@
 
   <section id="admin_hero">
     <div class="container">
-      <h3>Black Belt Holders</h3>
-          <div class="row pt-2" style="box-shadow: 5px 5px 1px; height:60px;">
+      <h3>Associate Members</h3>
+          <div class="row pt-2" style="height:60px;">
             <div class="col pt-2">
-                <a href="{% url 'load_addmember' %}" class="btn-primary">Add BlackBelt Holders</a>
+                <a href="{% url 'load_associate' %}" class="btn-primary">Add Associate Members</a>
+            </div>
+          </div>
+    </div> 
+  </section>
+
+  <section id="member_card">
+    <div class="container ">
+        <div class="row">
+          {% for bth in associate  %}
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card" style="margin:15px 10px;">
+                {% if bth.asso_image %}
+                  <img src="{{ bth.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh; ">
+                {% endif %}
+                <div class="card-body">
+                  <h6 class="card-title">Name: {{ bth.mname}}</h6><br>
+                  <p class="card-text">Designation: {{bth.mdesig}}</p>
+                  <p class="card-text">Position: {{bth.mposition}}</p>
+                  <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-success">Update</a>
+                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+
+  <section id="admin_hero">
+    <div class="container"><hr><br>
+      <h3>Black Belt Members</h3>
+          <div class="row pt-2" style="height:60px;">
+            <div class="col pt-2">
+                <a href="{% url 'load_addmember' %}" class="btn-primary">Add BlackBelt Members</a>
             </div>
           </div>
     </div> 
@@ -70,9 +104,9 @@
         <div class="row">
           {% for bth in bths  %}
             <div class="col-12 col-md-4 col-lg-3">
-              <div class="card" style="margin:20px 10px;">
+              <div class="card" style="margin:15px 10px;">
                 {% if bth.bth_image %}
-                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh;border-radius:50%; ">
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh; ">
                 {% endif %}
                 <div class="card-body">
                   <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
@@ -88,6 +122,8 @@
     </div>
   </section>
 
+</body>
+  
   
   <!--======end hero====-->
 

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link href="{% static 'css/popupstyle.css' %}" rel="stylesheet">
+</head>
+
+    <body>
+        <div class="containerpop">
+            <button type="submit" class="btn" onclick="openPopup()" >Delete</button>
+            <div class="popoup" id="popup">
+                <img src="{% static 'img/popupdelete.png' %}" >
+                <h4>Thank You!</h4>
+                <p>Your details has been successfully deleted. Thanks!</p>
+                <button type="button"onclick="closePopup()" >OK</button>
+            </div>
+        </div>
+
+        <script>
+
+            let popup=document.getElementById("popup");
+
+            function openPopup(){
+                popup.classList.add("open-popup");
+            }
+            function closePopup(){
+                popup.classList.remove("open-popup");
+            }
+        </script>
+    </body>
+</html>

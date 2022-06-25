@@ -1,0 +1,144 @@
+{% load static %}
+{% load embed_video_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KARATTE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+ 
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/register.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+</head>
+
+<body style="background:linear-gradient(90deg,#0e3959 0%,#0e3959 30%,#03a9f5 30%,#03a9f5 100%);">
+
+<br><br>
+    <div class="container">
+        <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;">
+        <header>Registration </header>
+
+        <form action="#" enctype="multipart/form-data">
+            <div class="form first">
+                <div class="details personal">
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" name="rname"placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of Brith</label>
+                            <input type="date" name="rdb" placeholder="Enter date of brith" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Blood Group</label>
+                            <input type="text" name="rbg" placeholder="Enter blood group" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <input type="text" name="rg" placeholder="Enter your gender" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Nationality</label>
+                            <input type="text" name="rn" placeholder="Enter your nationality" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Qualification</label>
+                            <input type="text"name="rq" placeholder="Enter your qualification" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Occupation</label>
+                            <input type="text" name="ro" placeholder="Enter your occupation" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of joing</label>
+                            <input type="date"name=""placeholder="Date of join" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Phone Number</label>
+                            <input type="text" name="phno" placeholder="Phone number" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email id</label>
+                            <input type="email" name="mail" placeholder="Enater your email id" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Name of Parent/Guardian</label>
+                            <input type="email"name="pg" placeholder="Enater Name of Parent/Guardian" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Parent Occupation</label>
+                            <input type="text" name="po" placeholder="Enater Parent Occupation" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Permanent Address</label>
+                            <textarea name="pa" placeholder="" required></textarea>
+                        </div>
+                        <div class="input-field">
+                            <label>Reason for joining & Learning</label>
+                            <input type="text" name="reson" placeholder="Enater Reason for joining & Learning" required>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Do you have any Martial Arts Experience</label> 
+                            <select name="exp">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Have the Applicant undergone any Operation ?</label>
+                            <select name="ho">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        
+                        </div>
+                        <div class="input-field">
+                            <label>Chose an Image(.png or jpeg)</label>
+                            <input type="file" accept="image/png,image/jpeg" style="padding:8px;" id="file" name="file" onchange="previewImage();">
+                        </div>
+                        <div  class="input-field">
+                            <img id="preview" class="img-fluid" style="width:20vh;">
+                        </div>
+                       
+                        <button class="savebtn">Save</button>
+                        <button><a href="{% url 'load_home_page' %}" class="savebtn">Back</a></button>
+                    
+                    </div>
+                </div>
+            </div>
+            <script>
+                function previewImage(){
+                    var file=document.getElementById("file").files;
+                    if (file.length > 0){
+                        var fileReader= new FileReader();
+                            fileReader.onload = function (event){
+                                document.getElementById("preview").setAttribute("src",event.target.result);
+                            };
+                        fileReader.readAsDataURL(file[0]);
+                    }
+                }
+            </script>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

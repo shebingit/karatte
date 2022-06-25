@@ -36,7 +36,7 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo1"> <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;"></a>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
           <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
@@ -58,44 +58,91 @@
     <div class="container">
       <div class="row m-2" style="width: 100%;">
         <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <a href="{% url 'load_member' %}"><img src="{% static 'img/members.png' %}" class="mt-4"  style="width: 80px; height:80px;border-radius:40%;">
+          <h6>Show Members</h6></a>
+        </div>
+        <div class="col-5 col-md-4 col-lg-3">
+          <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
           <h6>Folders</h6></a>
         </div>
 
-        <div class="col-5 col-md-4 col-lg-3">
-         <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
-         <h6>BlackBelt Holders</h6></a>
+        <div class="col-5 col-md-4 col-lg-3 ">
+         <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}"class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
+         <h6>Members</h6></a>
         </div>
 
         <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
           <h6>Affilation</h6></a>
         </div>
         <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" style="width: 80px; height:80px;border-radius:40%;">
+          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" class="mt-4"  style="width: 80px; height:80px;border-radius:40%;">
           <h6>Carousel</h6></a>
         </div>
+        <div class="col-5 col-md-4 col-lg-3">
+          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/aboutus.png' %}" class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
+          <h6>About Us</h6></a>
+        </div>
+        
      </div>
     </div>
   </section>
 
   <section>
   
-    <div class="container" style="height:30vh; margin-top:10vh;">
+    <div class="container" style="height:30vh; margin-top:5vh;">
       <hr>
-      <h3>Upload Video </h3><br><br>
+      <h5>Upload Video </h5><br>
       <form method="post" action="{% url 'uploadvideo' %}">
         {% csrf_token %}
       <div class="input-group mb-3">
         <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">update video</button>
+          &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Update video</button>
         </div>
       </div>
     </form>
     </div>
   
   </section>
+
+  <section>
+
+    <div class="container" style="height:30vh;">
+      <hr>
+      <h5>News and events </h5><br>
+      <form method="post" action="{% url 'add_news' %}">
+        {% csrf_token %}
+      <div class="input-group mb-3">
+        <input type="text" name="news"class="form-control" placeholder="Type your news here.." aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">News and events</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+    <table class="table table-sm">
+      <thead >
+        <tr>
+          <th scope="col">Content</th>
+          <th scope="col">Delete Content</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for news in newss %}
+        <tr>
+          <td><h5 class="btn btn-light mt-2">{{news.newstitle}}</h5></td>
+          <td><a href="#" onclick="return confirm('Are you sure you want to delete this Folder ?')"  class="btn btn-danger btn-sm mt-2">Delete</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </section>
+
 
   
   <!--======end hero====-->

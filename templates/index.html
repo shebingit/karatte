@@ -105,14 +105,14 @@
           <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
           <!-- Uncomment below if you prefer to use an image logo -->
           <a href="#" class="logo1" >
-            <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90%;width:40px; height:40px;">
+            <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh;">
           </a>
 
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto active " href="{% url 'load_home_page' %}">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About us</a></li>
-              <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">BlackBelt Holders</a></li>
+              <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">BlackBelt  MEMBERS</a></li>
               <li><a class="nav-link scrollto" href="#portfolio">Gallery</a></li>
               <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
               <li><a class="nav-link scrollto" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
@@ -343,7 +343,7 @@
 
 
     <!-- ======= Contact Section ======= -->
-    <section  class="section-bg">
+    <section  class="section-bg" id="contact">
         <div class="section-header" data-aos="fade-up">
           <h3 class="mt-5">Contact Us</h3>
         </div>
@@ -396,10 +396,19 @@
               </form>
               </div>
   
-  
+              <!-- map box-->
+              <div class="contact map" style=" background: #0e3959;">
+                <h3 class="mt-2 p-4" style="color: #fff;"><ion-icon name="newspaper-outline"></ion-icon>&nbsp; News and Events</h3><hr>
+                <div class="news">
+                  {% for news in newss%}
+                    <div><span>{{news.newstitle}}</span></div>
+                  {% endfor %}
+                </div>
+              </div>
   
               <!-- info box-->
               <div class="contact info">
+                 
                   <h3>Contact Info</h3>
                   <div class="infoBox">
                       <div>
@@ -425,12 +434,7 @@
                       
                   </div>
               </div>
-  
-               <!-- map box-->
-              <div class="contact map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-              
+      
           </div>
         </div>
     </section><!-- End Contact Section -->
@@ -468,8 +472,8 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo1"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ; width:100px; height:100px;"></a>
-            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
+            <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
+            <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -477,7 +481,7 @@
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">BlackBelt Holders</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">BlackBelt MEMBERS</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Afiliation</a></li>
@@ -491,7 +495,7 @@
               Kerala, South<br>
               India <br>
               <strong>Phone:</strong> +91 9676 5672 34<br>
-              <strong>Email:</strong> jkmoshotokan@gmail.com<br>
+              <strong>Email:</strong> jsaindia@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -504,10 +508,10 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            <h4>Our location</h4>
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
           </div>
 
         </div>
@@ -516,7 +520,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright © 2022  <strong>SHOTOKAN KARATE JKMO INDIA | Powered by SHOTOKAN KARATE JKMO INDIA</strong>. All Rights Reserved
+        &copy; Copyright © 2022  <strong>JAPAN SHOTOKAN ASSOCIATION JSA INDIA | Powered by JAPAN SHOTOKAN ASSOCIATION JSA INDIA</strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--

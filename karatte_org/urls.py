@@ -12,6 +12,7 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('sending_mail',views.sending_mail,name='sending_mail'),
                path('load_affiliation_page',views.load_affiliation_page,name='load_affiliation_page'),
                path('loadbackbelt_page',views.loadbackbelt_page,name='loadbackbelt_page'),
+               path('load_member',views.load_member,name='load_member'),
                path('sort_img',views.sort_img,name='sort_img'),
                path('moreimgs',views.moreimgs,name='moreimgs'),
                path('load_carousel',views.load_carousel,name='load_carousel'),
@@ -19,8 +20,13 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('load_updatecarosel/<int:upcarslid>',views.load_updatecarosel,name='load_updatecarosel'),
                path('update_carousel/<int:carslid>',views.update_carousel,name='update_carousel'),
                path('deletecarouselimg/<int:carid_id>',views.deletecarouselimg,name='deletecarouselimg'),
-               
-            
+               path('load_associate',views.load_associate,name='load_associate'), 
+               path('add_news',views.add_news,name='add_news'),
+               path('add_assosiate',views.add_assosiate,name='add_assosiate'),
+               path('load_register',views.load_register,name='load_register'),
+
+
+
                path('adminlogin',views.adminlogin,name='adminlogin'),
                path('changepassword',views.changepassword,name='changepassword'),
 

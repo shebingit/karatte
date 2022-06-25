@@ -14,4 +14,6 @@ admin.site.register(images)
 admin.site.register(blackbelt_holders)
 admin.site.register(affiliation)
 admin.site.register(carousel)
+admin.site.register(members)
+admin.site.register(news)
 

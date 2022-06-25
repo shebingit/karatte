@@ -58,4 +58,18 @@ class blackbelt_holders(models.Model):
     def __str__(self):
         return self.bth_name
 
+class news(models.Model):
+    newstitle=models.CharField(max_length=150)
+   
+
+
+class members(models.Model):
+    mname=models.CharField(max_length=20)
+    mdesig=models.CharField(max_length=20)
+    mposition=models.CharField(max_length=20)
+    asso_image=models.ImageField(upload_to="image/blackbeltholder", null=True)
+
+    def __str__(self):
+        return self.mname
+
 
