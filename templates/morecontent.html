@@ -90,20 +90,17 @@
     <div class="container">
       <hr>
       <div class="row">
-      
+      {% for i in more %}
         <div class="col-12 col-md-4 col-lg-3">
           <div class="card m-4">
             <img  class="card-img-top" src="{{ i.more_img.url }}" style="height:135px;" alt="Card image cap">
-            
             <div class="card-body">
               <p class="card-text">{{ i.more_cont }}</p>
-              <a href="#"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2"style="width:50%;"><ion-icon name="trash-outline"></ion-icon></a>
-              
-            
+              <a href="{% url 'morecontdelete' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2"style="width:50%;"><ion-icon name="trash-outline"></ion-icon></a>
             </div>
           </div>      
         </div>
-
+      {% endfor %}
       </div>
     </div>
    </form>

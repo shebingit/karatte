@@ -49,8 +49,9 @@ def loadmorecont(request,morec_id):
     more=moreconts.objects.filter(con_id=morec_id)
     return render(request,'morecontent.html',{'more':more,'con_id':con_id})
 
-def aboutmore(request):
-    return render(request,'morecontetuser.html')
+def aboutmore(request,abm_id):
+    abtmore=moreconts.objects.filter(con_id=abm_id)
+    return render(request,'morecontetuser.html',{'abtmore':abtmore})
 
 # carosel-----
 
@@ -194,8 +195,8 @@ def add_morecontent(request,admore_id):
      if request.method=='POST':
         cont=request.POST['moreconts']
         contimage=request.FILES.get('mcontimg')
-        
-        moreconts.objects.create(
+        c_id=contents.objects.get(id=admore_id)
+        moreconts.objects.create(con_id=c_id,
                 more_cont=cont,more_img=contimage
                 )
         return redirect('loadadd_content')
@@ -291,9 +292,8 @@ def load_home_page(request):
     a=carousel.objects.all()[1:]
     firstca=carousel.objects.first()
     newss=news.objects.all()
-    con1=contents.objects.first()
-    con2=contents.objects.all()[1:2]
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1,'con2':con2})
+    con1=contents.objects.all()
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1})
 
 @csrf_exempt
 def sort_img(request):

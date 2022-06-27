@@ -13,70 +13,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='carousel',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('carimage', models.ImageField(null=True, upload_to='carouselimages/')),
-                ('title', models.CharField(max_length=150)),
-                ('subtitle', models.CharField(max_length=150)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='contents',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('con_title', models.CharField(max_length=25)),
-                ('con_content', models.TextField()),
-                ('cont_img', models.ImageField(upload_to='image/blackbeltholder')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='pdfimg',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('more_img', models.ImageField(upload_to='image/blackbeltholder')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='register_members',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('register_id', models.CharField(max_length=25)),
-                ('reg_name', models.CharField(max_length=25)),
-                ('reg_gender', models.CharField(max_length=10)),
-                ('reg_bloodg', models.CharField(max_length=10)),
-                ('reg_dob', models.CharField(max_length=20)),
-                ('reg_national', models.CharField(max_length=15)),
-                ('reg_occup', models.CharField(max_length=20)),
-                ('reg_qualific', models.CharField(max_length=20)),
-                ('reg_phon', models.CharField(max_length=15)),
-                ('reg_email', models.EmailField(max_length=254)),
-                ('reg_doj', models.CharField(max_length=20)),
-                ('reg_pgname', models.CharField(max_length=20)),
-                ('reg_pgoccu', models.CharField(max_length=20)),
-                ('reg_address', models.CharField(max_length=50)),
-                ('reg_reson', models.CharField(max_length=50)),
-                ('reg_exp', models.CharField(max_length=5)),
-                ('reg_op', models.CharField(max_length=5)),
-                ('reg_img', models.ImageField(upload_to='image/blackbeltholder')),
-            ],
-        ),
-        migrations.RemoveField(
-            model_name='videos',
-            name='videos',
-        ),
-        migrations.AddField(
-            model_name='affiliation',
-            name='affiliation_img',
-            field=models.ImageField(null=True, upload_to='file'),
-        ),
-        migrations.AddField(
-            model_name='videos',
-            name='video',
-            field=embed_video.fields.EmbedVideoField(default=django.utils.timezone.now),
-            preserve_default=False,
-        ),
+        
         migrations.CreateModel(
             name='moreconts',
             fields=[

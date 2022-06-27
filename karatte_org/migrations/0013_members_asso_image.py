@@ -15,4 +15,13 @@ class Migration(migrations.Migration):
             name='asso_image',
             field=models.ImageField(null=True, upload_to='image/blackbeltholder'),
         ),
+        migrations.CreateModel(
+            name='contents',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('con_title', models.CharField(max_length=25)),
+                ('con_content', models.TextField()),
+                ('cont_img', models.ImageField(upload_to='image/blackbeltholder')),
+            ],
+        ),
     ]

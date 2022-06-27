@@ -63,7 +63,7 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('uploadfile',views.uploadfile,name='uploadfile'),
                path('loadadd_content',views.loadadd_content,name='loadadd_content'),
                path('loadmorecont/<int:morec_id>',views.loadmorecont,name='loadmorecont'),
-               path('aboutmore',views.aboutmore,name='aboutmore'),
+               path('aboutmore/<int:abm_id>',views.aboutmore,name='aboutmore'),
 
                path('logout',views.logout,name='logout'),  
 
