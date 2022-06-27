@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from operator import truediv
 from tkinter import CASCADE
 from django.db import models
@@ -71,5 +72,47 @@ class members(models.Model):
 
     def __str__(self):
         return self.mname
+
+class register_members(models.Model):
+    register_id=models.CharField(max_length=25)
+    reg_name=models.CharField(max_length=25)
+    reg_gender=models.CharField(max_length=10)
+    reg_bloodg=models.CharField(max_length=10)
+    reg_dob=models.CharField(max_length=20)
+    reg_national=models.CharField(max_length=15)
+    reg_occup=models.CharField(max_length=20)
+    reg_qualific=models.CharField(max_length=20)
+    reg_phon=models.CharField(max_length=15)
+    reg_email=models.EmailField()
+    reg_doj=models.CharField(max_length=20)
+    reg_pgname=models.CharField(max_length=20)
+    reg_pgoccu=models.CharField(max_length=20)
+    reg_address=models.CharField(max_length=50)
+    reg_reson=models.CharField(max_length=50)
+    reg_exp=models.CharField(max_length=5)
+    reg_op=models.CharField(max_length=5)
+    reg_img=models.ImageField(upload_to="image/blackbeltholder")
+    
+    def save(self,*args,**kwargs):
+        if self.register_id is None:
+            self.register_id=str('JSA'+ str(self.id)+'/KK/INDIA')
+        return super(register_members, self).save(*args,**kwargs)
+
+class contents(models.Model):
+    con_title=models.CharField(max_length=25)
+    con_content=models.TextField()
+    cont_img=models.ImageField(upload_to="image/blackbeltholder")
+    def __str__(self):
+        return self.con_title
+
+
+class moreconts(models.Model):
+    con_id=models.ForeignKey(contents,related_name='cont',on_delete=models.CASCADE,null=True,blank=True)
+    more_cont=models.TextField()
+    more_img=models.ImageField(upload_to="image/blackbeltholder")
+
+class  pdfimg(models.Model):
+    more_img=models.ImageField(upload_to="image/blackbeltholder")
+
 
 

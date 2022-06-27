@@ -40,6 +40,18 @@ def load_affiliation(request):
     affili=affiliation.objects.get(id=2)
     return render(request,'affiliation_add.html',{'affili':affili})
 
+def loadpdfimgs(request):
+    pdfimgs=pdfimg.objects.all()
+    return render(request,'pdfimg.html',{'pdfimgs':pdfimgs})
+
+def loadmorecont(request,morec_id):
+    con_id=contents.objects.get(id=morec_id)
+    more=moreconts.objects.filter(con_id=morec_id)
+    return render(request,'morecontent.html',{'more':more,'con_id':con_id})
+
+def aboutmore(request):
+    return render(request,'morecontetuser.html')
+
 # carosel-----
 
 def load_carousel(request):
@@ -49,6 +61,10 @@ def load_carousel(request):
 def load_updatecarosel(request,upcarslid):
     carsl=carousel.objects.get(id=upcarslid)
     return render(request,'carsouelupdate.html',{'carsl':carsl})
+
+def load_assoupdate(request,assoup_id):
+    asso=members.objects.get(id=assoup_id)
+    return render(request,'associateupdate.html',{'asso':asso})
 
 def add_carousel_images(request):
     if request.method=='POST':
@@ -158,11 +174,45 @@ def load_addimages(request):
 def load_associate(request):
     return render(request,'addmember.html')
 
+def loadadd_content(request):
+    a=contents.objects.all()
+    return render(request,'content.html',{'al':a})
+
+ 
+def add_content(request):
+     if request.method=='POST':
+        title=request.POST['conttitle']
+        cont=request.POST['conts']
+        contimage=request.FILES.get('contimg')
+        
+        contents.objects.create(
+                con_title=title,con_content=cont,cont_img=contimage
+                )
+        return redirect('loadadd_content')
+
+def add_morecontent(request,admore_id):
+     if request.method=='POST':
+        cont=request.POST['moreconts']
+        contimage=request.FILES.get('mcontimg')
+        
+        moreconts.objects.create(
+                more_cont=cont,more_img=contimage
+                )
+        return redirect('loadadd_content')
+    
+def morecontdelete(request,mcd_id):
+    morecont=moreconts.objects.get(id=mcd_id)
+    morecont.delete()
+    return redirect('loadadd_content')
+
+
 def load_member(request):
-    return render(request,'show_member.html')
+    reg_member=register_members.objects.all()
+    return render(request,'show_member.html',{'reg_member':reg_member})
 
 def load_register(request):
     return render(request,'registration.html')
+
 # admin folder create
  
 def create_folder(request):
@@ -182,6 +232,11 @@ def deletefolder(request,fldd_id):
     folderdelete=imagefolder.objects.get(id=fldd_id)
     folderdelete.delete()
     return redirect(load_folder_create)
+
+def news_delete(request,news_id):
+    newsd=news.objects.get(id=news_id)
+    newsd.delete()
+    return redirect('load_admin_home')
 
 
 
@@ -206,12 +261,25 @@ def add_images_folder(request):
 
 #admin delete single image
 
+
+def uploadpdfimgs(request):
+     if request.method=='POST':
+        image=request.FILES.getlist('pdfimg')
+        for imag in image:
+            pdfimg.objects.create(
+                more_img=imag)
+        return redirect('load_admin_home')
+
+
 def deleteimg(request,img_id):
     image=images.objects.get(id=img_id)
     image.delete()
     return redirect('load_folder_create')
 
-
+def deletecontent(request,dcontent_id):
+    cont=contents.objects.get(id=dcontent_id)
+    cont.delete()
+    return redirect('loadadd_content')
 
 # load home page
 
@@ -223,7 +291,9 @@ def load_home_page(request):
     a=carousel.objects.all()[1:]
     firstca=carousel.objects.first()
     newss=news.objects.all()
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss})
+    con1=contents.objects.first()
+    con2=contents.objects.all()[1:2]
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1,'con2':con2})
 
 @csrf_exempt
 def sort_img(request):
@@ -295,6 +365,67 @@ def add_assosiate(request):
     else:
         return JsonResponse('load_addmember')
 
+@csrf_exempt
+def register_member(request):
+    if request.method=="POST":
+        rg_name=request.POST['rname']
+        rg_gender=request.POST['rg']
+        rg_bloodg=request.POST['rbg']
+        rg_dob=request.POST['rdb']
+        rg_national=request.POST['rn']
+        rg_occup=request.POST['ro']
+        rg_qualific=request.POST['rq']
+        rg_phon=request.POST['phno']
+        rg_email=request.POST['mail']
+        rg_doj=request.POST['rdj']
+        rg_pgname=request.POST['pg']
+        rg_pgoccu=request.POST['po']
+        rg_address=request.POST['pa']
+        rg_reson=request.POST['reson']
+        rg_exp=request.POST['exp']
+        rg_op=request.POST['ho']
+        rg_img=request.FILES.get('imgs')
+
+
+    #saving data
+        register=register_members(reg_name=rg_name,
+                         reg_gender=rg_gender,
+                         reg_bloodg=rg_bloodg,
+                         reg_dob=rg_dob,
+                         reg_national=rg_national,
+                         reg_occup=rg_occup,
+                         reg_qualific=rg_qualific,
+                         reg_phon=rg_phon,
+                         reg_email=rg_email,
+                         reg_doj=rg_doj,
+                         reg_pgname=rg_pgname,
+                         reg_pgoccu=rg_pgoccu,
+                         reg_address=rg_address,
+                         reg_reson=rg_reson,
+                         reg_exp=rg_exp,
+                         reg_op=rg_op,
+                         reg_img=rg_img)
+
+        register.save()
+        reg=register_members.objects.get(id=register.id)
+        reg.register_id=str('JSA'+ str(reg.id)+'/KK/INDIA')
+        reg.save()
+
+        return redirect('load_home_page')
+    else:
+        return JsonResponse('load_home_page')
+                    
+
+def load_allmembers(request):
+    allm=register_members.objects.all()
+    return render(request,'showall.html',{'allm':allm})
+   
+
+def reg_meberdelete(request,regdlid):
+    reg=register_members.objects.get(id=regdlid)
+    reg.delete()
+    return redirect('load_member')
+    
 
 @csrf_exempt
 def add_news(request):
@@ -328,7 +459,21 @@ def bthupdate(request,bthud_id):
         bth.save()
         return redirect('load_blackbelts')
     else:
-        return redirect('load_addmember')
+        return redirect('load_admin_home')
+
+
+def updateassociate(request,upaso_id):
+    if request.method=="POST":
+        asso=members.objects.get(id=upaso_id)
+        asso.mname=request.POST.get('name')
+        asso.mdesig=request.POST.get('desig')
+        asso.mposition=request.POST.get('position')
+        asso.asso_image=request.FILES.get('img')
+        asso.save()
+        return redirect('load_blackbelts')
+    else:
+        return redirect('load_admin_home')
+
 
 
 

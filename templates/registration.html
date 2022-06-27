@@ -33,7 +33,8 @@
         <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;">
         <header>Registration </header>
 
-        <form action="#" enctype="multipart/form-data">
+        <form action="{% url 'register_member' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
             <div class="form first">
                 <div class="details personal">
 
@@ -52,7 +53,11 @@
                         </div>
                         <div class="input-field">
                             <label>Gender</label>
-                            <input type="text" name="rg" placeholder="Enter your gender" required>
+                            <select name="rg">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         <div class="input-field">
                             <label>Nationality</label>
@@ -68,7 +73,7 @@
                         </div>
                         <div class="input-field">
                             <label>Date of joing</label>
-                            <input type="date"name=""placeholder="Date of join" required>
+                            <input type="date"name="rdj"placeholder="Date of join" required>
                         </div>
                         <div class="input-field">
                             <label>Phone Number</label>
@@ -80,7 +85,7 @@
                         </div>
                         <div class="input-field">
                             <label>Name of Parent/Guardian</label>
-                            <input type="email"name="pg" placeholder="Enater Name of Parent/Guardian" required>
+                            <input type="text"name="pg" placeholder="Enater Name of Parent/Guardian" required>
                         </div>
                         <div class="input-field">
                             <label>Parent Occupation</label>
@@ -112,13 +117,13 @@
                         </div>
                         <div class="input-field">
                             <label>Chose an Image(.png or jpeg)</label>
-                            <input type="file" accept="image/png,image/jpeg" style="padding:8px;" id="file" name="file" onchange="previewImage();">
+                            <input type="file" accept="image/png,image/jpeg" style="padding:8px;" id="file" name="imgs" onchange="previewImage();">
                         </div>
                         <div  class="input-field">
                             <img id="preview" class="img-fluid" style="width:20vh;">
                         </div>
                        
-                        <button class="savebtn">Save</button>
+                        <button type="submit" class="savebtn">Save</button>
                         <button><a href="{% url 'load_home_page' %}" class="savebtn">Back</a></button>
                     
                     </div>

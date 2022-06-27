@@ -54,25 +54,23 @@
 
   <!--======hero =======-->
 
-  <section id="admin_hero">
+  
     <div class="container">
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" style="margin-top:17vh;">
       {% csrf_token %}
-      <h5>Add New Affilation :</h5>
-      <div class="row">
-        <div class="col-12 col-md-5 col-lg-3">
-          <input type="file" placeholder="Create file cover" name="imgfile" required><br>
-          <button type="submit" class="btn-primary"style="width:50%" formaction="{% url 'uploadfile' %}">New Cover Image</button> <br><br>
-        </div>
-        <div class="col-12 col-md-5 col-lg-3">
-          <input type="file" placeholder="Create file name" name="file"style="width:100%" required><br>
-          <button type="submit" class="btn-primary"style="width:50%" formaction="{% url 'uploadfile' %}">Upload</button> 
-        </div>
+      <h5 >Add New Affilation :</h5>
+      <div class="input-group">
+        <input type="file" class="form-control" name="imgfile" accept="file/*" required >&nbsp;&nbsp;
+        <button class="btn btn-outline-secondary mt-1" type="submit" id="upload" formaction="{% url 'uploadfile' %}" style="height:44px;">New Cover Image</button><br><br>
+      </div><br>
+      <div class="input-group">
+        <input type="file" class="form-control" name="file" accept="file/*" required>&nbsp;&nbsp;
+        <button class="btn btn-outline-secondary mt-1" type="submit" id="upload" formaction="{% url 'uploadfile' %}" style="height:44px;" >Upload</button><br><br>
       </div>
 
     </form>
     </div>
-  </section>
+
   <hr>
   <section id="hero1">
     <div class="hero-container" >
@@ -87,6 +85,20 @@
        
     </div> 
   </section><!-- End Hero Section -->
+  <hr>
+    <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h5>PDF Image Upload:</h5>
+      <div class="input-group">
+        <input type="file" class="form-control" multiple name="pdfimg" accept="image/blackbeltholders" >&nbsp;&nbsp;
+        <button class="btn btn-outline-secondary"  type="submit" id="upload" formaction="{% url 'uploadpdfimgs' %}">Save</button><br><br>
+      </div>
+
+    </form>
+    </div>
+  <br><br><br>
+
  <!-- Template Main JS File -->
  <script src="{% static 'js/main.js' %}"></script>
  

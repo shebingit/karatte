@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KARATTE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <section id="admin_hero">
+  </section>
+
+  <section>
+    <div class="container">
+
+        <table class="table caption-top">
+            <caption><a href="{% url 'load_member' %}" class="btn btn-primary">Back</a></caption>
+            <thead>
+              <tr style="font-size: 13px;">           
+                <th scope="col">Full Name</th>
+                <th scope="col">Date of brith</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Nationality</th>
+                <th scope="col">Name of Parent/Guardian</th>
+                <th scope="col">Parent Occupation</th>
+                <th scope="col">Reason for joining & Learning</th>
+                <th scope="col">Any Operation</th>
+                <th scope="col">Martial Arts Experience</th>
+
+              </tr>
+            </thead>
+            <tbody style="font-size: 13px;">
+            {% for all in allm %}
+              <tr class="mt-3">
+
+                <td>{{all.reg_name}}</td>
+                <td>{{all.reg_dob}}</td>
+                <td>{{all.reg_bloodg}}</td>
+                <td>{{all.reg_national}}</td>
+                <td>{{all.reg_pgname}}</td>
+                <td>{{all.reg_pgoccu}}</td>
+                <td>{{all.reg_reson}}</td>
+                <td>{{all.reg_op}}</td>
+                <td>{{all.reg_exp}}</td>
+
+                
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
+    </div>
+    
+  </section>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

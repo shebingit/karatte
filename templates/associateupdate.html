@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KARATTE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="{% static 'img/ki.png' %}" rel="icon">
+  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  
+
+  <style>
+   
+    .container{
+        border-radius: 10px;
+        margin-bottom: 5vh
+    }
+    .container input{
+        width:50%;
+        font-size: 14px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+    .container button{
+        width: 50%;
+        opacity: 0.5px;
+        height: 50px;
+        border:none;
+        border-radius: 9px;
+        
+    }
+    @media(max-width:921px){
+        .container input{
+            width:100%;
+            font-size: 14px;
+            height: 45px;
+            margin-bottom: 10px;
+        } 
+        .container button{
+            width: 100%;
+            opacity: 0.5px;
+            height: 50px;
+            border:none;
+            border-radius: 9px;
+    }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+            <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!--======hero =======-->
+
+  <section id="admin_hero">
+</section>
+
+<br><br>
+<form action="{% url 'updateassociate' asso.id %}"method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row m-2">
+            <div class="col-12 col-md-4 col-lg-6 mt-3">
+                <div class="card mt-3" style="width: 15rem; height: 18rem;">
+                    <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
+                    <div class="card-body">
+                        <h6 class="card-title">Name: {{ asso.mname}}</h6>
+                        <p class="card-text"> Designation: {{ asso.mdesig }}</p>
+                        <p class="card-text">Position: {{ asso.mposition }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+        <div class="container">
+            <form  action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="row pt-2">
+                <h2>Update Here..</h2>
+            </div>
+            <div class="row  pt-1">
+                <div class="col  m-3 pt-1">
+                    <input type="text" name="name" class="form-control" placeholder="Name of Black Belt Holder" required value="{{ asso.mname}}">
+                </div>
+            </div> 
+             
+            <div class="row  pt-1">
+                <div class="col  m-3 pt-1">
+                    <input type="text" class="form-control" name="desig" placeholder="Designation of Black Belt Holder" required value="{{ asso.mdesig }}">
+                </div>
+            </div> 
+            <div class="row pt-1">
+                <div class="col m-3 pt-1">
+                    <input type="text" class="form-control" name="position" placeholder="Regiser id of Black Belt Holder" required value="{{ asso.mposition }}">
+                </div>
+            </div>
+            <div class="row pt-1">
+                <div class="col m-3 pt-1">
+                    <input type="file"class="form-control" name="img" accept="image/blackbeltholders" required value="{{ asso.asso_image.url }}">
+                </div>
+            </div> 
+            
+            <br>
+            <div class="row pt-1" style="height:60px;">
+                <div class="col pt-1">
+                    <button type="submit" class="btn-primary form-control" >Update Member</button> 
+                </div>
+            </div>   
+            </form> 
+        </div>
+        </div>
+    </div>
+</form>
+<script src="{% static 'js/main.js' %}"></script> 
+</body>
+</html>

@@ -16,4 +16,7 @@ admin.site.register(affiliation)
 admin.site.register(carousel)
 admin.site.register(members)
 admin.site.register(news)
-
+admin.site.register(register_members)
+admin.site.register(pdfimg)
+admin.site.register(contents)
+admin.site.register(moreconts)

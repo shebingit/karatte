@@ -68,18 +68,18 @@
   <section id="member_card">
     <div class="container ">
         <div class="row">
-          {% for bth in associate  %}
+          {% for asso in associate  %}
             <div class="col-12 col-md-4 col-lg-3">
               <div class="card" style="margin:15px 10px;">
-                {% if bth.asso_image %}
-                  <img src="{{ bth.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh; ">
+                {% if asso.asso_image %}
+                  <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh; ">
                 {% endif %}
                 <div class="card-body">
-                  <h6 class="card-title">Name: {{ bth.mname}}</h6><br>
-                  <p class="card-text">Designation: {{bth.mdesig}}</p>
-                  <p class="card-text">Position: {{bth.mposition}}</p>
-                  <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-success">Update</a>
-                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
+                  <h6 class="card-title">Name: {{ asso.mname}}</h6><br>
+                  <p class="card-text">Designation: {{asso.mdesig}}</p>
+                  <p class="card-text">Position: {{asso.mposition}}</p>
+                  <a href="{% url 'load_assoupdate' asso.id %}" class="btn btn-success">Update</a>
+                  <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
                 </div>
               </div>
             </div>
