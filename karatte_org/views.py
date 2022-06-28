@@ -50,8 +50,9 @@ def loadmorecont(request,morec_id):
     return render(request,'morecontent.html',{'more':more,'con_id':con_id})
 
 def aboutmore(request,abm_id):
+    con_id=contents.objects.get(id=abm_id)
     abtmore=moreconts.objects.filter(con_id=abm_id)
-    return render(request,'morecontetuser.html',{'abtmore':abtmore})
+    return render(request,'morecontetuser.html',{'abtmore':abtmore,'con_id':con_id})
 
 # carosel-----
 
@@ -279,6 +280,8 @@ def deleteimg(request,img_id):
 
 def deletecontent(request,dcontent_id):
     cont=contents.objects.get(id=dcontent_id)
+    morecon=moreconts.objects.filter(con_id=dcontent_id)
+    morecon.delete()
     cont.delete()
     return redirect('loadadd_content')
 
