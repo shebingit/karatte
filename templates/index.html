@@ -105,17 +105,18 @@
           <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
           <!-- Uncomment below if you prefer to use an image logo -->
           <a href="#" class="logo1" >
-            <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh;">
+            <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh; margin-top:5px;margin-bottom:5px;border-radius:50%;">
           </a>
 
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto active " href="{% url 'load_home_page' %}">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">About us</a></li>
-              <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">BlackBelt  MEMBERS</a></li>
+              <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
               <li><a class="nav-link scrollto" href="#portfolio">Gallery</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
               <li><a class="nav-link scrollto" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
+              <li><a class="nav-link scrollto" href="#contact">Contact us</a></li>
+              
 
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -140,7 +141,7 @@
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">{{ firstca.title }}</h2>
                 <p class="animate__animated animate__fadeInUp">{{ firstca.subtitle }}</p>
-                <a href="#" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
           </div>
@@ -181,11 +182,27 @@
 
         <header class="section-header">
           <h3>About Us</h3>
-          <p>KMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</p>
+          <p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</p>
         </header>
 
         <div class="row about-cols">
-          
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="about-col">
+              <div class="img">
+                <img src="{% static 'img/founder.jpg' %}" alt="" class="img-fluid" style="height:235px;width:100%; object-fit:fill;">
+                <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+              </div>
+              <h2 class="title">Karate</h2>
+              <div class="about-col">
+              <p style="height:400px;"> <img src="https://www.animatedimages.org/data/media/1297/animated-karate-image-0033.gif" border="0" alt="animated-karate-image-0033" style="width:150px;"/>
+                When looking at the history of shotokan karate, we have early records with the Egyptians from about 3000BC!
+
+shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di (221-206 BC), was buried with more than 7,000 life-size terracotta figures, which included horses and soldiers to guard him in the afterlife.
+              </p>
+              <a href="{% url 'history' %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">About More</a>
+            </div>
+            </div>
+          </div> 
         
         {% for con in con1 %}
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
@@ -195,7 +212,7 @@
                 <div class="icon"><i class="bi bi-calendar4-week"></i></div>
               </div>
               <h2 class="title"><a href="#">{{con.con_title}}</a></h2>
-              <p style="height:300px ;">
+              <p style="height:400px ;">
                 {{con.con_content}}
               </p>
               <a href="{% url 'aboutmore' con.id %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">About More</a>
@@ -450,7 +467,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
+            <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;border-radius:50%;"></a>
             <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
           </div>
 
@@ -459,9 +476,9 @@
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">BlackBelt MEMBERS</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Members</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact Us</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Afiliation</a></li>
             </ul>
           </div>

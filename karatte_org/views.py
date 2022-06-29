@@ -54,6 +54,10 @@ def aboutmore(request,abm_id):
     abtmore=moreconts.objects.filter(con_id=abm_id)
     return render(request,'morecontetuser.html',{'abtmore':abtmore,'con_id':con_id})
 
+
+def history(request):
+    return render(request,'history.html')
+
 # carosel-----
 
 def load_carousel(request):
@@ -295,7 +299,7 @@ def load_home_page(request):
     a=carousel.objects.all()[1:]
     firstca=carousel.objects.first()
     newss=news.objects.all()
-    con1=contents.objects.all()
+    con1=contents.objects.all().order_by('id')[:2]
     return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1})
 
 @csrf_exempt
@@ -492,7 +496,8 @@ def bthdelete(request,bthd_id):
 
 def loadbackbelt_page(request):
     bths=blackbelt_holders.objects.all()
-    return render(request,'blackbeltuser.html',{'bths':bths})
+    asso=members.objects.all()
+    return render(request,'blackbeltuser.html',{'bths':bths,'asso':asso})
     
 
 #sending mail

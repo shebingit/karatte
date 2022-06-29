@@ -49,7 +49,16 @@
                         </div>
                         <div class="input-field">
                             <label>Blood Group</label>
-                            <input type="text" name="rbg" placeholder="Enter blood group" required>
+                            <select name="exp"  name="rbg">
+                                <option value="A+">A+</option>
+                                <option value="B+">B+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
                         </div>
                         <div class="input-field">
                             <label>Gender</label>
@@ -93,7 +102,7 @@
                         </div>
                         <div class="input-field">
                             <label>Permanent Address</label>
-                            <textarea name="pa" placeholder="" required></textarea>
+                            <textarea name="pa" placeholder="" required row="5"></textarea>
                         </div>
                         <div class="input-field">
                             <label>Reason for joining & Learning</label>
@@ -123,8 +132,8 @@
                             <img id="preview" class="img-fluid" style="width:20vh;">
                         </div>
                        
-                        <button type="submit" class="savebtn">Save</button>
-                        <button><a href="{% url 'load_home_page' %}" class="savebtn">Back</a></button>
+                        <button type="submit" class="savebtn">Submit</button>
+                        <button><a href="{% url 'load_home_page' %}" class="savebtn">Cancel</a></button>
                     
                     </div>
                 </div>

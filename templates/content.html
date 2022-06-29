@@ -81,14 +81,29 @@
           <textarea placeholder="Content" name="conts" required></textarea> 
         </div>
         <div  class="col-12 col-md-4 col-lg-3">
-          <input type="file"   accept="carouselimages/"  name="contimg" required>
+          <input type="file"   accept="carouselimages/" id="file" name="contimg" required onchange="previewImagesize();">
+          <div class="col-12 col-md-4 col-lg-3"id="preview" style="font-size:12px ;"></div>
+          
         </div>
+        
         <div class="col-12 col-md-4 col-lg-3 pt-1">
           <button type="submit" class=" btn btn-primary" formaction="{% url 'add_content' %}">Add</button>
         </div>
       </div>
     </div>
 
+    <script>
+      function previewImagesize(){
+          var file=document.getElementById("file");
+          var w=file.clientWidth;
+          var h=file.clientHeight;
+          var result=(w +' X '+ h + ' px') ;
+            console.log(w);
+            console.log(h);
+            console.log(result) 
+            document.getElementById("preview").innerHTML = result;          
+      }
+  </script>
 
     <div class="container">
       <hr>
@@ -113,6 +128,7 @@
       </div>
     </div>
    </form>
+   
 
   </section>
   
