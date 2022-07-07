@@ -54,6 +54,10 @@ def aboutmore(request,abm_id):
     abtmore=moreconts.objects.filter(con_id=abm_id)
     return render(request,'morecontetuser.html',{'abtmore':abtmore,'con_id':con_id})
 
+def load_syllabus(request):
+    pdfimgs=pdfimg.objects.all()
+    return render(request,'syllabus.html',{'pdfimgs':pdfimgs})
+
 
 def history(request):
     return render(request,'history.html')
@@ -244,6 +248,12 @@ def news_delete(request,news_id):
     newsd.delete()
     return redirect('load_admin_home')
 
+def delete_syllabus(request,sydid):
+    sylb=pdfimg.objects.get(id=sydid)
+    sylb.delete()
+    pdfimgs=pdfimg.objects.all()
+    return render(request,'syllabus.html',{'pdfimgs':pdfimgs})
+
 
 
 def load_images(request,folimg_id):
@@ -300,6 +310,7 @@ def load_home_page(request):
     firstca=carousel.objects.first()
     newss=news.objects.all()
     con1=contents.objects.all().order_by('id')[:2]
+    message="Successfully Registered."
     return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1})
 
 @csrf_exempt
@@ -417,15 +428,15 @@ def register_member(request):
         reg=register_members.objects.get(id=register.id)
         reg.register_id=str('JSA'+ str(reg.id)+'/KK/INDIA')
         reg.save()
-
-        return redirect('load_home_page')
+        message="Successfully Registered."
+        return render(request,'registration.html',{'message':message})
     else:
         return JsonResponse('load_home_page')
                     
 
-def load_allmembers(request):
-    allm=register_members.objects.all()
-    return render(request,'showall.html',{'allm':allm})
+def load_member_details(request,mdid):
+    allmd=register_members.objects.get(id=mdid)
+    return render(request,'reg_member_view.html',{'allmd':allmd})
    
 
 def reg_meberdelete(request,regdlid):

@@ -170,13 +170,13 @@ body {
     display:block;
 }
 .news div:first-child{
-    animation: slide 3s linear infinite;
+    animation: slide 10s linear infinite;
 }
 @keyframes slide{
     0%{margin-top: 150px}
     50%{margin-top:-450px}
-    70%{margin-top:-750px}
-    99.99%{margin-top:-1000px}
+    79%{margin-top:-750px}
+    90%{margin-top:-1000px}
     100%{margin-top:-1350px;}
 }
 /* for desktop */

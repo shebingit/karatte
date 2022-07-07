@@ -41,7 +41,7 @@
     }
     .card{
         box-shadow:0px 0px 0px 0px;
-        margin-left:55px;
+       
         margin-right:5px;
         margin-top: 7px;
         margin-bottom: 15px;;
@@ -65,7 +65,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body  style="background: #f0f0f0;">
 
  <!-- ======= Header ======= -->
  <header id="header" class="fixed-top d-flex align-items-center ">
@@ -76,7 +76,7 @@
           <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
           <!-- Uncomment below if you prefer to use an image logo -->
           <a href="#" class="logo1" >
-            <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh; margin-top:5px;margin-bottom:5px;border-radius:50%;">
+            <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh; margin-top:5px;">
           </a>
           <nav id="navbar" class="navbar">
             <ul>
@@ -95,20 +95,20 @@
 
   <!--======hero =======-->
 
-  <section id="hero_user">
-    <div class="container" style="margin-top: 5vh;"><br>
-        <h3>ASSOIATE MEMBERS</h3>
-        <div class="row">
+  <section id="hero_user" style="margin-top: 5vh; background:#ffff;">
+    <div class="container" style="margin-top: 10vh;"><br>
+        <h3 >ASSOIATE MEMBERS</h3>
+        <div class="row" >
             {% for ass in asso  %}
               <div class="col-12 col-md-4 col-lg-3">
                 <div class="card">
                   {% if ass.asso_image %}
-                    <img src="{{ ass.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:10vh; margin:auto; height:10vh;border-radius:50%;  ">
+                    <img src="{{ ass.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:18vh; margin:auto; height:20vh;  ">
                   {% endif %}
-                  <div class="card-body">
-                    <h6 class="card-title">Name: {{ ass.mname}}</h6>
-                    <p class="card-text"> Designation: {{ass.mdesig}}</p>
-                    <p class="card-text">Position: {{ass.mposition}}</p>
+                  <div class="card-body " style="text-align:center;">
+                    <h5 class="card-title"> {{ ass.mname}}</h5>
+                    <p class="card-title">Designation: {{ass.mdesig}}</p>
+                    <p class="card-title">Position: {{ass.mposition}}</p>
                   </div>
                 </div>
               </div>
@@ -119,19 +119,19 @@
 
 
   <section id="hero_user">
-    <div class="container"><br>
-        <h3>BLACK  BELTS</h3>
+    <div class="container" ><br>
+        <h3 >BLACK  BELTS</h3>
         <div class="row">
             {% for bth in bths  %}
               <div class="col-12 col-md-4 col-lg-3">
                 <div class="card">
                   {% if bth.bth_image %}
-                    <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:10vh; margin:auto; height:10vh;border-radius:50%;  ">
+                    <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:18vh; margin:auto; height:20vh;  ">
                   {% endif %}
-                  <div class="card-body">
-                    <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
-                    <p class="card-text"> Register No: {{bth.bth_reg}}</p>
-                    <p class="card-text">Rank: {{bth.bth_desig}}</p>
+                  <div class="card-body"style="text-align:center;">
+                    <h6 class="card-title"> {{ bth.bth_name}}</h6>
+                    <p class="card-title">Register No: {{bth.bth_reg}}</p>
+                    <p class="card-title">Rank: {{bth.bth_desig}}</p>
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;border-radius:50%;"></a>
-            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
+            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -195,7 +195,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright © 2022  <strong>SHOTOKAN KARATE JKMO INDIA | Powered by SHOTOKAN KARATE JKMO INDIA</strong>. All Rights Reserved
+        &copy; Copyright © 2022  <strong>JSA INDIA </strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--

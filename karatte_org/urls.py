@@ -35,7 +35,9 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('changepassword',views.changepassword,name='changepassword'),
 
                path('login',views.login,name='login'),
-               path('load_allmembers',views.load_allmembers,name='load_allmembers'),
+               path('load_syllabus',views.load_syllabus,name='load_syllabus'),
+               path('load_member_details/<int:mdid>',views.load_member_details,name='load_member_details'),
+               path('delete_syllabus/<int:sydid>',views.delete_syllabus,name='delete_syllabus'),
                path('load_admin_home',views.load_admin_home,name='load_admin_home'),# admin load home page
                path('uploadvideo',views.uploadvideo,name='uploadvideo'),  
                path('load_folder_create',views.load_folder_create,name='load_folder_create'),

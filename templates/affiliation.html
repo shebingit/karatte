@@ -39,6 +39,7 @@
 
 <body>
 
+  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container-fluid">
@@ -50,23 +51,38 @@
           <a href="#" class="logo1" >
             <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh;">
           </a>
-
           <nav id="navbar" class="navbar">
             <ul>
-              <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}">Home</a></li>
-              <li><a class="nav-link scrollto active" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}" style="color: #000;">Home</a></li>
+              <li><a class="nav-link scrollto active" href="{% url 'load_affiliation_page' %}">AFFILIATION</a></li>
+              <li><a class="nav-link scrollto active" href="{% url 'load_register' %}">  REGISTER</a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i class="bi bi-list mobile-nav-toggle"style="color: #000;"></i>
           </nav><!-- .navbar -->
+          
         </div>
       </div>
-
+      
     </div>
   </header><!-- End Header -->
-<br>
+  
+<br><br><br>
 
-<section id="hero"><br>
+<section id="content">
+  <div class="affiliation_content">
+    <h1>Membership of Affiliation</h1>
+    <h5>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.
+      
+    </h5>
+    
+  </div>
+  
+</section>
+
+<section id="hero">
+  
   <h3 class="text-center" style="margin-top: 2vh;">Affiliation Form</h3>
+  
   <div class="hero-container">
     
     <div class="affiliation_form_img">
@@ -77,9 +93,7 @@
     <div class="btn btn-secondary mt-4">
       <a onclick='downloaD("/media/{{affili.affiliation_name }}","p1.pdf")' >Download</a> 
     </div>
-    <div class="btn btn-primary mt-4">
-      <a href="{% url 'load_register' %}" style="color: #fff;">Are you NeW ?  Register</a>
-    </div>
+    
    
     <!--<a href="{% url 'loadpdfimgs' %}">pdf</a>-->
   </div> 
@@ -87,13 +101,7 @@
 </section><!-- End Hero Section -->
 
 
-  <section id="content">
-    <div class="affiliation_content">
-      <h1>MemberShip of Affiliation</h1>
-      <h5>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</h5>
-    </div>
-  </section>
-
+  
 
   <footer id="footer">
     <div class="footer-top">
@@ -101,8 +109,8 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="border-radius:90% ; width:100px; height:100px;"></a>
-            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
+            <a href="index.html" class="logo"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;border-radius:50%;"></a>
+            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -150,7 +158,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright © 2022  <strong>SHOTOKAN KARATE JKMO INDIA | Powered by SHOTOKAN KARATE JKMO INDIA</strong>. All Rights Reserved
+        &copy; Copyright © 2022  <strong>JSA INDIA </strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--

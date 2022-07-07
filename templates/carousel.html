@@ -36,7 +36,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -44,13 +44,13 @@
           <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
           <h3 class="text-light" >Admin Dashboard</h3>
 
-          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+          <nav id="navbar" class="navbar" style="text-align: center;">
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
               <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i class="bi bi-list mobile-nav-toggle"style="color:#000;"></i>
           </nav><!-- .navbar -->
         </div>
       </div>
@@ -58,7 +58,7 @@
   </header><!-- End Header -->
 
   <!--======hero =======-->
-
+<br>
   <section id="admin_hero">
     <form  method="post" enctype="multipart/form-data">
     {% csrf_token %}

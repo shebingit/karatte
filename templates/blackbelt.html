@@ -31,7 +31,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -39,7 +39,7 @@
           <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
           <h3 >Admin Dashboard</h3>
 
-          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+          <nav id="navbar" class="navbar" style="text-align: center;">
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
@@ -53,7 +53,7 @@
   </header><!-- End Header -->
 
   <!--======hero =======-->
-
+<br>
   <section id="admin_hero">
     <div class="container">
       <h3>Associate Members</h3>
@@ -72,12 +72,12 @@
             <div class="col-12 col-md-4 col-lg-3">
               <div class="card" style="margin:15px 10px;">
                 {% if asso.asso_image %}
-                  <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh; ">
+                  <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
                 {% endif %}
-                <div class="card-body">
-                  <h6 class="card-title">Name: {{ asso.mname}}</h6><br>
-                  <p class="card-text">Designation: {{asso.mdesig}}</p>
-                  <p class="card-text">Position: {{asso.mposition}}</p>
+                <div class="card-body" style="text-align:center ;">
+                  <h6 class="card-title">Name: {{ asso.mname}}</h6>
+                  <p class="card-title">Designation: {{asso.mdesig}}</p>
+                  <p class="card-title">Position: {{asso.mposition}}</p>
                   <a href="{% url 'load_assoupdate' asso.id %}" class="btn btn-success">Update</a>
                   <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
                 </div>
@@ -106,12 +106,12 @@
             <div class="col-12 col-md-4 col-lg-3">
               <div class="card" style="margin:15px 10px;">
                 {% if bth.bth_image %}
-                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:13vh; ">
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
                 {% endif %}
-                <div class="card-body">
+                <div class="card-body"style="text-align:center ;">
                   <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
-                  <p class="card-text"> Register No: {{bth.bth_reg}}</p>
-                  <p class="card-text">Designation: {{bth.bth_desig}}</p>
+                  <p class="card-title"> Register No: {{bth.bth_reg}}</p>
+                  <p class="card-title">Designation: {{bth.bth_desig}}</p>
                   <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-success">Update</a>
                   <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
                 </div>

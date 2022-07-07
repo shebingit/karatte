@@ -37,7 +37,7 @@
     }
     h1{
       margin-top: 3rem;
-      font-size: 1rem;
+      font-size: 2rem;
       padding: 2rem;
       text-align: center;
     }
@@ -69,7 +69,7 @@
 <body>
 
  <!-- ======= Header ======= -->
- <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background: black;">
+ <header id="header" class="fixed-top d-flex align-items-center header-transparent">
   <div class="container-fluid">
 
     <div class="row justify-content-center align-items-center">
@@ -77,14 +77,14 @@
         <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#" class="logo1" >
-          <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh;">
+          <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:12vh;">
         </a>
 
         <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto active " href="{% url 'load_home_page' %}">Home</a></li>
           </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
+          <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
         </nav><!-- .navbar -->
       </div>
     </div>
@@ -94,14 +94,15 @@
 
 <section>
     <div class="container">
-      <h1>PDF Image</h1>
+      <h1>KATAS & TEACHNIQUES</h1>
       <div class="row">
       {% for i in pdfimgs %}
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-9 col-sm-10">
           <div class="thumbnail">
             <div class="img-container">
               {% if i.more_img %}
                <img src="{{i.more_img.url}}" alt="imges" class="imges">
+               <hr>
               {% endif %}
               <div class="overlay">
 
@@ -118,11 +119,12 @@
 <footer id="footer">
   <div class="footer-top">
     <div class="container">
+      <hr>
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-info">
           <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
-          <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
+          <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan)</p><br><br>
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links">
@@ -169,7 +171,7 @@
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright © 2022  <strong>JAPAN SHOTOKAN ASSOCIATION JSA INDIA | Powered by JAPAN SHOTOKAN ASSOCIATION JSA INDIA</strong>. All Rights Reserved
+      &copy; Copyright © 2022  <strong>JSA INDIA </strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!--
