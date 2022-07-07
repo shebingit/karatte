@@ -42,7 +42,7 @@
 <body>
 
  <!-- ======= Header ======= -->
- <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background: black;">
+ <header id="header" class="fixed-top d-flex align-items-center header-transparent">
   <div class="container-fluid">
 
     <div class="row justify-content-center align-items-center">
@@ -57,7 +57,7 @@
           <ul>
             <li><a class="nav-link scrollto active " href="{% url 'load_home_page' %}">Home</a></li>
           </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
+          <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
         </nav><!-- .navbar -->
       </div>
     </div>
@@ -65,21 +65,13 @@
   </div>
 </header><!-- End Header -->
 <div class="container" style="margin-top:18vh;">
-<div class="row">
-    <div class="col-2">
-        <a href="https://www.animatedimages.org/cat-karate-1297.htm"><img src="https://www.animatedimages.org/data/media/1297/animated-karate-image-0002.gif" border="0" alt="animated-karate-image-0002" /></a>
-    </div>
-  <div class="col-sm">
-    <h2 style="color: #000;">SHOTOKAN KARATE</h2>
-  </div>
-  
-</div>
+
 </div>
 
 <div class="container " style="margin-top:4vh;">
     <div class="row"><br>
       <div class="col-lg-7 col-sm-4 col-12">
-        <h3 style="color: #000;">What Is  Karate</h3>
+        <h3 style="color: #000;">History Of Karate</h3>
         <p style="color:rgba(0,0, 0, 1);">
             The art of Karate is a system of combat developed on the island of Okinawa.
             Karate may allow you to defeat an opponent by the use of striking and kicking.
@@ -121,7 +113,7 @@
             Western (non-Japanese) students may be interested to know that the Japan
             Karate Association emphasizes Karate's character-building aspects, in which
             respect for one's opponent (sportsmanship) is the cardinal principle.</p>
-            <h6>Why Learn Karate?</h6><p>
+            <h2>Why Learn Karate?</h2><p>
             Karate is a Healthy Choice
             Many people think of karate and they visualize dazzling high kicks and
             dropping into the splits ala Jean Claude Van Damm. Not everyone will be
@@ -153,6 +145,7 @@
             the concentration skills that are developed through the training drills and the
             practice of kata - a serious of movements, much like a dance choreography with
             the use of karate techniques.</p>
+            
             <h6>Balance</h6><p>
             Balance is a physical, and mental attribute that is developed as a result of
             karate training. Balance in the physical sense is acquired by performing drills that
@@ -183,7 +176,21 @@
             they will be dealt with on a personal level. Most difficult people can be taught
             humility simply by being in an evironment where it is prominent.</p>
             
-            <h6>Goal Orientation</h6><p>
+          </div>
+          <div class="col-lg-5 col-sm-6 col-12">
+            <div class="row">
+              <div class="col-12 col-sm-6 col-lg-10 g-2"><br>
+                <img src="{% static 'img/karate.png' %}" alt="" class="img-fluid" style="width:100%;">
+              </div>
+            </div>
+          </div>
+    </div>
+
+          <div class="row"><br>
+            <div class="col-lg-3 col-sm-4 col-12">
+              <h6>Goal Orientation</h6>
+              <p style="color:rgba(0,0, 0, 1);">
+            
             People need direction. Most people enter a karate club with visions of wearing
             a black belt. The realization of reaching that goal can be overwhelming without
             proper direction. As instructors we help individuals set reasonable goals so that a
@@ -194,15 +201,41 @@
             importance of mile marking goals can more readily accept some of lifes
             challenges and learn to make realistic goals for themselves when there isn't
             someone there to do it for them.</p>
-            <h6>Self Confidence</h6><p>
-            You have to feel good about yourself and you have to trust in your abilities to
-            be confident. Karate teaches you how to handle pressure by applying a little bit
-            at a time. Every individual has certain a limit and once you find it you feel
-            comfortable. Once your comfortable you can start to expand or push those limits
-            and feel good about trying something you never imagined you could before.
-            Karate is an endless learning experience that provides constant challenge keeping
-            you alert and to let your confidence grow.</p>
-            <h6>Role Models</h6><p>
+            
+          </div>
+          <div class="col-lg-5 col-sm-6 col-12">
+            <div class="row">
+              <div class="col-12 col-sm-6 col-lg-10 g-2"><br>
+                <img src="{% static 'img/history6.webp' %}" alt="" class="img-fluid" style="width:100%;">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 col-12">
+            <div class="row">
+              <div class="col-12 col-sm-6 col-lg-10 g-2"><br>
+                <h6>Self Confidence</h6><p>
+                  You have to feel good about yourself and you have to trust in your abilities to
+                  be confident. Karate teaches you how to handle pressure by applying a little bit
+                  at a time. Every individual has certain a limit and once you find it you feel
+                  comfortable. Once your comfortable you can start to expand or push those limits
+                  and feel good about trying something you never imagined you could before.
+                  Karate is an endless learning experience that provides constant challenge keeping
+                  you alert and to let your confidence grow.</p>
+              </div>
+            </div>
+          </div>
+     </div>
+
+     <div class="row"><br>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <img src="{% static 'img/history4.gif' %}" alt="" class="img-fluid" style="width:100%;">
+        
+            </div>
+            <div class="col-lg-7 col-sm-6 col-12">
+              <div class="row">
+                <div class="col-12 col-sm-6 col-lg-10 g-2"><br>
+                  <h6>Role Models</h6>
+            <p>
             Like a school teacher, we as karate instructors have a responsibility to our
             students to instill positive values. Children benefit by the mental stimulation of
             learning the choreographed moves of the kata and the discipline of conforming
@@ -239,20 +272,13 @@
             curricular activity you involve yourself with should be a release from the stress
             or anxiety that is built up in our daily routines. People involved in karate can
             established friendships for life.</p>
-      </div>
-      <div class="col-lg-5 col-sm-6 col-12">
-        <div class="row">
-          <div class="col-12 col-sm-6 col-lg-10 g-2"><br>
-            <img src="{% static 'img/founder.jpg' %}" alt="" class="img-fluid" style="width:100%;">
-            <h3 class="mt-3"style="font-size:13px;"><span style="color:#000;font-size:21px;">Gichin Funakoshi</span> Founder Of Shotokan Karate </h3>
-          </div>
-        </div>
-      </div>
-
-    </div>
+                </div>
+              </div>
+            </div>
+       </div>
     <div class="row"><br>
       <div class="col-lg-7 col-sm-4 col-12">
-        <h3 style="color: #000;">History Of Shotokan Karate</h3>
+        <h3 style="color: #000;">History Of Shotokan </h3>
         <h5 style="color: #000;"> Gichin Funakoshi The founder Of shotokan Karate
           Gichin Funakoshi Lineage</h5>
         <p style="color:rgba(0,0, 0, 1);">
@@ -329,96 +355,79 @@
       <div class="col-lg-4 col-sm-6 col-12">
         <div class="row">
           <div class="col-12 col-sm-6 col-lg-10 g-2">
-            <img src="{% static 'img/historys1.webp' %}" alt="" class="img-fluid" style="width:100%;">
-          </div>
-        </div>
-      </div>
-      
-    </div>
-
-    <div class="row"><br>
-      <div class="col-lg-7 col-sm-4 col-12">
-        <h3 style="color: #000;">History Of Shotokan Karate</h3>
-        <h5 style="color: #000;"> Masatoshi Nakayama Spreads Shotokan Around The Worldmasatoshi nakayama</h5>
-        <p style="color:rgba(0,0, 0, 1);">
-
-          Masatoshi Nakayama (1913-1987) was a direct student of Gichin Funakoshi.
-          Funakoshi, Nakayama and some other prominent Funakoshi students formed the Japan Karate Association (JKA) in November 1949.
-          
-          By 1955, the first JKA headquarters dojo had been built at Yotsuya in Tokyo.
-          
-          In October 1957, the 1st JKA All Japan Karate Championship was held in Tokyo.
-          
-          Karate was now starting to get very popular and it wasn’t long before there were JKA karate branches in towns, schools and many universities in Japan.
-          
-          In 1958, Master Nakayama was appointed Chief Instructor.
-          
-          The JKA continued developing its karate style, and while expanding its dojo numbers throughout Japan.
-          
-          The JKA also began sending (as early as 1958) some of its most highly-accomplished professional karate instructors overseas to America, Europe and the Middle East.
-          
-          The were sent to teach and establish JKA dojo. Karate was now expanding and growing at an incredible rate.
-          
-          In the 1980’s the JKA had over 9 million members worldwide, an incredible growth and karate was now established all over the world.
-          
-          When JKA Chief Instructor Masatoshi Nakayama passed away in 1987, there were some splinter groups that pulled away from the JKA.
-          
-          These groups today, are now very large and there are many other associations around the world, with many millions of Shotokan Karateka.
-          
-          Who would have thought that this secretive Okinawan martial art would now be practiced by millions of people from all over the world.</p>
-      </div>
-      <div class="col-lg-4 col-sm-6 col-12">
-        <div class="row">
-          <div class="col-12 col-sm-6 col-lg-10 g-2">
             <img src="{% static 'img/historys2.webp' %}" alt="" class="img-fluid" style="width:100%;">
           </div>
         </div>
       </div>
       
     </div>
+
     <div class="row"><br>
-      <div class="col-lg-6 col-sm-4 col-12">
-        <h3 style="color: #000;"> LIST OF 26 SHOTOKAN KATA’S</h3>
-        <h5 style="color: #000;">International Shotokan Karate Federation of Jamaica (ISKFJ)</h5>
-        <h5 style="color: #000;"> The following is a list of all 26 katas, number of moves, meaning</h5>
-       
-        <p style="color:rgba(0,0, 0, 1);">
-         <b> Kata	No. of moves	Kata meaning</b></p>
-         <p style="color:rgba(0,0, 0, 1);">Heian Shodan	21	“Peacefull Mind One”</p>
-         <p style="color:rgba(0,0, 0, 1);"> Heian Nidan	26	“Peacefull Mind Two”</p>
-         <p style="color:rgba(0,0, 0, 1);">Heian Sandan	20	“Peacefull Mind Three”</p>
-         <p style="color:rgba(0,0, 0, 1);">Heian Yondan	27	“Peacefull Mind Four”</p>
-          <p style="color:rgba(0,0, 0, 1);">Heian Godan	23	“Peacefull Mind Five Universe”</p>
-          <p style="color:rgba(0,0, 0, 1);">Tekki Shodan	23	“Iron Horse One”</p>
-          <p style="color:rgba(0,0, 0, 1);">Tekki Sandan	26	“Iron Horse Three”</p>
-          <p style="color:rgba(0,0, 0, 1);">Bassai Dai	42	“Penetrating the Fortress-Big”</p>
-          <p style="color:rgba(0,0, 0, 1);">Bassai Sho	27	“Penetrating the Fortress – Small”</p>
-          <p style="color:rgba(0,0, 0, 1);">Kanku Dai	65	“To look at the Sky – Big”</p>
-          <p style="color:rgba(0,0, 0, 1);">Kanku Sho	48	“To look at the Sky – Small”</p>
-          <p style="color:rgba(0,0, 0, 1);">Enpi	37	“Flying Swallow”</p>
-          <p style="color:rgba(0,0, 0, 1);">Jion	47	“Love (and) Goodness”</p>
-          <p style="color:rgba(0,0, 0, 1);">Gankaku	42	“Crane on the Rock”</p>
-          <p style="color:rgba(0,0, 0, 1);">Hangetsu	41	“Half Moon”</p>
-          <p style="color:rgba(0,0, 0, 1);">Jitte	24	“Ten Hands”</p>
-          <p style="color:rgba(0,0, 0, 1);">Chinte	32	“Incredible Hands”</p>
-          <p style="color:rgba(0,0, 0, 1);">Sochin	41	“Preserve Peace”</p>
-          <p style="color:rgba(0,0, 0, 1);">Meikyo	33	“Mirror of the soul”</p>
-          <p style="color:rgba(0,0, 0, 1);">Jiin	38	“Named after the Saint”</p>
-          <p style="color:rgba(0,0, 0, 1);">Gojushiho Dai	67	“54 Steps – Big”</p>
-          <p style="color:rgba(0,0, 0, 1);">Gojushiho Sho	65	“54 Steps – Small”</p>
-          <p style="color:rgba(0,0, 0, 1);">Nijushiho	24	“24 Steps”</p>
-          <p style="color:rgba(0,0, 0, 1);">Wankan	24	“Crown of a king”</p>
-          <p style="color:rgba(0,0, 0, 1);">Unsu	       48	“Cloud Hands”.</p>
-
-
-      </div>
       <div class="col-lg-6 col-sm-6 col-12">
         <div class="row">
           <div class="col-12 col-sm-6 col-lg-10 g-2">
-            <h3 style="color:#000;">The JKA Kyu and Dan Rank Certification System</h3><p>
-            Japan Karate Association :: Dan RankingThere are 10 Kyu and 10 Dan in JKA karate. To obtain certification for each rank, you must fulfill the certification requirements and complete the testing procedure. Testing – or grading – is carried out by a panel of instructors authorized as JKA technical examiners.
+            <img src="{% static 'img/histoy3.webp' %}" alt="" class="img-fluid" style="width:100%;">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 col-12">
+        <div class="row">
+          <div class="col-10 col-sm-6 col-lg-12 g-2">
+            <img src="{% static 'img/history.5.webp' %}" alt="" class="img-fluid" style="width:100%;"><br><br>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="row"><br><br>
+      <div class="col-lg-7 col-sm-4 col-12">
+        <br><br>
+        <h3 style="color: #000;"> LIST OF 26 SHOTOKAN KATA’S</h3>
+        <h5 style="color: #000;">International Shotokan Karate Federation of Jamaica (ISKFJ)</h5>
+        <h5 style="color: #000;"> The following is a list of all 26 katas, number of moves, meaning</h5>
+        <div class="row">
+        <div class="col-lg-6 col-sm-4 col-12">
+          <p style="color:rgba(0,0, 0, 1);">
+            <b> Kata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	No. of moves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Kata meaning</b></p>
+          <p style="color:rgba(0,0, 0, 1);">Heian Shodan&nbsp;&nbsp;&nbsp;	21&nbsp;&nbsp;&nbsp;	“Peacefull Mind One”</p>
+         <p style="color:rgba(0,0, 0, 1);"> Heian Nidan&nbsp;&nbsp;&nbsp;	26&nbsp;&nbsp;&nbsp;	“Peacefull Mind Two”</p>
+         <p style="color:rgba(0,0, 0, 1);">Heian Sandan&nbsp;&nbsp;&nbsp;	20&nbsp;&nbsp;&nbsp;	“Peacefull Mind Three”</p>
+         <p style="color:rgba(0,0, 0, 1);">Heian Yondan&nbsp;&nbsp;&nbsp;	27&nbsp;&nbsp;&nbsp;	“Peacefull Mind Four”</p>
+          <p style="color:rgba(0,0, 0, 1);">Heian Godan&nbsp;&nbsp;&nbsp;	23&nbsp;&nbsp;	“Peacefull Mind Five Universe”</p>
+          <p style="color:rgba(0,0, 0, 1);">Tekki Shodan&nbsp;&nbsp;&nbsp;	23&nbsp;&nbsp;&nbsp;	“Iron Horse One”</p>
+          <p style="color:rgba(0,0, 0, 1);">Tekki Sandan&nbsp;&nbsp;&nbsp;	26&nbsp;&nbsp;	“Iron Horse Three”</p>
+          <p style="color:rgba(0,0, 0, 1);">Bassai Dai&nbsp;&nbsp;&nbsp;	42&nbsp;&nbsp;&nbsp;	“Penetrating the Fortress-Big”</p>
+          <p style="color:rgba(0,0, 0, 1);">Bassai Sho	&nbsp;&nbsp;&nbsp;27&nbsp;&nbsp;	“Penetrating the Fortress – Small”</p>
+          <p style="color:rgba(0,0, 0, 1);">Kanku Dai&nbsp;&nbsp;&nbsp;	65&nbsp;&nbsp;	“To look at the Sky – Big”</p>
+          <p style="color:rgba(0,0, 0, 1);">Kanku Sho&nbsp;&nbsp;&nbsp;	48&nbsp;&nbsp;&nbsp;	“To look at the Sky – Small”</p>
+          <p style="color:rgba(0,0, 0, 1);">Enpi	&nbsp;&nbsp;&nbsp;37	&nbsp;&nbsp;&nbsp;“Flying Swallow”</p>
+          <p style="color:rgba(0,0, 0, 1);">Jion	&nbsp;&nbsp;&nbsp;47	&nbsp;&nbsp;&nbsp;“Love (and) Goodness”</p>
+        </div>
+        <div class="col-lg-6 col-sm-4 col-12">
+          <p style="color:rgba(0,0, 0, 1);">
+            <b> Kata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	No. of moves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Kata meaning</b></p>
+          <p style="color:rgba(0,0, 0, 1);">Gankaku&nbsp;&nbsp;&nbsp;	42&nbsp;&nbsp;&nbsp;	“Crane on the Rock”</p>
+          <p style="color:rgba(0,0, 0, 1);">Hangetsu&nbsp;&nbsp;&nbsp;	41&nbsp;&nbsp;&nbsp;	“Half Moon”</p>
+          <p style="color:rgba(0,0, 0, 1);">Jitte&nbsp;&nbsp;&nbsp;	24	&nbsp;&nbsp;&nbsp;“Ten Hands”</p>
+          <p style="color:rgba(0,0, 0, 1);">Chinte	&nbsp;&nbsp;&nbsp;32	&nbsp;&nbsp;&nbsp;“Incredible Hands”</p>
+          <p style="color:rgba(0,0, 0, 1);">Sochin	&nbsp;&nbsp;&nbsp;41	&nbsp;&nbsp;&nbsp;“Preserve Peace”</p>
+          <p style="color:rgba(0,0, 0, 1);">Meikyo	&nbsp;&nbsp;&nbsp;33&nbsp;&nbsp;&nbsp;	“Mirror of the soul”</p>
+          <p style="color:rgba(0,0, 0, 1);">Jiin&nbsp;&nbsp;&nbsp;	38	&nbsp;&nbsp;&nbsp;“Named after the Saint”</p>
+          <p style="color:rgba(0,0, 0, 1);">Gojushiho Dai&nbsp;&nbsp;&nbsp;	67&nbsp;&nbsp;	“54 Steps – Big”</p>
+          <p style="color:rgba(0,0, 0, 1);">Gojushiho Sho&nbsp;&nbsp;&nbsp;	65	&nbsp;&nbsp;“54 Steps – Small”</p>
+          <p style="color:rgba(0,0, 0, 1);">Nijushiho	&nbsp;&nbsp;&nbsp;24&nbsp;&nbsp;	“24 Steps”</p>
+          <p style="color:rgba(0,0, 0, 1);">Wankan	&nbsp;&nbsp;&nbsp;24	&nbsp;&nbsp;&nbsp;“Crown of a king”</p>
+          <p style="color:rgba(0,0, 0, 1);">Unsu	  &nbsp;&nbsp;&nbsp;     48&nbsp;&nbsp;	“Cloud Hands”.</p>
+        </div>
+      </div>
+      </div>
+      <div class="col-lg-5 col-sm-6 col-12">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-lg-10 g-2">
+            <h3 style="color:#000;">The JSA  and Dan Rank Certification System</h3><p>
+            Japan Shotokan Association :: Dan RankingThere are 10 Kyu and 10 Dan in JSA karate. To obtain certification for each rank, you must fulfill the certification requirements and complete the testing procedure. Testing – or grading – is carried out by a panel of instructors authorized as JSA technical examiners.
             </p><p>
-            Typically, Dan grading sessions take place 4 times per year, and Kyu grading takes place twice. In order to be eligible for testing, you must first have gained the appropriate amount of continuous experience at your current rank. Then, depending on the level of Dan you are being graded for, you may have to take the test outside your own country or region (at the higher Dan ranks, only Tokyo JKA HQ is authorized to evaluate, grade and issue certification).
+            Typically, Dan grading sessions take place 4 times per year, and Kyu grading takes place twice. In order to be eligible for testing, you must first have gained the appropriate amount of continuous experience at your current rank. Then, depending on the level of Dan you are being graded for, you may have to take the test outside your own country or region (at the higher Dan ranks, only  JSA HQ is authorized to evaluate, grade and issue certification).
             These details are summarized in the following chart.
             </p>
             <p>
@@ -427,25 +436,338 @@
               <p style="color:rgba(0,0, 0, 1);">1st Dan rank	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Branch dojo or group</p>
               <p style="color:rgba(0,0, 0, 1);">2nd Dan rank		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1 year at 	National (Prefectural) HQ </p>
               <p style="color:rgba(0,0, 0, 1);">3rd Dan rank		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 years at 18 and over</p>
-              <p style="color:rgba(0,0, 0, 1);">4th Dan rank	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 years at Tokyo JKA HQ or </p>
+              <p style="color:rgba(0,0, 0, 1);">4th Dan rank	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 years at  JSA HQ or </p>
               <p style="color:rgba(0,0, 0, 1);">5th Dan rank	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 years 4th Dan rank  </p>
-              <p style="color:rgba(0,0, 0, 1);">6th Dan rank	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 years at 5th Dan rank	Tokyo JKA HQ</p>
+              <p style="color:rgba(0,0, 0, 1);">6th Dan rank	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 years at 5th Dan rank	 JSA HQ</p>
               <p style="color:rgba(0,0, 0, 1);">7th Dan rank	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	6 years at 6th Dan rank	50 </p>
               <p style="color:rgba(0,0, 0, 1);">8th Dan rank	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7 years at 7th Dan rank	60 </p>
               <p style="color:rgba(0,0, 0, 1);">9th Dan rank	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 years at 8th Dan rank</p>
               <p style="color:rgba(0,0, 0, 1);">10th Dan rank	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10th Dan	9 years at 9th Dan rank</p>
-              <a href="https://www.animatedimages.org/cat-karate-1297.htm"><img src="https://www.animatedimages.org/data/media/1297/animated-karate-image-0002.gif" border="0" alt="animated-karate-image-0002"  style="margin-left:20px;"/></a>
-              <a href="https://www.animatedimages.org/cat-karate-1297.htm"><img src="https://www.animatedimages.org/data/media/1297/animated-karate-image-0021.gif" border="0" alt="animated-karate-image-0021"style="margin-left:20vh;" /></a>
+              
           </div>
         </div>
       </div>
       
     </div>
-  </div><br>
+    <br>
+    <div class="row" style="text-align: center;"><h2 style="color:#000;font-weight:600px;" >SYLLABUS</h2></div>
+<hr>
+    <div class="row"><br>
+      
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>10th Kyu　</h4> 
+        <h6>【KIHON】In place basics in HACHIJIDACHI</h6>
+        <p> 1.CHUUDAN CHOKUZUKI<br>
+            2.JOUDAN AGEUKE<br>
+            3.CHUUDAN SOTOUKE<br>
+            4.MAEGERI (HEISOKU DACHI・GEDAN KAKIWAKE)<br>
+        </p>
+
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+          <h4>9th Kyu</h4>
+          <h6>【KIHON】In place basics in SHIZEN TAI to ZENKUTSU DACHI and back to SHIZEN TAI</h6>
+          <p>
+            1.CHUUDAN JUNZUKI<br>
+            2.JOUDAN AGEUKE<br>
+            3.CHUUDAN SOTOUKE,<br>
+            4.KOKUTSU SHUTOU UKE<br>
+            5.MAEGERI (HEISOKUDACHI, GEDAN KAKIWAKE)<br>
+            * “GOREI” command (From right side two action in turn for each WAZA)←Is that 1 to 4
+          </p>
+ 
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4> 8th Kyu</h4>
+        <h6>【KIHON】IDOU KIHON Moving basics
+        【KIHON】IDOU KIHON Moving basics</h6>
+        <p>
+          1.CHUUDAN JUNZUKI (step in)<br>
+          2.JOUDAN AGEUKE (step in)<br>
+          3.CHUUDAN SOTOUKE (step in)<br>
+          4.GEDAN BARAI (step in)<br>
+          5.KOKUTSU SHUTOU UKE (step in)<br>
+          6.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+          【KATA】TAIKYOKU SHODAN<br>
+
+          【KUMITE】GOHON KUMITE (JOUDAN JUNZUKI, CHUUDAN JUNZUKI)
+      </p>
+
+ 
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>7th Kyu</h4>
+
+        <h6>【KIHON】IDOU KIHON Moving basics</h6>
+        <p>
+        1.CHUUDAN JUNZUKI (step in)<br>
+        2.JOUDAN AGEUKE (step back)<br>
+        3.CHUUDAN SOTOUKE (step in)<br>
+        4.CHUUDAN UCHIUKE (step back)<br>
+        5.KOUKUTSU SHUTOU UKE (step in)<br>
+        6.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+        7.YOKOGERI KEAGE (in HEISOKU DACHI, right and left alternating)<br>
+        8.YOKOGERI KEKOMI (in HEISOKU DACHI, right and left alternating)<br>
+        【KATA】HEIAN SHODAN<br>
+        
+        【KUMITE】GOHON KUMITE (JOUDAN JUNZUKI, CHUUDAN JUNZUKI)
+      </p>
+      </div>
+    </div>
+    <div class="row"><br>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>6th Kyu</h4>
+        <h6>【KIHON】 IDO KIHON Moving basics</h6>
+        <p>
+          1.CHUUDAN JUNZUKI (step in)<br>
+          2.JOUDAN AGEUKE (step back)<br>
+          3.CHUUDAN SOTOUKE (step in)<br>
+          4.CHUUDAN UCHIUKE (step back)<br>
+          5.KOUKUTSU SHUTOU UKE (step in)<br>
+          6.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+          7.YOKOGERI KEAGE (in KIBADACHI, right and left) (step in)<br>
+          8.YOKOGERI KEKOMI (in KIBADACHI, right and left) (step in)<br>
+          9.【KATA】 HEIAN NIDAN<br>
+          
+          10.【KUMITE】KIHON IPPON KUMITE<br>
+          
+          (JOUDAN JUNZUKI – right and left, CHUUDAN JUNZUKI – right and left)
+      </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>5th Kyu</h4>
+
+        【<h6>KIHON】IDO KIHON Moving basics</h6>
+        <p>
+          1.CHUUDAN JUNZUKI (step in)<br>
+          2.JOUDAN AGEUKE, GYAKUZUKI (step back)<br>
+          4.CHUUDAN SOTOUKE, GYAKUZUKI (step in)<br>
+          5.CHUUDAN UCHIUKE, GYAKUZUKI (step back)<br>
+          6.KOUKUTSU SHUTOUUKE (step in)<br>
+          7.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+          8.YOKOGERI KEAGE (in KIBADACHI, right and left) (step in)<br>
+          9.YOKOGERI KEKOMI (in KIBADACHI, right and left) (step in)<br>
+          10.【KATA】HEIAN SANDAN<br>
+          
+          11.【KUMITE】KIHON IPPON KUMITE<br>
+          
+          (JOUDAN JUNZUKI – right and left, CHUUDAN JUNZUKI – right and left, CHUUDAN MAEGERI GEDAN KAKIWAKE – right and left)
+      </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>4th Kyu</h4>
+
+        <h6>【KIHON】IDO KIHON Moving basics</h6> 
+        <p>
+          1.CHUUDAN JUNZUKI (step in)<br>
+          2.SANBON RENZUKI (step in)<br>
+          3.JOUDAN AGEUKE, GYAKUZUKI (step back)<br>
+          4.CHUUDAN SOTOUKE, GYAKUZUKI (step in)<br>
+          5.CHUUDAN UCHIUKE, GYAKUZUKI (step back)<br>
+          6.KOUKUTSU SHUTOUUKE, ZENKUTSU NUKITE (step in)<br>
+          7.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+          8.YOKOGERI KEAGE (in KIBADACHI, right and left) (step in)<br>
+          9.YOKOGERI KEKOMI (in ZENKUTSUDACHI) (step in)<br>
+          10.【KATA】HEIAN YONDAN<br>
+          11.【KUMITE】KIHON IPPON KUMITE<br>
+          
+          (JOUDAN JUNZUKI – right and left, CHUUDAN JUNZUKI – right and left, CHUUDAN MAEGERI GEDAN KAKIWAKE – right and left, CHUUDAN YOKOGERI KEKOMI – right and left)
+      </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>3rd Kyu</h4>
+
+        <h6>KIHON】IDO KIHON Moving basics</h6>【
+        <p>
+          1.CHUUDAN JUNZUKI (step in)<br>
+          2.SANBON RENZUKI (step in)<br>
+          3.JOUDAN AGEUKE, GYAKU ZUKI (step in)<br>
+          4.CHUUDAN SOTOUKE, GYAKUZUKI (step back)<br>
+          5.CHUUDAN UCHIUKE, GYAKU ZUKI (as KOUKUTSUDACHI is) (step in)<br>
+          6.KOUKUTSU SHUTOU UKE, ZENKUTSU NUKITE (step back)<br>
+          7.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+          8.YOKOGERI KEAGE (in KIBA DACHI, right and left) (step in)<br>
+          9.YOKOGERI KEKOMI (in ZENKUTSU DACHI) (step in)<br>
+          10.【KATA】 HEIAN GODAN<br>
+          11.KUMITE】JIYUU IPPON KUMITE<br>
+          
+          (JOUDAN JUNZUKI , CHUUDAN JUNZUKI , CHUDAN MAEGERI) – right and left
+      </p>
+      </div>
+    </div>
+    <div class="row"><br>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>2nd Kyu</h4>
+
+        <h6>【KIHON】IDO KIHON Moving basics</h6>
+        <p>
+          1.JOUDAN JUNZUKI , CHUUDAN GYAKUZUKI(step in)<br>
+          2.JOUDAN AGEUKE, GYAKUZUKI (step back)<br>
+          3.CHUUDAN SOTOUKE ,GYAKUZUKI (step in)<br>
+          4.CHUUDAN UCHIUKE, GYAKUZUKI (step back)<br>
+          5.KOUKUTSU SHUTOUUKE, ZENKUTSU NUKITE (step in)<br>
+          6.MAEGERI (GEDAN KAKIWAKE) (step in)<br>
+          7.MAWASHIGERI (step in)<br>
+          8.YOKOGERI KEAGE (in KIBADACHI, right and left) (step in)<br>
+          9.YOKOGERI KEKOMI (in ZENKUTSUDATI) (step in)<br>
+          10.【KATA】TEKKI SHODAN<br>
+          11.【KUMITE】JIYUU IPPON KUMITE<br>
+          
+          (JODAN JUNZUKI, CHUUDAN JUNZUKI, CHUUDAN MAEGERI, CHUUDAN YOKOGERI KEKOMI ,MAWASHIGERI) – right and left
+      </p>
+      </div>
+      
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>1st Kyu</h4>
+
+        <h6>【KIHON】IDO KIHON Moving basics</h6>
+        <p>
+          1.JOUDAN JUNZUKI , CHUUDAN GYAKUZUKI(step in)<br>
+          2.JOUDAN AGEUKE, GYAKUZUKI (step back)<br>
+          3.CHUUDAN SOTOUKE, YOKOENPI (ZENKUTSUDACHI changing stance to KIBADACHI) (step in)<br>
+          4.CHUUDAN UCHIUKE, GYAKUZUKI (step back)<br>
+          5.KOUKUTSU SHUTOU UKE, ZENKUTSU NUKITE (step in)<br>
+          6.MAEGERI (On the spot) ,MAEGERI(step in)<br>
+          7.MAWASHIGERI (step in)<br>
+          8.YOKOGERI KEAGE (in KIBADACHI, right and left) (step in)<br>
+          9.YOKOGERI KEKOMI (ZENKUTSUDACHI) (step in)<br>
+          10.【KATA】BASSAI DAI<br>
+          11.【KUMITE】JIYU IPPON KUMITE<br>
+          
+          (JOUDAN JUNZUKI, CHUUDAN JUNZUKI, CHUUDAN MAEGERI, CHUUDAN YOKOGERI KEKOMI, MAWASHIGERI) – right and left
+      </p>
+      </div>
+    </div>
+    <hr>
+    <div class="row"><br>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>1st Dan</h4>
+
+        <h6>【KIHON】IDO KIHON Moving basics</h6>
+        <p>
+          1.SANBON RENZUKI (step in)<br>
+          2.JOUDAN AGEUKE, GYAKUZUKI (step back)<br>
+          3.CHUUDAN SOTOUKE, YOKOENPI, YOKOURAKEN　UCHI, GYAKUZUKI (ZENKUTSUDACHI changing stance to KIBADACHI changing stance to ZENKUTSU　DACHI) (step in)<br>
+          4.CHUUDAN UCHIUKE, KIZAMIZUKI, GYAKUZUKI (KOUKUTSUDACHI to ZENKUTSUDACHI) (step back)<br>
+          5.KOUKUTSU SHUTOU UKE, ZENKUTSU NUKITE (step in)<br>
+          6.MAEGERI (On the spot) ,MAE GERI(step in)<br>
+          7.MAWASHIGERI (step in)<br>
+          8.YOKOGERI KEAGE (in KIBA DACHI, right and left) (step in)<br>
+          9.YOKOGERI KEKOMI (ZENKUTSUDACHI)<br>
+          10.KATA】BASSAI DAI, KANKU DAI, ENPI or JION (your choice)<br>
+          
+          11.KUMITE】JIYU IPPON KUMITE<br>
+          
+          (JOUDAN JUNZUKI, CHUUDAN JUNZUKI, CHUUDAN MAEGERI, CHUUDAN YOKOGERI KEKOMI, JOUDAN MAWASHIGERI) – right and left<br>
+          
+          ※Inform your choice of JOUDAN or CHUUDAN for MAWASHIGERI
+        </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>2nd Dan</h4> 
+
+        <h6>【KIHON】IDO KIHON Moving basics</h6>
+        <p>
+          1.CHUUDAN JUNZUKI (step in)<br>
+          2.JOUDAN JYUNZUKI, CHUUDAN GYAKUZUKI (step in)<br>
+          3.SANBON RENZUKI (step in)<br>
+          4.AGEUKE, SOTOUKE (with same arm), GYAKUZUKI (step back)<br>
+          5.UCHIUKE, KIZAMIZUKI, GYAKUZUKI (KOKUTSUDACHI to ZENKUTSUDACHI) (step in)<br>
+          6.KOUKUTSHU SHUTOUUKE, ZENKUTSU NUKITE (step back)<br>
+          7.MAEGERI (On the spot), MAEGERI(step in)<br>
+          8.YOKOGERI KEAGE, YOKOGERI KEKOMI (KIBADACHI, alternate feet)<br>
+          9.YOKOGERI KEKOMI (ZENKUTSUDACHI) (step in)<br>
+          10.MAWASHIGERI, YOKOURAKENUCHI, CHUUDAN GYAKUZUKI (step in)<br>
+          11.【KATA】 Student’s favorite KATA<br>
+          12.【KUMITE】JIYU KUMITE
+        </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>3rd Dan</h4> 
+        <h6>【KIHON】IDO KIHON Moving basics free KAMAE</h6>
+        <p>
+          1.KIZAMIZUKI, JOUDAN JUNZUKI, CHUUDAN GYAKUZUKI (step in)<br>
+          2.AGEUKE, SOTOUKE (with same arm), GYAKUZUKI (step back)<br>
+          3.UCHIUKE, KIZAMIZUKI, GYAKUZUKI (KOKUTSUDACHI to ZENKUTSUDACHI) (step in)<br>
+          4.KOUKUTSU SHUTOUUKE, KIZAMIMAEGERI, ZENKUTSU NUKITE (step back)<br>
+          5.MAEGERI・GYAKUZUKI, YOKOGERI KEKOMI・GYAKUZUKI, MAWASHIGERI・GYAKUZUKI (step in)<br>
+          6.USHIROGERI (step in)<br>
+          7.MAEGERI, YOKOGERI KEKOMI, USHIROGERI (ZENKUTSUDACHI same feet right and left)<br>
+          8.【KATA】Student’s favorite KATA (Question and Answer Session)<br>
+          9.【KUMITE】JIYU KUMITE
+        </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4> 4th Dan</h4> 
+        <h6>【KIHON】IDO KIHON Moving basics free KAMAE</h6>
+        <p>
+          1.KIZAMIZUKI, SANBON RENZUKI (step in)<br>
+          2.AGEUKE, SOTOUKE (with same arm), GYAKUZUKI (step back)<br>
+          3.UCHIUKE, KIZAMIZUKI, GYAKUZUKI (KOKUTSUDACHI to ZENKUTSUDACHI) (step in)<br>
+          4.KOUKUTSU SHUTOUUKE, KIZAMIMAEGERI, ZENKUTSU NUKITE (step back)<br>
+          5.MAEGERI, JUNZUKI, GYAKUZUKI (step in)<br>
+          6.KIZAMIMAWASHIGERI, YOKOGERI KEKOMI, GYAKUZUKI (step in)<br>
+          7.MAEGERI, YOKOGERI KEKOMI, USHIROGERI (ZENKUTSUDACHI same feet right and left)<br>
+          8.【KATA】 Student’s favorite KATA (Question and Answer Session)<br>
+
+          9.KUMITE】JIYU KUMITE
+        </p>
+      </div>
+    </div>
+
+    <div class="row"><br>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4> 5th Dan</h4>  
+        <h6>【KIHON】IDO KIHON Moving basics free KAMAE</h6>
+        <p>
+          1.KIZAMIZUKI, SANBON RENZUKI (step in)<br>
+          2.AGEUKE, SOTOUKE (with same arm), GYAKUZUKI (step back)<br>
+          3.UCHIUKE, KIZAMIZUKI, GYAKUZUKI (KOKUTSUDACHI to ZENKUTSUDACHI) (step in)<br>
+          4.KOUKUTSU SHUTOUUKE, KIZAMIMAEGERI, ZENKUTSU NUKITE (step back)<br>
+          5.MAEGERI, JOUDAN JUNZUKI, CHUUDAN GYAKUZUKI (step in)<br>
+          6.YOKOGERI KEKOMI, GYAKUZUKI (step in)<br>
+          7.MAWASHIGERI, GYAKUZUKI (step in)<br>
+          8.MAEGERI, YOKOGERI KEKOMI, MAWASHIGERI, GYAKUZUKI (step in)<br>
+          9.KATA】
+
+          from HEIAN SHODAN to TEKKI SANDAN specified by examiner (Question and Answer Session)
+          Student’s favorite KATA (Question and Answer Session)<br>
+          10.KUMITE】JIYU KUMITE
+        </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>6th Dan</h4> 
+        <h6>【KIHON】Specified by examiner</h6>
+        <p>
+        1.【KATA】
+        
+        from HEIAN SHODAN to TEKKI SANDAN BASSAIDAI, KANKUUDAI, ENPI, or JION specified by examiner (Question and Answer Session)
+        Student’s favorite KATA (Question and Answer Session)<br>
+        2.【KUMITE】JIYU KUMITE<br>
+      </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>7th Dan</h4>     
+        <h6>【KIHON】　Specified by examiner</h6>
+        <p>
+        1.【KATA】　 Student’s favorite KATA (Question and Answer Session)<br>
+
+        2.【KUMITE】JIYU KUMITE
+      </p>
+      </div>
+      <div class="col-lg-3 col-sm-4 col-12">
+        <h4>8th, 9th, 10th Dan</h4>   
+
+      <p>Recommendation by SHIHANKAI</p>
+      </div>
+    </div>
+  </div>
+
 <!-- ======= Footer ======= -->
 <footer id="footer">
   <div class="footer-top">
     <div class="container">
+      <hr>
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-info">
@@ -497,7 +819,7 @@
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright © 2022  <strong>JAPAN SHOTOKAN ASSOCIATION JSA INDIA | Powered by JAPAN SHOTOKAN ASSOCIATION JSA INDIA</strong>. All Rights Reserved
+      &copy; Copyright © 2022  <strong> JSA INDIA </strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!--
