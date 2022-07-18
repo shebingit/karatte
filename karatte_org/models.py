@@ -64,9 +64,9 @@ class news(models.Model):
 
 
 class members(models.Model):
-    mname=models.CharField(max_length=20)
-    mdesig=models.CharField(max_length=20)
-    mposition=models.CharField(max_length=20)
+    mname=models.CharField(max_length=30)
+    mdesig=models.CharField(max_length=40)
+    mposition=models.CharField(max_length=40)
     asso_image=models.ImageField(upload_to="image/blackbeltholder", null=True)
 
     def __str__(self):
@@ -96,6 +96,25 @@ class register_members(models.Model):
         if self.register_id is None:
             self.register_id=str('JSA'+ str(self.id)+'/KK/INDIA')
         return super(register_members, self).save(*args,**kwargs)
+
+class check_register_members(models.Model):
+    check_reg_name=models.CharField(max_length=25)
+    check_reg_gender=models.CharField(max_length=10)
+    check_reg_bloodg=models.CharField(max_length=10)
+    check_reg_dob=models.CharField(max_length=20)
+    check_reg_national=models.CharField(max_length=15)
+    check_reg_occup=models.CharField(max_length=20)
+    check_reg_qualific=models.CharField(max_length=20)
+    check_reg_phon=models.CharField(max_length=15)
+    check_reg_email=models.EmailField()
+    check_reg_doj=models.CharField(max_length=20)
+    check_reg_pgname=models.CharField(max_length=20)
+    check_reg_pgoccu=models.CharField(max_length=20)
+    check_reg_address=models.CharField(max_length=50)
+    check_reg_reson=models.CharField(max_length=50)
+    check_reg_exp=models.CharField(max_length=5)
+    check_reg_op=models.CharField(max_length=5)
+    check_reg_img=models.ImageField(upload_to="image/regcheck")
 
 class contents(models.Model):
     con_title=models.CharField(max_length=25)

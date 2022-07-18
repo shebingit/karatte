@@ -29,6 +29,8 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('add_content',views.add_content,name='add_content'),
                path('uploadpdfimgs',views.uploadpdfimgs,name='uploadpdfimgs'),
                path('loadpdfimgs',views.loadpdfimgs,name='loadpdfimgs'),
+               path('check_reg_meberadd/<int:check_addid>',views.check_reg_meberadd,name='check_reg_meberadd'),
+               path('check_reg_delete/<int:check_delete>',views.check_reg_delete,name='check_reg_delete'), 
 
 
                path('adminlogin',views.adminlogin,name='adminlogin'),

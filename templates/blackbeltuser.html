@@ -40,12 +40,21 @@
         width:100%;
     }
     .card{
-        box-shadow:0px 0px 0px 0px;
-       
-        margin-right:5px;
-        margin-top: 7px;
-        margin-bottom: 15px;;
+      width: 230px;
+    
+        margin:auto;
   
+    }
+    @media(max-width:921px)
+    {
+      .card{
+        margin:auto;
+       text-align: center;
+       align-items:  center;
+      }
+    }
+    .card-body h5 {
+      font-weight:bold;
     }
     #hero_user h3{
         text-align: center;
@@ -68,7 +77,7 @@
 <body  style="background: #f0f0f0;">
 
  <!-- ======= Header ======= -->
- <header id="header" class="fixed-top d-flex align-items-center ">
+ <header id="header" class="fixed-top d-flex align-items-center " style=" box-shadow:0px 0px 6px 1px;">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -78,7 +87,7 @@
           <a href="#" class="logo1" >
             <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh; margin-top:5px;">
           </a>
-          <nav id="navbar" class="navbar">
+          <nav id="navbar" class="navbar" >
             <ul>
               <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}">Home</a></li>
               <li><a class="nav-link scrollto active" href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
@@ -101,14 +110,14 @@
         <div class="row" >
             {% for ass in asso  %}
               <div class="col-12 col-md-4 col-lg-3">
-                <div class="card">
+                <div class="card" style="border:none ;">
                   {% if ass.asso_image %}
-                    <img src="{{ ass.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:18vh; margin:auto; height:20vh;  ">
+                    <img src="{{ ass.asso_image.url }}" class="card-img-top img-fluid mt-3"  alt="..."style=" width:24vh; height:26vh;  ">
                   {% endif %}
-                  <div class="card-body " style="text-align:center;">
+                  <div class="card-body " >
                     <h5 class="card-title"> {{ ass.mname}}</h5>
-                    <p class="card-title">Designation: {{ass.mdesig}}</p>
-                    <p class="card-title">Position: {{ass.mposition}}</p>
+                    <p class="card-title" style="font-size:14px;">Designation: {{ass.mdesig}}</p>
+                    <p class="card-title" style="font-size:14px;">Position: {{ass.mposition}}</p>
                   </div>
                 </div>
               </div>
@@ -120,16 +129,16 @@
 
   <section id="hero_user">
     <div class="container" ><br>
-        <h3 >BLACK  BELTS</h3>
+        <h3 >BLACK BELTS HOLDERS</h3>
         <div class="row">
             {% for bth in bths  %}
-              <div class="col-12 col-md-4 col-lg-3">
-                <div class="card">
+              <div class="col-12 col-md-4 col-lg-2 mx-3">
+                <div class="card mt-2 mb-2 ">
                   {% if bth.bth_image %}
                     <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:18vh; margin:auto; height:20vh;  ">
                   {% endif %}
-                  <div class="card-body"style="text-align:center;">
-                    <h6 class="card-title"> {{ bth.bth_name}}</h6>
+                  <div class="card-body">
+                    <h6 class="card-title" style="text-align:center;"> {{ bth.bth_name}}</h6>
                     <p class="card-title">Register No: {{bth.bth_reg}}</p>
                     <p class="card-title">Rank: {{bth.bth_desig}}</p>
                   </div>
@@ -146,7 +155,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;border-radius:50%;"></a>
+            <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
             <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
           </div>
 
@@ -173,7 +182,7 @@
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
               <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -185,7 +194,7 @@
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our location</h4>
             <div class="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin"style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           </div>
 

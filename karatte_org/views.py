@@ -217,8 +217,10 @@ def morecontdelete(request,mcd_id):
 
 
 def load_member(request):
+    check_reg_member=check_register_members.objects.all()
     reg_member=register_members.objects.all()
-    return render(request,'show_member.html',{'reg_member':reg_member})
+    print(reg_member)
+    return render(request,'show_member.html',{'reg_member':reg_member,'check_reg_member':check_reg_member})
 
 def load_register(request):
     return render(request,'registration.html')
@@ -406,32 +408,68 @@ def register_member(request):
 
 
     #saving data
-        register=register_members(reg_name=rg_name,
-                         reg_gender=rg_gender,
-                         reg_bloodg=rg_bloodg,
-                         reg_dob=rg_dob,
-                         reg_national=rg_national,
-                         reg_occup=rg_occup,
-                         reg_qualific=rg_qualific,
-                         reg_phon=rg_phon,
-                         reg_email=rg_email,
-                         reg_doj=rg_doj,
-                         reg_pgname=rg_pgname,
-                         reg_pgoccu=rg_pgoccu,
-                         reg_address=rg_address,
-                         reg_reson=rg_reson,
-                         reg_exp=rg_exp,
-                         reg_op=rg_op,
-                         reg_img=rg_img)
-
+        register=check_register_members(check_reg_name=rg_name,
+                         check_reg_gender=rg_gender,
+                         check_reg_bloodg=rg_bloodg,
+                         check_reg_dob=rg_dob,
+                         check_reg_national=rg_national,
+                         check_reg_occup=rg_occup,
+                         check_reg_qualific=rg_qualific,
+                         check_reg_phon=rg_phon,
+                         check_reg_email=rg_email,
+                         check_reg_doj=rg_doj,
+                         check_reg_pgname=rg_pgname,
+                         check_reg_pgoccu=rg_pgoccu,
+                         check_reg_address=rg_address,
+                         check_reg_reson=rg_reson,
+                         check_reg_exp=rg_exp,
+                         check_reg_op=rg_op,
+                         check_reg_img=rg_img)
         register.save()
-        reg=register_members.objects.get(id=register.id)
-        reg.register_id=str('JSA'+ str(reg.id)+'/KK/INDIA')
-        reg.save()
-        message="Successfully Registered."
+        message="SUCCESS"
         return render(request,'registration.html',{'message':message})
     else:
         return JsonResponse('load_home_page')
+        
+
+def check_reg_meberadd(request,check_addid):
+
+    check_reg=check_register_members.objects.get(pk=check_addid)
+
+    #saving data
+    register=register_members(reg_name=check_reg.check_reg_name,
+                         reg_gender=check_reg.check_reg_gender,
+                         reg_bloodg=check_reg.check_reg_bloodg,
+                         reg_dob=check_reg.check_reg_dob,
+                         reg_national=check_reg.check_reg_national,
+                         reg_occup=check_reg.check_reg_occup,
+                         reg_qualific=check_reg.check_reg_qualific,
+                         reg_phon=check_reg.check_reg_phon,
+                         reg_email=check_reg.check_reg_email,
+                         reg_doj=check_reg.check_reg_doj,
+                         reg_pgname=check_reg.check_reg_pgname,
+                         reg_pgoccu=check_reg.check_reg_pgoccu,
+                         reg_address=check_reg.check_reg_address,
+                         reg_reson=check_reg.check_reg_reson,
+                         reg_exp=check_reg.check_reg_exp,
+                         reg_op=check_reg.check_reg_op,
+                         reg_img=check_reg.check_reg_img)
+    register.save()
+   
+    
+    reg=register_members.objects.get(id=register.id)
+    reg.register_id=str('JSA'+ str(reg.id)+'/KK/INDIA')
+    reg.save()
+
+    return redirect('load_member')
+
+def check_reg_delete(request,check_delete):
+    checkdelete=check_register_members.objects.get(pk=check_delete)
+    checkdelete.delete()
+    return redirect('load_member')
+                        
+
+
                     
 
 def load_member_details(request,mdid):
