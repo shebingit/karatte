@@ -114,6 +114,7 @@ class check_register_members(models.Model):
     check_reg_reson=models.CharField(max_length=50)
     check_reg_exp=models.CharField(max_length=5)
     check_reg_op=models.CharField(max_length=5)
+    check_status=models.CharField(max_length=10)
     check_reg_img=models.ImageField(upload_to="image/regcheck")
 
 class contents(models.Model):

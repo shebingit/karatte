@@ -217,7 +217,7 @@ def morecontdelete(request,mcd_id):
 
 
 def load_member(request):
-    check_reg_member=check_register_members.objects.all()
+    check_reg_member=check_register_members.objects.filter(check_status='0')
     reg_member=register_members.objects.all()
     print(reg_member)
     return render(request,'show_member.html',{'reg_member':reg_member,'check_reg_member':check_reg_member})
@@ -424,7 +424,7 @@ def register_member(request):
                          check_reg_reson=rg_reson,
                          check_reg_exp=rg_exp,
                          check_reg_op=rg_op,
-                         check_reg_img=rg_img)
+                         check_reg_img=rg_img,check_status='0')
         register.save()
         message="SUCCESS"
         return render(request,'registration.html',{'message':message})
@@ -435,7 +435,8 @@ def register_member(request):
 def check_reg_meberadd(request,check_addid):
 
     check_reg=check_register_members.objects.get(pk=check_addid)
-
+    check_reg.check_status=str(1)
+    check_reg.save()
     #saving data
     register=register_members(reg_name=check_reg.check_reg_name,
                          reg_gender=check_reg.check_reg_gender,
@@ -453,9 +454,8 @@ def check_reg_meberadd(request,check_addid):
                          reg_reson=check_reg.check_reg_reson,
                          reg_exp=check_reg.check_reg_exp,
                          reg_op=check_reg.check_reg_op,
-                         reg_img=check_reg.check_reg_img)
+                         reg_img=check_reg.check_reg_img,)
     register.save()
-   
     
     reg=register_members.objects.get(id=register.id)
     reg.register_id=str('JSA'+ str(reg.id)+'/KK/INDIA')
