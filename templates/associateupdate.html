@@ -67,7 +67,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -75,7 +75,7 @@
             <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
           <h3 >Admin Dashboard</h3>
 
-          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+          <nav id="navbar" class="navbar" style=" text-align: center;">
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
@@ -93,14 +93,14 @@
   <section id="admin_hero">
 </section>
 
-<br><br>
+<br><br><br>
 <form action="{% url 'updateassociate' asso.id %}"method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container">
         <div class="row m-2">
             <div class="col-12 col-md-4 col-lg-6 mt-3">
                 <div class="card mt-3" style="width: 15rem; height: 18rem;">
-                    <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
+                    <img src="{{ asso.asso_image.url }} " class="card-img-top img-fluid mt-3"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
                     <div class="card-body">
                         <h6 class="card-title">Name: {{ asso.mname}}</h6>
                         <p class="card-text"> Designation: {{ asso.mdesig }}</p>

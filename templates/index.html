@@ -348,7 +348,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
               <div class="contact form">
                   <h3>Send a Message</h3>
               
-              <form  method="post" id="form">
+              <form action="{% url 'sending_mail' %}" method="" id="form">
               {% csrf_token %}
                   <div class="formBox">
                       <div class="row50">
@@ -377,7 +377,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
                       </div>
                       <div class="row100 form-group ">
                           <div class="inputBox">
-                             <button type="submit" value="Send"id="mailsend">Send</button>
+                             <button type="submit" value="Send" id="mailsend">Send</button>
                           </div>
                       </div>
                       <div class="m-3">

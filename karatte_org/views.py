@@ -23,7 +23,7 @@ def adminlogin(request):
 def contact(request):
     return render(request,'contact.html')
     
-@login_required
+
 def load_admin_home(request):
     newss=news.objects.all()
     return render(request,'adminhome.html',{'newss':newss})
@@ -60,7 +60,7 @@ def load_syllabus(request):
 
 
 def history(request):
-    return render(request,'history.html')
+    return render(request,'history1.html')
 
 # carosel-----
 
@@ -188,6 +188,10 @@ def loadadd_content(request):
     a=contents.objects.all()
     return render(request,'content.html',{'al':a})
 
+def load_history_add(request):
+    history=HistoyrPdf.objects.all()
+    return render(request,'history_add.html',{'history':history})
+
  
 def add_content(request):
      if request.method=='POST':
@@ -287,6 +291,15 @@ def uploadpdfimgs(request):
             pdfimg.objects.create(
                 more_img=imag)
         return redirect('load_admin_home')
+
+def uploadhistory(request):
+    if request.method=='POST':
+        image=request.FILES.getlist('historyimg')
+        for imag in image:
+            HistoyrPdf.objects.create(
+                histry_img=imag)
+        return redirect('load_history_add')
+
 
 
 def deleteimg(request,img_id):
@@ -554,14 +567,17 @@ def loadbackbelt_page(request):
 def sending_mail(request):
     if request.method == 'POST': 
         recipient = request.POST['smailid'] 
-        message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
-        sendsubject=" JKMO INDIA"
-        try:
-            respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
-            return render(request,'sendmailout.html',{'message':message})
-            
-        except BadHeaderError:
-            return()
+        if recipient =='':
+             message=" Please Fill email id"
+        else:
+            message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
+            sendsubject=" JKMO INDIA"
+            try:
+                respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
+                return render(request,'sendmailout.html',{'message':message})
+                
+            except BadHeaderError:
+                return()
 
 
         

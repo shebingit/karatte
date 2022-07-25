@@ -27,7 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'css/affiliation.css' %}" rel="stylesheet">
+ 
 
   <!-- =======================================================
   * Template Name: BizPage - v5.8.0
@@ -35,6 +35,25 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+
+    #heading
+    {
+      margin-top: 20vh;
+    }
+    #hero
+    {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #content
+    {
+      margin-top: 10vh;
+      
+    }
+  </style>
 </head>
 
 <body>
@@ -65,33 +84,22 @@
       
     </div>
   </header><!-- End Header -->
-  
-<br><br><br>
 
-<section id="content">
-  <div class="affiliation_content">
-    <h1>Membership of Affiliation</h1>
-    <h5>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.
-      
-    </h5>
-    
-  </div>
-  
-</section>
+ <section id=heading>
+  <h3 class="text-center"><b>Affiliation Form</b></h3>
+ </section> 
+
 
 <section id="hero">
-  
-  <h3 class="text-center" style="margin-top: 2vh;">Affiliation Form</h3>
-  
-  <div class="hero-container">
+  <div class="hero-container text-center">
     
     <div class="affiliation_form_img">
       {% if affili.affiliation_img %}
         <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:65vh; width:60vh;" > 
       {% endif %}
     </div>
-    <div class="btn btn-secondary mt-4">
-      <a onclick='downloaD("/media/{{affili.affiliation_name }}","Affiliation.pdf")' >Download</a> 
+    <div class="btn btn-primary mt-4 ">
+      <a onclick='downloaD("/media/{{affili.affiliation_name }}","Affiliation.pdf")' ><i class="bi bi-download mx-1">  Download</i></a> 
     </div>
     
    
@@ -100,7 +108,22 @@
   
 </section><!-- End Hero Section -->
 
-
+<section id="content">
+  <div class="container" style="text-align: justify;">
+    <h2 class="text-center"><b>Membership of Affiliation</b></h2>
+    <h4 class="text-primary" style="font-size: 18px;"><b>A)	State Affiliation</b></h4>
+    <p>Instructor/instructors having a reasonably sound presence in a State may be allowed to have state affiliation from JSA INDIA H.Q. In such cases permission may be granted to form JSA INDIA STATE body in that particular state. Such state body may offer affiliation to other instructor(s) from that state, interested to join JSA INDIA from that state, on behalf of JSA INDIA. The state body in such cases may fix a reasonable affiliation fees from such interested person or group from that state. The decision in this regard will be taken by the Chief instructor / Committee of JSA INDIA.</p>
+    <h4 class="text-primary" style="font-size: 18px;"><b>B)	Individual Do-Jo / District Affiliation</b></h4>
+    <p>Individual Dojo (Branch/District Affiliation) is eligible to get affiliation from JSA India. An Instructor operating only a single dojo or a few dojos only should get his/her dojo(s) affiliated under Individual Dojo affiliation scheme. In such case he/she has to pay yearly affiliation fee for each dojo.</p>
+    <h4 class="text-primary" style="font-size: 18px;"><b>Conditions for an Affiliated Branch</b></h4>
+    <p>A Dojo should be run by a Black Belt ( Minimum Shodan) authorized instructor. In special cases junior students can run such a centre, but he/she must be under a Black Belt Instructor having a valid authorized instructors license of JSA INDIA.</p>
+   
+      
+    </h5>
+    
+  </div>
+  
+</section>
   
 
   <footer id="footer">
@@ -110,7 +133,7 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <a href="index.html" class="logo"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
-            <br><br><p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
+            <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">

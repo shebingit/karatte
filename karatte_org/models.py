@@ -133,5 +133,8 @@ class moreconts(models.Model):
 class  pdfimg(models.Model):
     more_img=models.ImageField(upload_to="image/blackbeltholder")
 
+class  HistoyrPdf(models.Model):
+    histry_img=models.ImageField(upload_to="image/blackbeltholder")
+
 
 
