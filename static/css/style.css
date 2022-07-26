@@ -356,7 +356,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
 }
 #hero .carousel-item {
-  background-size: cover;
+  background-size: fill;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -436,7 +436,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 #hero .carousel-indicators li {
-  cursor: pointer;
+  display: none;
+  list-style: none;
 }
 #hero .btn-get-started {
   font-family: "Montserrat", sans-serif;

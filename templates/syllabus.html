@@ -67,7 +67,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center" style="box-shadow: 0px 0px 6px 0px;">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -79,7 +79,7 @@
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
-              <li><a class="nav-link scrollto" href="{% url 'logout' %}" style="color:rgb(39, 53, 244) ;">Logout</a></li>
+              <li><a class="nav-link scrollto text-primary" href="{% url 'logout' %}">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
           </nav><!-- .navbar -->
@@ -87,6 +87,7 @@
       </div>
     </div>
   </header><!-- End Header -->
+<br>
 
   <!--======hero =======-->
 

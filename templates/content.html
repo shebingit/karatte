@@ -51,13 +51,12 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
           <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
-          <h3 class="text-light" >Admin Dashboard</h3>
+          <h3 >Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style="text-align: center;">
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
-              <li><a class="nav-link scrollto " href="{% url 'load_history_add' %}">History</a></li>
               <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
@@ -66,6 +65,7 @@
       </div>
     </div>
   </header><!-- End Header -->
+<br>
 
   <!--======hero =======-->
   <br>
