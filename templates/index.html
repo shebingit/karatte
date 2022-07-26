@@ -91,6 +91,13 @@
   height: 350px;
 }
 }
+#container
+{
+  text-align:justify;
+  
+  margin-bottom: 5vh;
+}
+#more {display: none;}
 
 /* Call To Action Section
 --------------------------------*/
@@ -178,11 +185,48 @@
     <!-- ======= About Us Section ======= -->
     <section id="about">
       <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h3 class="mt-5">About Us</h3>
+        </div>
 
-        <header class="section-header">
-          <h3>About Us</h3>
-          <p>JKMO INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA. Black Belt Karate International (BBKI INDIA SHOTOKAN) was established in India by Shihan Bonnie Roberts from Sri Lanka in 1975. In 2000 we invited Shihan Sasaki Toshiatsu to India and BBKI INDIA was renamed as JKMO INDIA.</p>
-        </header>
+          <div id="container">
+            <h3 class="text-center"></h3>
+            <p>A fascinating incident occurred in Kuzhithurai, Kanyakumari District, Tamil Nadu, the birthplace of the Japan Shotokan Association of India. Twelve people from various walks of life convened for the first time on May 1, 2022, thanks to Mr. Ajith R., the Association's current President, taking the initiative after the establishment of this association garnered the attention of the area's most prominent figures. Mr. Ajith R, Mr. Anu R, Mr. Akshai Sanjith Kumar V. L, Mr. Akshai Sajin Kumar V. L, Ms. Jini G, Mr. Rejin J. S, Mr. Godwin D, Mr. Alan Shervin A. S, Mr. Jerald J, Mr. Sothanther Rajan R, and Mr. Binoj B. Sam, were unanimously chosen to Further, it was decided to place the Association’s operations under the auspices of the renowned Japan Shotokan Association-based martial arts organisation of Master Miraj Marlon for polished performance<span id="dots">...</span></p>
+            <p id="more">
+              <span>Since its founding, the Association has contributed greatly to the rehabilitation and socio- economic improvement of not only the area where its office is located but also the surrounding areas. A strong emphasis is placed on children’s positive development in the context of self- control, social responsibility, and awareness of others. The Karate, Judo, and Yoga martial arts are used for mental and physical discipline by the Association in order to instil the recognised noble values and trails of the diverse Indian society.<br><br></span>
+              <span>Sincere to say, the association uses karate, judo, and yoga to help its students develop a more well-rounded personality. On a regular basis, competitions and tournaments are held at the district, state, national, and worldwide levels to enhance the potential of the students, who are incentivized by attractive prizes and medals in this context.<br></span>
+              <span>Association, which is led by Mr. Ajith R as president and chief instructor, swears to continue all of these initiatives as a mission for both the present and the next generations.</span> 
+              <br><br><span>FURTHER TRAINING GIVING SCHOOLS OF OUR ASSOCIATION KARATE<br><br></span>
+              <span> 1)	Shree Vidyadhiraja Vidya Vikas Matriculation school, Kuzhithurai.<br><br></span>
+              <span> 2)	Noble Public school, Kaliyakkavilai Home Dojo class<br><br></span>
+              <span> 2nd floor Shree Vidyadhiraja Vidya Vikas Matriculation school, Kuzhithurai. Time<br><br></span>
+              <span>Tuesday and Thursday evening 5 to 7pm <br><br></span>
+              <span></span>Saturday and Sunday evening 4 to 6:30 pm<br><br></span>          
+            </p>
+            <div class="text-end">
+              <button class="btn btn-primary rounded-pill p-2 mt-3 mr-3" onclick="myFunction()" id="myBtn">Read More</button>
+            </div>
+           
+          </div>
+
+          <!--function for more read-->
+          <script>
+            function myFunction() {
+              var dots = document.getElementById("dots");
+              var moreText = document.getElementById("more");
+              var btnText = document.getElementById("myBtn");
+            
+              if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more"; 
+                moreText.style.display = "none";
+              } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less"; 
+                moreText.style.display = "inline";
+              }
+            }
+          </script>
 
         <div class="row about-cols">
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
@@ -331,7 +375,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
       <div class="container text-center" data-aos="zoom-in">
         <h3>Call To Action</h3>
         <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="tel:+917902579309">Call To Action</a>
+        <a class="cta-btn" href="tel:+918489130102">Call To Action</a>
       </div>
     </section><!-- End Call To Action Section -->
 
@@ -407,22 +451,23 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
                   <div class="infoBox">
                       <div>
                           <span><ion-icon name="location"></ion-icon></span>
-                          <a href="#">Kottayam,kerala NY 535022, India></a>
+                          <a href="#"> National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
+                            Kuzhithurai POst,Kanyakumari DIstrict,<br>
+                            TamilNadu,India -629163 </a>
                       </div>
                       <div>
                           <span><ion-icon name="mail"></ion-icon></span>
-                          <a href="mailto:jkmoshotokan@gmail.com">jkmoshotokan@gmail.com</a>
+                          <a href="mailto:Jsaindia2022@gmail.com">Jsaindia2022@gmail.com</a>
                       </div>
                       <div>
                           <span><ion-icon name="call"></ion-icon></span>
-                          <a href="tel:+919676567234">+91 9676 5672 34</a>
+                          <a href="tel:+918489130102">+91 8489 130 102</a>
                       </div>
                       <!-- social media links-->
                       <ul class="sci">
-                          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                          <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                          <li><a href="https://wa.me/7902579309"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+                          <li><a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                          <li><a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a></li>
+                          <li><a href="https://wa.me/8489130102"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
   
                       </ul>
                       
@@ -466,8 +511,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;
-              "></a>
+            <a href="#" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
             <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
           </div>
 
@@ -476,28 +520,27 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Members</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'loadbackbelt_page' %}">Members</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact Us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Afiliation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              Pala 2nd street<br>
-              Kerala, South<br>
-              India <br>
-              <strong>Phone:</strong> +91 9676 5672 34<br>
-              <strong>Email:</strong> jsaindia@gmail.com<br>
+              National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
+              Kuzhithurai POst,Kanyakumari DIstrict,<br>
+              TamilNadu,India -629163 <br>
+              <strong>Phone:</strong> +91 8489 130 102<br>
+              <strong>Email:</strong> Jsaindia2022@gmail.com<br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="https://wa.me/7902579309" class="linkedin"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
             </div>
 
           </div>
@@ -505,7 +548,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our location</h4>
             <div class="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.708351456061!2d77.19806616560669!3d8.317286200748581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0455831c3b2009%3A0x955c93d3b4f7ce5b!2sJapan%20Shotokan%20Association%20of%20India!5e0!3m2!1sen!2sin!4v1658819180157!5m2!1sen!2sin"   style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           </div>
 
@@ -529,11 +572,12 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <a href="https://wa.me/7902579309"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
+  <a href="https://wa.me/8489130102"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
   
 
+  
 
 
   <!-- Vendor JS Files -->

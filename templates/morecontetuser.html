@@ -29,25 +29,40 @@
   
     <!-- Template Main CSS File -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+      #imag4 img
+      {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
 </head>
 
 <body >
 
  <!-- ======= Header ======= -->
  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-  <div class="container-fluid">
+  <div class="container-fluid mt-0">
 
     <div class="row justify-content-center align-items-center">
       <div class="col-xl-11 d-flex align-items-center justify-content-between">
         <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#" class="logo1" >
-          <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh;">
+          <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid mt-3" style="width:12vh; ">
         </a>
 
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active " href="{% url 'load_home_page' %}">Home</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'load_home_page' %}">Home</a></li>
+            <li><a class="nav-link scrollto active " href="{% url 'load_home_page' %}#about">About us</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'loadpdfimgs' %}">KATAS & TECHNIQUES</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#contact">Contact us</a></li>
+            
+
           </ul>
           <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
         </nav><!-- .navbar -->
@@ -56,75 +71,69 @@
 
   </div>
 </header><!-- End Header -->
-<div class="container" style="margin-top:18vh;">
-<div class="row">
-  <div class="col-sm">
-    <center>
-      <img src="https://www.animatedimages.org/data/media/1297/animated-karate-image-0039.gif" border="0" alt="animated-karate-image-0039" style="width:80px ;" /></a>
-    </center>
-  </div>
-</div>
-</div>
 
-<div class="container " style="margin-top:1vh;">
-  <div class="col-sm">
-    <h1>{{con_id.con_title}}</h1>
+<div class="container" style="margin-top:20vh;" >
+  <div class="col-lg-12 col-md-6 col-sm-12  text-center mb-4">
+    <h4 class="h2" style=" font-family: Times New Roman, Times, serif;">{{con_id.con_title}}</h4>
   </div>
-    <div class="row"><br>
     {% for i in abtmore %}
-      <div class="col-lg-7 col-sm-3">
-        <p>{{i.more_cont}}</p>
+      <div class="row text-center" id="imag4">
+        <div class="col-lg-4 col-md-6 col-sm-12" class="mb-5"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12" >
+        {% if i.more_cont %}
+          <img src="{{i.more_img.url}}" alt="" class="mb-5">
+        {% endif %}
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12" class="mb-5"></div>
       </div>
-      <div class="col-lg-5 col-sm-6">
-        <div class="row">
-          <div class="col-lg-10 col-lg-6 g-2 col-12">
-          {% if i.more_cont %}
-            <img src="{{i.more_img.url}}" alt="" class="img-fluid" style="width:100%;">
-          {% endif %}
-          </div>
+      <div class="row mt-5 mb-5">
+        <div class="col-lg-12 col-sm-3"class="mt-5 mb-5">
+          <p>{{i.more_cont}}</p>
         </div>
       </div>
+
     {% endfor %}
-    </div>
-  </div><br>
+</div><br>
+
+
 <!-- ======= Footer ======= -->
 <footer id="footer">
   <div class="footer-top">
     <div class="container">
+      <hr>
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-info">
-          <a href="index.html" class="logo1"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
-          <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan), a famous WKF Referee and an authorised shitei Kata Trainer of WKF Katas. Shihan Dr. Shaji S. Kottaram (World Karate Federation Judge and Asian Karate Federation Judge ‘A‘ in Kata & Kumite) is the President & Chief Technical Director of JKMO INDIA.</p><br><br>
+          <a href="#" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
+          <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">BlackBelt MEMBERS</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Afiliation</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#hero">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#about">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'loadbackbelt_page' %}">Members</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#contact">Contact Us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-6 footer-contact">
           <h4>Contact Us</h4>
           <p>
-            Pala 2nd street<br>
-            Kerala, South<br>
-            India <br>
-            <strong>Phone:</strong> +91 9676 5672 34<br>
-            <strong>Email:</strong> jsaindia@gmail.com<br>
+            National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
+            Kuzhithurai POst,Kanyakumari DIstrict,<br>
+            TamilNadu,India -629163 <br>
+            <strong>Phone:</strong> +91 8489 130 102<br>
+            <strong>Email:</strong> Jsaindia2022@gmail.com<br>
           </p>
 
           <div class="social-links">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/7902579309" class="linkedin"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
           </div>
 
         </div>
@@ -132,7 +141,7 @@
         <div class="col-lg-3 col-md-6 footer-newsletter">
           <h4>Our location</h4>
           <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.708351456061!2d77.19806616560669!3d8.317286200748581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0455831c3b2009%3A0x955c93d3b4f7ce5b!2sJapan%20Shotokan%20Association%20of%20India!5e0!3m2!1sen!2sin!4v1658819180157!5m2!1sen!2sin"   style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         </div>
 
@@ -142,7 +151,7 @@
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright © 2022  <strong>JSA INDIA </strong>. All Rights Reserved
+      &copy; Copyright © 2022  <strong>JSA INDIA</strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!--
@@ -156,10 +165,16 @@
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="https://wa.me/8489130102"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
 <!-- Uncomment below i you want to use a preloader -->
 <!-- <div id="preloader"></div> -->
 
+
+
+
+
 <!-- Vendor JS Files -->
+<i class="fa-brands fa-whatsapp"></i>
 <script src="{% static 'vendor/aos/aos.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
@@ -167,7 +182,12 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-</body>
+
+
+
 <!-- Template Main JS File -->
 <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
 </html>

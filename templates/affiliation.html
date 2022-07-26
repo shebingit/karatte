@@ -60,33 +60,39 @@
 
   
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style=" box-shadow:0px 0px 6px 1px;">
-    <div class="container-fluid">
+ <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+  <div class="container-fluid mt-0">
 
-      <div class="row justify-content-center align-items-center">
-        <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <a href="#" class="logo1" >
-            <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:9vh;">
-          </a>
-          <nav id="navbar" class="navbar">
-            <ul>
-              <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}" style="color: #000;">Home</a></li>
-              <li><a class="nav-link scrollto active" href="{% url 'load_affiliation_page' %}">AFFILIATION</a></li>
-              <li><a class="nav-link scrollto active" href="{% url 'load_register' %}">  REGISTER</a></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"style="color: #000;"></i>
-          </nav><!-- .navbar -->
-          
-        </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-xl-11 d-flex align-items-center justify-content-between">
+        <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="#" class="logo1" >
+          <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid mt-3" style="width:12vh; ">
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}">Home</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#about">About us</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'loadpdfimgs' %}">KATAS & TECHNIQUES</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
+            <li><a class="nav-link scrollto active " href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#contact">Contact us</a></li>
+            
+
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+        </nav><!-- .navbar -->
       </div>
-      
     </div>
-  </header><!-- End Header -->
+
+  </div>
+</header><!-- End Header -->
 
  <section id=heading>
-  <h3 class="text-center"><b>Affiliation Form</b></h3>
+  <h3 class="text-center"style=" font-family: Times New Roman, Times, serif; margin-top:3vh;"><b>Affiliation Form</b></h3>
  </section> 
 
 
@@ -124,117 +130,121 @@
   </div>
   
 </section>
-  
 
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+ <!--Affiliation download --> 
 
-          <div class="col-lg-3 col-md-6 footer-info">
-            <a href="index.html" class="logo"><img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
-            <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
-          </div>
+<script>
+  function downloaD(url, name){
+    fetch(url).then(async (res) =>{
+      const dfile=await res.blob();
+      var blobURL=
+        window.URL && window.URL.createObjectURL
+          ? window.URL.createObjectURL(dfile)
+          : window.webkitURL.createObjectURL(dfile);
+      var templink=document.createElement("a");
+      templink.style.display="none";
+      templink.href=blobURL;
+      templink.setAttribute("download",name);
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Members</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Affiliation</a></li>
-            </ul>
-          </div>
+      if(typeof templink.download=="undefined"){
+        templink.setAttribute("traget","_blank");
+      }
+      document.body.appendChild(templink);
+      templink.click();
+      
+      setTimeout(function(){
+        document.body.removeChild(templink);
+      }, 200);
+    });
+  }
+</script>
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              Pala 2nd street<br>
-              Kerala, South<br>
-              India <br>
-              <strong>Phone:</strong> +91 9676 5672 34<br>
-              <strong>Email:</strong> jkmoshotokan@gmail.com<br>
-            </p>
+  <!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <hr>
+      <div class="row">
 
-            <div class="social-links">
-              <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            </div>
+        <div class="col-lg-3 col-md-6 footer-info">
+          <a href="#" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
+          <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
+        </div>
 
-          </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#hero">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#about">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'loadbackbelt_page' %}">Members</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#contact">Contact Us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
+          </ul>
+        </div>
 
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our location</h4>
-            <div class="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d503339.6948399871!2d76.33287412767041!3d9.737123841704818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d1921805c70d%3A0xafda8ece7b45e5e8!2sKottayam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655813533696!5m2!1sen!2sin" style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
+            Kuzhithurai POst,Kanyakumari DIstrict,<br>
+            TamilNadu,India -629163 <br>
+            <strong>Phone:</strong> +91 8489 130 102<br>
+            <strong>Email:</strong> Jsaindia2022@gmail.com<br>
+          </p>
+
+          <div class="social-links">
+            <a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
           </div>
 
         </div>
+
+        <div class="col-lg-3 col-md-6 footer-newsletter">
+          <h4>Our location</h4>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.708351456061!2d77.19806616560669!3d8.317286200748581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0455831c3b2009%3A0x955c93d3b4f7ce5b!2sJapan%20Shotokan%20Association%20of%20India!5e0!3m2!1sen!2sin!4v1658819180157!5m2!1sen!2sin"   style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        </div>
+
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright © 2022  <strong>JSA INDIA </strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-      -->
-      </div>
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright © 2022  <strong>JSA INDIA</strong>. All Rights Reserved
     </div>
-  </footer><!-- End Footer -->
+    <div class="credits">
+      <!--
+      All the links in the footer should remain intact.
+      You can delete the links only if you purchased the pro version.
+      Licensing information: https://bootstrapmade.com/license/
+      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+    -->
+    </div>
+  </div>
+</footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
-
-  <script>
-    function downloaD(url, name){
-      fetch(url).then(async (res) =>{
-        const dfile=await res.blob();
-        var blobURL=
-          window.URL && window.URL.createObjectURL
-            ? window.URL.createObjectURL(dfile)
-            : window.webkitURL.createObjectURL(dfile);
-        var templink=document.createElement("a");
-        templink.style.display="none";
-        templink.href=blobURL;
-        templink.setAttribute("download",name);
-
-        if(typeof templink.download=="undefined"){
-          templink.setAttribute("traget","_blank");
-        }
-        document.body.appendChild(templink);
-        templink.click();
-        
-        setTimeout(function(){
-          document.body.removeChild(templink);
-        }, 200);
-      });
-    }
-  </script>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="https://wa.me/8489130102"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
+<!-- Uncomment below i you want to use a preloader -->
+<!-- <div id="preloader"></div> -->
 
 
+<!-- Vendor JS Files -->
+<i class="fa-brands fa-whatsapp"></i>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
-  <script src="{% static 'vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
