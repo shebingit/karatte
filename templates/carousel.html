@@ -35,27 +35,28 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
-    <div class="container-fluid">
+ <!-- ======= Header ======= -->
 
-      <div class="row justify-content-center align-items-center">
-        <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
-          <h3 class="text-light" >Admin Dashboard</h3>
+<header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
+  <div class="container-fluid">
 
-          <nav id="navbar" class="navbar" style="text-align: center;">
-            
-            <ul>
-              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
-              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"style="color:#000;"></i>
-          </nav><!-- .navbar -->
-        </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-xl-11 d-flex align-items-center justify-content-between">
+        <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+        <h3 >Admin Dashboard</h3>
+
+        <nav id="navbar" class="navbar" style="text-align: center;">
+          
+          <ul>
+            <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+        </nav><!-- .navbar -->
       </div>
     </div>
-  </header><!-- End Header -->
+  </div>
+</header><!-- End Header -->
 
   <!--======hero =======-->
 <br>
@@ -66,12 +67,13 @@
       <div class="row pt-1">
         <div  class="col-12 col-md-4 col-lg-3 p-3">
           <input type="file"  class="form-control" accept="carouselimages/"  name="carimgss" required>
+          <p style="font-size:12px; margin:5px;"> Dimentions 100% 650px</p>
         </div>
         <div class="col-12 col-md-4 col-lg-3 p-3">
-            <input type="text" class="form-control" placeholder="Title"  name="title" required>
+            <input type="text" class="form-control" placeholder="Title"  name="title"  value="Dummyvalue" hidden>
         </div>
         <div class="col-12 col-md-4 col-lg-3 p-3">
-          <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" required>
+          <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" value="Dummyvalue" hidden>
         </div>
         <div class="col-12 col-md-4 col-lg-3 p-3">
           <button type="submit" class="btn-primary" formaction="{% url 'add_carousel_images' %}">Add</button>
@@ -89,9 +91,6 @@
             <img  class="card-img-top" src="{{ i.carimage.url }}" style="height:135px;" alt="Card image cap">
               
             <div class="card-body">
-
-              <h4 class="card-title text-dark">{{ i.title }}</h4>
-              <p class="card-text">{{ i.subtitle }}</p>
               <a href="{% url 'load_updatecarosel' i.id %}"  class="btn btn-success mb-2" style="width:40%; ">Update</a>
               <a href="{% url 'deletecarouselimg' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2" style="width:40%;">Delete</a>
             

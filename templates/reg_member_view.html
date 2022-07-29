@@ -58,6 +58,14 @@
         margin-top: 5vh;
         margin-bottom: 5vh;
     } 
+    #registerform .logor{
+        text-align: center;
+    }
+    #registerform .logor img{
+        width: 14vh;
+        height: 14vh;
+    }
+
   </style>
 
 </head>
@@ -68,8 +76,11 @@
 
 <section id="registerform">
     <div class="container">
-        <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;">
-        <header>Member Details </header>
+        <div class="logor">
+            <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid">
+        </div>
+        
+        <header>Student Registration Form</header>
         
 
         <form  method="post" enctype="multipart/form-data">

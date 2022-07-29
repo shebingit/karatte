@@ -41,8 +41,8 @@
 
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-11 d-flex align-items-center justify-content-between">
-          <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
-          <h3 class="text-light" >Admin Dashboard</h3>
+          <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 class="text-center">Admin Dashboard</h3>
 
           <nav id="navbar" class="navbar" style=" text-align: center;">
             
@@ -68,10 +68,10 @@
           <input type="file"  class="form-label"   accept="carouselimages/"  name="upcarimgss" required value="{{ carsl.carimage }}">
         </div>
         <div class="col-3 pt-1">
-            <input type="text" class="form-label" placeholder="Title"  name="uptitle" required value="{{ carsl.title }}">
+            <input type="text" class="form-label" hidden placeholder="Title"  name="uptitle" required value="{{ carsl.title }}" readonly>
         </div>
         <div class="col-3 pt-1">
-          <input type="text" class="form-label" placeholder="Subtitle" name="upsubtitle" required value="{{ carsl.subtitle }}">
+          <input type="text" class="form-label" hidden placeholder="Subtitle" name="upsubtitle" required value="{{ carsl.subtitle }}" readonly>
         </div>
         <div class="col-2 pt-1">
           <button type="submit" class="btn btn-primary" formaction="{% url 'update_carousel' carsl.id %}">Update</button>
@@ -84,14 +84,8 @@
         <div class="row">
           <div class="col-3">
             <div class="card mt-3">
-              <img  class="card-img-top" src="{{ carsl.carimage.url }}" style="height:135px;" alt="Card image cap">
+              <img  class="card-img-top" src="{{ carsl.carimage.url }}" style="height:200px;" alt="Card image cap">
                 
-              <div class="card-body">
-  
-                <h4 class="card-title text-dark">{{ carsl.title }}</h4>
-                <p class="card-text">{{ carsl.subtitle }}</p>
-              
-              </div>
             </div>      
           </div>
         </div>

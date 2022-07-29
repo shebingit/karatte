@@ -223,7 +223,6 @@ def morecontdelete(request,mcd_id):
 def load_member(request):
     check_reg_member=check_register_members.objects.filter(check_status='0')
     reg_member=register_members.objects.all()
-    print(reg_member)
     return render(request,'show_member.html',{'reg_member':reg_member,'check_reg_member':check_reg_member})
 
 def load_register(request):
@@ -265,7 +264,6 @@ def delete_syllabus(request,sydid):
 def load_images(request,folimg_id):
     folder=imagefolder.objects.get(id=folimg_id)
     folder_images=images.objects.filter(folder_id=folimg_id)
-    print(folder_images)
     return render(request,'images.html',{'folder_images':folder_images,'folder':folder})
 
 #adding images to a folder 
@@ -575,9 +573,10 @@ def sending_mail(request):
             try:
                 respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
                 return render(request,'sendmailout.html',{'message':message})
-                
+               
             except BadHeaderError:
                 return()
+        return render(request,'sendmailout.html',{'message':message}) 
 
 
         

@@ -36,7 +36,7 @@
 
     <div class="row justify-content-center align-items-center">
       <div class="col-xl-11 d-flex align-items-center justify-content-between">
-        <a href="#" class="logo1"> <img src="{% static 'img/logo1.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+        <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
         <h3 >Admin Dashboard</h3>
 
         <nav id="navbar" class="navbar" style="text-align: center;">
@@ -60,11 +60,11 @@
       <h5>Update Folder Name :</h5>
       <div class="row pt-1">
         <div  class="col-12 col-md-4 col-lg-6  mt-4" >
-          <input type="text" multiple placeholder="Change file name" name="file" value="{{folderl.folder_name}}">
+          <input type="text" multiple placeholder="Change file name" class="form-controls" name="file" value="{{folderl.folder_name}}">
         </div>
         <br><br>
         <div  class="col-12 col-md-4 col-lg-6 mt-4">
-          <button type="submit" class="btn-primary">Update File Name</button>
+          <button type="submit" class="btn btn-primary">Update File Name</button>
         </div>
       </div>  
     </form>
