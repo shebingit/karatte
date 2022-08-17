@@ -36,10 +36,21 @@
     padding: 4px;
     margin-left: 5px;
     margin-top: 5px;
-    width: 80%;
-    height: 45px;
+    width: 100%;
     border-radius: 4px;
   }
+  #about_content
+  {
+    margin-top: 10vh;
+  }
+  .alert-box {
+    max-width: 300px;
+    min-height: 300px;
+  }
+  .alert-icon {
+      padding-bottom: 20px;
+   }
+  
 </style>
 
 <body>
@@ -69,27 +80,65 @@
 
   <!--======hero =======-->
   <br>
+  <section id="about_content">
+    <form  class="mt-2 p-4" action="{% url 'about_content' %}" method="post">
+    {% for msg in mseg %}
+      <div class='row'>
+        <div class="alert-box" style="float: none; margin: 0 auto;">
+          <div class="alert alert-success">
+            <div class="alert-icon text-center">
+              <ion-icon name="checkmark-outline" size="larger" aria-hidden="true"></ion-icon>
+            </div>
+            <div class="alert-message text-center">
+              <strong>{{msg}}!</strong> Thank you.
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    {% csrf_token %}
+      <div class="container">
+        <h4><b>About Content</b> </h4>
+        <textarea rows="10" placeholder="Content" name="ab_content"></textarea>
+        <br>
+        <center><button type="submit" class="btn btn-success mt-3 mb-5">Save</button></center>
+        <div class="row">
+        {% for cont in content %}
+          <div class="col-lg-9 p-3 mt-2 mb-2">
+            {{cont.ab_contents}}
+          </div>
+          <div class="col-lg-3 p-3">
+           <a href="{% url 'about_content_update' cont.id %}" class="text-success mx-3"><ion-icon size="small" name="pencil-outline"></ion-icon></a>
+           <a href="{% url 'about_delete' cont.id %}" class="text-danger mx-3"><ion-icon size="small" name="close-circle-outline"></ion-icon></a>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </form>
+    
+  </section>
   <section id="admin_hero">
     <form  method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container">
       <div class="row pt-1">
         
-        <div class="col-12 col-md-4 col-lg-3 pt-1">
-            <input type="text" placeholder="Title"  name="conttitle" required>
+        <div class="col-sm-12 col-md-4 col-lg-9 pt-1">
+            <input type="text" placeholder="Title" class="w-100" name="conttitle" required>
         </div>
-        <div class="col-12 col-md-4 col-lg-3 pt-1">
-          <textarea placeholder="Content" name="conts" required></textarea> 
-        </div>
-        <div  class="col-12 col-md-4 col-lg-3">
-          <input type="file"   accept="carouselimages/" id="file" name="contimg" required onchange="previewImagesize();">
-          <div class="col-12 col-md-4 col-lg-3"id="preview" style="font-size:12px ;"></div>
+        <div  class="col-sm-12 col-md-4 col-lg-3">
+          <input type="file"   accept="carouselimages/" id="file" name="contimg" required>
+          <!-- <div class="col-sm-12 col-md-4 col-lg-3"id="preview" style="font-size:12px ;"></div> -->
           <p style="font-size:12px; margin:5px;"> Dimentions 600px 400px</p>
           
         </div>
+        <div class="col-12 col-md-4 col-lg-12 pt-1">
+          <textarea rows="10" placeholder="Content" name="conts" required></textarea> 
+        </div>
+        
         
         <div class="col-12 col-md-4 col-lg-3 pt-1">
-          <button type="submit" class=" btn btn-primary" formaction="{% url 'add_content' %}">Add</button>
+          <button type="submit" class=" btn btn-success" formaction="{% url 'add_content' %}">Save</button>
         </div>
       </div>
     </div>

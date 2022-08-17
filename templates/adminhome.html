@@ -25,6 +25,23 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+
+  <style>
+    #admin_hero .card
+    {
+      margin-top:5px;
+      border-radius: 5%;
+      background: rgba(238, 242, 245, 0.749);
+    }
+    #admin_hero h6{
+      margin-top: 2vh;
+      font-weight: 500;
+    }
+    #upload_content
+    {
+      margin-top: 5vh;
+    }
+  </style>
 </head>
 
 <body>
@@ -53,95 +70,140 @@
   </header><!-- End Header -->
 
   <!--======hero =======-->
+  <style>
+    .news_container
+    {
+      border-left: 5px solid rgb(239, 232, 20);
+      margin-top: 5px;
+      padding: 4px;
+     
+    }
+  </style>
 
   <section id="admin_hero">
     <div class="container">
-      <div class="row m-2" style="width: 100%;">
-        <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_member' %}"><img src="{% static 'img/members.png' %}" class="mt-4"  style="width: 80px; height:80px;border-radius:40%;">
-          <h6>Show Members</h6></a>
-        </div>
-        <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
-          <h6>Folders</h6></a>
+      <div class="row mt-5 text-center" style="width: 100%;">
+        <div class="col-lg-2 col-md-4 col-sm-12">
+
+          <div class="card mb-2">
+            <div class="card-body">
+              <a href="{% url 'load_member' %}"><img src="{% static 'img/members.png' %}" class="mt-4"  style="width: 50px; height:50px;border-radius:40%;">
+                <h6>Show Members</h6></a>
+            </div>
+          </div>
+          
         </div>
 
-        <div class="col-5 col-md-4 col-lg-3 ">
-         <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}"class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
-         <h6>Members</h6></a>
+        <div class="col-lg-2 col-md-4 col-sm-12">
+          <div class="card mb-2">
+            <div class="card-body">
+              <a href="{% url 'load_folder_create' %}"><img src="{% static 'img/folder.png' %}" class="mt-4"  style="width: 50px; height:50px;border-radius:40%;">
+              <h6>Folders</h6></a>
+            </div>
+          </div>
         </div>
 
-        <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
-          <h6>Affilation</h6></a>
+        <div class="col-lg-2 col-md-4 col-sm-12">
+
+          <div class="card mb-2">
+            <div class="card-body">
+              <a href="{% url 'load_blackbelts' %}"> <img src="{% static 'img/Black_belt_tied.jpg' %}"class="mt-4"  style="width: 50px; height:50px;border-radius:40%;">
+                <h6>Members</h6></a>
+            </div>
+          </div>
+         
         </div>
-        <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" class="mt-4"  style="width: 80px; height:80px;border-radius:40%;">
-          <h6>Carousel</h6></a>
+
+        <div class="col-lg-2 col-md-4 col-sm-12">
+
+          <div class="card mb-2">
+            <div class="card-body">
+              <a href="{% url 'load_affiliation' %}"><img src="{% static 'img/affili.jpg' %}" class="mt-4"  style="width: 50px; height:50px;border-radius:40%;">
+                <h6>Affiliation</h6></a>
+            </div>
+          </div>
+          
         </div>
-        <div class="col-5 col-md-4 col-lg-3">
-          <a href="{% url 'loadadd_content' %}"><img src="{% static 'img/aboutus.png' %}" class="mt-4" style="width: 80px; height:80px;border-radius:40%;">
-          <h6>About Us</h6></a>
+        <div class="col-lg-2 col-md-4 col-sm-12">
+          <div class="card mb-2">
+            <div class="card-body">
+              <a href="{% url 'load_carousel' %}"><img src="{% static 'img/bgcaro.jpg' %}" class="mt-4"   style="width: 50px; height:50px;border-radius:40%;">
+                <h6>Home Cover</h6></a>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12">
+
+          <div class="card mb-2">
+            <div class="card-body">
+              <a href="{% url 'loadadd_content' %}"><img src="{% static 'img/aboutus.png' %}" class="mt-4" style="width: 50px; height:50px;border-radius:40%;">
+                <h6>About Us</h6></a>
+            </div>
+          </div>
+          
         </div>
         
      </div>
     </div>
   </section>
 
-  <section>
-  
-    <div class="container" style="height:30vh; margin-top:5vh;">
-      <hr>
-      <h5>Upload Video </h5><br>
-      <form method="post" action="{% url 'uploadvideo' %}">
-        {% csrf_token %}
-      <div class="input-group mb-3">
-        <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Update video</button>
+  <section id="upload_content">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="container mt-5">
+        
+          <h5>Upload Video </h5>
+          <hr>
+          <form method="post" action="{% url 'uploadvideo' %}">
+            {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+            <div class="input-group-append">
+              &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Update video</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        <div class="container mt-5">
+          
+          <h5>News and events </h5>
+          <hr>
+          <form method="post" action="{% url 'add_news' %}">
+            {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="text" name="news"class="form-control" placeholder="Type your news here.." aria-describedby="basic-addon2" required>
+            <div class="input-group-append">
+              &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">News and events</button>
+            </div>
+          </div>
+        </form>
         </div>
       </div>
-    </form>
-    </div>
-  
-  </section>
-
-  <section>
-
-    <div class="container" style="height:30vh;">
-      <hr>
-      <h5>News and events </h5><br>
-      <form method="post" action="{% url 'add_news' %}">
-        {% csrf_token %}
-      <div class="input-group mb-3">
-        <input type="text" name="news"class="form-control" placeholder="Type your news here.." aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">News and events</button>
-        </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="container mt-5">
+          <h4>News & Events Content</h4>
+          {% for news in newss %}
+              <div class="news_container">
+                <div class="row">
+                  <div class="col-lg-11"><a href="{% url 'admin_events_image' news.id %}"><h5 class="btn btn-light mt-2">{{news.newstitle}}</h5></a></div>
+                  <div class="col-lg-1"><a href="{% url 'news_delete' news.id %}" onclick="return confirm('Are you sure you want to delete this Folder ?')"  class="btn btn-danger btn-sm mt-2"><ion-icon name="trash-outline"><ion-icon name="trash-outline"></ion-icon></a></div>
+                </div>
+              </div>
+                
+              </tr>
+            {% endfor %}
+          </div>
       </div>
-    </form>
     </div>
   </section>
-  <section>
-    <div class="container">
-    <table class="table table-sm">
-      <thead >
-        <tr>
-          <th scope="col">Content</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for news in newss %}
-        <tr>
-          <td><h5 class="btn btn-light mt-2">{{news.newstitle}}</h5></td>
-          <td><a href="{% url 'news_delete' news.id %}" onclick="return confirm('Are you sure you want to delete this Folder ?')"  class="btn btn-danger btn-sm mt-2"><ion-icon name="trash-outline"><ion-icon name="trash-outline"></ion-icon></a></td>
-        </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-    </div>
-  </section>
+
+  
+    
+  
+ 
+
+   
 
 
 

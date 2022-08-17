@@ -16,6 +16,7 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('load_member',views.load_member,name='load_member'),
                path('sort_img',views.sort_img,name='sort_img'),
                path('moreimgs',views.moreimgs,name='moreimgs'),
+               path('Userevent_load',views.Userevent_load,name='Userevent_load'),
                path('load_carousel',views.load_carousel,name='load_carousel'),
                path('add_carousel_images',views.add_carousel_images,name='add_carousel_images'),
                path('load_updatecarosel/<int:upcarslid>',views.load_updatecarosel,name='load_updatecarosel'),
@@ -35,14 +36,17 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('check_reg_delete/<int:check_delete>',views.check_reg_delete,name='check_reg_delete'), 
 
 
-               path('adminlogin',views.adminlogin,name='adminlogin'),
+               path('Starz',views.Starz,name='Starz'),
+               path('profile',views.profile,name='profile'),
                path('changepassword',views.changepassword,name='changepassword'),
 
                path('login',views.login,name='login'),
                path('load_syllabus',views.load_syllabus,name='load_syllabus'),
                path('load_member_details/<int:mdid>',views.load_member_details,name='load_member_details'),
                path('delete_syllabus/<int:sydid>',views.delete_syllabus,name='delete_syllabus'),
+
                path('load_admin_home',views.load_admin_home,name='load_admin_home'),# admin load home page
+
                path('uploadvideo',views.uploadvideo,name='uploadvideo'),  
                path('load_folder_create',views.load_folder_create,name='load_folder_create'),
                path('load_blackbelts',views.load_blackbelts,name='load_blackbelts'),
@@ -59,6 +63,7 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('update_folder/<int:folderu_id>',views.update_folder,name='update_folder'),
                path('load_images/<int:folimg_id>',views.load_images,name='load_images'),
                path('news_delete/<int:news_id>',views.news_delete,name='news_delete'),
+               path('about_content',views.about_content,name='about_content'),
                path('add_morecontent/<int:admore_id>',views.add_morecontent,name='add_morecontent'),
                path('load_assoupdate/<int:assoup_id>',views.load_assoupdate,name='load_assoupdate'),
                path('load_addimages',views.load_addimages,name='load_addimages'),
@@ -69,8 +74,18 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('uploadfile',views.uploadfile,name='uploadfile'),
                path('loadadd_content',views.loadadd_content,name='loadadd_content'),
                path('loadmorecont/<int:morec_id>',views.loadmorecont,name='loadmorecont'),
+               path('about_delete/<int:about_id>',views.about_delete,name='about_delete'),
+               path('about_content_update/<int:abcontup_id>',views.about_content_update,name='about_content_update'),
+               path('about_content_save/<int:abupdate_id>',views.about_content_save,name='about_content_save'), 
                path('aboutmore/<int:abm_id>',views.aboutmore,name='aboutmore'),
                path('history',views.history,name='history'),
+               path('admin_events_image/<int:evnt_id>',views.admin_events_image,name='admin_events_image'),
+               path('regform/<int:regform_id>',views.regform,name='regform'),
+               path('eventimgupload/<int:eventimg_id>',views.eventimgupload,name='eventimgupload'),
+               path('news_eventimg_delete/<int:evimg_delete_id>',views.news_eventimg_delete,name='news_eventimg_delete'),
+               path('evregform_delete/<int:evformdelete_id>',views.evregform_delete,name='evregform_delete'),
+               
+
 
                path('logout',views.logout,name='logout'),  
 

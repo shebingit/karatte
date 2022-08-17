@@ -79,6 +79,7 @@
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              
               <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
@@ -104,7 +105,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Name: {{ asso.mname}}</h6>
                         <p class="card-text"> Designation: {{ asso.mdesig }}</p>
-                        <p class="card-text">Position: {{ asso.mposition }}</p>
+                        <p class="card-text">content: {{ asso.mposition }}</p>
                     </div>
                 </div>
             </div>
@@ -130,7 +131,7 @@
             </div> 
             <div class="row pt-1">
                 <div class="col m-3 pt-1">
-                    <input type="text" class="form-control" name="position" placeholder="Regiser id of Black Belt Holder" required value="{{ asso.mposition }}">
+                    <input type="text" class="form-control" name="position" placeholder="Content" value="{{ asso.mposition }}">
                 </div>
             </div>
             <div class="row pt-1">

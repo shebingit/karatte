@@ -1,4 +1,5 @@
 from asyncio.windows_events import NULL
+from distutils.command.upload import upload
 from operator import truediv
 from tkinter import CASCADE
 from django.db import models
@@ -136,5 +137,14 @@ class  pdfimg(models.Model):
 class  HistoyrPdf(models.Model):
     histry_img=models.ImageField(upload_to="image/blackbeltholder")
 
+class About(models.Model):
+    ab_contents=models.TextField()
 
+class regforms(models.Model):
+    env_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)
+    regpdf=models.FileField(upload_to="folderimages")
 
+class eventimage(models.Model):
+    envimage_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)
+    envimgpdf=models.FileField(upload_to="folderimages")
+    evnimg=models.ImageField(upload_to="folderimages")

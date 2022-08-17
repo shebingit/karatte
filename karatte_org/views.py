@@ -1,4 +1,5 @@
 from atexit import register
+from email import message
 import json
 from django.http import BadHeaderError
 from django.shortcuts import redirect, render
@@ -17,8 +18,11 @@ from django.http import JsonResponse
 #load admin home
 
 
-def adminlogin(request):
+def Starz(request):
     return render(request,'login.html')
+
+def profile(request):
+    return render(request,'Admin_profile.html')
 
 def contact(request):
     return render(request,'contact.html')
@@ -164,9 +168,15 @@ def update_folder(request,folderu_id):
 
 def uploadvideo(request):
     if request.method=="POST":
-        vid=videos.objects.get(id=0)
-        vid.video=request.POST.get('videofile')
-        vid.save()
+        vi=request.POST['videofile']
+        try:
+            vid=videos.objects.get(id=0)
+            vid.video=request.POST.get('videofile')
+            vid.save()
+        except videos.DoesNotExist:
+            vid=videos(video=vi)
+            vid.save()
+        
         messages="Video Saved Successfuly..."
         return render(request,'adminhome.html')
 
@@ -186,7 +196,8 @@ def load_associate(request):
 
 def loadadd_content(request):
     a=contents.objects.all()
-    return render(request,'content.html',{'al':a})
+    content=About.objects.all()
+    return render(request,'content.html',{'al':a,'content':content})
 
 def load_history_add(request):
     history=HistoyrPdf.objects.all()
@@ -298,7 +309,40 @@ def uploadhistory(request):
                 histry_img=imag)
         return redirect('load_history_add')
 
+def admin_events_image(request,evnt_id):
+    events=news.objects.get(id=evnt_id)
+    regf=regforms.objects.filter(env_id=evnt_id)
+    evimg=eventimage.objects.filter(envimage_id=evnt_id)
+    return render(request,'admin_event_imag.html',{'events':events,'regf':regf,'evimg':evimg})
 
+
+def regform(request,regform_id):
+    if request.method=='POST': 
+        fpdf=request.FILES.get('regfompdf')
+        evnt_news=news.objects.get(id=regform_id)
+        regf=regforms(regpdf=fpdf,env_id=evnt_news)
+        regf.save()
+        return redirect('load_admin_home')
+
+
+def eventimgupload(request,eventimg_id):
+    if request.method=='POST': 
+        impdf=request.FILES.get('evntimgpdf')
+        evimags=request.FILES.get('evnt_img')
+        evnt_news=news.objects.get(id=eventimg_id)
+        regf=eventimage(envimgpdf=impdf,evnimg=evimags,envimage_id=evnt_news)
+        regf.save()
+        return redirect('load_admin_home')
+
+def evregform_delete(request,evformdelete_id):
+    regform=regforms.objects.get(id=evformdelete_id)
+    regform.delete()
+    return redirect('load_admin_home')
+
+def news_eventimg_delete(request,evimg_delete_id):
+    evimg=eventimage.objects.get(id=evimg_delete_id)
+    evimg.delete()
+    return redirect('load_admin_home')
 
 def deleteimg(request,img_id):
     image=images.objects.get(id=img_id)
@@ -322,9 +366,11 @@ def load_home_page(request):
     a=carousel.objects.all()[1:]
     firstca=carousel.objects.first()
     newss=news.objects.all()
+    conts=About.objects.get(id=1)
+    conts1=About.objects.all().order_by('id')[1:] 
     con1=contents.objects.all().order_by('id')[:2]
     message="Successfully Registered."
-    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1})
+    return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1,'conts1':conts1,'conts':conts})
 
 @csrf_exempt
 def sort_img(request):
@@ -594,3 +640,46 @@ def logout(request):
     request.session["uid"] = ""
     auth.logout(request)
     return redirect('load_home_page')
+
+def about_content(request):
+    if request.method=="POST":
+        ab_cont=request.POST['ab_content']
+        conts=About(ab_contents=ab_cont)
+        conts.save()
+        mesg="successfully Saved."
+        content=About.objects.all()
+        a=contents.objects.all()
+        return render(request,'content.html',{'al':a,'mesg':mesg,'content':content})
+    
+def about_delete(request,about_id):
+    abcont=About.objects.get(id=about_id)
+    abcont.delete()
+    content=About.objects.all()
+    a=contents.objects.all()
+    return render(request,'content.html',{'al':a,'content':content})
+
+def about_content_update(request,abcontup_id):
+    abcont=About.objects.get(id=abcontup_id)
+    return render(request,'about_content_update.html',{'abcont':abcont})
+
+def about_content_save(request,abupdate_id):
+    if request.method=="POST":
+        abconts=About.objects.get(id=abupdate_id)
+        abconts.ab_contents=request.POST.get('ab_content_save')
+        abconts.save()
+        content=About.objects.all()
+        a=contents.objects.all()
+        return render(request,'content.html',{'al':a,'content':content})
+
+def Userevent_load(request):
+    evtimgs=eventimage.objects.all()
+    regformpdf=regforms.objects.all()
+    return render(request,'Events.html',{'evtimgs':evtimgs,'regformpdf':regformpdf})
+
+
+
+
+
+
+
+    

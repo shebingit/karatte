@@ -27,7 +27,140 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
- 
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+  <style>
+    #hero_user{
+        width: 100%;
+        margin-top: 3vh;
+        margin-bottom:3vh;
+        background:white;
+       
+    }
+    #hero_user.container{
+        width:100%;
+    }
+    .card{
+      
+    
+        margin:auto;
+  
+    }
+    @media(max-width:921px)
+    {
+      .card{
+        margin:auto;
+       text-align: center;
+       align-items:  center;
+      }
+    }
+    .card-body h5 {
+      font-weight:bold;
+    }
+    #hero_user h3{
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 50px;
+        margin-top: 20px;
+    }
+    #hero_user .card 
+    {
+      transition: border-color 1s, box-shadow 0.5s;
+    }
+    #hero_user .card:hover {
+      border-color: rgba(13, 110, 253, 0.7);
+      box-shadow: 0px 0px 10px 2px rgba(13, 110, 253, 0.6);
+    }
+
+    #assmember .card {
+      
+      box-shadow: 5px 5px 10px #e1e1e1;
+      padding: 20px;
+      color:#000;
+    }
+    #assmember .card:hover {
+      transform: scale(1);
+      border-color: rgba(13, 110, 253, 0.7);
+     box-shadow: 0px 0px 10px 2px rgba(13, 110, 253, 0.6);
+    }
+    #assmember img{
+      
+      height:21rem;
+
+    }
+    @media(max-width:921px)
+    {
+      #assmember img{
+        
+        height:18rem;
+        width: 16rem;
+      }
+    }
+    #assmember p{
+      font-size: 16px;
+    }
+    /* for desktop */
+.whatsapp_float {
+	position:fixed;
+    opacity:1;
+	width:40px;
+	height:40px;
+	bottom:61px;
+	right:15px;
+    background: #18d26e;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size:1.5em;
+    z-index: 996;
+    border-radius: 50px;
+   transition: all 0.4s;
+}
+.whatsapp_float i {
+    font-size: 17px;
+    color: #fff;
+    line-height:1.5;
+  }
+  .whatsapp_float:hover {
+    background: #2ce782;
+    color: #fff;
+  }
+  .whatsapp_float.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+
+.whatsapp-icon {
+	margin-top:16px;
+}
+/* for mobile */
+@media screen and (max-width: 767px){
+     .whatsapp-icon {
+	 margin-top:10px;
+     }
+    .whatsapp_float {
+        position:fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 60px;
+        right: 15px;
+        font-size:1.5em;
+        visibility:1;
+    }
+    .whatsapp_float i {
+        font-size: 17px;
+    color: #fff;
+    line-height:1.5;
+      }
+      .whatsapp_float:hover {
+        background: #2ce782;
+        color: #fff;
+      }
+}
+  
+
+    </style>
+  
 
   <!-- =======================================================
   * Template Name: BizPage - v5.8.0
@@ -35,31 +168,11 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <style>
-
-    #heading
-    {
-      margin-top: 20vh;
-    }
-    #hero
-    {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #content
-    {
-      margin-top: 10vh;
-      
-    }
-  </style>
 </head>
 
-<body>
+<body  style="background: #f0f0f0;">
 
-  
-  <!-- ======= Header ======= -->
+ <!-- ======= Header ======= -->
  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
   <div class="container-fluid mt-0">
 
@@ -73,14 +186,13 @@
 
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}">Home</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#about">About us</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'loadpdfimgs' %}">KATAS & TECHNIQUES</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'load_home_page' %}">Home</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'load_home_page' %}#about">About us</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'loadpdfimgs' %}">KATAS & TECHNIQUES</a></li>
             <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'Userevent_load' %}">Events</a></li>
-            <li><a class="nav-link scrollto active " href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
-            <li><a class="nav-link scrollto " href="{% url 'load_register' %}">Register</a></li>
+            <li><a class="nav-link scrollto active" href="{% url 'Userevent_load' %}">Events</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
             <li><a class="nav-link scrollto" href="{% url 'load_home_page' %}#contact">Contact us</a></li>
             
 
@@ -92,72 +204,35 @@
 
   </div>
 </header><!-- End Header -->
-<style>
-  #heading
-  {
-    background-color: rgb(246, 225, 37);
-    width: 460px;
-    text-align: center;
-    margin: auto;
-    margin-top:20vh;
-    border-top-right-radius:10px ;
-    border-top-left-radius:10px ;
-    height: 70px;
-  }
-  #heading h5{
-    font-family:'Cursive';
-    font-weight: 800;
-    letter-spacing: 2px;
-  color: rgb(249, 249, 251);
-    font-size: 26px;
-    font-family: 'Noto Serif', sans-serif;
-    margin-top:3vh;
-    letter-spacing: 2px;
-  }
-</style>
-
- <section id=heading>
-  <h5 class="text-center" >Affiliation Form</h5>
- </section> 
 
 
-<section id="hero">
-  <div class="hero-container text-center m-0">
+  <!--======hero =======-->
+
     
-    <div class="affiliation_form_img">
-      {% if affili.affiliation_img %}
-        <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:80vh; width:69vh;" > 
-      {% endif %}
-    </div>
-    <div class="btn btn-primary mt-4">
-      <a onclick='downloaD("/media/{{affili.affiliation_name }}","Affiliation.pdf")' ><i class="bi bi-download mx-1">  Download</i></a> 
-    </div>
+
+  <section id="hero_user" style="margin-top: 5vh; margin-bottom:3vh; background:#ffff;">
+    <div class="container " id="assmember"style="margin-top: 10vh;"><br>
+        <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >New and Upcoming Events</h3>
+        <div class="row g-3">
+          {% for ass in evtimgs  %}
+          <h6>{{ass.envimage_id.newstitle}}</h6>
+          {% if regformpdf %}
+            <p> Registration Form :  <a class="btn btn-primary"onclick='downloaD("/media/{{regformpdf.regpdf}}","RegistrationForm.pdf")' ><i class="bi bi-download  mx-1">  Download</i></a>{{regformpdf.}}</p>
+          {% endif %}
+            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card mb-4">
+              {% if ass.evnimg %}
+                <img src="{{ ass.evnimg.url }}"  alt="...">
+              {% endif %}
+              <div class="card-body text-center">
+                <p class="card-text"><a class="btn btn-primary"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1">  Download</i></a>{{regformpdf.}}</p></p>
+              </div>
+            </div>
+          </div>
+                
+          {% endfor %}
+        </div>
     
-   
-    <!--<a href="{% url 'loadpdfimgs' %}">pdf</a>-->
-  </div> 
-  
-</section><!-- End Hero Section -->
-
-<section id="content">
-  <div class="container" style="text-align: justify;">
-    <h2 class="text-center"><b>Membership of Affiliation</b></h2>
-    <h4 class="text-primary" style="font-size: 18px;"><b>A)	State Affiliation</b></h4>
-    <p>Instructor/instructors having a reasonably sound presence in a State may be allowed to have state affiliation from JSA INDIA H.Q. In such cases permission may be granted to form JSA INDIA STATE body in that particular state. Such state body may offer affiliation to other instructor(s) from that state, interested to join JSA INDIA from that state, on behalf of JSA INDIA. The state body in such cases may fix a reasonable affiliation fees from such interested person or group from that state. The decision in this regard will be taken by the Chief instructor / Committee of JSA INDIA.</p>
-    <h4 class="text-primary" style="font-size: 18px;"><b>B)	Individual Do-Jo / District Affiliation</b></h4>
-    <p>Individual Dojo (Branch/District Affiliation) is eligible to get affiliation from JSA India. An Instructor operating only a single dojo or a few dojos only should get his/her dojo(s) affiliated under Individual Dojo affiliation scheme. In such case he/she has to pay yearly affiliation fee for each dojo.</p>
-    <h4 class="text-primary" style="font-size: 18px;"><b>Conditions for an Affiliated Branch</b></h4>
-    <p>A Dojo should be run by a Black Belt ( Minimum Shodan) authorized instructor. In special cases junior students can run such a centre, but he/she must be under a Black Belt Instructor having a valid authorized instructors license of JSA INDIA.</p>
-   
-      
-    </h5>
-    
-  </div>
-  
-</section>
-
- <!--Affiliation download --> 
-
 <script>
   function downloaD(url, name){
     fetch(url).then(async (res) =>{
@@ -183,18 +258,21 @@
     });
   }
 </script>
+    </div>
+  </section>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
+  
           <div class="col-lg-3 col-md-6 footer-info">
             <a href="#" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
             <br><br><p>JSA India is a Shotokan Karate Association. Here we training traditional Shotokan karate.</p><br><br>
           </div>
-
+  
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
@@ -207,37 +285,37 @@
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
             </ul>
           </div>
-
+  
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              National Head Quarters:6-99 <br>Valarakuzhivilai,Kattuvilai,
+              National Head Quarters:6-99<br>Valarakuzhivilai,Kattuvilai, 
               Kuzhithurai Post,Kanyakumari DIstrict,<br>
               TamilNadu,India -629163 <br>
               <strong>Phone:</strong> +91 8489 130 102<br>+91 9629 281 703<br>
               <strong>Email:</strong> Jsaindia2022@gmail.com<br>
             </p>
-
+  
             <div class="social-links">
               <a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a>
               <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
               <a href="https://www.instagram.com/master_ajith_r?r=nametag"><i class="bi bi-instagram"></i></a>
             </div>
-
+  
           </div>
-
+  
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our location</h4>
             <div class="map">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.708351456061!2d77.19806616560669!3d8.317286200748581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0455831c3b2009%3A0x955c93d3b4f7ce5b!2sJapan%20Shotokan%20Association%20of%20India!5e0!3m2!1sen!2sin!4v1658819180157!5m2!1sen!2sin"   style="border:0; height:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           </div>
-
+  
         </div>
       </div>
     </div>
-
+  
     <div class="container">
       <div class="copyright">
         &copy; Copyright © 2022  <strong>JSA INDIA</strong>. All Rights Reserved
@@ -252,26 +330,26 @@
       </div>
     </div>
   </footer><!-- End Footer -->
-
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<a href="https://wa.me/8489130102"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
-<!-- Uncomment below i you want to use a preloader -->
-<!-- <div id="preloader"></div> -->
-
-
-<!-- Vendor JS Files -->
-<i class="fa-brands fa-whatsapp"></i>
-<script src="{% static 'vendor/aos/aos.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-
-<!-- Template Main JS File -->
-<script src="{% static 'js/main.js' %}"></script>
-
-</body>
-</html>
+  
+  
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="https://wa.me/8489130102"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+  
+  
+  <!-- Vendor JS Files -->
+  <i class="fa-brands fa-whatsapp"></i>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+  
+  </body>
+  </html>

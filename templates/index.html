@@ -33,6 +33,14 @@
   
   
   <style>
+    #content
+    {
+      overflow-y: scroll;
+      font-size:15px ;
+      text-align: justify;  }
+    #content::-webkit-scrollbar {
+      width: 1em;
+    }
     #btnsort{
       border: none;
       font-size: 14px;
@@ -103,6 +111,13 @@
   display: none;
   list-style: none;
 }
+.disabel-text
+{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 /* Call To Action Section
 --------------------------------*/
@@ -117,7 +132,7 @@
   ======================================================== -->
 </head>
 
-<body >
+<body class="disabel-text" >
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -138,6 +153,7 @@
               <li><a class="nav-link scrollto " href="{% url 'loadbackbelt_page' %}">MEMBERS</a></li>
               <li><a class="nav-link scrollto " href="{% url 'loadpdfimgs' %}">KATAS & TECHNIQUES</a></li>
               <li><a class="nav-link scrollto" href="#portfolio">Gallery</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'Userevent_load' %}">Events</a></li>
               <li><a class="nav-link scrollto" href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
               <li><a class="nav-link scrollto" href="#contact">Contact us</a></li>
               
@@ -196,20 +212,14 @@
 
           <div id="container">
             <h3 class="text-center"></h3>
-            <p>A fascinating incident occurred in Kuzhithurai, Kanyakumari District, Tamil Nadu, the birthplace of the Japan Shotokan Association of India. Twelve people from various walks of life convened for the first time on May 1, 2022, thanks to Mr. Ajith R., the Association's current President, taking the initiative after the establishment of this association garnered the attention of the area's most prominent figures. Mr. Ajith R, Mr. Anu R, Mr. Akshai Sanjith Kumar V. L, Mr. Akshai Sajin Kumar V. L, Ms. Jini G, Mr. Rejin J. S, Mr. Godwin D, Mr. Alan Shervin A. S, Mr. Jerald J, Mr. Sothanther Rajan R, and Mr. Binoj B. Sam, were unanimously chosen to Further, it was decided to place the Association’s operations under the auspices of the renowned Japan Shotokan Association-based martial arts organisation of Master Miraj Marlon for polished performance<span id="dots">...</span></p>
+            <p>{{conts.ab_contents}}<span id="dots">...</span></p>
             <p id="more">
-              <span>Since its founding, the Association has contributed greatly to the rehabilitation and socio- economic improvement of not only the area where its office is located but also the surrounding areas. A strong emphasis is placed on children’s positive development in the context of self- control, social responsibility, and awareness of others. The Karate, Judo, and Yoga martial arts are used for mental and physical discipline by the Association in order to instil the recognised noble values and trails of the diverse Indian society.<br><br></span>
-              <span>Sincere to say, the association uses karate, judo, and yoga to help its students develop a more well-rounded personality. On a regular basis, competitions and tournaments are held at the district, state, national, and worldwide levels to enhance the potential of the students, who are incentivized by attractive prizes and medals in this context.<br></span>
-              <span>Association, which is led by Mr. Ajith R as president and chief instructor, swears to continue all of these initiatives as a mission for both the present and the next generations.</span> 
-              <br><br><span>FURTHER TRAINING GIVING SCHOOLS OF OUR ASSOCIATION KARATE<br><br></span>
-              <span> 1)	Shree Vidyadhiraja Vidya Vikas Matriculation school, Kuzhithurai.<br><br></span>
-              <span> 2)	Noble Public school, Kaliyakkavilai Home Dojo class<br><br></span>
-              <span> 2nd floor Shree Vidyadhiraja Vidya Vikas Matriculation school, Kuzhithurai. Time<br><br></span>
-              <span>Tuesday and Thursday evening 5 to 7pm <br><br></span>
-              <span></span>Saturday and Sunday evening 4 to 6:30 pm<br><br></span>          
+            {% for more_cont in conts1 %}
+              <span style="line-height:1.5rem ;">{{more_cont.ab_contents}}<br><br></span>
+            {% endfor %}         
             </p>
             <div class="text-end">
-              <button class="btn btn-primary rounded-pill p-2 mt-3 mr-3" onclick="myFunction()" id="myBtn">Read More</button>
+              <button class="btn btn-primary rounded-pill p-2 mr-3" onclick="myFunction()" id="myBtn">Read More</button>
             </div>
            
           </div>
@@ -242,12 +252,16 @@
               </div>
               <h2 class="title">History of Karate</h2>
               <div class="about-col">
-              <p style="height:190px;">
-                When looking at the history of shotokan karate, we have early records with the Egyptians from about 3000BC!
+              <p id="content" style="height:190px;">
+                <b>Karate began in Okinawa, Japan.</b> At the time, weapons were banned by Japanese forces, so locals had 
+                to figure out how to defend themselves. As a result, they came up with Karate, which means “empty 
+                'hands” in Japanese.Although karate is Japanese, there is very little information about where it 
+                got its influence from. One legend says that it came from India thousands of years ago, and it was 
+                brought to China by a Buddhist monk by the name of Bodhidarma. He arrived to teach Zen Buddhism and a 
+                style of Boxing that made the body and Mind Strong.
 
-shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di (221-206 BC), was buried with more than 7,000 life-size terracotta figures, which included horses and soldiers to guard him in the afterlife.
               </p>
-              <a href="{% url 'history' %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">About More</a>
+              <a href="{% url 'history' %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">Read More</a>
             </div>
             </div>
           </div> 
@@ -260,10 +274,10 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
                 
               </div>
               <h2 class="title"><a href="#">{{con.con_title}}</a></h2>
-              <p style="height:190px ; overflow:hidden;" >
+              <p id="content"style="height:190px ;" >
                 {{con.con_content}}
               </p>
-              <a href="{% url 'aboutmore' con.id %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">About More</a>
+              <a href="{% url 'aboutmore' con.id %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">Read More</a>
             </div>
           </div>
         {% endfor %}
@@ -379,7 +393,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
     <section id="call-to-action">
       <div class="container text-center" data-aos="zoom-in">
         <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>For more enquiries and information. Feel free to call us.</p>
         <a class="cta-btn" href="tel:+918489130102">Call To Action</a>
       </div>
     </section><!-- End Call To Action Section -->
@@ -444,7 +458,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
                 <h3 class="mt-2 p-4" style="color: #fff;"><ion-icon name="newspaper-outline"></ion-icon>&nbsp; News and Events</h3><hr>
                 <div class="news">
                   {% for news in newss%}
-                    <div><span>{{news.newstitle}}</span></div>
+                    <div><a href="{% url 'Userevent_load'%}" style="color: #fff;"><span>{{news.newstitle}}</span></a></div>
                   {% endfor %}
                 </div>
               </div>
@@ -456,8 +470,8 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
                   <div class="infoBox">
                       <div>
                           <span><ion-icon name="location"></ion-icon></span>
-                          <a href="#"> National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
-                            Kuzhithurai POst,Kanyakumari DIstrict,<br>
+                          <a href="#">National Head Quarters: 6-99<br>Valarakuzhivilai,Kattuvilai, 
+                            Kuzhithurai Post,Kanyakumari DIstrict,<br>
                             TamilNadu,India -629163 </a>
                       </div>
                       <div>
@@ -466,13 +480,15 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
                       </div>
                       <div>
                           <span><ion-icon name="call"></ion-icon></span>
-                          <a href="tel:+918489130102">+91 8489 130 102</a>
+                          <a href="tel:+918489130102">+91 8489 130 102 ,</a>&nbsp;
+                          <a href="tel:+918489130102">+91 9629 281 703</a>
                       </div>
                       <!-- social media links-->
                       <ul class="sci">
                           <li><a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
                           <li><a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a></li>
                           <li><a href="https://wa.me/8489130102"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+                          <li><a href="https://www.instagram.com/master_ajith_r?r=nametag"><ion-icon name="logo-instagram"></ion-icon></a></li>
   
                       </ul>
                       
@@ -514,7 +530,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
 
           <div class="col-lg-3 col-md-6 footer-info">
             <a href="#" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
-            <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
+            <br><br><p>JSA India is a Shotokan Karate Association. Here we training traditional Shotokan karate.</p><br><br>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -524,6 +540,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
               <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'loadbackbelt_page' %}">Members</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'Userevent_load' %}">Events</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact Us</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
             </ul>
@@ -532,10 +549,10 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
-              Kuzhithurai POst,Kanyakumari DIstrict,<br>
+              National Head Quarters: 6-99<br>Valarakuzhivilai,Kattuvilai, 
+              Kuzhithurai Post,Kanyakumari DIstrict,<br>
               TamilNadu,India -629163 <br>
-              <strong>Phone:</strong> +91 8489 130 102<br>
+              <strong>Phone:</strong> +91 8489 130 102<br>+91 9629 281 703<br>
               <strong>Email:</strong> Jsaindia2022@gmail.com<br>
             </p>
 
@@ -543,6 +560,7 @@ shotokan karate historyIn more recent times :), the Chinese emperor Shi-Huang-Di
               <a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a>
               <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://www.instagram.com/master_ajith_r?r=nametag"><i class="bi bi-instagram"></i></a>
             </div>
 
           </div>

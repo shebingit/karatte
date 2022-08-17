@@ -27,47 +27,37 @@
   
 
   <style>
+    #admin_hero
+    {
+        margin-top: 20vh;
+    }
    
-    .container{
-        border-radius: 10px;
-        margin-bottom: 5vh
+    #admin_hero .container{
+
+        margin:auto;
     }
-    .container input{
-        width:50%;
-        font-size: 14px;
-        height: 45px;
-        margin-bottom: 10px;
+    #admin_hero .card
+    {
+        margin: 10px 5px;
     }
-    .container button{
-        width: 50%;
-        opacity: 0.5px;
-        height: 50px;
-        border:none;
-        border-radius: 9px;
-        
+    .content
+
+    { margin: 5vh;
+        padding: 20px;
+        box-shadow: -1px 16px 20px 1px rgba(173, 171, 171, 0.937);
     }
-    @media(max-width:921px){
-        .container input{
-            width:100%;
-            font-size: 14px;
-            height: 45px;
-            margin-bottom: 10px;
-        } 
-        .container button{
-            width: 100%;
-            opacity: 0.5px;
-            height: 50px;
-            border:none;
-            border-radius: 9px;
+    .content img{
+        padding: 10px;
+       
     }
-}
+
   </style>
 </head>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: black;">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -75,7 +65,7 @@
             <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
           <h3 >Admin Dashboard</h3>
 
-          <nav id="navbar" class="navbar" style="background-color: black; text-align: center;">
+          <nav id="navbar" class="navbar" style=" text-align: center;">
             
             <ul>
               <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
@@ -90,63 +80,66 @@
 
   <!--======hero =======-->
 
-  <section id="admin_hero">
-</section>
-
-<br><br>
-<form action="{% url 'bthupdate' bth.id %}"method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="container">
-        <div class="row m-2">
-            <div class="col-12 col-md-4 col-lg-6 mt-3">
-                <div class="card mt-3" style="width: 15rem; height: 18rem;">
-                    <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
-                    <div class="card-body">
-                        <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
-                        <p class="card-text"> Register No: {{ bth.bth_reg }}</p>
-                        <p class="card-text">Designation: {{ bth.bth_desig }}</p>
+    <section id="admin_hero">
+        <div class="container">
+            <form action="{% url 'bthupdate' bth.id %}"method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row text-center">
+                    
+                    <div class="col-lg-3 col-md-12 col-sm-12 text-center">
+                        <div class="container content">
+                            <div class="row">
+                                <div class="col-12 col-md-4 col-lg-6">
+                                    <div class="card" style="width:16em;">
+                                        <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
+                                            <p class="card-text"> Register No: {{ bth.bth_reg }}</p>
+                                            <p class="card-text">Designation: {{ bth.bth_desig }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="container content">
+    
+                            <div class="row pt-2">
+                                <h2 class="m-4">Form for Update</h2>
+                            </div>
+                            <div class="row pt-1">
+                                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                                    <input type="text" class="form-control" name="regid" placeholder="Regiser id of Black Belt Holder" required value="{{ bth.bth_reg }}">
+                                </div>
+                            
+                                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                                    <input type="text"name="name" class="form-control" placeholder="Name of Black Belt Holder" required value="{{ bth.bth_name}}">
+                                </div>
+                            
+                                <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+                                    <input type="text" class="form-control" name="desig" placeholder="Designation of Black Belt Holder" required value="{{ bth.bth_desig }}">
+                                </div>
+                            
+                                <div class="col-lg-8 col-md-6 col-sm-12 p-2">
+                                    <input type="file"class="form-control" name="img" accept="image/blackbeltholders" required value="{{ bth.bth_image.url }}">
+                                </div>
+                        
+                                <div class="col-lg-4 col-md-6 col-sm-12 p-2 mt-4">
+                                    <button type="submit" class="btn-primary form-control" >Update Member</button> 
+                                </div>
+                            </div>        
+                        </div> 
                     </div>
                 </div>
-            </div>
+                
+                
+            </form>
         </div>
-    </div>
-    <hr>
-        <div class="container">
-            <form  action="{% url 'add_blackbelt_holders' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-            <div class="row pt-2">
-                <h2>Update Here..</h2>
-            </div>
-            <div class="row pt-1">
-                <div class="col m-3 pt-1">
-                    <input type="text" class="form-control" name="regid" placeholder="Regiser id of Black Belt Holder" required value="{{ bth.bth_reg }}">
-                </div>
-            </div> 
-            <div class="row  pt-1">
-                <div class="col  m-3 pt-1">
-                    <input type="text"name="name" class="form-control" placeholder="Name of Black Belt Holder" required value="{{ bth.bth_name}}">
-                </div>
-            </div> 
-            <div class="row  pt-1">
-                <div class="col  m-3 pt-1">
-                    <input type="text" class="form-control" name="desig" placeholder="Designation of Black Belt Holder" required value="{{ bth.bth_desig }}">
-                </div>
-            </div> 
-            <div class="row pt-1">
-                <div class="col m-3 pt-1">
-                    <input type="file"class="form-control" name="img" accept="image/blackbeltholders" required value="{{ bth.bth_image.url }}">
-                </div>
-            </div> <br>
-            <div class="row pt-1" style="height:60px;">
-                <div class="col pt-1">
-                    <button type="submit" class="btn-primary form-control" >Update Member</button> 
-                </div>
-            </div>   
-            </form> 
-        </div>
-        </div>
-    </div>
-</form>
+        
+    </section>
+
+
 <script src="{% static 'js/main.js' %}"></script> 
 </body>
 </html>

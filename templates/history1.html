@@ -17,6 +17,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
     <!-- Vendor CSS Files -->
     <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
@@ -93,11 +95,28 @@
       font-size: 17px;
       text-align:justify;
     }
+    .disabel-text
+    {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
   </style>
 </head>
 
 <body>
+
+<script>
+  $(document).ready(function()
+  {
+    $('body').bind('cut copy paste', function(e)
+    {
+      e.preventDefault();
+    });
+  });
+</script>
 
   <!-- ======= Header ======= -->
  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -133,7 +152,7 @@
 
 
 
-<section id="history">
+<section id="history" class="disabel-text">
     <div class="content">
       <h2>What is Karate?</h2>
      <div class="containerhead">
@@ -175,9 +194,34 @@
           <p class="pragraph mx-3">Not only do you benefit from learning the techniques and routines that karate provides, you do it with other people that share a common interest. Any extra curricular activity you involve yourself with should be a release from the stress or anxiety that is built up in our daily routines. People involved in karate can established friendships for life</p>
           
           <h3>A Brief History of Shotokan Karate</h3>
+          <h4 style="color:#000;">OKINAWAN KARATE</h4>
+              <p class="pragraph mx-3">Two kinds of styles found their way to Okinawa, and had their influence on Okinawa’s own original fighting method, called Okinawa-te (Okinawan hand) or simply te.   A ban on weapons in Okinawa for two long periods in its history is also partly responsible for the high degree of development of unarmed fighting techniques on the island.</p>
+              <p class="pragraph mx-3">Karate in Okinawa developed from the synthesis of two fighting techniques. The first one, used by the inhabitants of Okinawa, was very simple but terribly effective and, above all, very close to reality since   it was used throughout many centuries in real combat. The second one, much more elaborate and impregnated with philosophical teachings, was a product of the ancient culture of China. These two origins explain the double character of Karate–extremely violent and efficient but at the same time a strict and austere discipline and philosophy with a non-violent emphasis.</p>
+              <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-12 text-center" >
+                  <img src="static/img/history.4.webp"><p>Master Yasutsune Anko </p>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12 text-center">
+                  <img src="static/img/history.5.webp" style="height: 305px;"><p>Master Anko Itosu</p>
+                </div>
+              </div>
+              <p class="pragraph mx-3">Karate in Okinawa developed from the synthesis of two fighting techniques. The first one, used by the inhabitants of Okinawa, was very simple but terribly effective and, above all, very close to reality since   it was used throughout many centuries in real combat. The second one, much more elaborate and impregnated with philosophical teachings, was a product of the ancient culture of China. These two origins explain the double character of Karate–extremely violent and efficient but at the same time a strict and austere discipline and philosophy with a non-violent emphasis.</p>
+              <div class="row text-center" id="imag4" >
+                <div class="col-lg-12 col-md-8 col-sm-12">
+                  <img src="static/img/history6.webp" class="m-1"><p>Master Funakoshi(lower right) </p>
+                </div>
+              </div>
+              <p class="pragraph mx-3">The Okinawans combined Chinese martial arts with the existing local variants to form Tōde (唐手). The Okinawan characters for Tōde where translated in Japanese as Kara Te. The style of Karate based on Gichin Funakoshi's teachings was simply called Karate.</p>
+              <div class="row text-center" id="imag4" >
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                  <img src="static/img/his8.webp" class="m-1">
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                  <img src="static/img/his7.jpg" class="m-1"><p class="text-primary">Picture form the 1936 Okinawn martial arts masters meeting. </p>
+                </div>
+              </div>
           <p class="pragraph mx-3"><b>松濤館 Shotokan</b></p>
           <p class="pragraph mx-3">Shotokan-style Karate was developed by Master Gichin Funakoshi.</p>
-          <p class="pragraph mx-3">The Martial Art School known as Shotokan has a long and rich history dating back 18th century. Formalized as a school in 1939 by Gichin Funakoshi based on Okinawan Karate, its Shotokai and Shotokan Masters have shared this magnificent art throughout the world.Today there are many schools = kan and variations of Master Funakoshi's Karate.</p>
           <div class="row">
             <div class="col-lg-2 col-md-6 col-sm-12"></div>
             <div class="col-lg-12 col-md-6 col-sm-12 overflow-auto text-center">
@@ -221,32 +265,7 @@
               <p class="pragraph mx-3">My Way of Life.</p>
               <p class="pragraph mx-3">However many karateka believe his most importnt work was a document containing his philosophies of karate training now referred to as the niju kun, or “twenty principles”.
                 These rules are the premise of training for all Shotokan practitioners. Funakoshi lays out 20 rules by which students of karate are urged to abide in an effort to “become better human beings” </p>
-              <h3>OKINAWAN KARATE</h3>
-              <p class="pragraph mx-3">Two kinds of styles found their way to Okinawa, and had their influence on Okinawa’s own original fighting method, called Okinawa-te (Okinawan hand) or simply te.   A ban on weapons in Okinawa for two long periods in its history is also partly responsible for the high degree of development of unarmed fighting techniques on the island.</p>
-              <p class="pragraph mx-3">Karate in Okinawa developed from the synthesis of two fighting techniques. The first one, used by the inhabitants of Okinawa, was very simple but terribly effective and, above all, very close to reality since   it was used throughout many centuries in real combat. The second one, much more elaborate and impregnated with philosophical teachings, was a product of the ancient culture of China. These two origins explain the double character of Karate–extremely violent and efficient but at the same time a strict and austere discipline and philosophy with a non-violent emphasis.</p>
-              <div class="row">
-                <div class="col-lg-5 col-md-6 col-sm-12 text-center" >
-                  <img src="static/img/history.4.webp"><p>Master Yasutsune Anko </p>
-                </div>
-                <div class="col-lg-5 col-md-6 col-sm-12 text-center">
-                  <img src="static/img/history.5.webp" style="height: 305px;"><p>Master Anko Itosu</p>
-                </div>
-              </div>
-              <p class="pragraph mx-3">Karate in Okinawa developed from the synthesis of two fighting techniques. The first one, used by the inhabitants of Okinawa, was very simple but terribly effective and, above all, very close to reality since   it was used throughout many centuries in real combat. The second one, much more elaborate and impregnated with philosophical teachings, was a product of the ancient culture of China. These two origins explain the double character of Karate–extremely violent and efficient but at the same time a strict and austere discipline and philosophy with a non-violent emphasis.</p>
-              <div class="row text-center" id="imag4" >
-                <div class="col-lg-12 col-md-8 col-sm-12">
-                  <img src="static/img/history6.webp" class="m-1"><p>Master Funakoshi(lower right) </p>
-                </div>
-              </div>
-              <p class="pragraph mx-3">The Okinawans combined Chinese martial arts with the existing local variants to form Tōde (唐手). The Okinawan characters for Tōde where translated in Japanese as Kara Te. The style of Karate based on Gichin Funakoshi's teachings was simply called Karate.</p>
-              <div class="row text-center" id="imag4" >
-                <div class="col-lg-6 col-md-8 col-sm-12">
-                  <img src="static/img/his8.webp" class="m-1">
-                </div>
-                <div class="col-lg-6 col-md-8 col-sm-12">
-                  <img src="static/img/his7.jpg" class="m-1"><p class="text-primary">Picture form the 1936 Okinawn martial arts masters meeting. </p>
-                </div>
-              </div>
+              
               <h3>SHOTOKAN KARATE</h3>
               <p class="pragraph mx-3">Karate in Okinawa continued to grow and garner interest, but was solely Okinawan. In an effort to expand the reach of Karate, Master Funakoshi ventured to mainland Japan in 1922 to promote its practice.</p>
               <p class="pragraph mx-3">Master Funakoshi, Yoshitaka Funakoshi, Shigeru Egami, and Takeshi Shimoda traveled throughout mainland Japan staging exhibitions, trying to expand the knowledge of Karate-do as a Japanese martial art.</p>
@@ -282,6 +301,11 @@
               <p class="pragraph mx-3">As with so many things in life, adaptation and evolution are natural. Shotokan-ryu Karate is no exception. The influence of people, environment, technology, and other social aspects of life affect its propagation. The principles and basics of Master Funakoshi's Karate are not identical the "te" he learned from his teachers Yasutsune Azato and Anko Itosu. So it is for Master Funakoshi's son Yoshitaka, and the many great Karate-ka who learned directly from O-sensei. Today, their students continue to explore and evolve Karate. Each can explore the depth of martials way in pursuit of budo and find steadfast truths based on Master Funakoshi's key prinicples, and areas of improvement where O-sensei himself admitted was necessary.</p>
               <p class="pragraph mx-3">Modern Karate is often defined by the written text such as Kyohan, however as insightful as Master Funakoshi was, he knew that the text would only be a guide, and the true karate would explore beyond the text.</p>
               <br>
+              <style>
+                #syllabus p{
+                  color: #000;
+                }
+              </style>
               <section id="syllabus">
                 <h3 class="text-primary">JAPAN SHOTOKAN ASSOCIATION SYLLABUS :</h3><br><br>
                 <div class="container mt-3">
@@ -838,22 +862,21 @@
 <footer id="footer">
   <div class="footer-top">
     <div class="container">
-      <hr>
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-info">
           <a href="#" class="logo1"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style=" width:22vh;"></a>
-          <br><br><p>JSA INDIA is a SHOTOKAN Karate Association under the direct instruction of Shihan Sasaki Toshiatsu (Japan),</p><br><br>
+          <br><br><p>JSA India is a Shotokan Karate Association. Here we training traditional Shotokan karate.</p><br><br>
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#hero">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#about">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{% url 'loadbackbelt_page' %}">Members</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#contact">Contact Us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact Us</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
           </ul>
         </div>
@@ -861,10 +884,10 @@
         <div class="col-lg-3 col-md-6 footer-contact">
           <h4>Contact Us</h4>
           <p>
-            National Head Quarters : 6-99,Valarakuzhivilai,Kattuvilai, <br>
-            Kuzhithurai POst,Kanyakumari DIstrict,<br>
+            National Head Quarters:6-99<br>Valarakuzhivilai,Kattuvilai, 
+            Kuzhithurai Post,Kanyakumari DIstrict,<br>
             TamilNadu,India -629163 <br>
-            <strong>Phone:</strong> +91 8489 130 102<br>
+            <strong>Phone:</strong> +91 8489 130 102<br>+91 9629 281 703<br>
             <strong>Email:</strong> Jsaindia2022@gmail.com<br>
           </p>
 
@@ -872,6 +895,7 @@
             <a href="https://www.youtube.com/channel/UCxlr-bju7WKfrtu14srUk2A/featured" class="youtube"><i class="bi bi-youtube"></i></a>
             <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/master_ajith_r?r=nametag"><i class="bi bi-instagram"></i></a>
           </div>
 
         </div>
@@ -901,6 +925,7 @@
     </div>
   </div>
 </footer><!-- End Footer -->
+
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <a href="https://wa.me/8489130102"class="whatsapp_float" target="_blank"> <i class="bi bi-whatsapp whatsapp-icon"></i></a>
