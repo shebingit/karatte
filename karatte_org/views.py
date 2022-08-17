@@ -170,12 +170,18 @@ def uploadvideo(request):
     if request.method=="POST":
         vi=request.POST['videofile']
         try:
+            status=videos.objects.get(id=0)
+        except videos.DoesNotExist:
+            status=None
+
+        if (status==None):
+            vid=videos(video=vi)
+            vid.save()
+        else:
             vid=videos.objects.get(id=0)
             vid.video=request.POST.get('videofile')
             vid.save()
-        except videos.DoesNotExist:
-            vid=videos(video=vi)
-            vid.save()
+
         
         messages="Video Saved Successfuly..."
         return render(request,'adminhome.html')
@@ -610,18 +616,23 @@ def loadbackbelt_page(request):
 @csrf_exempt
 def sending_mail(request):
     if request.method == 'POST': 
-        recipient = request.POST['smailid'] 
+        recipient = request.POST.get('smailid') 
+        sendsub= request.POST.get('sub')
+        msg=request.POST.get('msge')
+        print(recipient)
+        
         if recipient =='':
              message=" Please Fill email id"
         else:
-            message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
-            sendsubject=" JKMO INDIA"
+            
             try:
-                respons=send_mail(sendsubject, message,settings.EMAIL_HOST_USER,[recipient])
+                respons=send_mail(sendsub, msg,recipient,['jsaindia2022@gmail.com'])
+                message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
                 return render(request,'sendmailout.html',{'message':message})
-               
+                
             except BadHeaderError:
-                return()
+                message="error!"
+                return render(request,'sendmailout.html',{'message':message})
         return render(request,'sendmailout.html',{'message':message}) 
 
 

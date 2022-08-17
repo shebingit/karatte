@@ -7,12 +7,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>KARATTE</title>
+  <title>JSA INDIA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="{% static 'img/ki.png' %}" rel="icon">
-  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -42,17 +42,18 @@
       width: 1em;
     }
     #btnsort{
-      border: none;
+      
       font-size: 14px;
-      border: 2px solid #fff;
-      color: rgb(9, 9, 9);
+      color:#040467;
       font-weight:500px;
+      border: 3px solid rgb(238, 184, 7);
     }
     #btnsort:hover{
-      background-color:#18d26e;
-      color: white;
+      background-color:#040467;
+      color:#f7f7f7;
       transition: 1s ease-in-out;
       font-weight:500px;
+      border: none;
     }
     
 /* Call To Action Section
@@ -143,7 +144,7 @@
           <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
           <!-- Uncomment below if you prefer to use an image logo -->
           <a href="#" class="logo1" >
-            <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:12vh; ">
+            <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid mt-3"style="width:10vh;" >
           </a>
 
           <nav id="navbar" class="navbar">
@@ -307,10 +308,10 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class=" col-lg-12">
             <ul id="portfolio-flters">
-              <li class="active" style="background-color:#f7f7f7;"><button id="btnsort" class="btn" style="height:40px;width:50px;background-color:#18d26e; color:white;"><b>ALL</b></button></li><input type ="hidden"value="0" id=sortimg >
+              <li class="active" style="background-color:#f7f7f7;"><button id="btnsort" class="btn" style="height:40px;width:180px;background-color:#040467; color:white;"><b>ALL</b></button></li><input type ="hidden"value="0" id=sortimg >
               
             {% for folder in folders %}
-              <li style="background-color:#f7f7f7;"><button class="btn" style="height:40px;width:180px;" id="btnsort" data-sid="{{folder.id}}" ><b>{{folder.folder_name}}</b></button></li>
+              <li style="background-color:#f7f7f7; color:#f7f7f7;"><button class="btn" style="height:40px;width:180px;" id="btnsort" data-sid="{{folder.id}}" ><b>{{folder.folder_name}}</b></button></li>
             {% endfor %}
             </ul>
           </div>
@@ -417,11 +418,11 @@
                       <div class="row50">
                           <div class="inputBox form-group ">
                               <span>Full Name</span>
-                              <input type="text" placeholder=""required class="form-control">
+                              <input type="text" name="member" required class="form-control">
                           </div>
                           <div class="inputBox form-group ">
                               <span>Email</span>
-                              <input type="text" placeholder=""  id="email" class="form-control" required>
+                              <input type="text" id="email" class="form-control" required>
                           </div>
                           
                       </div>
@@ -429,13 +430,13 @@
                          
                           <div class="inputBox form-group" >
                               <span>Subject</span>
-                              <input type="text" placeholder=""required class="form-control">
+                              <input type="text" id="mailsubject" required class="form-control">
                           </div>
                       </div>
                       <div class="row100">
                           <div class="inputBox form-group ">
                               <span>Message</span>
-                              <textarea  name="message" rows="5" placeholder="Write your Message here.." required class="form-control"></textarea>
+                              <textarea id="message" rows="5" placeholder="Write your Message here.." required class="form-control"></textarea>
                           </div>
                       </div>
                       <div class="row100 form-group ">
@@ -471,12 +472,12 @@
                       <div>
                           <span><ion-icon name="location"></ion-icon></span>
                           <a href="#">National Head Quarters: 6-99<br>Valarakuzhivilai,Kattuvilai, 
-                            Kuzhithurai Post,Kanyakumari DIstrict,<br>
+                            Kuzhithurai Post,Kanyakumari District,<br>
                             TamilNadu,India -629163 </a>
                       </div>
                       <div>
                           <span><ion-icon name="mail"></ion-icon></span>
-                          <a href="mailto:Jsaindia2022@gmail.com">Jsaindia2022@gmail.com</a>
+                          <a href="mailto:Jsaindia2022@gmail.com">jsaindia2022@gmail.com</a>
                       </div>
                       <div>
                           <span><ion-icon name="call"></ion-icon></span>
@@ -504,8 +505,12 @@
         e.preventDefault();
         console.log('button clicked for mail send.')
         let mailid =$("#email").val();
+        let subj =$("#mailsubject").val();
+        let mesg =$("#message").val();
         console.log(mailid)
-        mydata={smailid:mailid}
+        console.log(subj)
+        console.log(mesg)
+        mydata={smailid:mailid,sub:subj,msge:mesg}
           $.ajax({
              url : "{% url 'sending_mail' %}",
              method :"POST",
@@ -542,7 +547,7 @@
               <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Gallery</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'Userevent_load' %}">Events</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact Us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
             </ul>
           </div>
 
@@ -550,10 +555,10 @@
             <h4>Contact Us</h4>
             <p>
               National Head Quarters: 6-99<br>Valarakuzhivilai,Kattuvilai, 
-              Kuzhithurai Post,Kanyakumari DIstrict,<br>
+              Kuzhithurai Post,Kanyakumari District,<br>
               TamilNadu,India -629163 <br>
               <strong>Phone:</strong> +91 8489 130 102<br>+91 9629 281 703<br>
-              <strong>Email:</strong> Jsaindia2022@gmail.com<br>
+              <strong>Email:</strong> jsaindia2022@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -561,6 +566,7 @@
               <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
               <a href="https://www.instagram.com/master_ajith_r?r=nametag"><i class="bi bi-instagram"></i></a>
+              <a href="mailto:jsaindia2022@gmail.com"><i class="bi bi-envelope"></i></a>
             </div>
 
           </div>

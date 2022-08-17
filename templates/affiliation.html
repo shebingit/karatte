@@ -6,14 +6,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>KARATTE</title>
+  <title>JSA INDIA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{% static 'img/ki.png' %}" rel="icon">
-  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
-
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
@@ -68,7 +66,7 @@
         <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#" class="logo1" >
-          <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid mt-3" style="width:12vh; ">
+          <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid mt-3"style="width:10vh;" >
         </a>
 
         <nav id="navbar" class="navbar">
@@ -93,55 +91,64 @@
   </div>
 </header><!-- End Header -->
 <style>
-  #heading
+
+  .heading
   {
-    background-color: rgb(246, 225, 37);
-    width: 460px;
+    padding: 5px;
     text-align: center;
     margin: auto;
-    margin-top:20vh;
-    border-top-right-radius:10px ;
-    border-top-left-radius:10px ;
-    height: 70px;
-  }
-  #heading h5{
-    font-family:'Cursive';
+    margin-top:18vh;
+    
     font-weight: 800;
+    font-family:italic;
     letter-spacing: 2px;
-  color: rgb(249, 249, 251);
-    font-size: 26px;
-    font-family: 'Noto Serif', sans-serif;
-    margin-top:3vh;
-    letter-spacing: 2px;
+  }
+  #hero
+  {
+    padding: 5px;
+  }
+
+  #hero .card-head
+  {
+    background-color: rgb(79, 78, 71);
+    padding: 7px;
+  }
+  #hero h6{
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size:19px;
+    letter-spacing: 1px;
+  }
+  .card-footer 
+  {
+    background-color: #fff;
+    border: none;
   }
 </style>
-
- <section id=heading>
-  <h5 class="text-center" >Affiliation Form</h5>
- </section> 
-
+<h3 class="heading mb-3 text-primary">Membership of Affiliation</h3>
 
 <section id="hero">
-  <div class="hero-container text-center m-0">
-    
-    <div class="affiliation_form_img">
+  <div class="card rounded">
+    <div class="card-head rounded">
+      <h6 class="rounded text-center m-2" style="font-family: italic; ">JSA India Affiliation Form</h6>
+    </div>
+    <div class="card-body">
       {% if affili.affiliation_img %}
         <img src="{{ affili.affiliation_img.url }}" alt="" class="img-fluid"style="height:80vh; width:69vh;" > 
       {% endif %}
     </div>
-    <div class="btn btn-primary mt-4">
-      <a onclick='downloaD("/media/{{affili.affiliation_name }}","Affiliation.pdf")' ><i class="bi bi-download mx-1">  Download</i></a> 
+    <div class="card-footer text-center">
+      <div class="btn btn-primary m-1">
+        <a onclick='downloaD("/media/{{affili.affiliation_name }}","Affiliation.pdf")' ><i class="bi bi-download mx-1">  Download</i></a> 
+      </div>
     </div>
-    
-   
-    <!--<a href="{% url 'loadpdfimgs' %}">pdf</a>-->
-  </div> 
+  </div>
   
 </section><!-- End Hero Section -->
 
 <section id="content">
   <div class="container" style="text-align: justify;">
-    <h2 class="text-center"><b>Membership of Affiliation</b></h2>
+    <!-- <h2 class="text-center"><b>Membership of Affiliation</b></h2> -->
     <h4 class="text-primary" style="font-size: 18px;"><b>A)	State Affiliation</b></h4>
     <p>Instructor/instructors having a reasonably sound presence in a State may be allowed to have state affiliation from JSA INDIA H.Q. In such cases permission may be granted to form JSA INDIA STATE body in that particular state. Such state body may offer affiliation to other instructor(s) from that state, interested to join JSA INDIA from that state, on behalf of JSA INDIA. The state body in such cases may fix a reasonable affiliation fees from such interested person or group from that state. The decision in this regard will be taken by the Chief instructor / Committee of JSA INDIA.</p>
     <h4 class="text-primary" style="font-size: 18px;"><b>B)	Individual Do-Jo / District Affiliation</b></h4>
@@ -204,18 +211,18 @@
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#portfolio">Gallery</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'Userevent_load' %}">Events</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_home_page' %}#contact">Contact Us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Afiliation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{% url 'load_affiliation_page' %}">Affiliation</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              National Head Quarters:6-99 <br>Valarakuzhivilai,Kattuvilai,
-              Kuzhithurai Post,Kanyakumari DIstrict,<br>
+              National Head Quarters: 6-99<br>Valarakuzhivilai,Kattuvilai, 
+              Kuzhithurai Post,Kanyakumari District,<br>
               TamilNadu,India -629163 <br>
               <strong>Phone:</strong> +91 8489 130 102<br>+91 9629 281 703<br>
-              <strong>Email:</strong> Jsaindia2022@gmail.com<br>
+              <strong>Email:</strong> jsaindia2022@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -223,6 +230,7 @@
               <a href="https://www.facebook.com/Master.Ajith.R" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="https://wa.me/8489130102" class="whatsup"><i class="bi bi-whatsapp"></i></a>
               <a href="https://www.instagram.com/master_ajith_r?r=nametag"><i class="bi bi-instagram"></i></a>
+              <a href="mailto:jsaindia2022@gmail.com"><i class="bi bi-envelope"></i></a>
             </div>
 
           </div>

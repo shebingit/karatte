@@ -6,12 +6,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>KARATTE</title>
+  <title>JSA INDIA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <!-- Favicons -->
-  <link href="{% static 'img/ki.png' %}" rel="icon">
-  <link href="{% static 'img/ki.png' %}" rel="apple-touch-icon">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -25,6 +25,12 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+  <style>
+    .line{
+      border-bottom: 3px solid rgb(244, 228, 4);
+      margin-top: 2vh;
+     }
+  </style>
 
 </head>
 
@@ -56,11 +62,12 @@
 <br>
   <section id="admin_hero">
     <div class="container">
-      <h3>Associate Members</h3>
+      <h3 class="">Associate Members</h3>
           <div class="row pt-2" style="height:60px;">
-            <div class="col pt-2">
-                <a href="{% url 'load_associate' %}" class="btn-primary">Add Associate Members</a>
+            <div class="col pt-2 text-end">
+                <a href="{% url 'load_associate' %}" class="text-primary text-end"><i class="bi bi-plus-circle-fill mx-1"></i>Add Associate Members</a>
             </div>
+            <p class="line"></p>
           </div>
     </div> 
   </section>
@@ -76,10 +83,10 @@
                 {% endif %}
                 <div class="card-body" style="text-align:start ;">
                   <h6 class="card-title">Name: {{ asso.mname}}</h6>
-                  <p class="card-title">Designation: {{asso.mdesig}}</p>
-                  <p class="card-title">Content: {{asso.mposition}}</p>
-                  <a href="{% url 'load_assoupdate' asso.id %}" class="btn btn-success">Update</a>
-                  <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
+                  <p class="card-title">{{asso.mdesig}}</p>
+                  <p class="card-title">{{asso.mposition}}</p>
+                  <a href="{% url 'load_assoupdate' asso.id %}" class="text-success mx-2"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="#" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
                 </div>
               </div>
             </div>
@@ -89,13 +96,14 @@
   </section>
 
   <section id="admin_hero">
-    <div class="container"><hr><br>
+    <div class="container"><br>
       <h3>Black Belt Members</h3>
           <div class="row pt-2" style="height:60px;">
-            <div class="col pt-2">
-                <a href="{% url 'load_addmember' %}" class="btn-primary">Add BlackBelt Members</a>
+            <div class="col pt-2 text-end">
+                <a href="{% url 'load_addmember' %}" class="text-primary "><i class="bi bi-plus-circle-fill mx-1"></i>Add BlackBelt Members</a>
             </div>
           </div>
+          <p class="line"></p>
     </div> 
   </section>
 
@@ -112,8 +120,8 @@
                   <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
                   <p class="card-title"> Register No: {{bth.bth_reg}}</p>
                   <p class="card-title">Designation: {{bth.bth_desig}}</p>
-                  <a href="{% url 'load_bthupdate' bth.id %}" class="btn btn-success">Update</a>
-                  <a href="{% url 'bthdelete' bth.id %}" class="btn btn-danger" onclick="return confirm('Are you sure ?');">Delete</a>
+                  <a href="{% url 'load_bthupdate' bth.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="{% url 'bthdelete' bth.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
                 </div>
               </div>
             </div>

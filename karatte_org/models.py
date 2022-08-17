@@ -65,9 +65,9 @@ class news(models.Model):
 
 
 class members(models.Model):
-    mname=models.CharField(max_length=30)
-    mdesig=models.CharField(max_length=40)
-    mposition=models.CharField(max_length=40)
+    mname=models.CharField(max_length=40)
+    mdesig=models.CharField(max_length=90)
+    mposition=models.CharField(max_length=90)
     asso_image=models.ImageField(upload_to="image/blackbeltholder", null=True)
 
     def __str__(self):
@@ -87,7 +87,7 @@ class register_members(models.Model):
     reg_doj=models.CharField(max_length=20)
     reg_pgname=models.CharField(max_length=20)
     reg_pgoccu=models.CharField(max_length=20)
-    reg_address=models.CharField(max_length=50)
+    reg_address=models.CharField(max_length=150)
     reg_reson=models.CharField(max_length=50)
     reg_exp=models.CharField(max_length=5)
     reg_op=models.CharField(max_length=5)
