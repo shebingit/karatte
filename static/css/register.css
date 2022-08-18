@@ -26,8 +26,23 @@ body{
     
     
 }
+#registerform
+{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 5px;
+}
+@media(max-width:921)
+{
+    #registerform
+    {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
 
-.container{
+}
+
+#container_reg{
     position:relative;
     max-width: 600px;
     width:100%;
@@ -35,15 +50,16 @@ body{
     padding: 30px;
     margin:auto;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 5px 10px 5px rgba(0,0,0,0.1);
+    border-top: 4px solid rgb(247, 226, 71);
 }
-.container header{
+#container_reg header{
     position: relative;
     font-size: 20px;
     font-weight: 600;
     color: #333;
 }
-.container header::before{
+#container_reg header::before{
     content: "";
     position: absolute;
     left:0;
@@ -53,17 +69,17 @@ body{
     border-radius: 8px;
     background-color: #4070f4;
 }
-.container form{
+#container_reg form{
 
     position:relative;
     margin-top: 16px;
     min-height: 490px;
     background-color: #fff;
 }
-.container form .details{
+#container_reg .details{
     margin-top: 30px;
 }
-.container form .title{
+#container_reg form .title{
     display: block;
     margin-bottom: 8px;
     font-size:16px;
@@ -71,7 +87,7 @@ body{
     margin:6px 0;
     color:#333;
 }
-.container form .fields{
+#container_reg form .fields{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -111,31 +127,40 @@ form .fields .input-field{
     color: #333;
 
 }
-.container form button{
+#container_reg form button{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 45px;
-    max-width: 200px;
+    height: 40px;
+   max-width: 150px;
     width: 100%;
     border: none;
     outline: none;
     color: #fff;
-    border-radius: 5px;
+    opacity: 0.9;
     margin:20px 0;
     background-color: #4070f4;
     transition:  all 0.3s linear;
     cursor: pointer;
+}
+#container_reg form button:hover{
+    opacity: 1;
+}
+@media(max-width:750px){
+    #container_reg form button{
+    max-width: 130px;
+    margin: 4px;
+    }
 }
 .form button:hover{
     background-color: #265df2;
 }
 
 @media(max-width:750px){
-    .container form{
+    #container_reg form{
         overflow-y: scroll;
     }
-    .container form::-webkit-scrollbar{
+    #container_reg form::-webkit-scrollbar{
         display: none;
     }
     form .fields .input-field{
