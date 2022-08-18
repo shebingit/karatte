@@ -167,6 +167,21 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    .card
+    {
+      margin: 0;
+    }
+
+    .card-footer 
+  {
+    background-color: #fff;
+    text-align:  center;
+    border: none;
+  }
+  
+  </style>
 </head>
 
 <body  style="background: #f0f0f0;">
@@ -210,25 +225,29 @@
     
 
   <section id="hero_user" style="margin-top: 5vh; margin-bottom:3vh; background:#ffff;">
-    <div class="container " id="assmember"style="margin-top: 10vh;"><br>
+    <div class="container" id="assmember"style="margin-top: 10vh;"><br>
         <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >New and Upcoming Events</h3>
-        <div class="row g-3">
-          {% for ass in evtimgs  %}
-          <h6 class="p-1 text-success" style="font-size:18px; font: wight 600px;">{{ass.envimage_id.newstitle}}</h6>
-         
-            <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              {% if ass.evnimg %}
-                <img src="{{ ass.evnimg.url }}"  alt="...">
-              {% endif %}
-              <div class="card-body text-center">
-                <p class="card-text"><a class="btn btn-primary"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1">  Download</i></a>{{regformpdf.}}</p></p>
+          <div class="row g-3">
+            {% for ass in evtimgs  %}
+            <h6 class="p-1 text-success" style="font-size:18px; font: wight 600px;">{{ass.envimage_id.newstitle}}</h6>
+           
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                {% if ass.evnimg %}
+                  <img src="{{ ass.evnimg.url }}" class="img-fluid"style="height:70vh; width:60vh;" alt="...">
+                {% endif %}
+                 
+                </div>
+                <div class="card-footer">
+                   <p class="card-text"><a class="btn btn-primary"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1">  Download</i></a>{{regformpdf.}}</p></p>
+                </div>
               </div>
-            </div>
+            
+                  
+            {% endfor %}
           </div>
-                
-          {% endfor %}
-        </div>
+
+       
     
 <script>
   function downloaD(url, name){

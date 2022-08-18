@@ -262,7 +262,7 @@
                 style of Boxing that made the body and Mind Strong.
 
               </p>
-              <a href="{% url 'history' %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">Read More</a>
+              <a href="{% url 'history' %}" class="btn btn-primary rounded-pill p-2 text-center m-4" style="max-width:130px;">Read More</a>
             </div>
             </div>
           </div> 
@@ -278,7 +278,10 @@
               <p id="content"style="height:190px ;" >
                 {{con.con_content}}
               </p>
-              <a href="{% url 'aboutmore' con.id %}" class="btn btn-primary rounded-pill p-2" style="width:20vh; margin:3vh;margin-left:17vh;">Read More</a>
+              
+                <a href="{% url 'aboutmore' con.id %}" class="btn btn-primary rounded-pill p-2 m-4" style="max-width:130px;">Read More</a>
+              
+              
             </div>
           </div>
         {% endfor %}
@@ -364,7 +367,7 @@
         
       </div>
       <div class="container btn" id="imagesload">
-       <a><button class="btn btn-primary rounded-pill p-2"id="moreimgs" style="width:25vh ;">More Images</button></a>
+       <a><button class="btn btn-primary rounded-pill p-2"id="moreimgs" style="max-width:140px ;">More Images</button></a>
       </div>
       
       </div>

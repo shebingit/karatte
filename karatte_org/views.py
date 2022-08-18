@@ -735,6 +735,12 @@ def Userevent_load(request):
     return render(request,'Events.html',{'evtimgs':evtimgs,'regformpdf':regformpdf})
 
 
+def associate_delete(request,ass_deleteid):
+    asso=members.objects.filter(id=ass_deleteid)
+    asso.delete()
+    bths=blackbelt_holders.objects.all()
+    associate=members.objects.all()
+    return render(request,'blackbelt.html',{'bths':bths,'associate':associate})
 
 
 
