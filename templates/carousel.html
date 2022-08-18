@@ -72,14 +72,15 @@
           <p style="font-size:12px; margin:5px;"> Dimentions 100% 650px</p>
         </div>
         <div class="col-12 col-md-4 col-lg-3 p-3">
+          <button type="submit" class="btn-primary" formaction="{% url 'add_carousel_images' %}"><i class="bi bi-plus-circle-fill mx-1"></i>Add</button>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 p-3">
             <input type="text" class="form-control" placeholder="Title"  name="title"  value="Dummyvalue" hidden>
         </div>
         <div class="col-12 col-md-4 col-lg-3 p-3">
           <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" value="Dummyvalue" hidden>
         </div>
-        <div class="col-12 col-md-4 col-lg-3 p-3">
-          <button type="submit" class="btn-primary" formaction="{% url 'add_carousel_images' %}">Add</button>
-        </div>
+        
       </div>
     </div>
 
@@ -88,13 +89,13 @@
       <hr>
       <div class="row">
       {% for i in al %}
-        <div class="col-12 col-md-4 col-lg-3">
+        <div class="col-sm-12 col-md-6 col-lg-4">
           <div class="card m-4">
-            <img  class="card-img-top" src="{{ i.carimage.url }}" style="height:135px;" alt="Card image cap">
+            <img  class="card-img-top p-1" src="{{ i.carimage.url }}"  alt="Card image cap">
               
             <div class="card-body">
-              <a href="{% url 'load_updatecarosel' i.id %}"  class="btn btn-success mb-2" style="width:40%; ">Update</a>
-              <a href="{% url 'deletecarouselimg' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2" style="width:40%;">Delete</a>
+              <a href="{% url 'load_updatecarosel' i.id %}"  class="text-success mb-2 "><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+              <a href="{% url 'deletecarouselimg' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="text-danger mb-2"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
             
             </div>
           </div>      

@@ -27,19 +27,24 @@ def profile(request):
 def contact(request):
     return render(request,'contact.html')
     
-
+@login_required(login_url="/Starz")
 def load_admin_home(request):
     newss=news.objects.all()
     return render(request,'adminhome.html',{'newss':newss})
 
+
+@login_required(login_url="/Starz")
 def load_folder_create(request):
     folders=imagefolder.objects.all()
     return render(request,'folder.html',{'folders':folders})
 
+
+@login_required(login_url="/Starz")
 def load_updatefolder(request,folderl_id):
     folderl=imagefolder.objects.get(id=folderl_id)
     return render(request,'folderupdate.html',{'folderl':folderl})
 
+@login_required(login_url="/Starz")
 def load_affiliation(request):
     affili=affiliation.objects.get(id=2)
     return render(request,'affiliation_add.html',{'affili':affili})
@@ -58,6 +63,7 @@ def aboutmore(request,abm_id):
     abtmore=moreconts.objects.filter(con_id=abm_id)
     return render(request,'morecontetuser.html',{'abtmore':abtmore,'con_id':con_id})
 
+@login_required(login_url="/Starz")
 def load_syllabus(request):
     pdfimgs=pdfimg.objects.all()
     return render(request,'syllabus.html',{'pdfimgs':pdfimgs})
@@ -67,19 +73,22 @@ def history(request):
     return render(request,'history1.html')
 
 # carosel-----
-
+@login_required(login_url="/Starz/")
 def load_carousel(request):
     a=carousel.objects.all()
     return render(request,'carousel.html',{ 'al':a})
 
+@login_required(login_url="/Starz")
 def load_updatecarosel(request,upcarslid):
     carsl=carousel.objects.get(id=upcarslid)
     return render(request,'carsouelupdate.html',{'carsl':carsl})
 
+@login_required(login_url="/Starz")
 def load_assoupdate(request,assoup_id):
     asso=members.objects.get(id=assoup_id)
     return render(request,'associateupdate.html',{'asso':asso})
 
+@login_required(login_url="/Starz")
 def add_carousel_images(request):
     if request.method=='POST':
         title=request.POST['title']
@@ -91,6 +100,7 @@ def add_carousel_images(request):
                 )
         return redirect('load_carousel')
 
+@login_required(login_url="/Starz")
 def update_carousel(request,carslid):
     if request.method=="POST":
         carsl=carousel.objects.get(id=carslid)
@@ -103,6 +113,7 @@ def update_carousel(request,carslid):
     else:
         return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def deletecarouselimg(request,carid_id):
     carimage=carousel.objects.get(id=carid_id)
     carimage.delete()
@@ -111,7 +122,7 @@ def deletecarouselimg(request,carid_id):
 # end carosel------
 
 
-
+@login_required(login_url="/Starz")
 def uploadfile(request):
     if request.method=="POST":
         fileimg=request.FILES.get('imgfile')
@@ -139,23 +150,32 @@ def login(request):
                 if user is not None:
                     auth.login(request, user)
                     if user.is_superuser==1:
-                        return redirect ('load_admin_home')
-
+                        newss=news.objects.all()
+                        msg='Admin Succefully login'
+                        return render(request,'adminhome.html',{'newss':newss,'msg':msg})
+                        
+                    else:
+                        message='Invalid username or password'
+                        return render(request,'login.html',{'message':message})
             except:
-                messages.info(request, 'Invalid username or password')
-                return render(request, 'login.html')                        
+                message='Invalid username or password'
+                return render(request,'login.html',{'message':message})                       
         else:
             #messages.info(request, 'Invalid username or password')
-            return render('login.html')        
+            message='Invalid username or password'
+            return render(request,'login.html',{'message':message})
+                   
     except:
        # messages.info(request, 'Invalid username or password')
-        return render(request, 'login.html')
+        message='Invalid username or password'
+        return render(request,'login.html',{'message':message})
 
 
 
 
 #admin folder name update
 
+@login_required(login_url="/Starz")
 def update_folder(request,folderu_id):
     if request.method=="POST":
         folder=imagefolder.objects.get(id=folderu_id)
@@ -166,6 +186,7 @@ def update_folder(request,folderu_id):
     else:
         return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def uploadvideo(request):
     if request.method=="POST":
         vi=request.POST['videofile']
@@ -186,30 +207,36 @@ def uploadvideo(request):
         messages="Video Saved Successfuly..."
         return render(request,'adminhome.html')
 
+@login_required(login_url="/Starz")
 def load_blackbelts(request):
     bths=blackbelt_holders.objects.all()
     associate=members.objects.all()
     return render(request,'blackbelt.html',{'bths':bths,'associate':associate})
 
+@login_required(login_url="/Starz")
 def load_addmember(request):
     return render(request,'addmember.html')
 
+@login_required(login_url="/Starz")
 def load_addimages(request):
     return render(request,'addimages.html')
 
+@login_required(login_url="/Starz")
 def load_associate(request):
     return render(request,'addmember.html')
 
+@login_required(login_url="/Starz")
 def loadadd_content(request):
     a=contents.objects.all()
     content=About.objects.all()
     return render(request,'content.html',{'al':a,'content':content})
 
+@login_required(login_url="/Starz")
 def load_history_add(request):
     history=HistoyrPdf.objects.all()
     return render(request,'history_add.html',{'history':history})
 
- 
+@login_required(login_url="/Starz") 
 def add_content(request):
      if request.method=='POST':
         title=request.POST['conttitle']
@@ -221,6 +248,8 @@ def add_content(request):
                 )
         return redirect('loadadd_content')
 
+
+@login_required(login_url="/Starz")
 def add_morecontent(request,admore_id):
      if request.method=='POST':
         cont=request.POST['moreconts']
@@ -230,13 +259,14 @@ def add_morecontent(request,admore_id):
                 more_cont=cont,more_img=contimage
                 )
         return redirect('loadadd_content')
-    
+
+@login_required(login_url="/Starz")    
 def morecontdelete(request,mcd_id):
     morecont=moreconts.objects.get(id=mcd_id)
     morecont.delete()
     return redirect('loadadd_content')
 
-
+@login_required(login_url="/Starz")
 def load_member(request):
     check_reg_member=check_register_members.objects.filter(check_status='0')
     reg_member=register_members.objects.all()
@@ -246,7 +276,8 @@ def load_register(request):
     return render(request,'registration.html')
 
 # admin folder create
- 
+
+@login_required(login_url="/Starz")
 def create_folder(request):
     if request.method=="POST":
         fname=request.POST['file']
@@ -260,16 +291,19 @@ def create_folder(request):
     else:
         return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def deletefolder(request,fldd_id):
     folderdelete=imagefolder.objects.get(id=fldd_id)
     folderdelete.delete()
     return redirect(load_folder_create)
 
+@login_required(login_url="/Starz")
 def news_delete(request,news_id):
     newsd=news.objects.get(id=news_id)
     newsd.delete()
     return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def delete_syllabus(request,sydid):
     sylb=pdfimg.objects.get(id=sydid)
     sylb.delete()
@@ -277,14 +311,14 @@ def delete_syllabus(request,sydid):
     return render(request,'syllabus.html',{'pdfimgs':pdfimgs})
 
 
-
+@login_required(login_url="/Starz")
 def load_images(request,folimg_id):
     folder=imagefolder.objects.get(id=folimg_id)
     folder_images=images.objects.filter(folder_id=folimg_id)
     return render(request,'images.html',{'folder_images':folder_images,'folder':folder})
 
 #adding images to a folder 
-
+@login_required(login_url="/Starz")
 def add_images_folder(request):
     if request.method=='POST':
         name=request.POST['name']
@@ -298,7 +332,7 @@ def add_images_folder(request):
 
 #admin delete single image
 
-
+@login_required(login_url="/Starz")
 def uploadpdfimgs(request):
      if request.method=='POST':
         image=request.FILES.getlist('pdfimg')
@@ -307,6 +341,7 @@ def uploadpdfimgs(request):
                 more_img=imag)
         return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def uploadhistory(request):
     if request.method=='POST':
         image=request.FILES.getlist('historyimg')
@@ -315,6 +350,7 @@ def uploadhistory(request):
                 histry_img=imag)
         return redirect('load_history_add')
 
+@login_required(login_url="/Starz")
 def admin_events_image(request,evnt_id):
     events=news.objects.get(id=evnt_id)
     regf=regforms.objects.filter(env_id=evnt_id)
@@ -322,6 +358,7 @@ def admin_events_image(request,evnt_id):
     return render(request,'admin_event_imag.html',{'events':events,'regf':regf,'evimg':evimg})
 
 
+@login_required(login_url="/Starz")
 def regform(request,regform_id):
     if request.method=='POST': 
         fpdf=request.FILES.get('regfompdf')
@@ -330,7 +367,7 @@ def regform(request,regform_id):
         regf.save()
         return redirect('load_admin_home')
 
-
+@login_required(login_url="/Starz")
 def eventimgupload(request,eventimg_id):
     if request.method=='POST': 
         impdf=request.FILES.get('evntimgpdf')
@@ -340,21 +377,25 @@ def eventimgupload(request,eventimg_id):
         regf.save()
         return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def evregform_delete(request,evformdelete_id):
     regform=regforms.objects.get(id=evformdelete_id)
     regform.delete()
     return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def news_eventimg_delete(request,evimg_delete_id):
     evimg=eventimage.objects.get(id=evimg_delete_id)
     evimg.delete()
     return redirect('load_admin_home')
 
+@login_required(login_url="/Starz")
 def deleteimg(request,img_id):
     image=images.objects.get(id=img_id)
     image.delete()
     return redirect('load_folder_create')
 
+@login_required(login_url="/Starz")
 def deletecontent(request,dcontent_id):
     cont=contents.objects.get(id=dcontent_id)
     morecon=moreconts.objects.filter(con_id=dcontent_id)
@@ -526,20 +567,20 @@ def check_reg_meberadd(request,check_addid):
 
     return redirect('load_member')
 
+@login_required(login_url="/Starz")
 def check_reg_delete(request,check_delete):
     checkdelete=check_register_members.objects.get(pk=check_delete)
     checkdelete.delete()
     return redirect('load_member')
                         
-
-
-                    
-
+              
+@login_required(login_url="/Starz")
 def load_member_details(request,mdid):
     allmd=register_members.objects.get(id=mdid)
     return render(request,'reg_member_view.html',{'allmd':allmd})
-   
 
+   
+@login_required(login_url="/Starz")
 def reg_meberdelete(request,regdlid):
     reg=register_members.objects.get(id=regdlid)
     reg.delete()
@@ -547,6 +588,7 @@ def reg_meberdelete(request,regdlid):
     
 
 @csrf_exempt
+@login_required(login_url="/Starz")
 def add_news(request):
 
     if request.method=="POST":
@@ -562,12 +604,13 @@ def add_news(request):
 
 # admin blackbelt holders update loaad data
 
+@login_required(login_url="/Starz")
 def load_bthupdate(request,bthu_id):
     bth=blackbelt_holders.objects.get(id=bthu_id)
     return render(request,'bthupdate.html',{'bth':bth})
 
 #admin black belt member update
-
+@login_required(login_url="/Starz")
 def bthupdate(request,bthud_id):
     if request.method=="POST":
         bth=blackbelt_holders.objects.get(id=bthud_id)
@@ -580,7 +623,7 @@ def bthupdate(request,bthud_id):
     else:
         return redirect('load_admin_home')
 
-
+@login_required(login_url="/Starz")
 def updateassociate(request,upaso_id):
     if request.method=="POST":
         asso=members.objects.get(id=upaso_id)
@@ -597,7 +640,7 @@ def updateassociate(request,upaso_id):
 
 
 #admin black belt holder delete
-
+@login_required(login_url="/Starz")
 def bthdelete(request,bthd_id):
     bth=blackbelt_holders.objects.filter(id=bthd_id) 
     bth.delete()
@@ -652,6 +695,7 @@ def logout(request):
     auth.logout(request)
     return redirect('load_home_page')
 
+@login_required(login_url="/Starz")
 def about_content(request):
     if request.method=="POST":
         ab_cont=request.POST['ab_content']
@@ -661,7 +705,8 @@ def about_content(request):
         content=About.objects.all()
         a=contents.objects.all()
         return render(request,'content.html',{'al':a,'mesg':mesg,'content':content})
-    
+
+@login_required(login_url="/Starz")   
 def about_delete(request,about_id):
     abcont=About.objects.get(id=about_id)
     abcont.delete()
@@ -669,10 +714,12 @@ def about_delete(request,about_id):
     a=contents.objects.all()
     return render(request,'content.html',{'al':a,'content':content})
 
+@login_required(login_url="/Starz")
 def about_content_update(request,abcontup_id):
     abcont=About.objects.get(id=abcontup_id)
     return render(request,'about_content_update.html',{'abcont':abcont})
 
+@login_required(login_url="/Starz")
 def about_content_save(request,abupdate_id):
     if request.method=="POST":
         abconts=About.objects.get(id=abupdate_id)
