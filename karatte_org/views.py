@@ -659,17 +659,17 @@ def loadbackbelt_page(request):
 @csrf_exempt
 def sending_mail(request):
     if request.method == 'POST': 
-        recipient = request.POST.get('smailid') 
+        frommail = request.POST.get('smailid') 
         sendsub= request.POST.get('sub')
         msg=request.POST.get('msge')
-        print(recipient)
+        print(frommail)
         
-        if recipient =='':
+        if frommail =='':
              message=" Please Fill email id"
         else:
             
             try:
-                respons=send_mail(sendsub, msg,recipient,['jsaindia2022@gmail.com'])
+                respons=send_mail(sendsub, msg,frommail,['jsaindia2022@gmail.com'])
                 message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
                 return render(request,'sendmailout.html',{'message':message})
                 
