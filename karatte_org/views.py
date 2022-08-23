@@ -151,9 +151,9 @@ def login(request):
                 if user is not None:
                     auth.login(request, user)
                     if user.is_superuser==1:
+                        enqu=Enquery.objects.all()
                         newss=news.objects.all()
-                        msg='Admin Succefully login'
-                        return render(request,'adminhome.html',{'newss':newss,'msg':msg})
+                        return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
                         
                     else:
                         message='Invalid username or password'
