@@ -85,6 +85,9 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('news_eventimg_delete/<int:evimg_delete_id>',views.news_eventimg_delete,name='news_eventimg_delete'),
                path('evregform_delete/<int:evformdelete_id>',views.evregform_delete,name='evregform_delete'),
                path('associate_delete/<int:ass_deleteid>',views.associate_delete,name='associate_delete'),
+               path('view_enquery/<int:view_eqnid>',views.view_enquery,name='view_enquery'),
+               path('enqupdate/<int:eqnup_id>',views.enqupdate,name='enqupdate'),
+               path('equry_delete/<int:eqndelete_id>',views.equry_delete,name='equry_delete'),
                
 
 

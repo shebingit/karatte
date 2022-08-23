@@ -136,13 +136,24 @@
 <body class="disabel-text" >
 
 
-<form action="{% url 'sending_mail' %}" method="" id="form">
+  <form action="{% url 'sending_mail' %}" method="" id="form">
     {% csrf_token %}
+    {% if message %}
+      <center class="mt-3 p-3">
+        <h5 >Thanks <i class="bi bi-hand-thumbs-up text-success"></i> &nbsp;&nbsp;{{message}} </h5>
+        <p>We received your Message and will respond Shortly..</p>
+      </center>
+    {% else %}
+      <center class="mt-3 p-3">
+        <h6 > &nbsp;&nbsp;{{Fail}}</h6>
+      </center>
+    {% endif %}
         <div class="formBox">
+         
             <div class="row50">
                 <div class="inputBox form-group ">
                     <span>Full Name</span>
-                    <input type="text" name="member" required class="form-control">
+                    <input type="text" id="member" required class="form-control">
                 </div>
                 <div class="inputBox form-group ">
                     <span>Email</span>
@@ -150,12 +161,16 @@
                 </div>
                 
             </div>
-            <div class="row100">
+            <div class="row50">
                
                 <div class="inputBox form-group" >
                     <span>Subject</span>
                     <input type="text" id="mailsubject" required class="form-control">
                 </div>
+                <div class="inputBox form-group" >
+                  <span>Contact No</span>
+                  <input type="text" id="contact_no" required class="form-control">
+              </div>
             </div>
             <div class="row100">
                 <div class="inputBox form-group ">
@@ -169,13 +184,36 @@
                 </div>
             </div>
             <div class="m-3">
-              <div>
-                <h6 style="color:green">{{message}}</h6> 
-              </div>  
+              
+              
+
             </div>
 
         </div>
     </form>
+    <script>
+      $("#form").on("click","#mailsend",function(e){
+        e.preventDefault();
+        console.log('button clicked for mail send.')
+        let name=$("#member").val()
+        let mailid =$("#email").val();
+        let subj =$("#mailsubject").val();
+        let mesg =$("#message").val();
+        let conts_no=$("#contact_no").val()
+        mydata={smailid:mailid,sub:subj,msge:mesg,name_u:name,conts_nos:conts_no}
+          $.ajax({
+             url : "{% url 'sending_mail' %}",
+             method :"POST",
+             data : mydata,
+             success :function(data){
+              console.log(data)
+              $("#form").html(data); 
+                 
+            }
+          });
+  
+      });
+    </script>
 
     <!-- Vendor JS Files -->
   <i class="fa-brands fa-whatsapp"></i>

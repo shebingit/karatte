@@ -413,48 +413,55 @@
   
                <!-- form box-->
               <div class="contact form">
+               
                   <h3>Send a Message</h3>
               
-              <form action="{% url 'sending_mail' %}" method="" id="form">
-              {% csrf_token %}
-                  <div class="formBox">
-                      <div class="row50">
-                          <div class="inputBox form-group ">
-                              <span>Full Name</span>
-                              <input type="text" name="member" required class="form-control">
-                          </div>
-                          <div class="inputBox form-group ">
-                              <span>Email</span>
-                              <input type="text" id="email" class="form-control" required>
-                          </div>
-                          
-                      </div>
-                      <div class="row100">
+                  <form action="{% url 'sending_mail' %}" method="" id="form">
+                    {% csrf_token %}
+                    
+                        <div class="formBox">
                          
-                          <div class="inputBox form-group" >
-                              <span>Subject</span>
-                              <input type="text" id="mailsubject" required class="form-control">
-                          </div>
-                      </div>
-                      <div class="row100">
-                          <div class="inputBox form-group ">
-                              <span>Message</span>
-                              <textarea id="message" rows="5" placeholder="Write your Message here.." required class="form-control"></textarea>
-                          </div>
-                      </div>
-                      <div class="row100 form-group ">
-                          <div class="inputBox">
-                             <button type="submit" value="Send" id="mailsend">Send</button>
-                          </div>
-                      </div>
-                      <div class="m-3">
-                        <div>
-                          <h6 style="color:green">{{message}}</h6> 
-                        </div>  
-                      </div>
-  
-                  </div>
-              </form>
+                            <div class="row50">
+                                <div class="inputBox form-group ">
+                                    <span>Full Name</span>
+                                    <input type="text" id="member" required class="form-control">
+                                </div>
+                                <div class="inputBox form-group ">
+                                    <span>Email</span>
+                                    <input type="text" id="email" class="form-control" required>
+                                </div>
+                                
+                            </div>
+                            <div class="row50">
+                               
+                                <div class="inputBox form-group" >
+                                    <span>Subject</span>
+                                    <input type="text" id="mailsubject" required class="form-control">
+                                </div>
+                                <div class="inputBox form-group" >
+                                  <span>Contact No</span>
+                                  <input type="text" id="contact_no" required class="form-control">
+                              </div>
+                            </div>
+                            <div class="row100">
+                                <div class="inputBox form-group ">
+                                    <span>Message</span>
+                                    <textarea id="message" rows="5" placeholder="Write your Message here.." required class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row100 form-group ">
+                                <div class="inputBox">
+                                   <button type="submit" value="Send" id="mailsend">Send</button>
+                                </div>
+                            </div>
+                            <div class="m-3">
+                              
+                              
+                
+                            </div>
+                
+                        </div>
+                    </form>
               </div>
   
               <!-- map box-->
@@ -508,13 +515,12 @@
       $("#form").on("click","#mailsend",function(e){
         e.preventDefault();
         console.log('button clicked for mail send.')
+        let name=$("#member").val()
         let mailid =$("#email").val();
         let subj =$("#mailsubject").val();
         let mesg =$("#message").val();
-        console.log(mailid)
-        console.log(subj)
-        console.log(mesg)
-        mydata={smailid:mailid,sub:subj,msge:mesg}
+        let conts_no=$("#contact_no").val()
+        mydata={smailid:mailid,sub:subj,msge:mesg,name_u:name,conts_nos:conts_no}
           $.ajax({
              url : "{% url 'sending_mail' %}",
              method :"POST",

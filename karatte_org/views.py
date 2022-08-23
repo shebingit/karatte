@@ -29,8 +29,9 @@ def contact(request):
     
 @login_required(login_url="/Starz")
 def load_admin_home(request):
+    enqu=Enquery.objects.all()
     newss=news.objects.all()
-    return render(request,'adminhome.html',{'newss':newss})
+    return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
 
 
 @login_required(login_url="/Starz")
@@ -659,24 +660,21 @@ def loadbackbelt_page(request):
 @csrf_exempt
 def sending_mail(request):
     if request.method == 'POST': 
+        name_user=request.POST.get('name_u')
         frommail = request.POST.get('smailid') 
+        cont=request.POST.get('conts_nos')
         sendsub= request.POST.get('sub')
         msg=request.POST.get('msge')
-        print(frommail)
-        
-        if frommail =='':
-             message=" Please Fill email id"
+        status='Not Viewed'
+        if sendsub and msg and frommail and cont:
+            enq=Enquery(fname=name_user,contact_no=cont,mail_id=frommail,sub=sendsub,mesage=msg,enq_status=status)
+            enq.save()
+            return render(request,'sendmailout.html',{'message':name_user})
         else:
-            
-            try:
-                respons=send_mail(sendsub, msg,frommail,['jsaindia2022@gmail.com'])
-                message=" THANK you for Contacting Us! Our Team will contact you Soon!..."
-                return render(request,'sendmailout.html',{'message':message})
+            message="Sorry ! All fields are required."
+            return render(request,'sendmailout.html',{'Fail':message})
                 
-            except BadHeaderError:
-                message="error!"
-                return render(request,'sendmailout.html',{'message':message})
-        return render(request,'sendmailout.html',{'message':message}) 
+    return render(request,'sendmailout.html') 
 
 
         
@@ -741,6 +739,25 @@ def associate_delete(request,ass_deleteid):
     bths=blackbelt_holders.objects.all()
     associate=members.objects.all()
     return render(request,'blackbelt.html',{'bths':bths,'associate':associate})
+
+def view_enquery(request,view_eqnid):
+    eqn=Enquery.objects.get(id=view_eqnid)
+    return render(request,'enquery_view.html',{'eqn':eqn})
+
+def enqupdate(request,eqnup_id):
+    eqn=Enquery.objects.get(id=eqnup_id)
+    eqn.enq_status='Viewed'
+    eqn.save()
+    enqu=Enquery.objects.all()
+    newss=news.objects.all()
+    return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
+
+def equry_delete(request,eqndelete_id):
+    eqn=Enquery.objects.get(id=eqndelete_id)
+    eqn.delete()
+    enqu=Enquery.objects.all()
+    newss=news.objects.all()
+    return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
 
 
 

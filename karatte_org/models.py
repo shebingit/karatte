@@ -148,3 +148,12 @@ class eventimage(models.Model):
     envimage_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)
     envimgpdf=models.FileField(upload_to="folderimages")
     evnimg=models.ImageField(upload_to="folderimages")
+
+
+class Enquery(models.Model):
+    fname=models.CharField(max_length=40)
+    contact_no=models.CharField(max_length=30)
+    mail_id=models.EmailField()
+    sub=models.CharField(max_length=30)
+    mesage=models.TextField()
+    enq_status=models.CharField(max_length=10)

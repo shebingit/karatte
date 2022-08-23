@@ -149,54 +149,101 @@
     </div>
   </section>
 
-  <section id="upload_content">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <div class="container mt-5">
-        
-          <h5>Upload Video </h5>
-          <hr>
-          <form method="post" action="{% url 'uploadvideo' %}">
-            {% csrf_token %}
-          <div class="input-group mb-3">
-            <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-            <div class="input-group-append">
-              &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Update video</button>
-            </div>
-          </div>
-        </form>
-        </div>
-        <div class="container mt-5">
+
+ 
+
+
+
+  <section id="enquery" call="mt-3">
+    <div class="container mt-5">
+      <h3>Enquires</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">No</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Email id</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for eqn in enqu %}
+            <tr>
+              <td><a href="{% url 'equry_delete' eqn.id %}" onclick="return confirm('Are you sure you want to delete this event ?')"  class="mt-2"><ion-icon name="trash-outline"><ion-icon name="trash-outline"></ion-icon></a></td>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{eqn.fname}}</td>
+              <td>{{eqn.contact_no}}</td>
+              <td>{{eqn.mail_id}}</td>
+              
+              {% if eqn.enq_status == 'Not Viewed' %}
+                <td class="text-danger"><a href="{% url 'view_enquery' eqn.id %}" >{{eqn.enq_status}}</a></td>
+              {% endif %}
+
+              {% if eqn.enq_status == 'Viewed' %}
+                <td class="text-sucess" ><a href="{% url 'view_enquery' eqn.id %}" >{{eqn.enq_status}}</td></a>
+              {% endif %}
+             
+            </tr>
+          {% endfor %}
           
-          <h5>News and events </h5>
-          <hr>
-          <form method="post" action="{% url 'add_news' %}">
-            {% csrf_token %}
-          <div class="input-group mb-3">
-            <input type="text" name="news"class="form-control" placeholder="Type your news here.." aria-describedby="basic-addon2" required>
-            <div class="input-group-append">
-              &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Submit</button>
-            </div>
-          </div>
-        </form>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <div class="container mt-5">
-          <h4>News & Events Content</h4>
-          {% for news in newss %}
-              <div class="news_container">
-                <div class="row">
-                  <div class="col-lg-11"><a href="{% url 'admin_events_image' news.id %}"><h5 class="btn btn-light mt-2">{{news.newstitle}}</h5></a></div>
-                  <div class="col-lg-1"><a href="{% url 'news_delete' news.id %}" onclick="return confirm('Are you sure you want to delete this event ?')"  class="btn btn-danger btn-sm mt-2"><ion-icon name="trash-outline"><ion-icon name="trash-outline"></ion-icon></a></div>
-                </div>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="upload_content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="container mt-5">
+          
+            <h5>Upload Video </h5>
+            <hr>
+            <form method="post" action="{% url 'uploadvideo' %}">
+              {% csrf_token %}
+            <div class="input-group mb-3">
+              <input type="text" name="videofile"class="form-control" placeholder="Past Your Video URL Here" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+              <div class="input-group-append">
+                &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Update video</button>
               </div>
-                
-              </tr>
-            {% endfor %}
+            </div>
+          </form>
           </div>
+          <div class="container mt-5">
+            
+            <h5>News and events </h5>
+            <hr>
+            <form method="post" action="{% url 'add_news' %}">
+              {% csrf_token %}
+            <div class="input-group mb-3">
+              <input type="text" name="news"class="form-control" placeholder="Type your news here.." aria-describedby="basic-addon2" required>
+              <div class="input-group-append">
+                &nbsp;&nbsp;&nbsp;<button class="btn btn-outline-secondary" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="container mt-5">
+            <h4>News & Events Content</h4>
+            {% for news in newss %}
+                <div class="news_container">
+                  <div class="row">
+                    <div class="col-lg-11"><a href="{% url 'admin_events_image' news.id %}"><h5 class="btn btn-light mt-2">{{news.newstitle}}</h5></a></div>
+                    <div class="col-lg-1"><a href="{% url 'news_delete' news.id %}" onclick="return confirm('Are you sure you want to delete this event ?')"  class="btn btn-danger btn-sm mt-2"><ion-icon name="trash-outline"><ion-icon name="trash-outline"></ion-icon></a></div>
+                  </div>
+                </div>
+                  
+                </tr>
+              {% endfor %}
+            </div>
+        </div>
       </div>
     </div>
+    
   </section>
 
   
