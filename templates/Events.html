@@ -109,6 +109,7 @@
   ======================================================== -->
 
   <style>
+    
     #hero_user .container
     {
       border:none;
@@ -135,6 +136,24 @@
     text-align:  center;
     border: none;
   }
+  #portfolio
+
+  {
+    background-color: #fff;
+    margin-top: 13vh;
+    overflow: visible;
+  }
+  #portfolio .portfolio-item 
+  {
+    height: 100%;
+    object-fit: fill;
+  }
+  #portfolio .portfolio-item img
+  {
+    vertical-align: middle;
+    height:55vh;
+    width: 52vh;
+  }
   
   
   </style>
@@ -143,10 +162,10 @@
 <body  style="background: #f0f0f0;">
 
  <!-- ======= Header ======= -->
- <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+ <header id="header" class="fixed-top d-flex align-items-center header-transparent shadow-sm p-3 mb-5 bg-body rounded">
   <div class="container-fluid mt-0">
 
-    <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center g-3">
       <div class="col-xl-11 d-flex align-items-center justify-content-between">
         <!--<h1 class="logo"><a href="index.html">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -177,34 +196,59 @@
 
 
   <!--======hero =======-->
+ 
+  <style>
+    #portfolio .portfolio-item figure
+    {
+      height: 450px;
+      padding:5px ;
+    }
+    @media(max-width:921px)
+    {
+      #portfolio .portfolio-item figure
+    {
+      height: 380px;
+      padding:5px ;
+    }
+    }
+  </style>
+  <section id="portfolio" class="section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h3 class="section-title">New and Upcoming Events</h3>
+      </header>
 
     
-
-  <section id="hero_user" style="margin-top: 5vh; margin-bottom:3vh; background:#ffff;">
-    <div class="container" id="assmember"style="margin-top: 10vh;"><br>
-        <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >New and Upcoming Events</h3>
-          
-            {% for ass in evtimgs  %}
-            <h6 class="p-1 text-success" style="font-size:18px; font: wight 600px;">{{ass.envimage_id.newstitle}}</h6>
-           
-              <div class="card mb-4">
-                <div class="card-body text-center">
-                {% if ass.evnimg %}
-                  <img src="{{ ass.evnimg.url }}" class="img-fluid"style="height:70vh; width:60vh;" alt="...">
-                {% endif %}
-                 
-                </div>
-                <div class="card-footer">
-                   <p class="card-text"><a class="btn btn-primary"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1">  Download</i></a>{{regformpdf.}}</p></p>
-                </div>
-              </div>
-            
-                  
-            {% endfor %}
-          
-
+    <div class="portfolio-container" data-aos="fade-up" data-aos-delay="200" id="sortimgs">
+      {% for ass in evtimgs %}
        
+        <div class="portfolio-item">
+          <marquee  width = "90%" direction = "left"><p class="text-danger mt-2 mb-2 p-3" style="font-size:18px;">{{ass.envimage_id.newstitle}}</p></marquee>
+          <figure>
+            {% if ass.evnimg %}
+            <center>
+              <img src="{{ ass.evnimg.url }} " class="img-fluid" alt="">
+              <a href="{{ ass.evnimg.url }} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"style="margin-left:35px;"><i class="bi bi-plus"></i></a>
+            </center>
+              {% endif %}
+            </figure>
+            <center>
+            {% if ass.envimgpdf %}
+              <p class="card-text mt-3"><a class="btn btn-primary"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1"> Download</i></a></p>
+            {% endif %}
+            </center>
+        </div>
+        
+      {% endfor %}
+      
+    </div>
     
+    
+    </div>
+  </section>
+<!--Affiliation download --> 
+
 <script>
   function downloaD(url, name){
     fetch(url).then(async (res) =>{
@@ -230,10 +274,8 @@
     });
   }
 </script>
-    </div>
-  </section>
-
-
+  
+  
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="footer-top">

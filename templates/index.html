@@ -136,7 +136,7 @@
 <body class="disabel-text" >
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent shadow-sm p-3 mb-5 bg-body rounded">
     <div class="container-fluid mt-0">
 
       <div class="row justify-content-center align-items-center">
@@ -171,33 +171,37 @@
   <!-- ======= hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
-        <ul id="hero-carousel-indicators" class="carousel-indicators"></ul>
-
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <img src="{{ firstca.carimage.url }}" alt="" style="width:100%;height:100%;">
+      <center>
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+      
+          <ul id="hero-carousel-indicators" class="carousel-indicators"></ul>
+      
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img src="{{ firstca.carimage.url }}" class="img-fluid"  alt="" style="border-radius: 3%;width:700px;">
+              
+            </div>
             
+            {% for i in al %}
+            
+            <div class="carousel-item">
+              <img src="{{ i.carimage.url }}" alt="" class="img-fluid" style="border-radius: 3%; width:700px;">
+            </div>
+            {% endfor %}
           </div>
-          
-          {% for i in al %}
-          
-          <div class="carousel-item">
-            <img src="{{ i.carimage.url }}" alt="" style="width:100%;height:100%;">
-          </div>
-          {% endfor %}
+      
+          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+          </a>
+      
+          <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+          </a>
+      
         </div>
-
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
-
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-        </a>
-
-      </div>
+      </center>
+      
     </div>
   </section><!-- End Hero Section -->
 

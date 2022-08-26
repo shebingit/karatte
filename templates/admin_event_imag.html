@@ -109,6 +109,7 @@
                     </div>
                 {% endfor %}
             </div> -->
+
             <div class="col-lg-12">
                 <form  class="mt-2 p-4" action="{% url 'eventimgupload' events.id %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -116,12 +117,12 @@
                         <div class="row">
                             
                             <div class="col-lg-6">
-                                <label> Image Pdf Upload</label>
-                                <input class="mt-3" type="file"  accept="folderimages/" name="evntimgpdf" required>
+                                <label> Image Pdf File Upload</label>
+                                <input class="mt-3" type="file"  accept="folderimages/" name="evntimgpdf" value="">
                             </div>
                             <div class="col-lg-6">
                                 <label> Images Upload</label>
-                                <input class="mt-3" type="file"  accept="folderimages/" name="evnt_img" required>
+                                <input class="mt-3" type="file"  accept="folderimages/" name="evnt_img" value="" >
                             </div>
                         </div>
                     
