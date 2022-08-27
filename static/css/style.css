@@ -9,9 +9,12 @@
 # General
 --------------------------------------------------------------*/
 body {
-  background: #fff;
+  background: url("../img/about-bg.jpg") center top no-repeat fixed;
   color: #666666;
   font-family: "Open Sans", sans-serif;
+  background-size: cover;
+
+  position: relative;
 }
 
 a {
@@ -335,7 +338,7 @@ h1, h2, h3, h4, h5, h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  margin-top: 16vh;
+  margin-top: 13vh;
   width: 100%;
   background:#fff;
   overflow: hidden;
@@ -355,7 +358,11 @@ h1, h2, h3, h4, h5, h6 {
     
   }
 }
- 
+@media (max-width:932px) {
+  #hero {
+    margin-top: 15vh;
+  }
+}
 
 #hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
   top: 0;
@@ -471,6 +478,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 section {
   overflow: hidden;
+  
 }
 
 /* Sections Header
@@ -513,7 +521,7 @@ section {
 /* Section with background
 --------------------------------*/
 .section-bg {
-  background: #f7f7f7;
+  background: rgba(255, 255, 255, 0.90);
 }
 
 /*--------------------------------------------------------------
@@ -524,7 +532,7 @@ section {
 /* About Us Section
 --------------------------------*/
 #about {
-  background: url("../img/about-bg.jpg") center top no-repeat fixed;
+
   background-size: cover;
   padding: 60px 0 40px 0;
   position: relative;
@@ -633,7 +641,7 @@ section {
   color: #666666;
   border-radius: 4px;
   text-transform: uppercase;
-  background: #fff;
+ 
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }

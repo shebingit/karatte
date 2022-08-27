@@ -118,6 +118,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  
 }
 
 /* Call To Action Section
@@ -133,14 +134,13 @@
   ======================================================== -->
 </head>
 
-<body class="disabel-text" >
-<body class="disabel-text" >
+<body class="disabel-text" style='background: url("../img/about-bg.jpg") center top no-repeat fixed;' >
 
-<section id="portfolio" class="section-bg">
-    <div class="container" data-aos="fade-up">
+<section id="portfolio" class="section-bg" style="background: transparent;">
+    <div class="container header-transparent" data-aos="fade-up">
 
 
-<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" id="folderimgs">
+<div class="row portfolio-container" data-aos="fade-up"  id="folderimgs" >
     {% for img in folimgs %}
       <div class="col-lg-4 col-md-6 portfolio-item"  >
       

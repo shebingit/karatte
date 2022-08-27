@@ -141,13 +141,14 @@
       margin-right: 0;
     }
     #portfoli .portfolio-wrap {
-      box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+      /*box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);*/
       transition: 0.3s;
       margin-top:5px;
       
     }
     #portfoli .portfolio-wrap:hover {
-      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
+      /*box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);*/
+      border: none;
     }
     #portfoli .portfolio-item {
       position: relative;
@@ -359,11 +360,13 @@
     #content
    {
    
-    box-shadow: 5px 5px 10px;
-    margin-bottom: 5vh;
-    background: rgb(10, 10, 10);
-    color: #fff;
+    border: none;
+    color: rgb(15, 44, 131);
     border-radius: 10px;
+   }
+   #content h5
+   {
+    color: rgb(31, 32, 36);
    }
   </style>
   <section id="portfoli" class="section-bg">
@@ -374,17 +377,20 @@
       </header> -->
 
       {% for evnews in newss %}
-      <p class="text-danger mt-2 mb-5 p-3" style="font-size:22px;">{{evnews.newstitle}}</p>
+       <header class="section-header">
+        <h3 class="section-title mt-4" style="font-size:18px ;">{{evnews.newstitle}}</h3>
+      </header>
+      <!-- <p class="text-danger mt-2 mb-5 p-3" style="font-size:22px;"></p> -->
           <div class="row">
             {% for i in regformpdf %}
               {% if i.env_id.id == evnews.id %}
                 <div class="col-lg-6">
-                  <div class="card p-4" id="content" >
+                  <div class="card p-2 mb-1" id="content" >
                     <div class="card-head">
-                      <h5 class="mt-2 mb-2"><b>{{i.ev_subhead}}</b></h5>
+                      <h5 class="mt-2"><b>{{i.ev_subhead}}</b></h5>
                     </div>
                     <div class="card-body">
-                      <p>{{i.event_sub}}</p>
+                      <p>★ {{i.event_sub}}</p>
                     </div>
                     
                   </div>
