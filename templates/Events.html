@@ -363,11 +363,17 @@
     border: none;
     color: rgb(15, 44, 131);
     border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+   }
+   #content p{
+    margin: 4vh;
    }
    #content h5
    {
     color: rgb(31, 32, 36);
    }
+   
   </style>
   <section id="portfoli" class="section-bg">
     <div class="container" data-aos="fade-up">
@@ -377,23 +383,16 @@
       </header> -->
 
       {% for evnews in newss %}
-       <header class="section-header">
+      <header class="section-header">
         <h3 class="section-title mt-4" style="font-size:18px ;">{{evnews.newstitle}}</h3>
       </header>
       <!-- <p class="text-danger mt-2 mb-5 p-3" style="font-size:22px;"></p> -->
           <div class="row">
             {% for i in regformpdf %}
               {% if i.env_id.id == evnews.id %}
-                <div class="col-lg-6">
-                  <div class="card p-2 mb-1" id="content" >
-                    <div class="card-head">
-                      <h5 class="mt-2"><b>{{i.ev_subhead}}</b></h5>
-                    </div>
-                    <div class="card-body">
-                      <p>★ {{i.event_sub}}</p>
-                    </div>
-                    
-                  </div>
+                <div class="col-lg-6 col-md-6 col-sm-12" id="content">
+                  <h5 class="mt-2"><b>{{i.ev_subhead}}</b></h5>
+                  <p class="">★ {{i.event_sub}}</p>
                 </div>
               {% endif %}
             {% endfor %}
