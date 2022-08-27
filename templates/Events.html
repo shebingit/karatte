@@ -109,52 +109,191 @@
   ======================================================== -->
 
   <style>
-    
-    #hero_user .container
-    {
-      border:none;
+    #portfoli {
+      margin-top: 10vh;
+      padding: 40px 0;
+    }
+    #portfoli #portfolio-flters {
+      padding: 0;
+      margin: 5px 0 35px 0;
+      list-style: none;
+      text-align: center;
+    }
+    #portfoli #portfolio-flters li {
+      cursor: pointer;
+      margin: 15px 15px 15px 0;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 12px;
+      line-height: 20px;
+      color: #666666;
+      border-radius: 4px;
+      text-transform: uppercase;
+      background: #fff;
+      margin-bottom: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+    #portfoli #portfolio-flters li:hover, #portfoli #portfolio-flters li.filter-active {
+      background: #18d26e;
+      color: #fff;
+    }
+    #portfoli #portfolio-flters li:last-child {
+      margin-right: 0;
+    }
+    #portfoli .portfolio-wrap {
+      box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+      margin-top:5px;
       
-
     }
-    #hero_user .container img
-    {
-      transform:scale(0.9);
-      transition:transform 2s ease-in-out;
+    #portfoli .portfolio-wrap:hover {
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
     }
-    #hero_user .container img:hover
-    {
-      transform:scale(1.1);
-      transition-delay:s;
+    #portfoli .portfolio-item {
+      position: relative;
+      
     }
-    #hero_user .container .card{
-      border: none;
+    #portfoli .portfolio-item figure {
+      background: rgb(253, 251, 251);
+      overflow: hidden;
+      height: 540px;
+      position: relative;
+      border-radius: 4px 4px 0 0;
+      margin: 0;
     }
-  
-    #hero_user .container .card-footer 
-  {
-    background-color: #fff;
-    text-align:  center;
-    border: none;
-  }
-  #portfolio
-
-  {
-    background-color: #fff;
-    margin-top: 13vh;
-    overflow: visible;
-  }
-  #portfolio .portfolio-item 
-  {
-    height: 100%;
-    object-fit: fill;
-  }
-  #portfolio .portfolio-item img
-  {
-    vertical-align: middle;
-    height:55vh;
-    width: 52vh;
-  }
-  
+    #portfoli .portfolio-item figure img {
+      height: 52vh;
+      width: 49vh;
+    }
+    #portfoli .portfolio-item figure:hover img {
+      opacity: 0.4;
+      transition: 0.3s;
+    }
+    #portfoli .portfolio-item figure .link-preview, #portfoli .portfolio-item figure .link-details {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      line-height: 1;
+      text-align: center;
+      width: 36px;
+      height: 36px;
+      background: #fff;
+      border-radius: 50%;
+      transition: 0.2s linear;
+    }
+    #portfoli .portfolio-item figure .link-preview i, #portfoli .portfolio-item figure .link-details i {
+      font-size: 22px;
+      color: #333;
+      line-height: 0;
+    }
+    #portfoli .portfolio-item figure .link-preview:hover, #portfoli .portfolio-item figure .link-details:hover {
+      background: #18d26e;
+    }
+    #portfoli .portfolio-item figure .link-preview:hover i, #portfoli .portfolio-item figure .link-details:hover i {
+      color: #fff;
+    }
+    #portfoli .portfolio-item figure .link-preview {
+      left: calc(50% - 38px);
+      top: calc(50% - 18px);
+    }
+    #portfoli .portfolio-item figure .link-details {
+      right: calc(50% - 38px);
+      top: calc(50% - 18px);
+    }
+    #portfoli .portfolio-item figure:hover .link-preview {
+      opacity: 1;
+      left: calc(50% - 44px);
+    }
+    #portfoli .portfolio-item figure:hover .link-details {
+      opacity: 1;
+      right: calc(50% - 44px);
+    }
+    #portfoli .portfolio-item .portfolio-info {
+      background: #fff;
+      text-align: center;
+      padding: 30px;
+      height: 90px;
+      border-radius: 0 0 3px 3px;
+    }
+    #portfoli .portfolio-item .portfolio-info h4 {
+      font-size: 18px;
+      line-height: 1px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding-bottom: 0;
+    }
+    #portfoli .portfolio-item .portfolio-info h4 a {
+      color: #333;
+    }
+    #portfoli .portfolio-item .portfolio-info h4 a:hover {
+      color: #18d26e;
+    }
+    #portfoli .portfolio-item .portfolio-info p {
+      padding: 0;
+      margin: 0;
+      color: #b8b8b8;
+      font-weight: 500;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    
+    /*--------------------------------------------------------------
+    # Portfolio Details
+    --------------------------------------------------------------*/
+    .portfolio-details {
+      padding-top: 40px;
+    }
+    .portfolio-details .portfolio-details-slider img {
+      width: 80%;
+      height:80%;
+    }
+    .portfolio-details .portfolio-details-slider .swiper-pagination {
+      margin-top: 20px;
+      position: relative;
+    }
+    .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background-color: #fff;
+      opacity: 1;
+      border: 1px solid #18d26e;
+    }
+    .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+      background-color: #18d26e;
+    }
+    .portfolio-details .portfolio-info {
+      padding: 30px;
+      box-shadow: 0px 0 30px rgba(51, 51, 51, 0.08);
+    }
+    .portfolio-details .portfolio-info h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .portfolio-details .portfolio-info ul {
+      list-style: none;
+      padding: 0;
+      font-size: 15px;
+    }
+    .portfolio-details .portfolio-info ul li + li {
+      margin-top: 10px;
+    }
+    .portfolio-details .portfolio-description {
+      padding-top: 30px;
+    }
+    .portfolio-details .portfolio-description h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .portfolio-details .portfolio-description p {
+      padding: 0;
+    }
+    
   
   </style>
 </head>
@@ -198,51 +337,91 @@
   <!--======hero =======-->
  
   <style>
-    #portfolio .portfolio-item figure
+    #portfoli
+    {
+      padding: 40px,0;
+    }
+  
+    
+    #portfoli .portfolio-item figure
     {
       height: 450px;
       padding:5px ;
     }
     @media(max-width:921px)
     {
-      #portfolio .portfolio-item figure
+      #portfoli .portfolio-item figure
     {
       height: 380px;
       padding:5px ;
     }
     }
+    #content
+   {
+   
+    box-shadow: 5px 5px 10px;
+    margin-bottom: 5vh;
+    background: rgb(10, 10, 10);
+    color: #fff;
+    border-radius: 10px;
+   }
   </style>
-  <section id="portfolio" class="section-bg">
+  <section id="portfoli" class="section-bg">
     <div class="container" data-aos="fade-up">
 
-      <header class="section-header">
+      <!-- <header class="section-header">
         <h3 class="section-title">New and Upcoming Events</h3>
-      </header>
+      </header> -->
 
-    
-    <div class="portfolio-container" data-aos="fade-up" data-aos-delay="200" id="sortimgs">
-      {% for ass in evtimgs %}
-       
-        <div class="portfolio-item">
-          <marquee  width = "90%" direction = "left"><p class="text-danger mt-2 mb-2 p-3" style="font-size:18px;">{{ass.envimage_id.newstitle}}</p></marquee>
-          <figure>
-            {% if ass.evnimg %}
-            <center>
-              <img src="{{ ass.evnimg.url }} " class="img-fluid" alt="">
-              <a href="{{ ass.evnimg.url }} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"style="margin-left:35px;"><i class="bi bi-plus"></i></a>
-            </center>
+      {% for evnews in newss %}
+      <p class="text-danger mt-2 mb-5 p-3" style="font-size:22px;">{{evnews.newstitle}}</p>
+          <div class="row">
+            {% for i in regformpdf %}
+              {% if i.env_id.id == evnews.id %}
+                <div class="col-lg-6">
+                  <div class="card p-4" id="content" >
+                    <div class="card-head">
+                      <h5 class="mt-2 mb-2"><b>{{i.ev_subhead}}</b></h5>
+                    </div>
+                    <div class="card-body">
+                      <p>{{i.event_sub}}</p>
+                    </div>
+                    
+                  </div>
+                </div>
               {% endif %}
-            </figure>
-            <center>
-            {% if ass.envimgpdf %}
-              <p class="card-text mt-3"><a class="btn btn-primary"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1"> Download</i></a></p>
-            {% endif %}
-            </center>
-        </div>
+            {% endfor %}
+          </div>
+    <div class="portfolio-container" data-aos="fade-up" data-aos-delay="200" id="sortimgs">
+      
+      {% for imgs in evtimgs %}
+        
+          <div class="portfolio-item">
+          {% if imgs.envimage_id.id == evnews.id  %}
+            <div class="portfolio-wrap">
+              <center>
+                <figure class="p-3">
+                  {% if imgs.evnimg %}
+                
+                    <img src="{{ imgs.evnimg.url }} " class="img-fluid" alt="">
+                    <a href="{{ imgs.evnimg.url }} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"style="margin-left:35px;"><i class="bi bi-plus"></i></a>
+                  
+                  {% endif %}
+                </figure>
+                  {% if imgs.envimgpdf %}
+                    <p class="card-text mt-3"><a class="btn btn-primary  mb-4"onclick='downloaD("/media/{{ass.envimgpdf}}","Image.pdf")' ><i class="bi bi-download  mx-1"> Download</i></a></p>
+                  {% endif %}
+              </center>
+              
+            </div>
+          {% endif %}
+          </div>
         
       {% endfor %}
       
+      
     </div>
+    {% endfor %}
     
     
     </div>

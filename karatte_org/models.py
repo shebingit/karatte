@@ -1,6 +1,7 @@
 from asyncio.windows_events import NULL
 from distutils.command.upload import upload
 from operator import truediv
+from re import M
 from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
@@ -142,7 +143,8 @@ class About(models.Model):
 
 class regforms(models.Model):
     env_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)
-    regpdf=models.FileField(upload_to="folderimages")
+    ev_subhead=models.CharField(max_length=20)
+    event_sub=models.TextField()
 
 class eventimage(models.Model):
     envimage_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)

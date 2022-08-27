@@ -119,6 +119,15 @@
   -ms-user-select: none;
   user-select: none;
 }
+#container
+{
+  border-radius: 20px;
+}
+
+#container p
+{
+  line-height: 2.25rem;
+}
 
 /* Call To Action Section
 --------------------------------*/
@@ -168,25 +177,55 @@
     </div>
   </header><!-- End Header -->
 
+  <style>
+    .show
+    {
+      display: none;
+      
+    }
+    .about_top
+    {
+      margin-top: 30vh;
+    }
+
+  </style>
+  <script>
+    var my_window=$(window);
+    var position=my_window.scrollTop();
+
+    my_window.scroll(function()
+    {
+      if(my_window.scrollTop() > position )
+      {
+        $('#hero').addClass('show');
+        $('#about').addClass('about_top')
+      }
+      else{
+        $('#hero').removeClass('show');
+        $('#about').removeClass('about_top')
+      }
+      position=my_window.scrollTop();
+    });
+  </script>
+
   <!-- ======= hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-
-      <center>
-        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
       
           <ul id="hero-carousel-indicators" class="carousel-indicators"></ul>
       
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img src="{{ firstca.carimage.url }}" class="img-fluid"  alt="" style="border-radius: 3%;width:700px;">
+              <img src="{{ firstca.carimage.url }}" class="img-fluid"  alt="">
               
             </div>
             
             {% for i in al %}
             
             <div class="carousel-item">
-              <img src="{{ i.carimage.url }}" alt="" class="img-fluid" style="border-radius: 3%; width:700px;">
+              <img src="{{ i.carimage.url }}" alt="" class="img-fluid">
             </div>
             {% endfor %}
           </div>
@@ -200,7 +239,8 @@
           </a>
       
         </div>
-      </center>
+      </div>
+        
       
     </div>
   </section><!-- End Hero Section -->
@@ -215,7 +255,7 @@
           <h3 class="mt-1">About Us</h3>
         </div>
 
-          <div id="container">
+          <div id="container" class="container p-4" style="background-color: #f0f0f0;">
             <h3 class="text-center"></h3>
             <p>{{conts.ab_contents}}<span id="dots">...</span></p>
             <p id="more">
@@ -249,7 +289,7 @@
           </script>
 
         <div class="row about-cols">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-4">
             <div class="about-col">
               <div class="img">
                 <img src="{% static 'img/historys2.webp' %}" alt="" class="img-fluid" style="height:350px; width:100%;  object-fit:fit; padding:10px;">
@@ -272,7 +312,7 @@
           </div> 
         
         {% for con in con1 %}
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-4" >
             <div class="about-col">
               <div class="img">
                 <img src="{{con.cont_img.url}}" alt="" class="img-fluid" style="height:350px;width:400px; object-fit:fit; padding:10px;">

@@ -362,9 +362,10 @@ def admin_events_image(request,evnt_id):
 @login_required(login_url="/Starz")
 def regform(request,regform_id):
     if request.method=='POST': 
-        fpdf=request.FILES.get('regfompdf')
+        cont_head=request.POST['chead']
+        fpdf=request.POST['regfompdf']
         evnt_news=news.objects.get(id=regform_id)
-        regf=regforms(regpdf=fpdf,env_id=evnt_news)
+        regf=regforms(ev_subhead=cont_head,event_sub=fpdf,env_id=evnt_news)
         regf.save()
         return redirect('load_admin_home')
 
@@ -728,9 +729,10 @@ def about_content_save(request,abupdate_id):
         return render(request,'content.html',{'al':a,'content':content})
 
 def Userevent_load(request):
+    newss=news.objects.all()
     evtimgs=eventimage.objects.all()
     regformpdf=regforms.objects.all()
-    return render(request,'Events.html',{'evtimgs':evtimgs,'regformpdf':regformpdf})
+    return render(request,'Events.html',{'newss':newss,'evtimgs':evtimgs,'regformpdf':regformpdf})
 
 
 def associate_delete(request,ass_deleteid):
