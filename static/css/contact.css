@@ -9,7 +9,7 @@
 
 }
 body {
-    background: #fff;
+   
     color: #b3d6ef;
   }
 .contactUs{
@@ -29,7 +29,7 @@ body {
 }
 .contact{
     padding: 30px;
-    background:#fdfcfc;
+   
     box-shadow: 0 2px 10px rgba(1, 1, 1, 0.041);
 }
 .box{
@@ -274,7 +274,7 @@ body {
     }
     .map{
         padding: 0;
-        min-height: 300px;
+        
     }
         
 }

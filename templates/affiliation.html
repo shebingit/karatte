@@ -34,6 +34,65 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
+    /* for desktop */
+.whatsapp_float {
+	position:fixed;
+    opacity:1;
+	width:40px;
+	height:40px;
+	bottom:61px;
+	right:15px;
+    background: #18d26e;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size:1.5em;
+    z-index: 996;
+    border-radius: 50px;
+   transition: all 0.4s;
+}
+.whatsapp_float i {
+    font-size: 17px;
+    color: #fff;
+    line-height:1.5;
+  }
+  .whatsapp_float:hover {
+    background: #2ce782;
+    color: #fff;
+  }
+  .whatsapp_float.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+
+.whatsapp-icon {
+	margin-top:16px;
+}
+/* for mobile */
+@media screen and (max-width: 767px){
+     .whatsapp-icon {
+	 margin-top:10px;
+     }
+    .whatsapp_float {
+        position:fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 60px;
+        right: 15px;
+        font-size:1.5em;
+        visibility:1;
+    }
+    .whatsapp_float i {
+        font-size: 17px;
+    color: #fff;
+    line-height:1.5;
+      }
+      .whatsapp_float:hover {
+        background: #2ce782;
+        color: #fff;
+      }
+}
 
     #heading
     {
@@ -54,7 +113,7 @@
   </style>
 </head>
 
-<body>
+<body style="background: rgba(255, 255, 255, 0.90);">
 
   
   <!-- ======= Header ======= -->
@@ -129,7 +188,7 @@
 </style>
 <h3 class="heading mb-3 text-primary">Membership of Affiliation</h3>
 
-<section id="hero">
+<section id="hero" style="background: rgba(255, 255, 255, 1);">
   <div class="card rounded">
     <div class="card-head rounded">
       <h6 class="rounded text-center m-2" style="font-family: italic; ">JSA India Affiliation Form</h6>

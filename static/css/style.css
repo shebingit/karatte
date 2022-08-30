@@ -9,12 +9,17 @@
 # General
 --------------------------------------------------------------*/
 body {
-  background: url("../img/about-bg.jpg") center top no-repeat fixed;
+  
   color: #666666;
   font-family: "Open Sans", sans-serif;
-  background-size: cover;
-
+  
+}
+#full_container
+{
+  background: url("../img/about-bg.jpg") center top no-repeat fixed;
+  background-size:fill;
   position: relative;
+  padding: 0px;
 }
 
 a {
@@ -343,13 +348,14 @@ h1, h2, h3, h4, h5, h6 {
   background:#fff;
   overflow: hidden;
   position: relative;
+  
 }
 
 
 @media (max-height: 600px) {
   #hero {
-    margin-top: 19vh;
-    height: 120vh;
+    margin-top: 16vh;
+    height: 130vh;
     width: 100%;
 
   }
@@ -357,10 +363,15 @@ h1, h2, h3, h4, h5, h6 {
     height: 120vh;
     
   }
+  
 }
 @media (max-width:932px) {
   #hero {
-    margin-top: 15vh;
+    margin-top: 14vh;
+    
+  }
+  hero-container{
+    height: 130vh;
   }
 }
 
@@ -498,7 +509,9 @@ section {
   display: block;
   width: 120px;
   height: 1px;
-  background: #ddd;
+ 
+  
+
   bottom: 1px;
   left: calc(50% - 60px);
 }
@@ -653,29 +666,30 @@ section {
   margin-right: 0;
 }
 #portfolio .portfolio-wrap {
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+ 
   transition: 0.3s;
   margin-top:5px;
 }
-#portfolio .portfolio-wrap:hover {
+/*#portfolio .portfolio-wrap:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
-}
+}*/
 #portfolio .portfolio-item {
   position: relative;
   height: 290px;
   overflow: hidden;
 }
 #portfolio .portfolio-item figure {
-  background: rgb(253, 251, 251);
+  
   overflow: hidden;
   height: 240px;
   position: relative;
-  border-radius: 4px 4px 0 0;
   margin: 0;
 }
 #portfolio .portfolio-item figure:hover img {
   opacity: 0.4;
   transition: 0.3s;
+  
+
 }
 #portfolio .portfolio-item figure .link-preview, #portfolio .portfolio-item figure .link-details {
   position: absolute;
@@ -813,7 +827,8 @@ section {
 }
 #footer .footer-top {
   background: #fff;
-  padding: 40px 0 30px 0;
+  padding-top: 20px;
+ 
 }
 #footer .footer-top .footer-info {
   margin-bottom: 30px;
@@ -934,7 +949,7 @@ section {
 }
 #footer .copyright {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 5px;
 }
 #footer .credits {
   text-align: center;
