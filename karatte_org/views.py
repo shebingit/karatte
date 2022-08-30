@@ -619,7 +619,11 @@ def bthupdate(request,bthud_id):
         bth.bth_reg=request.POST.get('regid')
         bth.bth_name=request.POST.get('name')
         bth.bth_desig=request.POST.get('desig')
-        bth.bth_image=request.FILES.get('img')
+        bthing=request.FILES.get('img')
+        if(bthing):
+            bth.bth_image=bthing
+        else:
+            bth.bth_image=bth.bth_image
         bth.save()
         return redirect('load_blackbelts')
     else:
@@ -632,7 +636,11 @@ def updateassociate(request,upaso_id):
         asso.mname=request.POST.get('name')
         asso.mdesig=request.POST.get('desig')
         asso.mposition=request.POST.get('position')
-        asso.asso_image=request.FILES.get('img')
+        img=request.FILES.get('img')
+        if(img):
+            asso.asso_image=img
+        else:
+            asso.asso_image=asso.asso_image
         asso.save()
         return redirect('load_blackbelts')
     else:

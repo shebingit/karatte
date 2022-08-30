@@ -34,6 +34,65 @@
         height: 100%;
         width: 100%;
       }
+      /* for desktop */
+.whatsapp_float {
+	position:fixed;
+    opacity:1;
+	width:40px;
+	height:40px;
+	bottom:61px;
+	right:15px;
+    background: #18d26e;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size:1.5em;
+    z-index: 996;
+    border-radius: 50px;
+   transition: all 0.4s;
+}
+.whatsapp_float i {
+    font-size: 17px;
+    color: #fff;
+    line-height:1.5;
+  }
+  .whatsapp_float:hover {
+    background: #2ce782;
+    color: #fff;
+  }
+  .whatsapp_float.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+
+.whatsapp-icon {
+	margin-top:16px;
+}
+/* for mobile */
+@media screen and (max-width: 767px){
+     .whatsapp-icon {
+	 margin-top:10px;
+     }
+    .whatsapp_float {
+        position:fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 60px;
+        right: 15px;
+        font-size:1.5em;
+        visibility:1;
+    }
+    .whatsapp_float i {
+        font-size: 17px;
+    color: #fff;
+    line-height:1.5;
+      }
+      .whatsapp_float:hover {
+        background: #2ce782;
+        color: #fff;
+      }
+}
     </style>
 </head>
 
