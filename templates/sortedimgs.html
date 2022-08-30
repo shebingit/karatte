@@ -59,17 +59,17 @@
 /* Call To Action Section
 --------------------------------*/
 #call-to-action {
-  background: linear-gradient(rgba(0, 142, 99, 0.1), rgba(0, 0, 0, 0.1)), url("{% static 'img/call-to-action-bg.jpg' %}") fixed center center;
+  background: linear-gradient(rgba(0, 142, 99, 0.1), rgba(0, 0, 0, 0.1));
   background-size: cover; 
-  padding: 60px 0;
+  padding: 60px 20;
 }
 #call-to-action h3 {
-  color: #fff;
+  color: rgb(23, 22, 22);
   font-size: 28px;
   font-weight: 700;
 }
 #call-to-action p {
-  color: #fff;
+  color: rgb(24, 22, 22);
 }
 #call-to-action .cta-btn {
   font-family: "Montserrat", sans-serif;
@@ -134,10 +134,10 @@
   ======================================================== -->
 </head>
 
-<body class="disabel-text" style='background: url("../img/about-bg.jpg") center top no-repeat fixed;' >
+<body class="disabel-text" >
 
-<section id="portfolio" class="section-bg" style="background: transparent;">
-    <div class="container header-transparent" data-aos="fade-up">
+<section id="portfolio" class="">
+    <div class="container" data-aos="fade-up">
 
 
 <div class="row portfolio-container" data-aos="fade-up"  id="folderimgs" >
@@ -146,9 +146,9 @@
       
         <div class="portfolio-wrap">
        
-        <figure >
+        <figure class="text-center">
           {% if img.image_url %}
-            <img src="{{ img.image_url.url}} " class="img-fluid" alt="" style="width:100%;height:100%;">
+            <img src="{{ img.image_url.url}} " class="img-fluid" alt=""  style="height:100%;">
             <a href="{{ img.image_url.url}} " data-lightbox="portfolio"  class="link-preview portfolio-lightbox"style="margin-left:35px;"><i class="bi bi-plus"></i></a>
           {% endif %}
           </figure>
