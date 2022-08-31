@@ -769,6 +769,39 @@ def equry_delete(request,eqndelete_id):
     newss=news.objects.all()
     return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
 
+def loadcontent_update(request,loadcontid):
+    cont=contents.objects.get(id=loadcontid)
+    return render(request,'contentupdate.html',{'cont':cont})
+
+def save_content(request,savecontid):
+    if request.method=="POST":
+        cont=contents.objects.get(id=savecontid)
+        cont.con_title=request.POST.get('upconttitle')
+        cont.con_content=request.POST.get('upconts')
+        img=request.FILES.get('upcontimg')
+        if(img):
+            cont.cont_img=img
+        else:
+            cont.cont_img=cont.cont_img
+        cont.save()
+        return redirect('loadadd_content')
+
+def loadmorecontupdate(request,moreupdateid):
+    cont=moreconts.objects.get(id=moreupdateid)
+    return render(request,'more_contetupdate.html',{'cont':cont})
+
+def save_morecontent(request,moresaveid):
+    if request.method=="POST":
+        cont=moreconts.objects.get(id=moresaveid)
+        cont.more_cont=request.POST.get('upmoreconts')
+        img=request.FILES.get('upmorecontimg')
+        if(img):
+            cont.more_img=img
+        else:
+            cont.more_img=cont.more_img
+        cont.save()
+        return redirect('loadadd_content')
+
 
 
 

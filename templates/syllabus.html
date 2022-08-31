@@ -28,7 +28,7 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
-  <link href="{% static 'css/affiliation.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'css/affiliation.css' %}" rel="stylesheet"> -->
    
   <style>
     .container{
@@ -47,15 +47,7 @@
       margin: 5px;
 
     }
-    .overlay{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      width: 100%;
-    }
+    
     .thumbnai:hover{
       transform: translateY(-4px);
     }
@@ -98,19 +90,23 @@
   
   <section id="admin_hero">
   </section>
-<br>
+
   <div class="container">
-    <form method="post" enctype="multipart/form-data">
+    <form  action="{% url 'uploadpdfimgs' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <h5>PDF Image Upload:</h5>
       <div class="input-group">
-        <input type="file" class="form-control" multiple name="pdfimg" accept="image/blackbeltholders" required>&nbsp;&nbsp;
-        <button class="btn btn-outline-secondary"  type="submit" id="upload" formaction="{% url 'uploadpdfimgs' %}">Save</button><br><br>
+        <input type="file" class="form-control" multiple name="pdfimg" onclick="show()"accept="image/blackbeltholders" required>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-success" >save</button><br><br>
       </div>
-
     </form>
     </div>
-
+    <script>
+      function show()
+      {
+        console.log("button clicked")
+      }
+    </script>
   <section>
     <div class="container">
       <h1>KATAS & TEACHNIQUES</h1>

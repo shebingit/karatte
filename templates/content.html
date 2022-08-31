@@ -176,8 +176,9 @@
 
               <h4 class="card-title text-dark">{{ i.con_title }}</h4>
               <p class="card-text">{{ i.con_content }}</p>
-              <a href="{% url 'loadmorecont' i.id %}"  class="btn btn-success mb-2" style="width:20%;"><ion-icon name="add-circle-outline"></ion-icon></a>
-              <a href="{% url 'deletecontent' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2"style="width:20%;"><ion-icon name="trash-outline"></ion-icon></a>
+              <a href="{% url 'loadmorecont' i.id %}"  class="btn btn-success mb-2" ><ion-icon name="add-circle-outline"></ion-icon></a>
+              <a href="{% url 'loadcontent_update' i.id %}"  class="btn btn-success mb-2" ><ion-icon size="small" name="pencil-outline"></ion-icon></a>
+              <a href="{% url 'deletecontent' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2"><ion-icon name="trash-outline"></ion-icon></a>
               
             
             </div>

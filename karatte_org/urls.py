@@ -88,6 +88,13 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('view_enquery/<int:view_eqnid>',views.view_enquery,name='view_enquery'),
                path('enqupdate/<int:eqnup_id>',views.enqupdate,name='enqupdate'),
                path('equry_delete/<int:eqndelete_id>',views.equry_delete,name='equry_delete'),
+
+               #new
+
+               path('loadcontent_update/<int:loadcontid>',views.loadcontent_update,name='loadcontent_update'),
+               path('save_content/<int:savecontid>',views.save_content,name='save_content'),
+               path('loadmorecontupdate/<int:moreupdateid>',views.loadmorecontupdate,name='loadmorecontupdate'),
+               path('save_morecontent/<int:moresaveid>',views.save_morecontent,name='save_morecontent'),
                
 
 

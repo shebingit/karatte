@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>JSA INDIA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'css/folder.css' %}" rel="stylesheet"> -->
+
+  
+
+
+</head>
+<style>
+  body{
+    background-color: rgb(250, 251, 251);
+    
+  }
+  textarea{
+    padding: 4px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  #about_content
+  {
+    margin-top: 10vh;
+  }
+  .alert-box {
+    max-width: 300px;
+    min-height: 300px;
+  }
+  .alert-icon {
+      padding-bottom: 20px;
+      
+   }
+   #admin_hero
+   {
+    margin-top: 15vh;
+   }
+   #admin_hero .card img{
+    width: 30vh;
+    height: 34vh;
+   }
+  
+</style>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <section id="admin_hero" >
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        
+      <div class="row pt-1">
+        <div class="col-lg-3 col-sm-12 col-md-4">
+            <div class="card mt-5"style="border: none;">
+                <div class="card-body">
+                {% if cont.more_img %}
+                    <img src="{{cont.more_img.url}}">
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="row mt-3 g-3">
+                <div  class="col-sm-12 col-md-4 col-lg-6">
+                  <input type="file"   accept="carouselimages/" id="file" name="upmorecontimg" value="{{cont.more_img}}">
+                  
+                  <p style="font-size:12px; margin:5px;"> Dimentions 600px 400px</p>
+                  
+                </div>
+                <div class="col-12 col-md-4 col-lg-12 pt-1">
+                  <textarea rows="10" placeholder="Content" name="upmoreconts" >{{cont.more_cont}}</textarea> 
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 pt-1">
+                    <button type="submit" class=" btn btn-success mb-3" formaction="{% url 'save_morecontent' cont.id %}">Save</button>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </section>
+
+
+
+ <!--======end hero====-->
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

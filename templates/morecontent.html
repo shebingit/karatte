@@ -107,7 +107,8 @@
             <div class="card mt-1 mb-2">
               <div class="card-body">
                 <p class="card-text">{{ i.more_cont }}</p>
-                <a href="{% url 'morecontdelete' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2"style="width:20%;"><ion-icon name="trash-outline"></ion-icon></a>
+                <a href="{% url 'loadmorecontupdate' i.id %}"  class="btn btn-success mb-2"><ion-icon size="small" name="pencil-outline"></ion-icon></a>
+                <a href="{% url 'morecontdelete' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger mb-2"><ion-icon name="trash-outline"></ion-icon></a>
               </div>
             </div>      
           </div>
