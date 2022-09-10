@@ -121,17 +121,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
+    font-size: .95em;
     border-radius: 50%;
     margin-right:15px;
 }
 .info .infoBox div p{
     color: #fff;
-    font-size: 1.1em;
+    font-size: .95em;
 }
 .info .infoBox div a{
     color: #fff;
-    font-size: 1.1em;
+    font-size: .95em;
     text-decoration: none;
 }
 .sci{
@@ -144,7 +144,7 @@ body {
 }
 .sci li a{
     color: #fff;
-    font-size: 1em;
+    font-size: .95em;
     color: #ccc;
 }
 .sci li a :hover{
