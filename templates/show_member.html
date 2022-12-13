@@ -96,7 +96,15 @@
             {% for check_reg_meb in check_reg_member %}
               <tr class="mt-3">
               
-                <td><img src="{{check_reg_meb.check_reg_img.url}}" style="height:7vh; width:7vh; border-radius:50%;"></td> 
+                <td>
+                  {% if check_reg_meb.check_reg_img %}
+                    <img src="{{check_reg_meb.check_reg_img.url}}" style="height:7vh; width:7vh; border-radius:50%;">
+                  {% else %}
+                    <img src="{% static 'img/Dummypic.png' %}" style="height:7vh; width:7vh; border-radius:50%;">
+                  
+                  {% endif %}
+                </td> 
+
                 <td>{{check_reg_meb.check_reg_name}}</td>
                 <td>{{check_reg_meb.check_reg_address}}</td>
                 <td>{{check_reg_meb.check_reg_phon}}</td>
