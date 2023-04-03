@@ -80,7 +80,8 @@ WSGI_APPLICATION = 'karatte.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'karatte',
+        # 'NAME': 'karatte',
+        'NAME': 'karate_1',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',

@@ -30,6 +30,90 @@
       border-bottom: 3px solid rgb(244, 228, 4);
       margin-top: 2vh;
      }
+   
+     #container-box
+     {
+      display: grid;
+      grid-template-columns:0.80fr 0.80fr 0.80fr;
+    
+     }
+     #container-box .cards
+     {
+      padding: 1rem 0.60rem;
+     
+     }
+     #container-box .card
+     {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border: none;
+      text-align: center;
+     
+      padding: 2rem;
+     }
+     #container-box .card picture
+     {
+     
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     }
+     #container-box .card picture img
+     {
+      width:60px;
+      padding-bottom: 1vh;
+     }
+     .count-number
+     {
+     
+      height: 32px;
+      width: 32px;
+      background-color: #fc2323;
+      color:#fff;
+      padding: 0.30rem;
+      position: relative;
+      font-weight: 600;
+      border-radius: 50%;
+      font-size: 0.90rem;
+     }
+     .reg-btn
+     {
+      padding: 0.60em 1.1em;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+      font-size: 0.90rem;
+     }
+
+     #members-list
+     {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      
+      height: 500px;
+      padding: 1em;
+     }
+     #members-list .card
+     {
+      border-radius: none;
+     
+     }
+
+
+     .card
+     {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border: none;
+      text-align: center;
+     }
+     .card h6{
+      font-weight: 500;
+      text-align: center;
+     }
+     .card p{
+      font-size: 0.80rem;
+      text-align: center;
+     }
   </style>
 
 </head>
@@ -59,16 +143,70 @@
   </header><!-- End Header -->
 
   <!--======hero =======-->
-<br>
+
+<section id="admin_hero" >
+  <div class="container" id="container-box">
+    <a href="{% url 'load_associate' %}">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="count-number">
+            <span >{{associate_count}}</span>
+          </div>
+          <picture>
+            <img src="{% static 'img/dummypic1.png' %}">
+          </picture>
+          
+          <h6>Associate Members</h6>
+          <button class="reg-btn">Register</button>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'load_affilates_form' %}">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="count-number">
+            <span >{{associate_count}}</span>
+          </div>
+          <picture>
+            <img src="{% static 'img/dummypic1.png' %}">
+          </picture>
+          
+          <h6>Affilates Members</h6>
+          <button class="reg-btn">Register</button>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'load_associate' %}">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="count-number">
+            <span >{{bths_count}}</span>
+          </div>
+          <picture>
+            <img src="{% static 'img/dummypic1.png' %}">
+          </picture>
+          
+          <h6>Black Belt Members</h6>
+          <button class="reg-btn">Register</button>
+        </div>
+      </div>
+    </a>
+
+
+  </div>
+</section>
+
+
+
+
+
   <section id="admin_hero">
     <div class="container">
-      <h3 class="">Associate Members</h3>
-          <div class="row pt-2" style="height:60px;">
-            <div class="col pt-2 text-end">
-                <a href="{% url 'load_associate' %}" class="text-primary text-end"><i class="bi bi-plus-circle-fill mx-1"></i>Add Associate Members</a>
-            </div>
-            <p class="line"></p>
-          </div>
+      <h3 class="">Associate Members</h3> <p class="line"></p>
+         
     </div> 
   </section>
 
@@ -79,10 +217,10 @@
             <div class="col-12 col-md-4 col-lg-3">
               <div class="card" style="margin:15px 10px;">
                 {% if asso.asso_image %}
-                  <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:18vh; margin:auto; height:20vh; ">
+                  <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:17vh; ">
                 {% endif %}
                 <div class="card-body" style="text-align:start ;">
-                  <h6 class="card-title">Name: {{ asso.mname}}</h6>
+                  <h6 class="card-title"> {{ asso.mname}}</h6>
                   <p class="card-title">{{asso.mdesig}}</p>
                   <p class="card-title">{{asso.mposition}}</p>
                   <a href="{% url 'load_assoupdate' asso.id %}" class="text-success mx-2"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
@@ -97,12 +235,38 @@
 
   <section id="admin_hero">
     <div class="container"><br>
-      <h3>Black Belt Members</h3>
-          <div class="row pt-2" style="height:60px;">
-            <div class="col pt-2 text-end">
-                <a href="{% url 'load_addmember' %}" class="text-primary "><i class="bi bi-plus-circle-fill mx-1"></i>Add BlackBelt Members</a>
+      <h3>AFFILIATES</h3>
+          
+          <p class="line"></p>
+    </div> 
+  </section>
+
+  <section id="member_card">
+    <div class="container ">
+        <div class="row">
+          {% for bth in bths  %}
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card" style="margin:15px 10px;">
+                {% if bth.bth_image %}
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
+                {% endif %}
+                <div class="card-body"style="text-align:center ;">
+                  <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
+                  <p class="card-title"> Register No: {{bth.bth_reg}}</p>
+                  <p class="card-title">Designation: {{bth.bth_desig}}</p>
+                  <a href="{% url 'load_bthupdate' bth.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="{% url 'bthdelete' bth.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
+                </div>
+              </div>
             </div>
-          </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+
+  <section id="admin_hero">
+    <div class="container"><br>
+      <h3>Black Belt Members</h3>
           <p class="line"></p>
     </div> 
   </section>

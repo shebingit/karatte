@@ -208,11 +208,15 @@ def uploadvideo(request):
         messages="Video Saved Successfuly..."
         return render(request,'adminhome.html')
 
+
 @login_required(login_url="/Starz")
 def load_blackbelts(request):
     bths=blackbelt_holders.objects.all()
     associate=members.objects.all()
-    return render(request,'blackbelt.html',{'bths':bths,'associate':associate})
+    bths_count=blackbelt_holders.objects.all().count()
+    associate_count=members.objects.all().count()
+
+    return render(request,'blackbelt.html',{'bths':bths,'associate':associate,'bths_count':bths_count,'associate_count':associate_count})
 
 @login_required(login_url="/Starz")
 def load_addmember(request):
@@ -225,6 +229,40 @@ def load_addimages(request):
 @login_required(login_url="/Starz")
 def load_associate(request):
     return render(request,'addmember.html')
+
+@login_required(login_url="/Starz")
+def load_affilates_form(request):
+    affiliates=None
+    return render(request,'addaffilatesmember.html',{'affiliates':affiliates})
+
+
+# adding the black belt holders
+@csrf_exempt
+def add_affilates_members(request):
+
+    if request.method=="POST":
+        a1=request.POST['aff_name']
+        a2=request.POST['aff_vfdate']
+        a3=request.POST['aff_vtdate']
+        a4=request.FILES.get('aff_img')
+        a5=request.POST['aff_rank']
+        a6=request.POST['aff_state']
+        a7=request.POST['aff_district']
+        a8=request.POST['aff_club']
+
+
+ #saving data
+        affiliates=blackbelt_holders(bth_reg=reg,
+                          bth_name=name,
+                          bth_desig=desig,
+                          bth_image=img)
+
+        affiliates.save()
+        return redirect('load_affilates_form')
+    else:
+        return JsonResponse('load_affilates_form')
+
+
 
 @login_required(login_url="/Starz")
 def loadadd_content(request):

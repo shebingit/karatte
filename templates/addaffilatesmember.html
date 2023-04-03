@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>JSA INDIA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+ 
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!--======hero =======-->
+
+  <style>
+    #addform .line{
+        border-bottom: 3px solid rgb(6, 2, 29);
+        margin-top: -0.70vh;
+        margin-left: 0.80vh;
+        width: 30%;
+       }
+    #addform
+    {
+        display: grid;
+        grid-template-columns: 1.5fr 2fr;
+        gap: 1em;
+      
+    }
+    #addform .form-box, .details-box{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 0.90em;
+    }
+   
+    #addform h5{
+        text-align: start;
+        font-size: 1.1em;
+        margin-top: 1em;
+        letter-spacing: 0.05em;
+        color: rgb(17, 17, 91);
+        font-weight: 600;
+    }
+    #addform .input-group
+    {
+        margin: 1.7vh;
+      ;
+    }
+    #addform .input-group label
+    {
+        width: 25%;
+        font-size: 0.80em;
+    }
+    #addform .input-group input
+    {
+        width: 70%;
+        font-size: 0.80em;
+        outline: none;
+        border: 1px solid #092758;
+        padding: 0.50em 1em;
+    }
+    #addform .input-group input[type=text]:focus,
+    #addform .input-group input[type=date]:focus
+    {
+        border: 2px solid rgba(29, 31, 67,0.4) 0px 4px 12px;;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+        
+    }
+    #addform .input-group-btn
+    {
+        text-align: center;
+        margin-top: 3vh;
+    }
+    #addform .input-group-btn button{
+        padding: 0.30em 1.2em;
+        background: #1b123d;
+        color: #f0f0f0;
+        border: none;
+        font-size: 0.90em;
+        
+    }
+    .serach-box
+    {
+        padding: 0.20em 0.90em;
+        margin-bottom: 1em;
+    }
+    .serach-box .searct_value
+    {
+        border-radius: 2px;
+        padding: 1.3em 0.50em;
+        font-size: 0.80em;
+        letter-spacing: 0.040em;
+        border: 1px solid #092758;
+        outline: none;
+    }
+    input[type=text]:focus
+    {
+        border: 1px solid #7290c1;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+    .serach-box .serch_btn
+    {
+        border: none;
+        background: #092758;
+        color: #ffffff;
+        padding: 0.50em 1.2em;
+        margin-bottom: 2vh;
+       
+    }
+    #data_table
+    {
+        padding: 1em;
+       
+    }
+    .details-box table thead tr th
+    {
+        font-size: 0.82em;
+    }
+    .details-box table tbody tr td
+    {
+        font-size: 0.79em;
+    }
+    #image-preview
+    {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+        font-size: 0.80em;
+        margin-bottom: 1vh;
+        border: 1px solid #000;
+        height: 150px;
+    }
+    #addform .top-section
+    {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+    }
+  </style>
+
+  <BR>
+  <section id="admin_hero" >
+    <div class="container"  id="addform">
+        <div class="form-box">
+            <form action="{% url 'add_affilates_members' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="top-section">
+                    <div class="head-section">
+                        <h5>AFFILIATES REGISTER </h5>
+                        <p class="line"></p>
+                    </div>
+                    <div id="image-preview">
+                        image preview
+                    </div>
+
+                </div>
+                
+
+                <div class="input-group">
+                    <label>Full Name : </label>
+                    <input type="text" name="aff_name" required>
+                </div>
+                <div class="input-group">
+                    <label>Validity: From </label>
+                    <input type="date" placeholder="From" name="aff_vfdate">
+                </div>
+                <div class="input-group">
+                    <label>Validity To: </label>
+                    <input type="date" placeholder="To"  name="aff_vtdate">
+                </div> 
+                <div class="input-group">
+                    <label>Club: </label>
+                    <input type="text" name="aff_club">
+                </div>
+                <div class="input-group">
+                    <label>Rank: </label>
+                    <input type="text" name="aff_rank">
+                </div>
+                <div class="input-group">
+                    <label>State: </label>
+                    <input type="text" name="aff_state">
+                </div>
+                <div class="input-group">
+                    <label>District: </label>
+                    <input type="text" name="aff_district">
+                </div>
+                <div class="input-group">
+                    <label>Image: </label>
+                    <input type="file" name="aff_img" required>
+                </div>
+
+                
+                <div class="input-group-btn">
+                   <button class="#"> Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="details-box">
+            <h5>AFFILIATES DETAILS</h5>
+            <p class="line"></p>
+          
+            <div class="serach-box">
+                <form>
+                    <input id="search" type="text" class="searct_value" name="search-value" placeholder="Search by Name">
+                    <button id="search-btn" class="serch_btn">Search</button>
+                </form>
+                
+            </div>
+
+            <div class="details">
+                <table class="table" id="data_table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th> Name</th>
+                            <th>Validity From - To</th>
+                            <th>Club</th>
+                            <th>Rank</th>
+                            <th>State</th>
+                            <th>District</th>
+      
+                          </tr>
+
+                    </thead>
+                   
+                    <tbody>
+
+                        {% for i in affiliates %}
+                    
+                        <tr>
+                            <td>
+                                <a href="#" class="text-success  "><i class="bi bi-pen-fill "></i></a>
+                                <a href="#" class="text-danger mx-1" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill"></i></a>
+                            </td>
+                            <td><img src="#" alt="..">Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                        </tr>
+                        {% endfor %}
+                       
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+
+    </div>
+
+   
+
+  </section>
+
+

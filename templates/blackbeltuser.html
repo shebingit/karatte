@@ -88,21 +88,26 @@
         color: #fff;
       }
 }
+#fullbox
+{
+background: rgba(255, 254, 254, 0.1);
+}
+h3{
+  letter-spacing: 0.05em;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+}
     #hero_user{
         width: 100%;
-        margin-top: 3vh;
-        margin-bottom:3vh;
-        background:white;
+        background: rgba(255, 254, 254, 0.6);
+        padding-bottom: 12vh;
        
     }
     #hero_user.container{
         width:100%;
     }
     .card{
-      width: 230px;
-    
-        margin:auto;
-  
+      margin:auto;
     }
     @media(max-width:921px)
     {
@@ -114,6 +119,10 @@
     }
     .card-body h5 {
       font-weight:bold;
+    }
+    #hero_user
+    {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     #hero_user h3{
         text-align: center;
@@ -131,35 +140,60 @@
     }
 
     #assmember .card {
-      border-bottom-right-radius: 4em;
-      border-top-left-radius: 4em;
+      
       box-shadow: 5px 5px 10px #e1e1e1;
-      padding: 20px;
+     
       color:#000;
+    }
+    .associate
+    {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap:nowrap;
+      gap: 0.50em;
+    }
+    
+    .card-associate
+    {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border: none;
     }
     #assmember .card:hover {
       transform: scale(1);
       border-color: rgba(13, 110, 253, 0.7);
      box-shadow: 0px 0px 10px 2px rgba(13, 110, 253, 0.6);
     }
-    #assmember img{
-      border-bottom-right-radius: 4em;
-      border-top-left-radius: 4em;
-      height:21rem;
-
-    }
-    @media(max-width:921px)
+ 
+    .card-design
     {
-      #assmember img{
-        border-bottom-right-radius: 4em;
-        border-top-left-radius: 4em;
-        height:18rem;
-        width: 16rem;
-      }
+      border: none;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      width: 230px;
+    
+      margin:auto;
     }
+    .card-design p
+    {
+      font-size: 0.79rem;
+      font-weight: 500;
+    }
+    
+    .image-box img{
+      object-fit: fill;
+    }
+    @media(max-width:732px)
+    {
     #assmember p{
       font-size: 16px;
     }
+    .associate
+    {
+      flex-direction: column;
+    }
+  }
+
+
   
 
     </style>
@@ -211,55 +245,79 @@
 
   <!--======hero =======-->
 
+  <div id="fullbox">
+
+    <section id="hero_user">
+      <div class="container  mb-4" ><br>
+          <h3 style=" font-family: Times New Roman, Times, serif; margin-top:13vh;" >ASSOCIATE MEMBERS  </h3>
+          <div class="associate">
+              {% for ass in asso  %}
+                <!-- <div class="col-12 col-md-4 col-lg-2 mx-3"> -->
+                  <div class="card mt-2 mb-2 card-associate">
+                    {% if ass.asso_image %}
+                      <img src="{{ ass.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:21vh; margin:auto; height:24vh;  ">
+                    {% endif %}
+                    <div class="card-body text-center">
+                      <h6 class="card-title text-primary" style=" font-family: Courier New, monospace;"><b>{{ass.mname}}</b></h6>
+                      <p class="card-text" style=" font-family: Bookman, serif;">{{ass.mdesig}}<br>{{ass.mposition}}</p>
+                    </div>
+                  </div>
+                <!-- </div> -->
+              {% endfor %}
+          </div>
+      </div>
+    </section>
+
     
 
-  <section id="hero_user" style="margin-top: 5vh; margin-bottom:3vh; background:#ffff;">
-    <div class="container " id="assmember"style="margin-top: 10vh;"><br>
-        <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >ASSOCIATE MEMBERS</h3>
-        <div class="row g-3">
-          {% for ass in asso  %}
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card mb-4 " style="width:85%;">
-              {% if ass.asso_image %}
-                <img src="{{ ass.asso_image.url }}"  alt="...">
-              {% endif %}
-              <div class="card-body text-center">
-                <h5 class="card-title text-primary" style=" font-family: Courier New, monospace;"><b>{{ass.mname}}</b></h5>
-                <p class="card-text" style=" font-family: Bookman, serif;">{{ass.mdesig}}</p>
-              
-                <p class="card-text mb-3" style=" font-family: Bookman, serif;">{{ass.mposition}}</p>
-              </div>
-            </div>
-          </div>
-                
-          {% endfor %}
-        </div>
-            
-    </div>
-  </section>
-
-
-  <section id="hero_user">
-    <div class="container" ><br>
-        <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >BLACK BELTS HOLDERS</h3>
-        <div class="row">
-            {% for bth in bths  %}
-              <div class="col-12 col-md-4 col-lg-2 mx-3">
-                <div class="card mt-2 mb-2 ">
-                  {% if bth.bth_image %}
-                    <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:18vh; margin:auto; height:20vh;  ">
-                  {% endif %}
-                  <div class="card-body">
-                    <h6 class="card-title" style="text-align:center;"> <b>{{ bth.bth_name}}</b></h6>
-                    <p class="card-title"style="text-align:center;">Reg.No: {{bth.bth_reg}}</p>
-                    <p class="card-title" style="text-align:center;">Rank: {{bth.bth_desig}}</p>
+    <section id="hero_user">
+      <div class="container  mb-4" ><br>
+          <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >AFFILIATES  </h3>
+          <div class="row">
+              {% for bth in bths  %}
+                <!-- <div class="col-12 col-md-4 col-lg-2 mx-3"> -->
+                  <div class="card mt-2 mb-2 card-design">
+                    {% if bth.bth_image %}
+                      <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:17vh; margin:auto; height:18vh;  ">
+                    {% endif %}
+                    <div class="card-body">
+                      <h6 class="card-title" style="text-align:center;"> <b>{{ bth.bth_name}}</b></h6>
+                      <p class="card-title"style="text-align:center;">Reg.No: {{bth.bth_reg}}</p>
+                      <p class="card-title" style="text-align:center;">Rank: {{bth.bth_desig}}</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-            {% endfor %}
-        </div>
-    </div>
-  </section>
+                <!-- </div> -->
+              {% endfor %}
+          </div>
+      </div>
+    </section>
+
+
+    <section id="hero_user">
+      <div class="container mb-4" ><br>
+          <h3  style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >BLACK BELTS HOLDERS AND INSTRUCTOR</h3>
+          <div class="row">
+              {% for bth in bths  %}
+                <!-- <div class="col-12 col-md-4 col-lg-2 mx-3"> -->
+                  <div class="card mt-2 mb-2 card-design ">
+                    {% if bth.bth_image %}
+                      <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:17vh; margin:auto; height:18vh;">
+                    {% endif %}
+                    <div class="card-body">
+                      <h6 class="card-title" style="text-align:center;"> <b>{{ bth.bth_name}}</b></h6>
+                      <p class="card-title"style="text-align:center;">Reg.No: {{bth.bth_reg}}</p>
+                      <p class="card-title" style="text-align:center;">Rank: {{bth.bth_desig}}</p>
+                    </div>
+                  </div>
+                <!-- </div> -->
+              {% endfor %}
+            
+          </div>
+      </div>
+    </section>
+
+  </div>
+
 
  <!-- ======= Footer ======= -->
  <footer id="footer">

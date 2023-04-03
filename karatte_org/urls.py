@@ -24,6 +24,11 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('deletecarouselimg/<int:carid_id>',views.deletecarouselimg,name='deletecarouselimg'),
                path('deletecontent/<int:dcontent_id>',views.deletecontent,name='deletecontent'),
                path('load_associate',views.load_associate,name='load_associate'), 
+
+               path('load_affilates_form',views.load_affilates_form,name='load_affilates_form'), 
+               path('add_affilates_members',views.add_affilates_members,name='add_affilates_members'), 
+               
+               
                path('add_news',views.add_news,name='add_news'),
                path('add_assosiate',views.add_assosiate,name='add_assosiate'),
                path('load_register',views.load_register,name='load_register'),
