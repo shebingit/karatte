@@ -190,6 +190,7 @@ h3{
     .associate
     {
       flex-direction: column;
+   
     }
   }
 
@@ -274,16 +275,24 @@ h3{
       <div class="container  mb-4" ><br>
           <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >AFFILIATES  </h3>
           <div class="row">
-              {% for bth in bths  %}
+              {% for aff in affi  %}
                 <!-- <div class="col-12 col-md-4 col-lg-2 mx-3"> -->
                   <div class="card mt-2 mb-2 card-design">
-                    {% if bth.bth_image %}
-                      <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:17vh; margin:auto; height:18vh;  ">
+                    {% if aff.affreg_img %}
+                      <img src="{{ aff.affreg_img.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:17vh; margin:auto; height:18vh;  ">
                     {% endif %}
                     <div class="card-body">
-                      <h6 class="card-title" style="text-align:center;"> <b>{{ bth.bth_name}}</b></h6>
-                      <p class="card-title"style="text-align:center;">Reg.No: {{bth.bth_reg}}</p>
-                      <p class="card-title" style="text-align:center;">Rank: {{bth.bth_desig}}</p>
+                      <h6 class="card-title" style="text-align:center;"> <b>{{ aff.affreg_name}}</b></h6>
+                      <p class="card-title" style="text-align:center; font-weight: 600;">Rank: {{aff.affrank}}</p> 
+                      <p class="card-title"style="text-align:center;">
+                     
+                        <span style="font-weight: 600;">Club: {{aff.affclub}}</span>
+                        &nbsp;&nbsp;<span style="font-weight: 600;">District: {{aff.affdistrict}}</span>
+                      
+                      </p>
+                      <p class="card-title" style="text-align:center; font-weight: 600;">State: {{aff.affstate}}</p> 
+                      <p class="card-title" style="text-align:center; font-weight: 700;">Valid From: {{aff.affvalid_from}} To  {{aff.affvalid_to}}</p> 
+                      
                     </div>
                   </div>
                 <!-- </div> -->

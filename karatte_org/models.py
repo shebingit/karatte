@@ -143,7 +143,7 @@ class About(models.Model):
 
 class regforms(models.Model):
     env_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)
-    ev_subhead=models.CharField(max_length=20)
+    ev_subhead=models.CharField(max_length=255)
     event_sub=models.TextField()
 
 class eventimage(models.Model):
@@ -159,3 +159,17 @@ class Enquery(models.Model):
     sub=models.CharField(max_length=30)
     mesage=models.TextField()
     enq_status=models.CharField(max_length=10)
+
+
+#04-04-2023 
+
+class affilates_register(models.Model):
+    affreg_name=models.CharField(max_length=200,null=True,blank=True)
+    affvalid_from=models.CharField(max_length=200,null=True,blank=True)
+    affvalid_to=models.CharField(max_length=200,null=True,blank=True)
+    affclub=models.CharField(max_length=250,null=True,blank=True)
+    affrank=models.CharField(max_length=250,null=True,blank=True)
+    affstate=models.CharField(max_length=250,null=True,blank=True)
+    affdistrict=models.CharField(max_length=250,null=True,blank=True)
+    aff_status=models.CharField(max_length=10,default=0,blank=True)
+    affreg_img=models.ImageField(upload_to="image/regcheck",default='')

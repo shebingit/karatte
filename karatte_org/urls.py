@@ -27,6 +27,11 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
 
                path('load_affilates_form',views.load_affilates_form,name='load_affilates_form'), 
                path('add_affilates_members',views.add_affilates_members,name='add_affilates_members'), 
+               path('affilates_eidt/<int:pk>',views.affilates_eidt,name='affilates_eidt'),
+               path('affilates_eidt_save/<int:pk>',views.affilates_eidt_save,name='affilates_eidt_save'), 
+               path('affilates_delete/<int:pk>',views.affilates_delete,name='affilates_delete'), 
+               
+               
                
                
                path('add_news',views.add_news,name='add_news'),

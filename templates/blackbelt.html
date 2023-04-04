@@ -114,6 +114,13 @@
       font-size: 0.80rem;
       text-align: center;
      }
+     @media(max-width:732px)
+     {
+      #container-box
+      {
+      grid-template-columns:repeat(1,1fr)
+      }
+     }
   </style>
 
 </head>
@@ -167,7 +174,7 @@
         
         <div class="card">
           <div class="count-number">
-            <span >{{associate_count}}</span>
+            <span >{{affi_count}}</span>
           </div>
           <picture>
             <img src="{% static 'img/dummypic1.png' %}">
@@ -244,18 +251,28 @@
   <section id="member_card">
     <div class="container ">
         <div class="row">
-          {% for bth in bths  %}
+          {% for aff in affi  %}
             <div class="col-12 col-md-4 col-lg-3">
               <div class="card" style="margin:15px 10px;">
-                {% if bth.bth_image %}
-                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
+                {% if aff.affreg_img %}
+                  <img src="{{ aff.affreg_img.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
                 {% endif %}
                 <div class="card-body"style="text-align:center ;">
-                  <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
-                  <p class="card-title"> Register No: {{bth.bth_reg}}</p>
-                  <p class="card-title">Designation: {{bth.bth_desig}}</p>
-                  <a href="{% url 'load_bthupdate' bth.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
-                  <a href="{% url 'bthdelete' bth.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
+                  <h6 class="card-title">Name: {{ aff.affreg_name}}</h6>
+                  <p class="card-title"> 
+                    <span>Rank: {{aff.affrank}}</span> &nbsp;
+                  </p>
+                  <p>
+                    <span>Club: {{aff.affclub}}</span> &nbsp;
+                    <span>District: {{aff.affdistrict}}</span> &nbsp;
+                  </p>
+                  <p class="card-title"> 
+                    <span>State: {{aff.affstate}}</span> &nbsp; 
+                  </p>
+                  <p class="card-title"> Validity : {{aff.affvalid_from}} - {{aff.affvalid_to}} </p>
+                  
+                  <a href="{% url 'affilates_eidt' aff.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="{% url 'affilates_delete' aff.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
                 </div>
               </div>
             </div>

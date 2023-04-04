@@ -25,7 +25,7 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/folder.css' %}" rel="stylesheet">
- 
+  <link href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.css" rel="stylesheet">
 
 </head>
 
@@ -56,6 +56,7 @@
   <!--======hero =======-->
 
   <style>
+    
     #addform .line{
         border-bottom: 3px solid rgb(6, 2, 29);
         margin-top: -0.70vh;
@@ -65,7 +66,7 @@
     #addform
     {
         display: grid;
-        grid-template-columns: 1.5fr 2fr;
+        grid-template-columns: 1fr 2fr;
         gap: 1em;
       
     }
@@ -82,10 +83,10 @@
         color: rgb(17, 17, 91);
         font-weight: 600;
     }
-    #addform .input-group
+    #addform .input-group, #addform .input_radio
     {
         margin: 1.7vh;
-      ;
+      
     }
     #addform .input-group label
     {
@@ -133,6 +134,7 @@
         letter-spacing: 0.040em;
         border: 1px solid #092758;
         outline: none;
+        width:80% ;
     }
     input[type=text]:focus
     {
@@ -170,11 +172,73 @@
         margin-bottom: 1vh;
         border: 1px solid #000;
         height: 150px;
+        background-size:100%;
+        padding: 0.10em;
+      
+        
+    }
+    #image-preview img{
+        width: 100%;
+        height: 100%;
     }
     #addform .top-section
     {
         display: grid;
-        grid-template-columns: 1.4fr 1fr;
+        grid-template-columns: 1.5fr 0.80fr;
+    }
+    .profile
+    {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+       
+    }
+    .radio_btns
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .input_radio
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly; 
+    }
+    .input_radio label
+    {
+        margin-left: 0.20em;
+        font-size: 0.80em;
+    }
+    .input_radio input[type=checkbox]
+    {
+        margin-right: 0.30em;
+    }
+    @media(max-width:740px)
+    {
+        #addform
+        {
+            grid-template-columns: repeat(1,1fr);
+            padding: 0.50em;
+        }
+        #addform .top-section
+        {
+            grid-template-columns: repeat(1,0.95fr); 
+        }
+        #addform .input-group label
+        {
+        width: 100%;
+      
+        }
+    #addform .input-group input
+    {
+        width:90%;
+        
+    }
+    #image-preview
+    {
+        width: 60%;
+    }
     }
   </style>
 
@@ -190,7 +254,12 @@
                         <p class="line"></p>
                     </div>
                     <div id="image-preview">
+                       
+                        {% if affedit.affreg_img %}
+                        <img src="{{affedit.affreg_img.url}}" alt="....">
+                        {% else %}
                         image preview
+                        {% endif %}
                     </div>
 
                 </div>
@@ -198,60 +267,98 @@
 
                 <div class="input-group">
                     <label>Full Name : </label>
-                    <input type="text" name="aff_name" required>
+                    <input type="text" name="aff_name" required value="{{affedit.affreg_name}}">
+                    <input type="text" name="aff_id"  value="{{affedit.id}}" hidden>
                 </div>
                 <div class="input-group">
-                    <label>Validity: From </label>
+                    <label>Validity From :<br>{{affedit.affvalid_from}}  </label>
                     <input type="date" placeholder="From" name="aff_vfdate">
                 </div>
                 <div class="input-group">
-                    <label>Validity To: </label>
+                    <label>Validity To:<br>{{affedit.affvalid_to}} </label>
                     <input type="date" placeholder="To"  name="aff_vtdate">
                 </div> 
                 <div class="input-group">
-                    <label>Club: </label>
-                    <input type="text" name="aff_club">
-                </div>
-                <div class="input-group">
                     <label>Rank: </label>
-                    <input type="text" name="aff_rank">
+                    <input type="text" name="aff_rank" value="{{affedit.affrank}}">
                 </div>
-                <div class="input-group">
-                    <label>State: </label>
-                    <input type="text" name="aff_state">
+                <!-- <span>Please check to enter the value:</span> -->
+                <div class="radio_btns" >
+                    <div class="input_radio">
+                        <input type="checkbox"  id="club" name="other" >
+                        <label>Club</label> 
+                    </div>
+                    
+                    <div class="input_radio" >
+                        <input type="checkbox"  name="other" id="distri" >
+                        <label>District</label>
+                       
+                    </div>
+                    <div class="input_radio" >
+                        <input type="checkbox"  name="other" id="state">
+                        <label>State</label>
+                       
+                    </div>
+
                 </div>
-                <div class="input-group">
-                    <label>District: </label>
-                    <input type="text" name="aff_district">
+                
+
+                 <div class="input-group " style="margin-top: 0.40em; display:none;"  id="club-box">
+                    <label> </label>
+                    <input type="text" name="aff_club"  placeholder="Club">
                 </div>
+                
+              <div class="input-group"style="margin-top: 0.40em; display:none;" id="state-box">
+                    <label> </label>
+                    <input type="text" name="aff_state"  placeholder="State" >
+                </div>
+                <div class="input-group" style="margin-top: 0.40em; display:none;" id="distri-box">
+                    <label> </label>
+                    <input type="text" name="aff_district" placeholder="District"  >
+                </div> 
+                {% if affedit %}
                 <div class="input-group">
                     <label>Image: </label>
-                    <input type="file" name="aff_img" required>
+                    <input type="file" name="aff_img" id="imageFileInput" >
                 </div>
+                {% else %}
+                <div class="input-group">
+                    <label>Image: </label>
+                    <input type="file" name="aff_img" id="imageFileInput" required>
+                </div>
+                {% endif %}
 
-                
+                {% if affedit %}
                 <div class="input-group-btn">
-                   <button class="#"> Register</button>
-                </div>
+                   <button type="submit" class="#">Edit Save</button>
+                   <a href="{% url 'load_affilates_form'  %}"><button type="button" class="#">Cancel</button></a> 
+                 </div>
+               
+                {% else %}
+                <div class="input-group-btn">
+                    <button type="submit" class="#"> Register</button>
+                 </div>
+                
+                 {% endif %}
             </form>
         </div>
         <div class="details-box">
             <h5>AFFILIATES DETAILS</h5>
             <p class="line"></p>
           
-            <div class="serach-box">
+            <!-- <div class="serach-box">
                 <form>
                     <input id="search" type="text" class="searct_value" name="search-value" placeholder="Search by Name">
                     <button id="search-btn" class="serch_btn">Search</button>
                 </form>
                 
-            </div>
+            </div> -->
 
             <div class="details">
                 <table class="table" id="data_table">
                     <thead>
                         <tr>
-                            <th></th>
+                          
                             <th> Name</th>
                             <th>Validity From - To</th>
                             <th>Club</th>
@@ -268,16 +375,17 @@
                         {% for i in affiliates %}
                     
                         <tr>
+                            
                             <td>
-                                <a href="#" class="text-success  "><i class="bi bi-pen-fill "></i></a>
-                                <a href="#" class="text-danger mx-1" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill"></i></a>
-                            </td>
-                            <td><img src="#" alt="..">Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
+                                {% if i.affreg_img %}
+                                <img src="{{i.affreg_img.url}}" alt=".." class="profile">
+                                {% endif %}
+                                &nbsp;&nbsp;{{i.affreg_name}}</td>
+                            <td>{{i.affvalid_from}} - {{i.affvalid_to}}</td>
+                            <td>{{i.affclub}}</td>
+                            <td>{{i.affrank}}</td>
+                            <td>{{i.affstate}}</td>
+                            <td>{{i.affdistrict}}</td>
                         </tr>
                         {% endfor %}
                        
@@ -293,4 +401,70 @@
 
   </section>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.js"></script>
+
+
+  <script>
+    const imageFileInput = document.getElementById('imageFileInput');
+    const imagePreview = document.getElementById('image-preview');
+
+    imageFileInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.addEventListener('load', function() {
+          imagePreview.innerHTML = `<img src="${reader.result}" alt="Preview">`;
+        });
+        reader.readAsDataURL(file);
+      } else {
+        imagePreview.innerHTML = '';
+      }
+    });
+    $(function() {
+        // Create image cropper
+        var image = $('#image-preview');
+        var cropper = new Cropper(image[0], {
+          aspectRatio: 1,
+          crop: function(event) {
+            // Update crop data input
+            var data = cropper.getData();
+            $('#id_crop_data').val(data.x + ',' + data.y + ',' + data.width + ',' + data.height);
+          }
+        });
+    });
+  </script>
+
+  <!-- hide and view inputbox-->
+  <script>
+    const checkbox1 = document.getElementById('club');
+    const inputField1 = document.getElementById('club-box');
+    const checkbox2 = document.getElementById('distri');
+    const inputField2 = document.getElementById('distri-box');
+    const checkbox3 = document.getElementById('state');
+    const inputField3 = document.getElementById('state-box');
+  
+    checkbox1.addEventListener('change', function() {
+      if (this.checked) {
+        inputField1.style.display = 'block';
+      } else {
+        inputField1.style.display = 'none';
+      }
+    });
+    checkbox2.addEventListener('change', function() {
+        if (this.checked) {
+          inputField2.style.display = 'block';
+        } else {
+          inputField2.style.display = 'none';
+        }
+      });
+      checkbox3.addEventListener('change', function() {
+        if (this.checked) {
+          inputField3.style.display = 'block';
+        } else {
+          inputField3.style.display = 'none';
+        }
+      });
+  </script>
 

@@ -29,7 +29,9 @@ def contact(request):
     
 @login_required(login_url="/Starz")
 def load_admin_home(request):
-    enqu=Enquery.objects.all()
+    # if Enquery.objects.all().exists:
+    #     enqu=Enquery.objects.all()
+    enqu=None
     newss=news.objects.all()
     return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
 
@@ -151,7 +153,8 @@ def login(request):
                 if user is not None:
                     auth.login(request, user)
                     if user.is_superuser==1:
-                        enqu=Enquery.objects.all()
+                        # enqu=Enquery.objects.all()
+                        enqu=None
                         newss=news.objects.all()
                         return render(request,'adminhome.html',{'newss':newss,'enqu':enqu})
                         
@@ -213,10 +216,12 @@ def uploadvideo(request):
 def load_blackbelts(request):
     bths=blackbelt_holders.objects.all()
     associate=members.objects.all()
+    affi=affilates_register.objects.all()
+    affi_count=affilates_register.objects.all().count
     bths_count=blackbelt_holders.objects.all().count()
     associate_count=members.objects.all().count()
 
-    return render(request,'blackbelt.html',{'bths':bths,'associate':associate,'bths_count':bths_count,'associate_count':associate_count})
+    return render(request,'blackbelt.html',{'bths':bths,'associate':associate,'bths_count':bths_count,'associate_count':associate_count,'affi_count':affi_count,'affi':affi})
 
 @login_required(login_url="/Starz")
 def load_addmember(request):
@@ -232,7 +237,7 @@ def load_associate(request):
 
 @login_required(login_url="/Starz")
 def load_affilates_form(request):
-    affiliates=None
+    affiliates=affilates_register.objects.all()
     return render(request,'addaffilatesmember.html',{'affiliates':affiliates})
 
 
@@ -241,26 +246,84 @@ def load_affilates_form(request):
 def add_affilates_members(request):
 
     if request.method=="POST":
-        a1=request.POST['aff_name']
-        a2=request.POST['aff_vfdate']
-        a3=request.POST['aff_vtdate']
-        a4=request.FILES.get('aff_img')
-        a5=request.POST['aff_rank']
-        a6=request.POST['aff_state']
-        a7=request.POST['aff_district']
-        a8=request.POST['aff_club']
+
+            a1=request.POST['aff_name']
+            a2=request.POST['aff_vfdate']
+            a3=request.POST['aff_vtdate']
+            a4=request.FILES.get('aff_img')
+            a5=request.POST['aff_rank']
+            a6=request.POST['aff_state']
+            a7=request.POST['aff_district']
+            a8=request.POST['aff_club']
+           
+        
+                #saving data
+            affiliates=affilates_register(affreg_name=a1,
+                                affvalid_from=a2,
+                                affvalid_to=a3,
+                                affreg_img=a4,
+                                affrank=a5,
+                                affstate=a6,
+                                affdistrict=a7,
+                                affclub=a8)
+
+            affiliates.save()
+            return redirect('load_affilates_form')
+  
+
+@login_required(login_url="/Starz")
+def affilates_eidt(request,pk):
+
+    affedit=affilates_register.objects.get(id=pk)
+    affiliates=affilates_register.objects.all()
+    return render(request,'affiliatesedit.html',{'affiliates':affiliates,'affedit':affedit})
 
 
- #saving data
-        affiliates=blackbelt_holders(bth_reg=reg,
-                          bth_name=name,
-                          bth_desig=desig,
-                          bth_image=img)
+def affilates_eidt_save(request,pk):
+    
+        affedit=affilates_register.objects.get(id=pk)
+        print(affedit)
 
-        affiliates.save()
-        return redirect('load_affilates_form')
-    else:
-        return JsonResponse('load_affilates_form')
+        a1=request.POST.get('edit_aff_name')
+        a5=request.POST.get('edit_aff_rank')
+        a6=request.POST.get('edit_aff_state')
+        a7=request.POST.get('edit_aff_district')
+        a8=request.POST.get('edit_aff_club')
+ 
+
+        affedit.affreg_name=a1
+        if request.POST.get('edit_aff_vfdate'):
+                affedit.affvalid_from = request.POST.get('edit_aff_vfdate')
+               
+        else:
+                affedit.affvalid_from = affedit.affvalid_from,
+                
+        if request.POST.get('edit_aff_vtdate'):
+                affedit.affvalid_to = request.POST.get('edit_aff_vtdate')
+        else:
+                affedit.affvalid_to=affedit.affvalid_to
+                
+        if request.FILES.get('edit_aff_img'):
+                affedit.affreg_img=request.FILES.get('edit_aff_img')
+        else:
+                affedit.affreg_img=affedit.affreg_img 
+
+        affedit.affrank=a5
+        affedit.affstate=a6
+        affedit.affdistrict=a7
+        affedit.affclub=a8
+        affedit.save()
+        return redirect('load_blackbelts')
+    
+       
+  
+
+
+@login_required(login_url="/Starz")
+def affilates_delete(request,pk):
+    affiliates_edit=affilates_register.objects.get(id=pk)
+    affiliates_edit.delete()
+    return redirect('load_affilates_form')
 
 
 
@@ -699,8 +762,9 @@ def bthdelete(request,bthd_id):
 
 def loadbackbelt_page(request):
     bths=blackbelt_holders.objects.all()
+    affi=affilates_register.objects.all()
     asso=members.objects.all()
-    return render(request,'blackbeltuser.html',{'bths':bths,'asso':asso})
+    return render(request,'blackbeltuser.html',{'bths':bths,'asso':asso,'affi':affi})
     
 
 #sending mail
