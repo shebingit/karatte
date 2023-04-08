@@ -111,7 +111,8 @@
             {{cont.ab_contents}}
           </div>
           <div class="col-lg-3 p-3">
-           <a href="{% url 'about_content_update' cont.id %}" class="text-success mx-3"><ion-icon size="small" name="pencil-outline"></ion-icon></a>
+            <a href="{% url 'about_content_in' cont.id %}"  class=" text-success mb-2" ><ion-icon name="add-circle-outline" size="small"></ion-icon></a>
+           <a href="{% url 'about_content_update' cont.id %}" class="text-primary mx-3"><ion-icon size="small" name="pencil-outline"></ion-icon></a>
            <a href="{% url 'about_delete' cont.id %}" class="text-danger mx-3"><ion-icon size="small" name="close-circle-outline"></ion-icon></a>
           </div>
         {% endfor %}

@@ -255,6 +255,7 @@ def add_affilates_members(request):
             a6=request.POST['aff_state']
             a7=request.POST['aff_district']
             a8=request.POST['aff_club']
+            a9=request.POST['aff_regid']
            
         
                 #saving data
@@ -265,7 +266,7 @@ def add_affilates_members(request):
                                 affrank=a5,
                                 affstate=a6,
                                 affdistrict=a7,
-                                affclub=a8)
+                                affclub=a8,register_id=a9)
 
             affiliates.save()
             return redirect('load_affilates_form')
@@ -289,6 +290,7 @@ def affilates_eidt_save(request,pk):
         a6=request.POST.get('edit_aff_state')
         a7=request.POST.get('edit_aff_district')
         a8=request.POST.get('edit_aff_club')
+        a9=request.POST.get('edit_aff_regid')
  
 
         affedit.affreg_name=a1
@@ -296,7 +298,7 @@ def affilates_eidt_save(request,pk):
                 affedit.affvalid_from = request.POST.get('edit_aff_vfdate')
                
         else:
-                affedit.affvalid_from = affedit.affvalid_from,
+                affedit.affvalid_from = affedit.affvalid_from
                 
         if request.POST.get('edit_aff_vtdate'):
                 affedit.affvalid_to = request.POST.get('edit_aff_vtdate')
@@ -312,6 +314,7 @@ def affilates_eidt_save(request,pk):
         affedit.affstate=a6
         affedit.affdistrict=a7
         affedit.affclub=a8
+        affedit.register_id=a9
         affedit.save()
         return redirect('load_blackbelts')
     
@@ -330,7 +333,7 @@ def affilates_delete(request,pk):
 @login_required(login_url="/Starz")
 def loadadd_content(request):
     a=contents.objects.all()
-    content=About.objects.all()
+    content=About.objects.all().order_by('content_orid')
     return render(request,'content.html',{'al':a,'content':content})
 
 @login_required(login_url="/Starz")
@@ -517,8 +520,9 @@ def load_home_page(request):
     firstca=carousel.objects.first()
     newss=news.objects.all()
     conts=About.objects.get(id=1)
-    conts1=About.objects.all().order_by('id')[1:] 
+    conts1=About.objects.all().order_by('content_orid')[1:] 
     con1=contents.objects.all().order_by('id')[:2]
+  
     message="Successfully Registered."
     return render(request,'index.html',{'bgimg':bgimg,'folders':folders,'vids':vids,'folimgs':folimgs,'al':a,'firstca':firstca,'newss':newss,'con1':con1,'conts1':conts1,'conts':conts})
 
@@ -764,6 +768,7 @@ def loadbackbelt_page(request):
     bths=blackbelt_holders.objects.all()
     affi=affilates_register.objects.all()
     asso=members.objects.all()
+    
     return render(request,'blackbeltuser.html',{'bths':bths,'asso':asso,'affi':affi})
     
 
@@ -811,15 +816,19 @@ def about_content(request):
         conts=About(ab_contents=ab_cont)
         conts.save()
         mesg="successfully Saved."
-        content=About.objects.all()
+        content=About.objects.all().order_by('content_orid')
         a=contents.objects.all()
         return render(request,'content.html',{'al':a,'mesg':mesg,'content':content})
 
 @login_required(login_url="/Starz")   
 def about_delete(request,about_id):
     abcont=About.objects.get(id=about_id)
+    abconts=About.objects.filter(content_orid__gte=int(abcont.content_orid))
+    for i in abconts:
+            i.content_orid= int( i.content_orid - 1 )
+            i.save()
     abcont.delete()
-    content=About.objects.all()
+    content=About.objects.all().order_by('content_orid')
     a=contents.objects.all()
     return render(request,'content.html',{'al':a,'content':content})
 
@@ -828,13 +837,35 @@ def about_content_update(request,abcontup_id):
     abcont=About.objects.get(id=abcontup_id)
     return render(request,'about_content_update.html',{'abcont':abcont})
 
+@login_required(login_url="/Starz") #7/04/23
+def about_content_in(request,pk):
+    abcont=About.objects.get(id=pk)
+    return render(request,'addcontent_in.html',{'abcont':abcont})
+
+
+@login_required(login_url="/Starz")
+def about_content_insave(request,pk):
+    if request.method=="POST":
+        abconts=About.objects.get(id=pk)
+        orid=int(1 + abconts.content_orid)
+        abconts=About.objects.filter(content_orid__gte=int(orid))
+        for i in abconts:
+            i.content_orid= int(1 + i.content_orid)
+            i.save()
+        conts=About(ab_contents=request.POST.get('ab_content_in'),content_orid=orid)
+        conts.save()
+       
+        content=About.objects.all().order_by('content_orid')
+        a=contents.objects.all()
+        return render(request,'content.html',{'al':a,'content':content})
+
 @login_required(login_url="/Starz")
 def about_content_save(request,abupdate_id):
     if request.method=="POST":
         abconts=About.objects.get(id=abupdate_id)
         abconts.ab_contents=request.POST.get('ab_content_save')
         abconts.save()
-        content=About.objects.all()
+        content=About.objects.all().order_by('content_orid')
         a=contents.objects.all()
         return render(request,'content.html',{'al':a,'content':content})
 

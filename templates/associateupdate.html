@@ -27,10 +27,21 @@
   
 
   <style>
+    .contain-box
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin-top: 20vh;
+        padding: 2em;
+    }
    
     .container{
         border-radius: 10px;
-        margin-bottom: 5vh
+        margin-bottom: 5vh;
+      
+        
     }
     .container input{
         width:50%;
@@ -91,32 +102,31 @@
 
   <!--======hero =======-->
 
-  <section id="admin_hero">
-</section>
 
-<br><br><br>
-<form action="{% url 'updateassociate' asso.id %}"method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="container">
-        <div class="row m-2">
-            <div class="col-12 col-md-4 col-lg-6 mt-3">
-                <div class="card mt-3" style="width: 15rem; height: 18rem;">
-                    {% if asso.asso_image %}
-                        <img src="{{ asso.asso_image.url }} " class="card-img-top img-fluid mt-3"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
-                    {% endif %}
-                    <div class="card-body">
-                        <h6 class="card-title">Name: {{ asso.mname}}</h6>
-                        <p class="card-text"> Designation: {{ asso.mdesig }}</p>
-                        <p class="card-text">content: {{ asso.mposition }}</p>
+    <div class="contain-box">
+
+        <div class="container">
+            <div class="row m-2">
+                <div class="col-12 col-md-4 col-lg-6 mt-3">
+                    <div class="card mt-3" style="width: 15rem; height: 18rem;">
+                        {% if asso.asso_image %}
+                            <img src="{{ asso.asso_image.url }} " class="card-img-top img-fluid mt-3"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
+                        {% endif %}
+                        <div class="card-body">
+                            <h6 class="card-title">Name: {{ asso.mname}}</h6>
+                            <p class="card-text"> Designation: {{ asso.mdesig }}</p>
+                            <p class="card-text">content: {{ asso.mposition }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr>
+    
         <div class="container">
-            <form  action="#" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+            
+<form action="{% url 'updateassociate' asso.id %}"method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+                
             <div class="row pt-2">
                 <h2>Update Here..</h2>
             </div>
@@ -147,12 +157,15 @@
                 <div class="col pt-1">
                     <button type="submit" class="btn-primary form-control" >Update Member</button> 
                 </div>
-            </div>   
-            </form> 
+            </div>  
+        </form> 
+        
         </div>
-        </div>
+
     </div>
-</form>
+   
+    
+
 <script src="{% static 'js/main.js' %}"></script> 
 </body>
 </html>

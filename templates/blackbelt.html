@@ -165,7 +165,7 @@
           </picture>
           
           <h6>Associate Members</h6>
-          <button class="reg-btn">Register</button>
+          <button class="reg-btn">Upload</button>
         </div>
       </div>
     </a>
@@ -181,7 +181,7 @@
           </picture>
           
           <h6>Affilates Members</h6>
-          <button class="reg-btn">Register</button>
+          <button class="reg-btn">Upload</button>
         </div>
       </div>
     </a>
@@ -197,7 +197,7 @@
           </picture>
           
           <h6>Black Belt Members</h6>
-          <button class="reg-btn">Register</button>
+          <button class="reg-btn">Upload</button>
         </div>
       </div>
     </a>
@@ -259,16 +259,25 @@
                 {% endif %}
                 <div class="card-body"style="text-align:center ;">
                   <h6 class="card-title">Name: {{ aff.affreg_name}}</h6>
+                 
                   <p class="card-title"> 
-                    <span>Rank: {{aff.affrank}}</span> &nbsp;
+                    <span>Rank : {{aff.affrank}}</span> &nbsp;
+                  </p>
+                  <p class="card-title"> 
+                    <span>Register Id : <b>{{aff.register_id}}</b></span> &nbsp;
                   </p>
                   <p>
+                    {% if aff.affclub %}
                     <span>Club: {{aff.affclub}}</span> &nbsp;
-                    <span>District: {{aff.affdistrict}}</span> &nbsp;
+                    {% endif %}
+                    {% if aff.affdistrict %}
+                    <span>District : {{aff.affdistrict}}</span> &nbsp;
+                    {% endif %}
+                    {% if aff.affstate %}
+                    <span>State : {{aff.affstate}}</span> &nbsp; 
+                    {% endif %}
                   </p>
-                  <p class="card-title"> 
-                    <span>State: {{aff.affstate}}</span> &nbsp; 
-                  </p>
+                 
                   <p class="card-title"> Validity : {{aff.affvalid_from}} - {{aff.affvalid_to}} </p>
                   
                   <a href="{% url 'affilates_eidt' aff.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>

@@ -140,6 +140,7 @@ class  HistoyrPdf(models.Model):
 
 class About(models.Model):
     ab_contents=models.TextField()
+    content_orid=models.IntegerField(default=0)
 
 class regforms(models.Model):
     env_id=models.ForeignKey(news,on_delete=models.CASCADE,null=True,blank=True)
@@ -165,6 +166,7 @@ class Enquery(models.Model):
 
 class affilates_register(models.Model):
     affreg_name=models.CharField(max_length=200,null=True,blank=True)
+    register_id = models.CharField(max_length=250,null=True,blank=True)
     affvalid_from=models.CharField(max_length=200,null=True,blank=True)
     affvalid_to=models.CharField(max_length=200,null=True,blank=True)
     affclub=models.CharField(max_length=250,null=True,blank=True)

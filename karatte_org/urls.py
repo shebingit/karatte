@@ -86,6 +86,10 @@ urlpatterns =[  path('contact',views.contact,name='contact'),
                path('loadmorecont/<int:morec_id>',views.loadmorecont,name='loadmorecont'),
                path('about_delete/<int:about_id>',views.about_delete,name='about_delete'),
                path('about_content_update/<int:abcontup_id>',views.about_content_update,name='about_content_update'),
+
+               path('about_content_in/<int:pk>',views.about_content_in,name='about_content_in'), #7/04/23
+               path('about_content_insave/<int:pk>',views.about_content_insave,name='about_content_insave'), 
+               
                path('about_content_save/<int:abupdate_id>',views.about_content_save,name='about_content_save'), 
                path('aboutmore/<int:abm_id>',views.aboutmore,name='aboutmore'),
                path('history',views.history,name='history'),

@@ -121,6 +121,11 @@
         font-size: 0.90em;
         
     }
+    .calcel_btn
+    {
+        color: #f0f0f0;
+        font-size: 0.90em;
+    }
     .serach-box
     {
         padding: 0.20em 0.90em;
@@ -270,6 +275,15 @@
                     <input type="text" name="aff_name" required value="{{affedit.affreg_name}}">
                     <input type="text" name="aff_id"  value="{{affedit.id}}" hidden>
                 </div>
+                
+                <div class="input-group">
+                    <label>Rank: </label>
+                    <input type="text" name="aff_rank" >
+                </div>
+                <div class="input-group">
+                    <label>Register Id: </label>
+                    <input type="text" name="aff_regid">
+                </div>
                 <div class="input-group">
                     <label>Validity From :<br>{{affedit.affvalid_from}}  </label>
                     <input type="date" placeholder="From" name="aff_vfdate">
@@ -278,10 +292,7 @@
                     <label>Validity To:<br>{{affedit.affvalid_to}} </label>
                     <input type="date" placeholder="To"  name="aff_vtdate">
                 </div> 
-                <div class="input-group">
-                    <label>Rank: </label>
-                    <input type="text" name="aff_rank" value="{{affedit.affrank}}">
-                </div>
+               
                 <!-- <span>Please check to enter the value:</span> -->
                 <div class="radio_btns" >
                     <div class="input_radio">
@@ -307,15 +318,15 @@
                     <label> </label>
                     <input type="text" name="aff_club"  placeholder="Club">
                 </div>
-                
-              <div class="input-group"style="margin-top: 0.40em; display:none;" id="state-box">
-                    <label> </label>
-                    <input type="text" name="aff_state"  placeholder="State" >
-                </div>
+             
                 <div class="input-group" style="margin-top: 0.40em; display:none;" id="distri-box">
                     <label> </label>
                     <input type="text" name="aff_district" placeholder="District"  >
                 </div> 
+                <div class="input-group"style="margin-top: 0.40em; display:none;" id="state-box">
+                    <label> </label>
+                    <input type="text" name="aff_state"  placeholder="State" >
+                </div>
                 {% if affedit %}
                 <div class="input-group">
                     <label>Image: </label>
@@ -328,18 +339,13 @@
                 </div>
                 {% endif %}
 
-                {% if affedit %}
-                <div class="input-group-btn">
-                   <button type="submit" class="#">Edit Save</button>
-                   <a href="{% url 'load_affilates_form'  %}"><button type="button" class="#">Cancel</button></a> 
-                 </div>
                
-                {% else %}
                 <div class="input-group-btn">
-                    <button type="submit" class="#"> Register</button>
+                    <button type="submit" class="#"> Submitt</button>
+                    <a href="{% url 'load_blackbelts' %}" class="calcel_btn"><button type="button">Cancel</button></a>
                  </div>
                 
-                 {% endif %}
+                 
             </form>
         </div>
         <div class="details-box">
@@ -360,9 +366,12 @@
                         <tr>
                           
                             <th> Name</th>
+                            
+                            <th>Rank</th>
+                            <th>Register Id</th>
                             <th>Validity From - To</th>
                             <th>Club</th>
-                            <th>Rank</th>
+                          
                             <th>State</th>
                             <th>District</th>
       
@@ -381,9 +390,12 @@
                                 <img src="{{i.affreg_img.url}}" alt=".." class="profile">
                                 {% endif %}
                                 &nbsp;&nbsp;{{i.affreg_name}}</td>
+                               
+                                <td>{{i.affrank}}</td>
+                                <td>{{i.register_id}}</td>
                             <td>{{i.affvalid_from}} - {{i.affvalid_to}}</td>
                             <td>{{i.affclub}}</td>
-                            <td>{{i.affrank}}</td>
+                            
                             <td>{{i.affstate}}</td>
                             <td>{{i.affdistrict}}</td>
                         </tr>

@@ -271,6 +271,15 @@
                     <input type="text" name="aff_id"  value="{{affedit.id}}" hidden>
                 </div>
                 <div class="input-group">
+                    <label>Rank: </label>
+                    <input type="text" name="edit_aff_rank" value="{{affedit.affrank}}">
+                </div>
+                <div class="input-group">
+                    <label>Register Id: </label>
+                    <input type="text" name="edit_aff_regid" value="{{affedit.register_id}}">
+                </div>
+                
+                <div class="input-group">
                     <label>Validity From :<br>{{affedit.affvalid_from}}  </label>
                     <input type="date" placeholder="From" name="edit_aff_vfdate">
                 </div>
@@ -278,10 +287,7 @@
                     <label>Validity To:<br>{{affedit.affvalid_to}} </label>
                     <input type="date" placeholder="To"  name="edit_aff_vtdate">
                 </div> 
-                <div class="input-group">
-                    <label>Rank: </label>
-                    <input type="text" name="edit_aff_rank" value="{{affedit.affrank}}">
-                </div>
+                
                 <!-- <span>Please check to enter the value:</span> -->
                 <div class="radio_btns" >
                     <div class="input_radio">
@@ -307,15 +313,16 @@
                     <label> </label>
                     <input type="text" name="edit_aff_club"  placeholder="Club" value="{{affedit.affclub}}">
                 </div>
+                <div class="input-group" style="margin-top: 0.40em; display:none;" id="distri-box">
+                    <label> </label>
+                    <input type="text" name="edit_aff_district" placeholder="District"  value="{{affedit.affdistrict}}" >
+                </div> 
                 
               <div class="input-group"style="margin-top: 0.40em; display:none;" id="state-box">
                     <label> </label>
                     <input type="text" name="edit_aff_state"  placeholder="State"  value="{{affedit.affstate}}">
                 </div>
-                <div class="input-group" style="margin-top: 0.40em; display:none;" id="distri-box">
-                    <label> </label>
-                    <input type="text" name="edit_aff_district" placeholder="District"  value="{{affedit.affdistrict}}" >
-                </div> 
+                
                 {% if affedit %}
                 <div class="input-group">
                     <label>Image: </label>

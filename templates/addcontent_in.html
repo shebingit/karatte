@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>JSA INDIA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
+  
+
+
+</head>
+<style>
+  body{
+    background-color: rgb(250, 251, 251);
+    
+  }
+  textarea{
+    padding: 4px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  #about_content
+  {
+    margin-top: 10vh;
+  }
+  .alert-box {
+    max-width: 300px;
+    min-height: 300px;
+  }
+  .alert-icon {
+      padding-bottom: 20px;
+   }
+  
+</style>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+<br>
+
+  <!--======hero =======-->
+  <br>
+  <section id="about_content">
+    <form  class="mt-2 p-4" action="{% url 'about_content_insave' abcont.id %}" method="post">
+   
+    {% csrf_token %}
+      <div class="container">
+        <h6>About page content add after &nbsp;' {{abcont.content_orid}} ' &nbsp; Paragraph or Line </h6>
+        <textarea rows="10" name="ab_content_in" class="p-2"></textarea>
+        <br>
+        <center>
+            <button type="submit" class="btn btn-success mt-3 mb-5">Save</button>
+            <a href="{% url 'loadadd_content' %}"><button type="button" class="btn btn-danger mt-3 mb-5">cancel</button></a>
+        </center>
+      </div>
+    </form>
+
+  </section>
+</body>
+</html>

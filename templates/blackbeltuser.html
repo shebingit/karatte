@@ -100,7 +100,7 @@ h3{
     #hero_user{
         width: 100%;
         background: rgba(255, 254, 254, 0.6);
-        padding-bottom: 12vh;
+        padding-bottom: 0.90em;
        
     }
     #hero_user.container{
@@ -149,9 +149,9 @@ h3{
     {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content:center;
       flex-wrap:nowrap;
-      gap: 0.50em;
+      gap: 0.10em;
     }
     
     .card-associate
@@ -272,7 +272,7 @@ h3{
     
 
     <section id="hero_user">
-      <div class="container  mb-4" ><br>
+      <div class="container  mb-2" ><br>
           <h3 style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >AFFILIATES  </h3>
           <div class="row">
               {% for aff in affi  %}
@@ -283,15 +283,24 @@ h3{
                     {% endif %}
                     <div class="card-body">
                       <h6 class="card-title" style="text-align:center;"> <b>{{ aff.affreg_name}}</b></h6>
-                      <p class="card-title" style="text-align:center; font-weight: 600;">Rank: {{aff.affrank}}</p> 
+                      <p class="card-title" style="text-align:center; font-weight: 500;">Rank: {{aff.affrank}}</p> 
+                      <p class="card-title" style="text-align:center; font-weight: 500;">Reg.Id: {{aff.register_id}}</p>
                       <p class="card-title"style="text-align:center;">
-                     
-                        <span style="font-weight: 600;">Club: {{aff.affclub}}</span>
-                        &nbsp;&nbsp;<span style="font-weight: 600;">District: {{aff.affdistrict}}</span>
+                        
+                        {% if aff.affclub %}
+                        <span style="font-weight: 500;">Club: {{aff.affclub}}</span><br>
+                        {% endif %}
+                        {% if aff.affdistrict %}
+                        <span style="font-weight: 500;">District: {{aff.affdistrict}}</span><br>
+                        {% endif %}
+                        {% if aff.affstate %}
+                        <span style="font-weight: 500;">State: {{aff.affstate}}</span>
+                        {% endif %}
                       
                       </p>
-                      <p class="card-title" style="text-align:center; font-weight: 600;">State: {{aff.affstate}}</p> 
-                      <p class="card-title" style="text-align:center; font-weight: 700;">Valid From: {{aff.affvalid_from}} To  {{aff.affvalid_to}}</p> 
+                      <p class="card-title" style="text-align:center; font-weight: 600;"></p> 
+                      
+                      <p class="card-title" style="text-align:center; font-weight: 500;">Validity<br>{{aff.affvalid_from}} - {{aff.affvalid_to}}</p> 
                       
                     </div>
                   </div>
@@ -303,8 +312,8 @@ h3{
 
 
     <section id="hero_user">
-      <div class="container mb-4" ><br>
-          <h3  style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >BLACK BELTS HOLDERS AND INSTRUCTOR</h3>
+      <div class="container mb-2" ><br>
+          <h3  style=" font-family: Times New Roman, Times, serif; margin-top:1vh;" >BLACK BELTS HOLDERS AND INSTRUCTORS</h3>
           <div class="row">
               {% for bth in bths  %}
                 <!-- <div class="col-12 col-md-4 col-lg-2 mx-3"> -->
@@ -384,7 +393,7 @@ h3{
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright © 2022  <strong>JSA INDIA</strong>. All Rights Reserved <a href="http://altostechnologies.in/"><b> ALTOS</b></a>
+      &copy; Copyright © {% now "Y" %}  <strong>JSA INDIA</strong>. All Rights Reserved <a href="http://altostechnologies.in/"><b> ALTOS</b></a>
     </div>
     <div class="credits">
       <!--
