@@ -67,14 +67,15 @@
     {
         display: grid;
         grid-template-columns: 1fr 2fr;
+        padding: 1em;
         gap: 1em;
       
     }
-    #addform .form-box, .details-box{
+    #addform .form-box, .details_box{
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         padding: 0.90em;
     }
-   
+  
     #addform h5{
         text-align: start;
         font-size: 1.1em;
@@ -155,16 +156,12 @@
         margin-bottom: 2vh;
        
     }
-    #data_table
-    {
-        padding: 1em;
-       
-    }
-    .details-box table thead tr th
+    
+    .details_box table thead tr th
     {
         font-size: 0.82em;
     }
-    .details-box table tbody tr td
+    .details_box table tbody tr td
     {
         font-size: 0.79em;
     }
@@ -219,17 +216,27 @@
     {
         margin-right: 0.30em;
     }
-    @media(max-width:740px)
+    @media(max-width:832px)
     {
         #addform
         {
-            grid-template-columns: repeat(1,1fr);
-            padding: 0.50em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
         }
         #addform .top-section
         {
             grid-template-columns: repeat(1,0.95fr); 
         }
+        #addform  .details_box{
+      
+            padding: 0.60em 0.60em;
+            width: 100%;
+           overflow-y: scroll;
+        }
+       
         #addform .input-group label
         {
         width: 100%;
@@ -242,12 +249,19 @@
     }
     #image-preview
     {
-        width: 60%;
+        width: 100%;
+        height: 80px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+    #image-preview img {
+        width: 30%;
+        height: 90px;
     }
     }
   </style>
 
-  <BR>
   <section id="admin_hero" >
     <div class="container"  id="addform">
         <div class="form-box">
@@ -281,7 +295,7 @@
                     <input type="text" name="aff_rank" >
                 </div>
                 <div class="input-group">
-                    <label>Register Id: </label>
+                    <label>Register No: </label>
                     <input type="text" name="aff_regid">
                 </div>
                 <div class="input-group">
@@ -348,17 +362,10 @@
                  
             </form>
         </div>
-        <div class="details-box">
+        <div class="details_box">
             <h5>AFFILIATES DETAILS</h5>
             <p class="line"></p>
           
-            <!-- <div class="serach-box">
-                <form>
-                    <input id="search" type="text" class="searct_value" name="search-value" placeholder="Search by Name">
-                    <button id="search-btn" class="serch_btn">Search</button>
-                </form>
-                
-            </div> -->
 
             <div class="details">
                 <table class="table" id="data_table">
@@ -479,4 +486,8 @@
         }
       });
   </script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
 
